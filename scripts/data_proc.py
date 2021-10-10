@@ -3,6 +3,7 @@ import sys
 import cv2
 import numpy as np
 from os import listdir
+from tqdm import trange
 
 from model import *
 
@@ -16,14 +17,17 @@ def get_data(base_dir):
 
   # handle Food-101 dataset
   print("[+] Loading data from FOOD-101 ...")
-  for f in listdir(base_dir+FOOD101_path):
+  files = listdir(base_dir+FOOD101_path)
+  #for f in listdir(base_dir+FOOD101_path):
+  for i in (t := trange(len(files))):
+    f = files[i]
     classes.append(f)
     for image in listdir(base_dir+FOOD101_path+f):
       img = cv2.imread(base_dir+FOOD101_path+f+'/'+image)
       img = cv2.resize(img, (img_size, img_size))
       images.append(img)
       labels.append(f)
-      print(img.shape, f)
+      t.set_description("processing file: %s"%(f+'/'+image))
 
   # TODO: handle other datasets as well (start with Food-251)
   return images, labels, classes
@@ -32,8 +36,11 @@ def get_data(base_dir):
 if __name__ == '__main__':
   #base_dir = sys.argv[1]
   #dest_dir = sys.argv[2]
+  # TODO: move usable training data to SSD to save time
   base_dir = "/media/paul/HDD/ELLIOT/datasets/"
   dest_dir = "/home/paul/Dev/ELLIOT/data/"
 
   images, labels, classes = get_data(base_dir)
+  #print(classes)
+  #print(len(classes))
 
