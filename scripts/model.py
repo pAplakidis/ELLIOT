@@ -3,10 +3,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-# image resolution (CHANGE ACCORDING TO NETWORK'S EFFICIENCY AND RAM USAGE)
-img_size = 32
-
-
 class FoodClassifier(nn.Module):
   def __init__(self):
     super(FoodClassifier, self).__init__()
@@ -24,17 +20,17 @@ class FoodClassifier(nn.Module):
     self.conv2_bn3 = nn.BatchNorm2d(64)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(64 * 16 * 36, 512) # TODO: change input shape accordingly
+    self.fc1 = nn.Linear(32 * 5 * 5, 512) # TODO: change input shape accordingly
     self.bn1 = nn.BatchNorm1d(num_features=512)
     self.fc2 = nn.Linear(512, 256)
-    self.bn1 = nn.BatchNorm1d(num_features=256)
-    self.fc3 = nn.Linear(84, self.n_classes)
+    self.bn2 = nn.BatchNorm1d(num_features=256)
+    self.fc3 = nn.Linear(256, self.n_classes)
 
   def forward(self, x):
     x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
     x = self.pool(F.relu(self.conv2_bn2(self.conv2(x))))
-    x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
-    print(x)
+    #x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
+    #print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
     x = F.relu(self.bn1(self.fc1(x)))
     x = F.relu(self.bn2(self.fc2(x)))
@@ -47,4 +43,13 @@ class FoodClassifier(nn.Module):
     for s in size:
       num_features *= s
     return num_features
+
+def save_model(model, path):
+  torch.save(model.state_dict(), path)
+  print("Model saved at", path)
+
+def load_model(model, path):
+  model.load_state_dict(torch.load(path))
+  print("Loaded model from", path)
+  return model
 
