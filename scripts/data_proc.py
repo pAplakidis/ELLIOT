@@ -17,7 +17,7 @@ def get_data(base_dir):
   print("[+] Loading data from FOOD-101 ...")
   files = listdir(base_dir+FOOD101_path)
   #for f in listdir(base_dir+FOOD101_path):
-  for i in (t := trange(len(files)//6)):  # TODO: remove // 6 to train on whole dataset
+  for i in (t := trange(len(files))):
     f = files[i]
     classes.append(f)
     for image in listdir(base_dir+FOOD101_path+f):

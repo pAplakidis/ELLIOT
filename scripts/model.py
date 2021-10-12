@@ -20,7 +20,7 @@ class FoodClassifier(nn.Module):
     self.conv2_bn3 = nn.BatchNorm2d(64)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(32 * 5 * 5, 512) # TODO: change input shape accordingly
+    self.fc1 = nn.Linear(64 * 4 * 4, 512) # TODO: change input shape accordingly
     self.bn1 = nn.BatchNorm1d(num_features=512)
     self.fc2 = nn.Linear(512, 256)
     self.bn2 = nn.BatchNorm1d(num_features=256)
@@ -29,12 +29,13 @@ class FoodClassifier(nn.Module):
   def forward(self, x):
     x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
     x = self.pool(F.relu(self.conv2_bn2(self.conv2(x))))
-    #x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
+    x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
     #print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
     x = F.relu(self.bn1(self.fc1(x)))
     x = F.relu(self.bn2(self.fc2(x)))
-    x = F.softmax(self.fc3(x))
+    #x = F.softmax(self.fc3(x))
+    x = self.fc3(x) # NOTE: don't forget to use softmax in deployment (in training CrossEntropy already applies softmax)
     return x
 
   def num_flat_features(self, x):
