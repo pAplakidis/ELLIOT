@@ -11,10 +11,9 @@ def train(model, images, labels, classes):
   optim = torch.optim.Adam(model.parameters(), lr=0.0001)
 
   losses, accuracies = [], []
-  BS = 256
-  epochs = 200
+  BS = 512
+  epochs = 500
 
-  # TODO: model doesn't improve!!!
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
     epoch_losses = []
