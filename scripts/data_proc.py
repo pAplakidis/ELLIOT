@@ -48,7 +48,8 @@ def get_data(base_dir):
     c_file.close()
 
   # read labels for each file
-  df = pd.read_csv(FOOD251_annot_path+"train_info.csv") # TODO: this path seems wrong?!
+  # TODO: handle csv file for labels
+  df = pd.read_csv(base_dir+FOOD251_annot_path+"train_info.csv")
   print(df)
 
   for i in (t:= trange(len(files))):
@@ -60,7 +61,7 @@ def get_data(base_dir):
     t.set_description("processing file: %s"%image)
 
 
-  # TODO: handle other datasets as well (start with Food-251)
+  # TODO: handle other datasets as well (need more classes/foods supported)
 
   # convert labels to indicies from classes
   new_labels = []
