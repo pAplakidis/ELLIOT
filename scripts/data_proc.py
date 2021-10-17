@@ -9,12 +9,10 @@ from tqdm import trange
 from model import *
 from helpers import *
 
-# TODO: maybe this could be more generic
 def get_data(base_dir):
   classes = []  # list of all possible classes  (same size as NN's output tensor)
   images, labels = [], [] # images and their corresponding class
 
-  """
   # handle Food-101 dataset
   print("[+] Loading data from FOOD-101 ...")
   files = listdir(base_dir+FOOD101_path)
@@ -29,7 +27,6 @@ def get_data(base_dir):
       images.append(img)
       labels.append(f)
       t.set_description("processing file: %s"%(f+'/'+image))
-  """
 
   # handle Food-251 dataset
   print("[+] Loading data from FOOD-251 ...")
@@ -47,17 +44,15 @@ def get_data(base_dir):
       food251_classes.append(line[1])
     c_file.close()
 
-  # read labels for each file
-  # TODO: handle csv file for labels
-  df = pd.read_csv(base_dir+FOOD251_annot_path+"train_info.csv")
-  print(df)
-
+  df = pd.read_csv(base_dir+FOOD251_annot_path+"train_info.csv", names=['img', 'class_idx'])
   for i in (t:= trange(len(files))):
     image = files[i]
     img = cv2.imread(base_dir+FOOD251_train_path+'/'+image)
     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
     images.append(img)
-    # TODO: handle label (read csv before this loop)
+    idx = int(df.loc[df['img'] == image]['class_idx']) # get class idx from csv
+    label = food251_classes[idx]
+    labels.append(label)
     t.set_description("processing file: %s"%image)
 
 
