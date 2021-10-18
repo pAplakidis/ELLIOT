@@ -4,11 +4,11 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class FoodClassifier(nn.Module):
-  def __init__(self):
+  def __init__(self, n_classes):
     super(FoodClassifier, self).__init__()
 
     # number of classes/foods
-    self.n_classes = 101 # TODO: make this dynamic by passing it in model definition in train.py after get_data() (len(classes))
+    self.n_classes = n_classes
 
     # Convolutional Layers (Feature Detector)
     self.conv1 = nn.Conv2d(3, 16, 5)

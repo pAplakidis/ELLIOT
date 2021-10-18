@@ -9,7 +9,7 @@ from tqdm import trange
 from model import *
 from helpers import *
 
-def get_data(base_dir):
+def get_training_data(base_dir):
   classes = []  # list of all possible classes  (same size as NN's output tensor)
   images, labels = [], [] # images and their corresponding class
 
@@ -44,17 +44,18 @@ def get_data(base_dir):
       food251_classes.append(line[1])
     c_file.close()
 
+  print("Loading images and labels ...")
   df = pd.read_csv(base_dir+FOOD251_annot_path+"train_info.csv", names=['img', 'class_idx'])
   for i in (t:= trange(len(files))):
     image = files[i]
     img = cv2.imread(base_dir+FOOD251_train_path+'/'+image)
     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+    img = np.moveaxis(img, -1, 0) # [batch_size, channels, height, width] to be used in NN
     images.append(img)
     idx = int(df.loc[df['img'] == image]['class_idx']) # get class idx from csv
     label = food251_classes[idx]
     labels.append(label)
     t.set_description("processing file: %s"%image)
-
 
   # TODO: handle other datasets as well (need more classes/foods supported)
 
@@ -69,12 +70,13 @@ def get_data(base_dir):
 
 if __name__ == '__main__':
   #base_dir = sys.argv[1]
-  # TODO: move usable training data to SSD to save time
-  base_dir = "/media/paul/HDD/ELLIOT/datasets/"
+  #base_dir = "/media/paul/HDD/ELLIOT/datasets/"
+  base_dir = "../data/"
 
-  images, labels, classes = get_data(base_dir)
+  images, labels, classes = get_training_data(base_dir)
   print(labels)
-  print(len(labels))
   print(classes)
+  print(len(images))
+  print(len(labels))
   print(len(classes))
 

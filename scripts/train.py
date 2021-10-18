@@ -54,16 +54,17 @@ def train(model, images, labels, classes):
 
 if __name__ == '__main__':
   model_path = "../models/simple_classifier.pth"
-  base_dir = "/media/paul/HDD/ELLIOT/datasets/"
+  #base_dir = "/media/paul/HDD/ELLIOT/datasets/"
+  base_dir = "../data/"
 
   device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
   print(device)
 
   # preprocess data
-  images, labels, classes = get_data(base_dir)
+  images, labels, classes = get_training_data(base_dir)
 
   # train
-  model = FoodClassifier().to(device)
+  model = FoodClassifier(len(classes)).to(device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
 
