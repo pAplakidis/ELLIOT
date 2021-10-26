@@ -20,7 +20,7 @@ class FoodClassifier(nn.Module):
     self.conv2_bn3 = nn.BatchNorm2d(64)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(64 * 4 * 4, 512) # TODO: change input shape accordingly
+    self.fc1 = nn.Linear(64 * 12 * 12, 512) # TODO: change input shape accordingly
     self.bn1 = nn.BatchNorm1d(num_features=512)
     self.fc2 = nn.Linear(512, 256)
     self.bn2 = nn.BatchNorm1d(num_features=256)

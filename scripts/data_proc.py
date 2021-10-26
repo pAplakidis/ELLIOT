@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import cv2
+import json
 import numpy as np
 import pandas as pd
 from os import listdir
@@ -64,6 +65,12 @@ def get_training_data(base_dir):
   for l in labels:
     idx = classes.index(l)
     new_labels.append(idx)
+
+  print("[+] Loaded %d food categories"%len(classes))
+  with open('../models/classes.json', 'w') as f:
+    json.dump(classes, f)
+    f.close()
+  print("Stored classes at models/classes.json")
 
   return images, new_labels, classes
 
