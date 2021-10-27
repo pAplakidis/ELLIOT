@@ -74,6 +74,10 @@ def get_training_data(base_dir):
 
   return images, new_labels, classes
 
+# TODO: handle val data similarly to train
+def get_val_data(base_dir):
+  pass
+
 
 if __name__ == '__main__':
   #base_dir = sys.argv[1]
