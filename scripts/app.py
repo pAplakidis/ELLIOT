@@ -16,8 +16,6 @@ from helpers import *
 
 if __name__ == '__main__':
   img_path = sys.argv[1]
-  model_path = "../models/simple_classifier.pth"
-  classes_path = "../models/classes.json"
 
   device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
   print(device)

@@ -1,5 +1,6 @@
 data/
 scripts/__pycache__/
+scripts/build/
 .*.swp
 .ipynb_checkpoints/
 models/

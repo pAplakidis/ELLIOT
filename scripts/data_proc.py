@@ -67,7 +67,7 @@ def get_training_data(base_dir):
     new_labels.append(idx)
 
   print("[+] Loaded %d food categories"%len(classes))
-  with open('../models/classes.json', 'w') as f:
+  with open(classes_path, 'w') as f:
     json.dump(classes, f)
     f.close()
   print("Stored classes at models/classes.json")
@@ -80,10 +80,6 @@ def get_val_data(base_dir):
 
 
 if __name__ == '__main__':
-  #base_dir = sys.argv[1]
-  #base_dir = "/media/paul/HDD/ELLIOT/datasets/"
-  base_dir = "../data/"
-
   images, labels, classes = get_training_data(base_dir)
   print(labels)
   print(classes)

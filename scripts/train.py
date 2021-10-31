@@ -53,10 +53,6 @@ def train(model, images, labels, classes):
 
 
 if __name__ == '__main__':
-  model_path = "../models/simple_classifier.pth"
-  #base_dir = "/media/paul/HDD/ELLIOT/datasets/"
-  base_dir = "../data/"
-
   device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
   print(device)
 
@@ -67,4 +63,14 @@ if __name__ == '__main__':
   model = FoodClassifier(len(classes)).to(device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
+
+  # save the model for the C++ API
+  # load a sample image
+  samp_img, samp_label = images[0], label[0]
+
+  # run the tracing
+  traced_script_module = torch.jit.trace(model, samp_img)
+
+  # save the converted model
+  traced_script_module.save(cpp_model_path)
 
