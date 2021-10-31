@@ -6,7 +6,7 @@ from data_proc import *
 from helpers import *
 
 def train(model, images, labels, classes):
-  model = model.train()
+  model.train()
   loss_function = nn.CrossEntropyLoss()
   optim = torch.optim.Adam(model.parameters(), lr=0.0001)
 
@@ -69,6 +69,7 @@ if __name__ == '__main__':
   samp_img, samp_label = images[0], label[0]
 
   # run the tracing
+  model.eval()
   traced_script_module = torch.jit.trace(model, samp_img)
 
   # save the converted model

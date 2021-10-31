@@ -4,11 +4,12 @@
 
 #include <torch/torch.h>
 #include <torch/script.h>
+#include <opencv2/opencv.hpp>
 
 #include "model.h"
 
-void load_model(){
-  std::shared_ptr<torch::jit::script::Module> module;
+torch::jit::script::Module load_model(){
+  torch::jit::script::Module module;
   try{
     // Deserialize the ScriptModule from a file
     module = torch::jit::load(model_path);
@@ -16,6 +17,9 @@ void load_model(){
     std::cerr << "Error loading model from " << model_path << std::endl;
     exit(-1);
   }
+
+  std::cout << "[+] Loaded model from " << model_path << std::endl;
+  return module;
 }
 
 void classify(){
