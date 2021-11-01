@@ -3,10 +3,11 @@ project(ELLIOT)
 
 set(CMAKE_PREFIX_PATH /home/paul/libtorch)
 find_package(Torch REQUIRED)
+find_package(OpenCV REQUIRED)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
 
 add_executable(${PROJECT_NAME} model.cc)
-target_link_libraries(${PROJECT_NAME} "${TORCH_LIBRARIES}")
+target_link_libraries(${PROJECT_NAME} "${TORCH_LIBRARIES}" "${OpenCV_LIBS}")
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
 
