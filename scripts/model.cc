@@ -14,17 +14,35 @@ torch::jit::script::Module load_model(){
   return module;
 }
 
-cv::Mat load_image(std::string img_path){
-  cv::Mat img = cv::imread(img_path, 0);
-  cv::imshow("grayscale image", img);
-  cv::waitKey(0);
-  cv::destroyAllWindows();
+torch::Tensor load_image(std::string img_path){
+  cv::Mat img = cv::imread(img_path);
+  cv::resize(img, img, cv::Size(IMG_SIZE, IMG_SIZE), 0, 0, 1);
+  std::cout << img.size << std::endl;
+  //cv::imshow("grayscale image", img);
+  //cv::waitKey(0);
+  //cv::destroyAllWindows();
 
-  return img;
+  // this code might be wrong!!! (might be converting to RGB while we need BGR, default opencv image)
+  auto tensor_img = torch::from_blob(img.data, { img.rows, img.cols, img.channels() }, at::kByte);
+  tensor_img = tensor_img.permute({2, 0, 1});
+  tensor_img.unsqueeze_(0);
+  tensor_img = tensor_img.toType(c10::kFloat).sub(127.5).mul(0.0078125);
+  tensor_img.to(c10::DeviceType::CPU);
+  
+  std::cout << tensor_img << std::endl;
+  return tensor_img;
 }
 
-std::string classify(){
+// TODO: load classes from json file
 
+std::string classify(torch::Tensor img, torch::jit::script::Module module){
+  std::vector<torch::jit::IValue> inputs;
+  inputs.push_back(img);
+
+  at::Tensor output = module.forward(inputs).toTensor();
+  std::cout << output.slice(1, 0, 5) << std::endl;
+
+  // TODO: convert output from tensor to string from classes
 }
 
 int main(int argc, char** argv){
@@ -35,6 +53,6 @@ int main(int argc, char** argv){
   std::string img_path = argv[1];
 
   //load_model();
-  cv::Mat img = load_image(img_path);
+  torch::Tensor img = load_image(img_path);
 }
 
