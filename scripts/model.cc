@@ -33,7 +33,28 @@ torch::Tensor load_image(std::string img_path){
   return tensor_img;
 }
 
-// TODO: load classes from json file
+std::string* load_classes(){
+  Json::Value root;
+  std::ifstream ifs;
+  ifs.open(classes_path);
+
+  Json::CharReaderBuilder builder;
+  builder["collectComments"] = false;
+  JSONCPP_STRING errs;
+  if(!parseFromStream(builder, ifs, &root, &errs)){
+    std::cerr << errs << std::endl;
+    exit(-1);
+  }
+
+  //std::cout << root[0].asString() << std::endl;
+  std::string* classes = new std::string[root.size()];
+  for(int i=0; i<root.size(); i++){
+    classes[i] = root[i].asString();
+  }
+
+  // TODO: need to keep track of the length as well!!! (maybe return root.size() along with classes)
+  return classes;
+}
 
 std::string classify(torch::Tensor img, torch::jit::script::Module module){
   std::vector<torch::jit::IValue> inputs;
@@ -54,5 +75,6 @@ int main(int argc, char** argv){
 
   //load_model();
   torch::Tensor img = load_image(img_path);
+  std::string* classes = load_classes();
 }
 
