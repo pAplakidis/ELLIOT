@@ -15,7 +15,7 @@ std::string model_path = "../../models/traced_simple_classifier.pt";
 std::string classes_path = "../../models/classes.json";
 
 torch::jit::script::Module load_model();
+std::string* load_classes(int* n_classes);
 torch::Tensor load_image(std::string img_path);
-std::string* load_classes();
 std::string classify(torch::Tensor img, torch::jit::script::Module module);
 

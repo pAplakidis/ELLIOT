@@ -14,6 +14,29 @@ torch::jit::script::Module load_model(){
   return module;
 }
 
+std::string* load_classes(int* n_classes){
+  Json::Value root;
+  std::ifstream ifs;
+  ifs.open(classes_path);
+
+  Json::CharReaderBuilder builder;
+  builder["collectComments"] = false;
+  JSONCPP_STRING errs;
+  if(!parseFromStream(builder, ifs, &root, &errs)){
+    std::cerr << errs << std::endl;
+    exit(-1);
+  }
+
+  //std::cout << root[0].asString() << std::endl;
+  std::string* classes = new std::string[root.size()];
+  for(int i=0; i<root.size(); i++){
+    classes[i] = root[i].asString();
+  }
+
+  *n_classes = root.size();
+  return classes;
+}
+
 torch::Tensor load_image(std::string img_path){
   cv::Mat img = cv::imread(img_path);
   cv::resize(img, img, cv::Size(IMG_SIZE, IMG_SIZE), 0, 0, 1);
@@ -33,29 +56,6 @@ torch::Tensor load_image(std::string img_path){
   return tensor_img;
 }
 
-std::string* load_classes(){
-  Json::Value root;
-  std::ifstream ifs;
-  ifs.open(classes_path);
-
-  Json::CharReaderBuilder builder;
-  builder["collectComments"] = false;
-  JSONCPP_STRING errs;
-  if(!parseFromStream(builder, ifs, &root, &errs)){
-    std::cerr << errs << std::endl;
-    exit(-1);
-  }
-
-  //std::cout << root[0].asString() << std::endl;
-  std::string* classes = new std::string[root.size()];
-  for(int i=0; i<root.size(); i++){
-    classes[i] = root[i].asString();
-  }
-
-  // TODO: need to keep track of the length as well!!! (maybe return root.size() along with classes)
-  return classes;
-}
-
 std::string classify(torch::Tensor img, torch::jit::script::Module module){
   std::vector<torch::jit::IValue> inputs;
   inputs.push_back(img);
@@ -71,10 +71,13 @@ int main(int argc, char** argv){
     std::cerr << "Usage: " << argv[0] << " <image_path>\n";
     return -1;
   }
+
   std::string img_path = argv[1];
+  int n_classes;
 
   //load_model();
+  std::string* classes = load_classes(&n_classes);
+  std::cout << n_classes << " food classes loaded\n";
   torch::Tensor img = load_image(img_path);
-  std::string* classes = load_classes();
 }
 
