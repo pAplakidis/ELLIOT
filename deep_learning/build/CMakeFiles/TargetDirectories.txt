@@ -1,3 +1,0 @@
-/home/paul/Dev/ELLIOT/scripts/build/CMakeFiles/edit_cache.dir
-/home/paul/Dev/ELLIOT/scripts/build/CMakeFiles/rebuild_cache.dir
-/home/paul/Dev/ELLIOT/scripts/build/CMakeFiles/ELLIOT.dir
