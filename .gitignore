@@ -1,7 +1,7 @@
 data/
-scripts/__pycache__/
-scripts/build/
-scripts/notes.txt
+deep_learning/__pycache__/
+deep_learning/build/
+deep_learning/notes.txt
 .*.swp
 .ipynb_checkpoints/
 models/
