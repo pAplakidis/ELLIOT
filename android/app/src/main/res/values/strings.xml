@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Elliot</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="lock_icon">Lock Icon</string>
+    <string name="password_icon">Password Icon</string>
+    <string name="login_button">Login</string>
+    <string name="developers">by iPRISM</string>
+</resources>
