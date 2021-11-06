@@ -1,0 +1,2 @@
+* maybe use cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) to make the image RGB (might not be needed though)
+
