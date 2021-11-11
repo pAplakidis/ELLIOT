@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
   # save the model for the C++ API
   # load a sample image
-  samp_img, samp_label = images[0], label[0]
+  samp_img, samp_label = images[0], labels[0]
 
   # run the tracing
   model.eval()

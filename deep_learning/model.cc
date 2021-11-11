@@ -64,6 +64,7 @@ std::string classify(torch::Tensor img, torch::jit::script::Module module){
   std::cout << output.slice(1, 0, 5) << std::endl;
 
   // TODO: convert output from tensor to string from classes
+  return "No Food";
 }
 
 int main(int argc, char** argv){
@@ -75,9 +76,10 @@ int main(int argc, char** argv){
   std::string img_path = argv[1];
   int n_classes;
 
-  //load_model();
+  torch::jit::script::Module module = load_model();
   std::string* classes = load_classes(&n_classes);
   std::cout << n_classes << " food classes loaded\n";
   torch::Tensor img = load_image(img_path);
+  std::string food_detected = classify(img, module);
 }
 
