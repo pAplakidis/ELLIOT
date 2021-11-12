@@ -1,11 +1,13 @@
 # Constants
 
 # Image Resolution (CHANGE ACCORDING TO NETWORK'S EFFICIENCY AND RAM USAGE)
-IMG_SIZE = 128
+IMG_SIZE = 224
 
 # Model Paths
-model_path = "../models/simple_classifier.pth"
-cpp_model_path = "../models/traced_simple_classifier.pt"
+#model_path = "../models/simple_classifier.pth"
+#cpp_model_path = "../models/traced_simple_classifier.pt"
+model_path = "../models/vgg_classifier.pth"
+cpp_model_path = "../models/traced_vgg_classifier.pt"
 classes_path = "../models/classes.json"
 
 # Data Paths

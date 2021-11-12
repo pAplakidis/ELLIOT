@@ -8,11 +8,11 @@ from helpers import *
 def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
-  optim = torch.optim.Adam(model.parameters(), lr=0.0001)
+  optim = torch.optim.Adam(model.parameters(), lr=0.001)
 
   losses, accuracies = [], []
-  BS = 512
-  epochs = 200
+  BS = 32
+  epochs = 11
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
@@ -70,7 +70,9 @@ if __name__ == '__main__':
 
   # save the model for the C++ API
   # load a sample image
-  samp_img, samp_label = images[0], labels[0]
+  samp_img, samp_label = images[0:32], labels[0:32] # TODO: 32 is the Batch Size
+  samp_img = torch.Tensor(np.array(samp_img)).float().to(device)
+  samp_label = torch.Tensor(np.array(samp_label)).float().to(device)
 
   # run the tracing
   model.eval()

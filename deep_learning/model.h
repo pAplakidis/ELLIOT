@@ -11,7 +11,8 @@
 
 #define IMG_SIZE 128
 
-std::string model_path = "../../models/traced_simple_classifier.pt";
+//std::string model_path = "../../models/traced_simple_classifier.pt";
+std::string model_path = "../../models/traced_vgg_classifier.pt";
 std::string classes_path = "../../models/classes.json";
 
 torch::jit::script::Module load_model();

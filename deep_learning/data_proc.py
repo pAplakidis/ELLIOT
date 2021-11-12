@@ -2,6 +2,7 @@
 import sys
 import cv2
 import json
+import threading
 import numpy as np
 import pandas as pd
 from os import listdir
@@ -10,6 +11,7 @@ from tqdm import trange
 from model import *
 from helpers import *
 
+# TODO: maybe add threads for each dataset to increase time efficiency
 def get_training_data(base_dir):
   classes = []  # list of all possible classes  (same size as NN's output tensor)
   images, labels = [], [] # images and their corresponding class
@@ -30,6 +32,7 @@ def get_training_data(base_dir):
       t.set_description("processing file: %s"%(f+'/'+image))
 
   # handle Food-251 dataset
+  """
   print("[+] Loading data from FOOD-251 ...")
   files = listdir(base_dir+FOOD251_train_path)
 
@@ -57,6 +60,7 @@ def get_training_data(base_dir):
     label = food251_classes[idx]
     labels.append(label)
     t.set_description("processing file: %s"%image)
+  """
 
   # TODO: handle other datasets as well (need more classes/foods supported)
 
@@ -71,6 +75,7 @@ def get_training_data(base_dir):
     json.dump(classes, f)
     f.close()
   print("Stored classes at models/classes.json")
+  print("[+] %d images"%len(images))
 
   return images, new_labels, classes
 
