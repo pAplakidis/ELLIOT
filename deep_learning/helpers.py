@@ -1,7 +1,7 @@
 # Constants
 
 # Image Resolution (CHANGE ACCORDING TO NETWORK'S EFFICIENCY AND RAM USAGE)
-IMG_SIZE = 224
+IMG_SIZE = 128
 
 # Model Paths
 #model_path = "../models/simple_classifier.pth"

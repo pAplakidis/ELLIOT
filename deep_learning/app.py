@@ -45,7 +45,7 @@ if __name__ == '__main__':
   print(X.shape)
 
   # forward to model
-  pred = model(X)
+  pred = model(X) # TODO: softmax the output, might not be needed though
   cat = torch.argmax(pred, dim=1).item()
   food_name = classes[cat]
   print("Model prediction")

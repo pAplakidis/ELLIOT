@@ -20,11 +20,9 @@ class FoodClassifier(nn.Module):
     self.conv2_bn3 = nn.BatchNorm2d(256)
     self.conv4 = nn.Conv2d(256, 512, 5)
     self.conv2_bn4 = nn.BatchNorm2d(512)
-    self.conv5 = nn.Conv2d(512, 512, 5)
-    self.conv2_bn5 = nn.BatchNorm2d(512)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(512 * 3 * 3, 4096) # TODO: change input shape accordingly
+    self.fc1 = nn.Linear(512 * 4 * 4, 4096) # TODO: change input shape accordingly
     self.bn1 = nn.BatchNorm1d(num_features=4096)
     self.fc2 = nn.Linear(4096, 4096)
     self.bn2 = nn.BatchNorm1d(num_features=4096)
@@ -35,7 +33,6 @@ class FoodClassifier(nn.Module):
     x = self.pool(F.relu(self.conv2_bn2(self.conv2(x))))
     x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
     x = self.pool(F.relu(self.conv2_bn4(self.conv4(x))))
-    x = self.pool(F.relu(self.conv2_bn5(self.conv5(x))))
     #print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
     x = F.relu(self.bn1(self.fc1(x)))

@@ -11,8 +11,8 @@ def train(model, images, labels, classes):
   optim = torch.optim.Adam(model.parameters(), lr=0.001)
 
   losses, accuracies = [], []
-  BS = 32
-  epochs = 11
+  BS = 128
+  epochs = 25
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
