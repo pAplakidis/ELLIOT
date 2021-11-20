@@ -7,12 +7,14 @@ from urllib.request import Request, urlopen
 from urllib.parse import urlparse, parse_qs
 
 from util import *
+from spider_util import *
 
 class Spider:
   def __init__(self):
     self.current_food = None
     self.classes = None
     self.queue = set()
+    self.ingredient_finder = IngredientFinder()
 
   def read_categories(self):
     with open(classes_path, 'r') as f:
@@ -48,6 +50,8 @@ class Spider:
       self.queue.add(self.prep_search(c))
     print("[+] Created search queue")
     print(self.queue)
+    
+    #self.ingredient_finder.gather_ingredients()
 
 
 if __name__ == "__main__":
