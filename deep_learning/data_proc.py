@@ -9,7 +9,7 @@ from os import listdir
 from tqdm import trange
 
 from model import *
-from helpers import *
+from util import *
 
 # TODO: maybe add threads for each dataset to increase time efficiency
 def get_training_data(base_dir):

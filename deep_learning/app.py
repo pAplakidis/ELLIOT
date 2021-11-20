@@ -11,7 +11,7 @@ import torch.nn.functional as F
 
 from model import *
 from train import *
-from helpers import *
+from util import *
 
 
 if __name__ == '__main__':
@@ -27,7 +27,7 @@ if __name__ == '__main__':
   
   # load classes
   classes = []
-  with open(classes_path) as f:
+  with open(classes_path, 'r') as f:
     classes = json.load(f)
     f.close()
   print("[+] %d classes loaded"%len(classes))

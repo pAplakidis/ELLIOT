@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 from model import *
 from data_proc import *
-from helpers import *
+from util import *
 
 def train(model, images, labels, classes):
   model.train()
