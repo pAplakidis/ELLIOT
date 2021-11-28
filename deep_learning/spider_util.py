@@ -12,6 +12,15 @@ def create_database_dir(directory):
 def write_file(path, data):
   pass
 
+# TODO: maybe use Beautiful Soup instead of HTMLParser
+class ResultsFinder(HTMLParser):
+  def __init__(self, page_url):
+    super().__init__()
+    self.page_url = page_url
+    self.result_url = None
+
+  def find_first_result(self):
+    pass
 
 class IngredientFinder(HTMLParser):
   def __init__(self, page_url):
