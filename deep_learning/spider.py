@@ -2,7 +2,6 @@
 import threading
 import json
 import threading
-from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse, parse_qs
 
@@ -14,6 +13,7 @@ class Spider:
     self.current_food = None
     self.classes = None
     self.queue = set()
+    self.not_found = set()
     self.domain = "https://www.simplyrecipes.com/"  # CHANGE THIS
 
   def read_categories(self):
@@ -39,9 +39,10 @@ class Spider:
         html_string = html_bytes.decode("utf-8")
 
         # TODO: return the url of the first result (maybe add more than 1 result)
-        res_finder = ResultsFinder(url)
-        res_finder.feed(html_string)
-        return res_finder.result_url
+        #res_finder = ResultsFinder(url)
+        #res_finder.feed(html_string)
+        #return res_finder.result_url
+        return find_result(html_string)
     except Exception as e:
       print(str(e))
 
@@ -52,9 +53,11 @@ class Spider:
 
   def thread_work(self, f_category):
     result_url = self.search(f_category)
+    if result_url is None:
+      self.not_found.add(result_url)
+    print(result_url)
     ingredients = self.gather_ingredients(result_url)
 
-  # TODO: this is the main of spider (add threads)
   def create_database(self):
     # prep search queue
     self.read_categories()
@@ -65,10 +68,10 @@ class Spider:
 
     #self.ingredient_finder.gather_ingredients()
     
+    # TODO: this needs to be threaded
     for q in sorted(self.queue):
       print("[~] Searching for", q)
       self.thread_work(q)
-      break
 
 
 if __name__ == "__main__":
