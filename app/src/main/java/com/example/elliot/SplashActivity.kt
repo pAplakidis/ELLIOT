@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         }
 
         val splashTimeout = 2050
-        val homeIntent = Intent(this@SplashActivity, CameraActivity::class.java)
+        val homeIntent = Intent(this@SplashActivity, MainActivity::class.java)
 
         Handler().postDelayed({
             startActivity(homeIntent)

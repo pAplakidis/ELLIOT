@@ -6,4 +6,6 @@
     <string name="password_icon">Password Icon</string>
     <string name="login_button">Login</string>
     <string name="developers">by iPRISM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
