@@ -37,11 +37,7 @@ class Spider:
       if "text/html" in response.getheader("Content-Type"):
         html_bytes = response.read()
         html_string = html_bytes.decode("utf-8")
-
-        # TODO: return the url of the first result (maybe add more than 1 result)
-        #res_finder = ResultsFinder(url)
-        #res_finder.feed(html_string)
-        #return res_finder.result_url
+        # TODO: maybe add more than 1 result
         return find_result(html_string)
     except Exception as e:
       print(str(e))
@@ -49,7 +45,16 @@ class Spider:
     return None
 
   def gather_ingredients(self, url):
-    pass
+    try:
+      response = urlopen(url)
+      if "text/html" in response.getheader("Content-Type"):
+        html_string = response.read().decode("utf-8")
+        return find_ingredients(html_string)
+    except Exception as e:
+      print(str(e))
+
+    return None
+
 
   def thread_work(self, f_category):
     result_url = self.search(f_category)
