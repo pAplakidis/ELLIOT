@@ -59,9 +59,12 @@ class Spider:
   def thread_work(self, f_category):
     result_url = self.search(f_category)
     if result_url is None:
-      self.not_found.add(result_url)
-    print(result_url)
+      self.not_found.add(result_url)  # TODO: handle not-found recipes
+    print("[~] Gathering ingredients from:", result_url)
     ingredients = self.gather_ingredients(result_url)
+    print("Ingredients:")
+    print(ingredients)
+    # TODO: output to text file/database
 
   def create_database(self):
     # prep search queue

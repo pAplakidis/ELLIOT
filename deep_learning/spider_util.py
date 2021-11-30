@@ -22,6 +22,13 @@ def find_result(html):
 def find_ingredients(html):
   ingredients = []
   soup = BeautifulSoup(html, 'html.parser')
-  # TODO: find results and put them to a list or set
+
+  unordered_lists = soup.find_all("div", {"id": "structured-ingredients_1-0", "class": "comp structured-ingredients"})[0].find_all("ul")
+  for ul in unordered_lists:
+    tmp_ing = ul.find_all("li")
+    for ing in tmp_ing:
+      paragraph = ing.find_all("p")[0]
+      ingredients.append(paragraph.text)
+
   return ingredients
 
