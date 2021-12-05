@@ -14,23 +14,19 @@ class Spider:
     self.classes = None
     self.queue = set()
     self.not_found = set()
+    self.found = []
+    self.ingredients = []
     self.domain = "https://www.simplyrecipes.com/"  # CHANGE THIS
 
   def read_categories(self):
     with open(classes_path, 'r') as f:
       self.classes = json.load(f)
       f.close()
-    print("[+] Loaded food categories from", classes_path)
-
-  @staticmethod
-  def prep_search(string):
-    search = string.split("_")
-    search = "+".join(search)
-    return search
+    print("[+] Loaded %d food categories from %s"%(len(self.classes), classes_path))
 
   def search(self, search_string):
     html_string = ""
-    # TODO: change this depending on the website
+    # NOTE: change this depending on the website
     url = self.domain + "search?q=" + search_string
     try:
       response = urlopen(url)
@@ -64,13 +60,16 @@ class Spider:
     ingredients = self.gather_ingredients(result_url)
     print("Ingredients:")
     print(ingredients)
-    # TODO: output to text file/database
+    # NOTE: if using threads, use mutex for accessing these and the not-found categories
+    self.found.append(f_category)
+    self.ingredients.append(ingredients)
+
 
   def create_database(self):
     # prep search queue
     self.read_categories()
     for c in self.classes:
-      self.queue.add(self.prep_search(c))
+      self.queue.add(prep_search(c))
     print("[+] Created search queue")
     #print(self.queue)
 
@@ -80,6 +79,7 @@ class Spider:
     for q in sorted(self.queue):
       print("[~] Searching for", q)
       self.thread_work(q)
+    write_ingredients(DATA_PATH, self.found, self.ingredients)
 
 
 if __name__ == "__main__":

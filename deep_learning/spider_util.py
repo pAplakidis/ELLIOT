@@ -3,16 +3,36 @@ from html.parser import HTMLParser
 from urllib import parse
 from bs4 import BeautifulSoup
 
+DATA_PATH = "ingredients.txt"
+
 def create_database_dir(directory):
   if not os.path_exists(directory):
     print("Creating Directory " + directory)
     os.makedirs(directory)
 
-# TODO: each line of a recipe will be like this:
-# food_name: ingredient1, ingredient2, ...
-def write_file(path, data):
-  pass
+def prep_search(string):
+  search = string.split("_")
+  search = "+".join(search)
+  return search
 
+def restore_search(string):
+  search = string.split("+")
+  search = "_".join(search)
+  return search
+
+def write_ingredients(path, foods, ingredients):
+  file_str = ""
+  with open(path, "w") as f:
+    for i in range(len(foods)):
+      file_str += restore_search(foods[i]) + "\n"
+      for ingredient in ingredients[i]:
+        file_str += ingredient + "\n"
+      file_str += "\n"
+    f.write(file_str)
+    print("[+] Ingredients stored at ", path)
+    f.close()
+
+# NOTE: these are specific for the curent domain urls
 def find_result(html):
   soup = BeautifulSoup(html, 'html.parser')
   #print(soup.find(id="card-list__item_1-0").find_all('a'))
