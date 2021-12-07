@@ -2,6 +2,7 @@
 import threading
 import json
 import threading
+from tqdm import trange
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse, parse_qs
 
@@ -56,10 +57,10 @@ class Spider:
     result_url = self.search(f_category)
     if result_url is None:
       self.not_found.add(result_url)  # TODO: handle not-found recipes
-    print("[~] Gathering ingredients from:", result_url)
+    #print("[~] Gathering ingredients from:", result_url)
     ingredients = self.gather_ingredients(result_url)
-    print("Ingredients:")
-    print(ingredients)
+    #print("Ingredients:")
+    #print(ingredients)
     # NOTE: if using threads, use mutex for accessing these and the not-found categories
     self.found.append(f_category)
     self.ingredients.append(ingredients)
@@ -76,9 +77,10 @@ class Spider:
     #self.ingredient_finder.gather_ingredients()
     
     # TODO: this needs to be threaded
-    for q in sorted(self.queue):
-      print("[~] Searching for", q)
-      self.thread_work(q)
+    self.queue = sorted(self.queue)
+    for i in (t := trange(len(self.queue))):
+      t.set_description("Processing %s"%restore_search(self.queue[i]))
+      self.thread_work(self.queue[i])
     write_ingredients(DATA_PATH, self.found, self.ingredients)
 
 
