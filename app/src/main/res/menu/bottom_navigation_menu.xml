@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/history"
+        android:id="@+id/calendarFragment"
         android:contentDescription=""
         android:icon="@drawable/ic_baseline_history_24"
         android:title="History" />
 
     <item
-        android:id="@+id/profile"
+        android:id="@+id/profileFragment"
         android:contentDescription=""
         android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile" />
 
     <item
-        android:id="@+id/statistics"
+        android:id="@+id/statisticsFragment"
         android:contentDescription=""
         android:icon="@drawable/ic_baseline_analytics_24"
         android:title="Statistics" />

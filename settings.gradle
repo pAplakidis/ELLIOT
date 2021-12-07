@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Elliot"
 include ':app'
+include ':MPChartLib'

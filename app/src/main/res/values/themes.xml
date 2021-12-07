@@ -39,7 +39,7 @@
 
 
 
-    <style name="ThemeOverlay.Elliot.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+    <style name="ThemeOverlay.Elliot.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
         <item name="colorPrimary">@color/green</item>
         <item name="colorOnPrimary">@color/brown</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Elliot.SmallComponent</item>
