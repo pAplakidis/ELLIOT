@@ -5,7 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
+import com.example.elliot.adapter.MealAdapter
+import com.example.elliot.adapter.StatsAdapter
+import com.example.elliot.data.Datasource
+import com.example.elliot.model.Statistic
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -13,6 +19,8 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
+
+import com.google.android.material.button.MaterialButtonToggleGroup
 
 class StatisticsFragment: Fragment(R.layout.fragment_statistics) {
     private lateinit var pieChart : PieChart
@@ -23,7 +31,36 @@ class StatisticsFragment: Fragment(R.layout.fragment_statistics) {
 
         initPieChart()
 
-        setDataToPieChart()
+        val buttonContainer = view.findViewById<MaterialButtonToggleGroup>(R.id.buttonContainer)
+        buttonContainer.addOnButtonCheckedListener { _, checkedId, isChecked ->
+            val recyclerView: RecyclerView = view.findViewById(R.id.list_information)
+
+            if (isChecked) {
+                lateinit var dataset : List<Statistic>
+                when (checkedId) {
+                    R.id.button1 -> {
+                        dataset = Datasource().loadStatistics1()
+                        setDataToPieChart(1)
+                    }
+
+                    R.id.button2 -> {
+                        dataset = Datasource().loadStatistics2()
+                        setDataToPieChart(2)
+                    }
+
+                    R.id.button3 -> {
+                       dataset = Datasource().loadStatistics3()
+                        setDataToPieChart(3)
+                    }
+
+                }
+                recyclerView.apply {
+                    adapter = StatsAdapter(dataset)
+                    setHasFixedSize(true)
+                }
+            }
+        }
+
     }
 
     private fun initPieChart() {
@@ -42,12 +79,28 @@ class StatisticsFragment: Fragment(R.layout.fragment_statistics) {
         pieChart.legend.isWordWrapEnabled = true
     }
 
-    private fun setDataToPieChart() {
+    private fun setDataToPieChart(choice: Int) {
         pieChart.setUsePercentValues(true)
         val dataEntries = ArrayList<PieEntry>()
-        dataEntries.add(PieEntry(72f, "Android"))
-        dataEntries.add(PieEntry(26f, "Ios"))
-        dataEntries.add(PieEntry(2f, "Other"))
+        when(choice) {
+            1 -> {
+                dataEntries.add(PieEntry(30f, "Test1"))
+                dataEntries.add(PieEntry(40f, "Test2"))
+                dataEntries.add(PieEntry(30f, "Test3"))
+            }
+
+            2 -> {
+                dataEntries.add(PieEntry(70f, "New1"))
+                dataEntries.add(PieEntry(10f, "New2"))
+                dataEntries.add(PieEntry(20f, "New3"))
+            }
+
+            3 -> {
+                dataEntries.add(PieEntry(85f, "Create1"))
+                dataEntries.add(PieEntry(5f, "Create2"))
+                dataEntries.add(PieEntry(10f, "Create3"))
+            }
+        }
 
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#4DD0E1"))
