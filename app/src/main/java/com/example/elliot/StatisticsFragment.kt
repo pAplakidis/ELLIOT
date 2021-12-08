@@ -67,7 +67,7 @@ class StatisticsFragment: Fragment(R.layout.fragment_statistics) {
         pieChart.setUsePercentValues(true)
         pieChart.description.text = ""
         //hollow pie chart
-        pieChart.isDrawHoleEnabled = false
+        pieChart.isDrawHoleEnabled = true
         pieChart.setTouchEnabled(false)
         pieChart.setDrawEntryLabels(false)
         //adding padding
@@ -77,6 +77,7 @@ class StatisticsFragment: Fragment(R.layout.fragment_statistics) {
         pieChart.setDrawEntryLabels(false)
         pieChart.legend.orientation = Legend.LegendOrientation.VERTICAL
         pieChart.legend.isWordWrapEnabled = true
+        pieChart.legend.textSize = 15f
     }
 
     private fun setDataToPieChart(choice: Int) {
@@ -122,7 +123,6 @@ class StatisticsFragment: Fragment(R.layout.fragment_statistics) {
         //create hole in center
         pieChart.holeRadius = 58f
         pieChart.transparentCircleRadius = 61f
-        pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
 
 
