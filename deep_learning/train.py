@@ -51,9 +51,29 @@ def train(model, images, labels, classes):
 
   return model
 
-# TODO: evaluate the model on test data
-def evaluate(model, test_imgs, test_lbls, classes):
-  pass
+def evaluate(model, images, labels, classes):
+  model.eval()
+  accuracies = []
+  BS = 128
+
+  for i in (t := trange(0, len(images), BS)):
+    # prep tensor/batch
+    X = torch.tensor(np.array(images[i:i+BS])).float().to(device)
+    Y = torch.tensor(np.array(labels[i:i+BS])).long().to(device)
+
+    # feed to net and stats
+    out = model(X)
+    cat = torch.argmax(out, dim=1)
+    accuracy = (cat == Y).float().mean()
+    accuracy = accuracy.item()
+    accuracies.append(accuracy)
+    t.set_description("accuracy %.2f"%accuracy)
+
+  # plot stats
+  print("Evaluation Done")
+  plt.plot(accuracies)
+  plt.savefig("../plots/evaluation_stats.png")
+  plt.show()
 
 
 if __name__ == '__main__':
@@ -67,6 +87,10 @@ if __name__ == '__main__':
   model = FoodClassifier(len(classes)).to(device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
+
+  # evaluate
+  test_imgs, test_lbls = get_eval_data(base_dir, classes)
+  evaluate(model, test_imgs, test_lbls, classes)
 
   # save the model for the C++ API
   # load a sample image

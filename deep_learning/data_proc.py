@@ -90,15 +90,8 @@ def get_training_data(base_dir):
 
   return images, new_labels, classes
 
-def get_val_data(base_dir):
-  classes = []  # list of all possible classes  (same size as NN's output tensor)
+def get_eval_data(base_dir, classes):
   images, labels = [], [] # images and their corresponding class
-
-  # load existing classes (saved after training) from json file
-  with open(classes_path, 'r') as f:
-    classes = json.load(f)
-    f.close()
-  print("[+] %d classes loaded"%len(classes))
 
   # handle Food-101 dataset
   print("[+] Loading validation data from FOOD-101 ...")
@@ -141,5 +134,5 @@ def get_val_data(base_dir):
 
 if __name__ == '__main__':
   images, labels, classes = get_training_data(base_dir)
-  images, labels, classes = get_val_data(base_dir)
+  images, labels = get_eval_data(base_dir, classes)
 
