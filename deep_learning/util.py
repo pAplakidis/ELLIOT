@@ -13,6 +13,7 @@ classes_path = "../models/classes.json"
 # Data Paths
 base_dir = "../data/"
 FOOD101_path = "Food-101/images/"
+FOOD101_meta_path = "Food-101/meta/meta/"
 FOOD251_annot_path = "Food-251/annot/"
 FOOD251_train_path = "Food-251/train/train_set/"
 FOOD251_val_path = "Food-251/val/val_set/"

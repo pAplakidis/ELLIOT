@@ -13,17 +13,24 @@ from util import *
 
 # TODO: maybe add threads for each dataset to increase time efficiency
 def get_training_data(base_dir):
-  classes = []  # list of all possible classes  (same size as NN's output tensor)
+  classes = set()  # list of all possible classes  (same size as NN's output tensor)
   images, labels = [], [] # images and their corresponding class
 
   # handle Food-101 dataset
   print("[+] Loading data from FOOD-101 ...")
+  valid = []
+  with open(base_dir+FOOD101_meta_path+"train.txt", 'r') as f:
+    valid = set(f.read().split('\n')[:-1])
+    f.close()
+
   files = listdir(base_dir+FOOD101_path)
-  #for f in listdir(base_dir+FOOD101_path):
   for i in (t := trange(len(files))):
     f = files[i]
-    classes.append(f)
+    classes.add(f)
     for image in listdir(base_dir+FOOD101_path+f):
+      v = f+'/'+image
+      if v[:-4] not in valid:
+        continue
       img = cv2.imread(base_dir+FOOD101_path+f+'/'+image)
       img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
       img = np.moveaxis(img, -1, 0) # [batch_size, channels, height, width] to be used in NN
@@ -32,7 +39,6 @@ def get_training_data(base_dir):
       t.set_description("processing file: %s"%(f+'/'+image))
 
   # handle Food-251 dataset
-  """
   print("[+] Loading data from FOOD-251 ...")
   files = listdir(base_dir+FOOD251_train_path)
 
@@ -44,7 +50,7 @@ def get_training_data(base_dir):
     lines = c_file.read().split("\n")[:-1]
     for l in lines:
       line = l.split(" ")
-      classes.append(line[1]) # TODO: maybe check if the class already exists
+      classes.add(line[1])
       food251_classes.append(line[1])
     c_file.close()
 
@@ -60,15 +66,20 @@ def get_training_data(base_dir):
     label = food251_classes[idx]
     labels.append(label)
     t.set_description("processing file: %s"%image)
-  """
 
   # TODO: handle other datasets as well (need more classes/foods supported)
 
+  # TODO: handle duplicates in classes
+
   # convert labels to indicies from classes
   new_labels = []
+  classes = list(classes)
   for l in labels:
     idx = classes.index(l)
     new_labels.append(idx)
+
+  #for idx, c in enumerate(classes):
+  #  print("%d images for %s"%(new_labels.count(idx), c))
 
   print("[+] Loaded %d food categories"%len(classes))
   with open(classes_path, 'w') as f:
@@ -79,16 +90,56 @@ def get_training_data(base_dir):
 
   return images, new_labels, classes
 
-# TODO: handle val data similarly to train
 def get_val_data(base_dir):
-  pass
+  classes = []  # list of all possible classes  (same size as NN's output tensor)
+  images, labels = [], [] # images and their corresponding class
+
+  # load existing classes (saved after training) from json file
+  with open(classes_path, 'r') as f:
+    classes = json.load(f)
+    f.close()
+  print("[+] %d classes loaded"%len(classes))
+
+  # handle Food-101 dataset
+  print("[+] Loading validation data from FOOD-101 ...")
+  valid = []
+  with open(base_dir+FOOD101_meta_path+"test.txt", 'r') as f:
+    valid = set(f.read().split('\n')[:-1])
+    f.close()
+
+  files = listdir(base_dir+FOOD101_path)
+  for i in (t := trange(len(files))):
+    f = files[i]
+    for image in listdir(base_dir+FOOD101_path+f):
+      v = f+'/'+image
+      if v[:-4] not in valid:
+        continue
+      img = cv2.imread(base_dir+FOOD101_path+f+'/'+image)
+      img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+      img = np.moveaxis(img, -1, 0) # [batch_size, channels, height, width] to be used in NN
+      images.append(img)
+      labels.append(f)
+      t.set_description("processing file: %s"%(f+'/'+image))
+
+  # TODO: handle FOOD-251
+
+  # convert labels to indicies from classes
+  new_labels = []
+  classes = list(classes)
+  for l in labels:
+    idx = classes.index(l)
+    new_labels.append(idx)
+
+  #for idx, c in enumerate(classes):
+  #  print("%d images for %s"%(new_labels.count(idx), c))
+
+  print("[+] Loaded %d food categories"%len(classes))
+  print("[+] %d images"%len(images))
+
+  return images, new_labels, classes
 
 
 if __name__ == '__main__':
   images, labels, classes = get_training_data(base_dir)
-  print(labels)
-  print(classes)
-  print(len(images))
-  print(len(labels))
-  print(len(classes))
+  images, labels, classes = get_val_data(base_dir)
 

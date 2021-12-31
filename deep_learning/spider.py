@@ -30,6 +30,7 @@ class Spider:
     # NOTE: change this depending on the website
     url = self.domain + "search?q=" + search_string
     try:
+      print("Visiting", url)
       response = urlopen(url)
       if "text/html" in response.getheader("Content-Type"):
         html_bytes = response.read()
@@ -43,6 +44,7 @@ class Spider:
 
   def gather_ingredients(self, url):
     try:
+      print("Visiting", url)
       response = urlopen(url)
       if "text/html" in response.getheader("Content-Type"):
         html_string = response.read().decode("utf-8")
