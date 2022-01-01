@@ -11,6 +11,8 @@ from tqdm import trange
 from model import *
 from util import *
 
+# TODO: handle oversampling
+
 # TODO: maybe add threads for each dataset to increase time efficiency
 def get_training_data(base_dir):
   classes = set()  # list of all possible classes  (same size as NN's output tensor)
@@ -42,9 +44,9 @@ def get_training_data(base_dir):
   print("[+] Loading data from FOOD-251 ...")
   files = listdir(base_dir+FOOD251_train_path)
 
-  print("Loading classes ...")
   # get classes
   # NOTE: keep the indices ordered before adding to classes list, since csv file requires them
+  print("Loading classes ...")
   food251_classes = []  
   with open(base_dir+FOOD251_annot_path+"class_list.txt", 'r') as c_file:
     lines = c_file.read().split("\n")[:-1]
@@ -69,8 +71,6 @@ def get_training_data(base_dir):
 
   # TODO: handle other datasets as well (need more classes/foods supported)
 
-  # TODO: handle duplicates in classes
-
   # convert labels to indicies from classes
   new_labels = []
   classes = list(classes)
@@ -94,7 +94,7 @@ def get_eval_data(base_dir, classes):
   images, labels = [], [] # images and their corresponding class
 
   # handle Food-101 dataset
-  print("[+] Loading validation data from FOOD-101 ...")
+  print("[+] Loading validation data for FOOD-101 ...")
   valid = []
   with open(base_dir+FOOD101_meta_path+"test.txt", 'r') as f:
     valid = set(f.read().split('\n')[:-1])
@@ -114,11 +114,34 @@ def get_eval_data(base_dir, classes):
       labels.append(f)
       t.set_description("processing file: %s"%(f+'/'+image))
 
-  # TODO: handle FOOD-251
+  # handle FOOD-251
+  print("[+] Loading validation data for FOOD-251 ...")
+  files = listdir(base_dir+FOOD251_val_path)
+
+  print("Loading classes ...")
+  food251_classes = []  
+  with open(base_dir+FOOD251_annot_path+"class_list.txt", 'r') as c_file:
+    lines = c_file.read().split("\n")[:-1]
+    for l in lines:
+      line = l.split(" ")
+      food251_classes.append(line[1])
+    c_file.close()
+
+  print("Loading images and labels ...")
+  df = pd.read_csv(base_dir+FOOD251_annot_path+"val_info.csv", names=['img', 'class_idx'])
+  for i in (t:= trange(len(files))):
+    image = files[i]
+    img = cv2.imread(base_dir+FOOD251_val_path+'/'+image)
+    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+    img = np.moveaxis(img, -1, 0) # [batch_size, channels, height, width] to be used in NN
+    images.append(img)
+    idx = int(df.loc[df['img'] == image]['class_idx']) # get class idx from csv
+    label = food251_classes[idx]
+    labels.append(label)
+    t.set_description("processing file: %s"%image)
 
   # convert labels to indicies from classes
   new_labels = []
-  classes = list(classes)
   for l in labels:
     idx = classes.index(l)
     new_labels.append(idx)
@@ -129,10 +152,17 @@ def get_eval_data(base_dir, classes):
   print("[+] Loaded %d food categories"%len(classes))
   print("[+] %d images"%len(images))
 
-  return images, new_labels, classes
+  return images, new_labels
 
 
 if __name__ == '__main__':
+  """
+  classes = []
+  with open(classes_path, 'r') as f:
+    classes = json.load(f)
+    f.close()
+  print("[+] %d classes loaded"%len(classes))
+  """
   images, labels, classes = get_training_data(base_dir)
   images, labels = get_eval_data(base_dir, classes)
 
