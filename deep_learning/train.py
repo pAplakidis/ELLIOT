@@ -12,7 +12,7 @@ def train(model, images, labels, classes):
 
   losses, accuracies = [], []
   BS = 128
-  epochs = 25
+  epochs = 25 # TODO: add more epochs (maybe 50) and change lr if needed
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
@@ -44,17 +44,17 @@ def train(model, images, labels, classes):
 
   # plot stats
   print("Training Done")
-  plt.plot(losses)
-  plt.plot(accuracies)
+  plt.plot(losses, label="loss")
+  plt.plot(accuracies, label="train accuracy")
   plt.savefig("../plots/training_stats.png")
   plt.show()
 
   return model
 
-def evaluate(model, images, labels, classes):
+def evaluate(model, device, images, labels, classes):
   model.eval()
   accuracies = []
-  BS = 128
+  BS = 64
 
   for i in (t := trange(0, len(images), BS)):
     # prep tensor/batch
@@ -71,7 +71,8 @@ def evaluate(model, images, labels, classes):
 
   # plot stats
   print("Evaluation Done")
-  plt.plot(accuracies)
+  print("[+] Average Validation Accuracy: %.2f"%(sum(accuracies)/len(accuracies)))
+  plt.plot(accuracies, label="validation accuracy")
   plt.savefig("../plots/evaluation_stats.png")
   plt.show()
 
@@ -90,7 +91,7 @@ if __name__ == '__main__':
 
   # evaluate
   test_imgs, test_lbls = get_eval_data(base_dir, classes)
-  evaluate(model, test_imgs, test_lbls, classes)
+  evaluate(model, device, test_imgs, test_lbls, classes)
 
   # save the model for the C++ API
   # load a sample image
