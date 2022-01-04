@@ -12,7 +12,7 @@ def train(model, images, labels, classes):
 
   losses, accuracies = [], []
   BS = 128
-  epochs = 25 # TODO: add more epochs (maybe 50) and change lr if needed
+  epochs = 50
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
