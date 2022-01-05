@@ -30,7 +30,7 @@ class Spider:
     # NOTE: change this depending on the website
     url = self.domain + "search?q=" + search_string
     try:
-      print("Visiting", url)
+      #print("Visiting", url)
       response = urlopen(url)
       if "text/html" in response.getheader("Content-Type"):
         html_bytes = response.read()
@@ -39,33 +39,35 @@ class Spider:
         return find_result(html_string)
     except Exception as e:
       print(str(e))
-
     return None
 
   def gather_ingredients(self, url):
     try:
-      print("Visiting", url)
+      #print("Visiting", url)
       response = urlopen(url)
       if "text/html" in response.getheader("Content-Type"):
         html_string = response.read().decode("utf-8")
         return find_ingredients(html_string)
     except Exception as e:
       print(str(e))
-
     return None
 
 
   def thread_work(self, f_category):
     result_url = self.search(f_category)
     if result_url is None:
-      self.not_found.add(result_url)  # TODO: handle not-found recipes
-    #print("[~] Gathering ingredients from:", result_url)
-    ingredients = self.gather_ingredients(result_url)
-    #print("Ingredients:")
-    #print(ingredients)
-    # NOTE: if using threads, use mutex for accessing these and the not-found categories
-    self.found.append(f_category)
-    self.ingredients.append(ingredients)
+      self.not_found.add(f_category)  # TODO: handle not-found recipes
+    else:
+      #print("[~] Gathering ingredients from:", result_url)
+      ingredients = self.gather_ingredients(result_url)
+      if ingredients is None:
+        self.not_found.add(f_category)  # TODO: handle not-found recipes
+      else:
+        #print("Ingredients:")
+        #print(ingredients)
+        # NOTE: if using threads, use mutex for accessing these and the not-found categories
+        self.found.append(f_category)
+        self.ingredients.append(ingredients)
 
 
   def create_database(self):
@@ -90,4 +92,12 @@ if __name__ == "__main__":
 
   spider = Spider()
   spider.create_database()
+
+  print("Found the ingredients of the following %d food categories:"%len(spider.found))
+  for f in spider.found:
+    print(f)
+  print("Couldn't find the ingredients of the following %d food categories:"%len(spider.not_found))
+  for f in spider.not_found:
+    print(f)
+    # TODO: write not-found recipes in a file
 

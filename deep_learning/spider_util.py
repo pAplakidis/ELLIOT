@@ -35,8 +35,11 @@ def write_ingredients(path, foods, ingredients):
 # NOTE: these are specific for the curent domain urls
 def find_result(html):
   soup = BeautifulSoup(html, 'html.parser')
-  #print(soup.find(id="card-list__item_1-0").find_all('a'))
   result_url = soup.find_all("a", {"id": "card_1-0", "class": "comp card"}, href=True)[0].get('href')
+  # TODO: have a backup result page
+  backup_result_url = ''
+  #print(result_url)
+  #print(backup_result_url)
   return result_url
 
 def find_ingredients(html):
@@ -44,6 +47,8 @@ def find_ingredients(html):
   soup = BeautifulSoup(html, 'html.parser')
 
   unordered_lists = soup.find_all("div", {"id": "structured-ingredients_1-0", "class": "comp structured-ingredients"})[0].find_all("ul")
+  if unordered_lists == '':
+    return None
   for ul in unordered_lists:
     tmp_ing = ul.find_all("li")
     for ing in tmp_ing:
