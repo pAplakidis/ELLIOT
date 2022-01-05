@@ -93,11 +93,7 @@ if __name__ == "__main__":
   spider = Spider()
   spider.create_database()
 
-  print("Found the ingredients of the following %d food categories:"%len(spider.found))
-  for f in spider.found:
-    print(f)
-  print("Couldn't find the ingredients of the following %d food categories:"%len(spider.not_found))
-  for f in spider.not_found:
-    print(f)
-    # TODO: write not-found recipes in a file
+  print("[+] Found the ingredients of %d food categories"%len(spider.found))
+  print("[+] Couldn't find the ingredients of %d food categories"%len(spider.not_found))
+  # TODO: maybe write not-found recipes in a file
 
