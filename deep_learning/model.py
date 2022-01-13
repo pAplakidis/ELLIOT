@@ -22,11 +22,11 @@ class FoodClassifier(nn.Module):
     #self.conv2_bn4 = nn.BatchNorm2d(512)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(256 * 12 * 12, 2048)
-    self.bn1 = nn.BatchNorm1d(num_features=2048)
+    self.fc1 = nn.Linear(256 * 12 * 12, 1024)
+    self.bn1 = nn.BatchNorm1d(num_features=1024)
     #self.fc2 = nn.Linear(4096, 4096)
     #self.bn2 = nn.BatchNorm1d(num_features=4096)
-    self.fc2 = nn.Linear(2048, self.n_classes)
+    self.fc2 = nn.Linear(1024, self.n_classes)
 
   def forward(self, x):
     x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
