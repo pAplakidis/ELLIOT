@@ -11,7 +11,7 @@ def train(model, images, labels, classes):
   optim = torch.optim.Adam(model.parameters(), lr=0.001)
 
   losses, accuracies = [], []
-  BS = 64
+  BS = 128
   epochs = 50
 
   for epoch in range(epochs):
@@ -39,6 +39,7 @@ def train(model, images, labels, classes):
       epoch_acc.append(accuracy)
       t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
 
+    print("Epoch average loss: %.2f"%(np.array(epoch_losses).mean()))
     losses.append(np.array(epoch_losses).mean())
     accuracies.append(np.array(epoch_acc).mean())
 
@@ -54,7 +55,7 @@ def train(model, images, labels, classes):
 def evaluate(model, device, images, labels, classes):
   model.eval()
   accuracies = []
-  BS = 64
+  BS = 128
 
   for i in (t := trange(0, len(images), BS)):
     # prep tensor/batch
@@ -85,7 +86,8 @@ if __name__ == '__main__':
   images, labels, classes = get_training_data(base_dir)
 
   # train
-  model = FoodClassifier(len(classes)).to(device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
 

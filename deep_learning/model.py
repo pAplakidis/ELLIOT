@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import torchvision.models as models
 
 class FoodClassifier(nn.Module):
   def __init__(self, n_classes):
@@ -40,6 +41,13 @@ class FoodClassifier(nn.Module):
     #x = F.softmax(self.fc3(x))
     x = self.fc2(x) # NOTE: don't forget to use softmax in deployment (in training CrossEntropy already applies softmax)
     return x
+
+def init_resnet(num_classes, feature_extract, input_size, device):
+  model = models.resnet34(pretrained=False)
+  num_feats = model.fc.in_features
+  model.fc = nn.Linear(num_feats, num_classes)
+  return model.to(device)
+  
 
   def num_flat_features(self, x):
     size = x.size()[1:] # all dimensions except the batch dimension

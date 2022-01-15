@@ -4,7 +4,8 @@
 IMG_SIZE = 128
 
 # Model Paths
-model_path = "../models/classifier.pth"
+#model_path = "../models/classifier.pth"
+model_path = "../models/resnet_classifier.pth"
 cpp_model_path = "../models/traced_classifier.pt"
 #model_path = "../models/vgg_classifier.pth"
 #cpp_model_path = "../models/traced_vgg_classifier.pt"
