@@ -169,6 +169,25 @@ buffalo_wing
 1 clove garlic, minced
 Celery sticks (optional)
 
+burrito
+1 1/2 cups white rice
+2 tablespoons chopped cilantro
+1/2 lime, juiced
+2 tablespoons olive oil, divided
+3 assorted bell peppers, chopped
+1 red onion, chopped
+1 teaspoon salt, divided
+1 teaspoon chili powder
+2 cups corn kernels, frozen or fresh
+1 (15-ounce) can black beans, drained and rinsed
+4 medium tomatillos, peeled, washed, and chopped
+1 cup salsa
+1 teaspoon ground cumin
+8 large (12-inch) flour tortillas
+16 ounces pepper jack or cheddar cheese
+1 tablespoon sour cream
+Guacamole, for serving
+
 caesar_salad
 1/2 cup high-quality extra virgin olive oil, plus more for brushing
 4 cloves garlic, minced
@@ -1164,8 +1183,8 @@ schnitzel
 1/4 teaspoon freshly ground black pepper
 1 egg, beaten
 2 tablespoons milk
-3/4 cup fine dry breadcrumbs or panko
-1 teaspoon paprika
+1 cup fine dry breadcrumbs or panko
+1 1/4 teaspoons paprika
 3 tablespoons extra virgin olive oil or canola oil
 3/4 cup chicken stock
 1/2 teaspoon dried dill or 2 teaspoons chopped fresh dill
@@ -1219,40 +1238,6 @@ Dash ground cinnamon
 2 pounds peeled and chopped tomatoes (or one 28-ounce can whole peeled tomatoes, packed in water)
 1 cup whole milk
 1/2 teaspoon sea salt
-
-spring_roll
-13 to 15 large (10-inch) rice paper wrappers
-2 large carrots, peeled and sliced into matchsticks
-2 medium red bell peppers, seeded and sliced into 1/4-inch strips
-2 Persian cucumbers, sliced into matchsticks (or use 1/2 English cucumber)
-Fresh basil leaves
-Fresh mint leaves
-1 pound (450g) 31/40-count cooked shrimp
-Sweet chili sauce, optional for extra flavor
-1/2 cup creamy unsalted peanut butter
-2 tablespoons low-sodium tamari or soy sauce
-2 tablespoons rice vinegar
-2 tablespoons honey (sugar or maple syrup works too)
-Juice from 1/2 lime (about 1 to 1 1/2 tablespoons)
-5 tablespoons filtered water
-1/4 teaspoon salt
-
-spring_rolls
-13 to 15 large (10-inch) rice paper wrappers
-2 large carrots, peeled and sliced into matchsticks
-2 medium red bell peppers, seeded and sliced into 1/4-inch strips
-2 Persian cucumbers, sliced into matchsticks (or use 1/2 English cucumber)
-Fresh basil leaves
-Fresh mint leaves
-1 pound (450g) 31/40-count cooked shrimp
-Sweet chili sauce, optional for extra flavor
-1/2 cup creamy unsalted peanut butter
-2 tablespoons low-sodium tamari or soy sauce
-2 tablespoons rice vinegar
-2 tablespoons honey (sugar or maple syrup works too)
-Juice from 1/2 lime (about 1 to 1 1/2 tablespoons)
-5 tablespoons filtered water
-1/4 teaspoon salt
 
 steak
 4 good-sized steaks (1/2 pound to a pound each, allow for 1/2 pound per person)
