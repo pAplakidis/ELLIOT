@@ -14,7 +14,8 @@ class Spider:
     self.current_food = None
     self.classes = None
     self.queue = set()
-    self.not_found = set()
+    self.search_not_found = set()
+    self.ing_not_found = set()
     self.found = []
     self.ingredients = []
     self.domain = "https://www.simplyrecipes.com/"  # CHANGE THIS
@@ -56,12 +57,12 @@ class Spider:
   def thread_work(self, f_category):
     result_url = self.search(f_category)
     if result_url is None:
-      self.not_found.add(f_category)  # TODO: handle not-found recipes
+      self.search_not_found.add(f_category)  # TODO: handle not-found recipes
     else:
       #print("[~] Gathering ingredients from:", result_url)
       ingredients = self.gather_ingredients(result_url)
       if ingredients is None:
-        self.not_found.add(f_category)  # TODO: handle not-found recipes
+        self.ing_not_found.add(f_category)  # TODO: handle not-found recipes
       else:
         #print("Ingredients:")
         #print(ingredients)
@@ -94,6 +95,21 @@ if __name__ == "__main__":
   spider.create_database()
 
   print("[+] Found the ingredients of %d food categories"%len(spider.found))
-  print("[+] Couldn't find the ingredients of %d food categories"%len(spider.not_found))
-  # TODO: maybe write not-found recipes in a file
+  print("[+] Couldn't find the ingredients of %d food categories"%(len(spider.ing_not_found)+len(spider.search_not_found)))
+
+  with open("search_not_found.txt", 'w') as f:
+    write_str = ""
+    for item in spider.search_not_found:
+      write_str += str(item) + "\n"
+    f.write(write_str)
+    f.close()
+    print("[+] Wrote stuff in search_not_found.txt")
+
+  with open("ingredients_not_found.txt", 'w') as f:
+    write_str = ""
+    for item in spider.ing_not_found:
+      write_str += str(item) + "\n"
+    f.write(write_str)
+    f.close()
+    print("[+] Wrote stuff in ingredients_not_found.txt")
 
