@@ -45,15 +45,25 @@ def find_result(html):
 def find_ingredients(html):
   ingredients = []
   soup = BeautifulSoup(html, 'html.parser')
+  alternative = False
 
-  unordered_lists = soup.find_all("div", {"id": "structured-ingredients_1-0", "class": "comp structured-ingredients"})[0].find_all("ul")
-  if unordered_lists == '':
-    return None
+  try:
+    unordered_lists = soup.find_all("div", {"id": "structured-ingredients_1-0", "class": "comp structured-ingredients"})[0].find_all("ul")
+  except IndexError:
+    unordered_lists = soup.find_all("ul", {"id": "ingredient-list_1-0", "class": "comp ingredient-list simple-list simple-list--circle"})
+    alternative = True
+
   for ul in unordered_lists:
     tmp_ing = ul.find_all("li")
+    cnt = 0
     for ing in tmp_ing:
-      paragraph = ing.find_all("p")[0]
-      ingredients.append(paragraph.text)
+      if not alternative:
+        paragraph = ing.find_all("p")[0]
+        ingredients.append(paragraph.text)
+      else:
+        if cnt > 0:
+          ingredients.append(ing.text.strip())
+      cnt += 1
 
   return ingredients
 

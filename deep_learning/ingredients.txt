@@ -1,3 +1,7 @@
+adobo
+
+ambrosia_food
+
 apple_pie
 3 pounds good cooking apples such as Granny Smith, Jonagold, Golden Delicious, Fuji, or Braeburn (about 6 to 8 apples, depending on the size of your apples and the size of your pie dish)
 1 tablespoon lemon juice or apple cider vinegar (to toss with the sliced apples so they don't brown as you slice them)
@@ -11,6 +15,19 @@ apple_pie
 1 double crust sour cream pie dough, OR all-butter crust, OR your favorite pie crust recipe
 1 large egg yolk
 1 tablespoon cream
+
+apple_turnover
+3 tablespoons dried currants
+2 tablespoons chopped walnuts
+1/4 cup sugar
+1/4 teaspoon cinnamon
+1/2 teaspoon cornstarch
+1/4 cup applesauce
+1/8 teaspoon vanilla
+1 frozen puff pastry sheet, thawed, OR 2 pâte brisée dough recipes (enough for a double crust pie)
+2 tablespoons butter, cut into bits
+1 large egg, lightly beaten
+1 teaspoon milk
 
 applesauce
 4 pounds (about 8 to 10 apples, depending on the size) apples, peeled, cored, and quartered (Use apples varieties that are good for cooking, such as Granny Smith, Pippin, Gravenstein, Mcintosh, Fuji, Jonathan, Jonagold, or Golden Delicious.)
@@ -56,6 +73,25 @@ About 1/3 cup dry rub for pork, store-bought or homemade
 1/2 teaspoon liquid smoke (optional)
 2 cups barbecue sauce, your favorite store-bought or homemade
 
+bacon_and_eggs
+12 ounces (3/4 box) spaghetti
+6 slices (about 5 ounces) thick cut bacon, cut into 1/2-inch dice
+2 cloves garlic, thinly sliced
+7 to 8 (12 ounces) small (1 1/2-inch) tomatoes, quartered
+4 large eggs
+1/2 cup freshly grated Parmesan
+1/2 cup packed basil leaves, torn into pieces
+Freshly ground black pepper, to taste
+Olive oil, for garnish
+
+bacon_lettuce_tomato_sandwich
+1-2 thin slices of a fresh, large tomato
+1-2 ounces (a couple handfuls) fresh baby arugula (can substitute watercress)
+2 slices of bread
+Mayonnaise
+
+baked_alaska
+
 baklava
 1 pound chopped nuts (almonds, walnuts, or pistachios are best, or use a combination of them)
 1 pound phyllo dough
@@ -70,6 +106,19 @@ baklava
 1 cinnamon stick
 Finely ground pistachios for garnish, optional
 
+barbecued_spareribs
+1 cup gochujang (Korean chile paste)
+1/2 cup pineapple juice or minced pineapple
+1/2 cup sugar
+1/2 medium yellow onion
+5 garlic cloves, peeled
+2-inch piece of ginger, peeled and roughly chopped
+3 tablespoons soy sauce
+2 tablespoons sesame oil
+1 teaspoon freshly ground black pepper
+
+barbecued_wing
+
 beef_stroganoff
 5 tablespoons butter, divided
 Salt to taste
@@ -81,6 +130,8 @@ Freshly ground black pepper to taste
 1/2 teaspoon dry tarragon or 2 teaspoons chopped fresh tarragon
 1 cup sour cream (full fat), at room temperature
 
+beef_tartare
+
 beef_wellington
 1 pound beef tenderloin filet
 Kosher salt and freshly ground black pepper
@@ -90,6 +141,73 @@ Kosher salt and freshly ground black pepper
 2 tablespoons yellow mustard (we used Coleman's Original English Mustard)
 1 (7 to 8 1/2-ounce sheet) puff pastry, thawed (see recipe note)
 2 large egg yolks, beaten
+
+beet_salad
+
+beignet
+3/4 teaspoon kosher salt
+3 tablespoons sugar, divided
+1 cup warm whole milk
+2 teaspoons active dry yeast
+1 large egg
+3 tablespoons butter, melted
+1 1/2 to 2 quarts vegetable oil
+For the topping:
+3 cups powdered sugar
+
+beignets
+3/4 teaspoon kosher salt
+3 tablespoons sugar, divided
+1 cup warm whole milk
+2 teaspoons active dry yeast
+1 large egg
+3 tablespoons butter, melted
+1 1/2 to 2 quarts vegetable oil
+For the topping:
+3 cups powdered sugar
+
+bibimbap
+1 tablespoon rice vinegar
+1 tablespoon brown sugar
+1 pound green beans, stem ends trimmed off
+1 tablespoon canola oil
+1/2 teaspoon kosher salt
+2 teaspoons toasted sesame seeds
+
+biryani
+2 teaspoons ginger garlic paste, divided
+1 teaspoon turmeric powder
+2 to 3 whole chilis, sliced (jalapeno, serrano or cayenne)
+1/4 cup plain whole milk yogurt
+1 teaspoon olive oil
+1 1/2 pounds bone-in chicken pieces (drumsticks or whole thighs)
+1 tablespoon ghee (clarified butter) or unsalted butter
+1/3 cup finely chopped red onion (about 1/4 of a large onion)
+For the rice:
+2 cups long grain basmati rice
+3 to 4 whole black cardamom pods
+3 to 4 whole green cardamom pods
+2-inch cinnamon stick
+1 teaspoon whole peppercorns
+1 to 2 bay leaves
+Salt to taste
+For the saffron milk:
+1/2 teaspoon saffron threads
+1/3 cup milk, cold or room temperature
+For the fried onions:
+1 cup cooking oil
+1 cup thinly sliced red onion (about 3/4 of a large onion)
+To assemble the biryani:
+1 teaspoon ghee (clarified butter) or unsalted butter
+1/4 cup cilantro, coarsely chopped
+1/4 cup mint, coarsely chopped
+1/4 cup whole milk plain yogurt
+1 1/2 teaspoons garam masala
+2 to 3 tablespoons pomegranate arils (seeds)
+
+boiled_egg
+
+boston_cream_pie
 
 bread_pudding
 16-ounce French brioche loaf, cut into 3/4-inch cubes (12 cups)
@@ -132,6 +250,21 @@ brisket
 1/4 cup soy sauce
 1 (3 to 4) pound beef brisket
 1 tablespoon all-purpose flour, optional
+
+bruschetta
+1 cup whole milk ricotta
+Zest from 1 lemon
+1 tablespoon lemon juice
+1 heaping tablespoon chopped fresh parsley
+1/8 teaspoon salt
+Pinch freshly ground black pepper
+8 (1/2-inch thick) slices good crusty bread cut from a sourdough or country loaf
+2 tablespoons olive oil
+For garnish:
+Olive oil
+Flaky sea salt
+Freshly ground black pepper
+Lemon wedges
 
 bubble_and_squeak
 1 1/2 pounds cremini mushrooms, roughly chopped
@@ -200,6 +333,28 @@ caesar_salad
 1/2 teaspoon salt (or to taste)
 4 to 6 small heads  romaine lettuce, rinsed, patted dry, wilted outer leaves discarded
 
+cannelloni
+3 large (fat) zucchini (2 1/2 to 3 pounds total)
+2 tablespoons olive oil, or olive oil spray
+1/4 teaspoon salt
+1/8 teaspoon pepper
+For the sauce:
+2 tablespoons extra-virgin olive oil
+1 large garlic clove, thinly sliced
+1 (28-ounce) can whole, peeled tomatoes, crushed in a bowl with your hands
+1/2 teaspoon salt
+1/2 teaspoon sugar
+1/8 teaspoon freshly ground black pepper
+3 large basil leaves, torn into pieces
+For the filling:
+1 cup fresh ricotta
+3/4 cup grated freshly grated Parmesan, plus more for the topping
+1 large egg
+Pinch of nutmeg
+Pinch of freshly ground black pepper
+2 tablespoons chopped parsley
+20 to 30 basil leaves
+
 cannoli
 3 tablespoons extra virgin olive oil
 1 cup chopped onion
@@ -214,6 +369,26 @@ cannoli
 2 15-ounce cans cannellini or borlotti beans, drained and rinsed (or 3 1/2 cups freshly cooked beans)
 1/4 cup chopped parsley
 Kosher salt and black pepper to taste
+
+caprese_salad
+Coarse salt like kosher salt or sea salt
+1 bunch fresh basil, leaves carefully chopped or torn as not to bruise
+8 ounces, fresh mozzarella cheese, sliced
+1 tablespoon extra virgin olive oil
+Dash of balsamic vinegar (optional)
+Freshly ground black pepper
+
+carbonnade_flamande
+Salt and freshly ground black pepper
+4 Tbsp butter, divided 2 Tbsp and 2 Tbsp
+3 medium yellow onions sliced about 1/4 inch thick (about 8 cups)
+3 Tbsp all-purpose flour
+1 1/2 cups chicken or beef broth
+1 1/2 cups (12 oz bottle) Belgian beer
+4 sprigs fresh thyme
+2 bay leaves
+1 Tbsp whole grain mustard
+1 Tbsp brown sugar
 
 carrot_cake
 3 cups unbleached all-purpose flour
@@ -235,6 +410,8 @@ carrot_cake
 3 tablespoons lemon juice
 Extra whole or  chopped walnuts, for topping
 
+casserole
+
 ceviche
 2 pounds fresh, deboned red snapper (or other firm-fleshed fish) fillets, cut into 1/2-inch pieces
 1/2 cup freshly squeezed lime juice
@@ -248,6 +425,8 @@ Dash Tabasco or a light pinch of cayenne pepper
 Cilantro
 Avocado
 Tortillas or tortilla chips
+
+cheese_plate
 
 cheesecake
 1 3/4 cups (230g) Graham cracker crumbs (from about 15 Graham crackers)
@@ -267,6 +446,62 @@ Pinch salt
 12 ounces (340g) fresh raspberries
 1/2 cup (100g) sugar
 1/2 cup (120ml) water
+
+chicken_cordon_bleu
+1/2 teaspoon granulated garlic powder
+1/4 teaspoon ground black pepper
+3/4 cup all-purpose flour
+1 1/2 cups panko or regular breadcrumbs
+1 tablespoon chopped fresh parsley
+2 large eggs, beaten
+4 boneless, skinless chicken breasts (2 1/2 pounds), trimmed of excess fat
+1 1/2 tablespoons Dijon mustard
+8 slices (about 4 ounces) prosciutto or sliced ham
+4 ounces Gruyere or Swiss cheese, cut into 1/2-inch thick sticks
+3 cups vegetable oil, for frying
+To Serve:
+1 lemon, sliced into wedges
+
+chicken_curry
+1 1/2 pound skinless chicken breast, cut into 1 inch cubes
+Salt
+1 yellow onion, roughly chopped
+2 heaping tablespoons yellow curry powder
+1 cup raisins (soak in water while you prep)
+1 apple (tart or sweet, your preference), peeled, cored, and diced
+1/2 cup chopped fresh cilantro (just lightly packed)
+2 green onions, sliced
+1 tablespoon mayonnaise optional
+
+chicken_quesadilla
+1 cup cooked, shredded or chopped, chicken meat
+1/4 lb cheddar or Monterey jack cheese, sliced or grated
+1 apple, sliced
+1/4 cup salsa
+
+chicken_wing
+4 cups low-sodium chicken stock
+1 cup water
+2 tablespoons soy sauce
+2 tablespoons mirin rice wine vinegar
+1/2 teaspoon sugar
+2 to 4 large eggs
+One 7.1-ounce package fresh egg noodles, or 2 packages instant ramen, seasoning packets discarded
+2 scallions, thinly sliced
+
+chicken_wings
+3 pounds chicken wing sections, drumettes and flats
+1 tablespoon ground black pepper
+2 teaspoons kosher salt
+3/4 teaspoon garlic powder
+3/4 cup freshly grated Parmesan cheese
+6 tablespoons unsalted butter
+Chopped fresh parsley, for serving (optional)
+Ranch or blue cheese dressing, for serving
+
+chiffon_cake
+
+chili
 
 chocolate_cake
 2 cups (280 grams) all-purpose flour
@@ -312,6 +547,29 @@ Pinch chili pepper flakes
 2 tablespoons Worcestershire sauce
 1/4 cup chopped fresh parsley
 Kosher salt and freshly ground black pepper to taste
+
+chow_mein
+Salt
+1 tablespoon dark sesame oil
+1 tablespoon canola or peanut oil
+1/2 teaspoon red pepper flakes
+1 head iceberg lettuce or Napa cabbage, thinly sliced
+1/2 sweet bell pepper, thinly sliced
+3-4 scallions, sliced
+1 carrot, julienned
+1/2 cup loosely packed cilantro leaves, chopped
+1/2 cup roasted peanuts
+Chow mein noodles, to taste
+For the dressing:
+1 tablespoon soy sauce (use gluten-free soy sauce for gluten-free option)
+2 tablespoons unseasoned rice vinegar
+1 teaspoon mustard powder
+1 teaspoon fresh grated ginger
+1 clove garlic, minced
+1/2 teaspoon chili pepper flakes
+2 teaspoons sugar
+1 tablespoon dark sesame oil
+1/4 cup peanut or canola oil
 
 churro
 1 stick butter (8 tablespoons or 4 ounces)
@@ -383,6 +641,39 @@ club_sandwich
 Juice from 1/2 lemon
 Pinch salt
 
+coconut_cake
+Butter (for the cake pans)
+Flour (for the cake pans)
+2 3/4 cups all-purpose flour
+1 teaspoon baking powder
+1/2 teaspoon baking soda
+1/2 teaspoon salt
+4 large eggs
+1/2 cup (1 stick) unsalted butter, at room temperature
+1/2 cup coconut oil (solidified, not liquidy)
+1 1/2 cups sugar
+1 cup canned cream of coconut, such as Coco Lopez
+1 teaspoon vanilla extract
+1 cup buttermilk
+Pinch of salt
+For the lemon curd filling:
+1 tablespoon finely grated lemon zest
+1/2 cup lemon juice (from 3 to 4 lemons)
+3/4 cup sugar
+2 large eggs
+2 egg yolks
+Pinch of salt
+6 tablespoons unsalted butter, cut in small cubes
+For the buttercream:
+3/4 pound (3 sticks) cold unsalted butter, cut into pieces
+4 egg whites
+1 cup sugar
+1 1/2 teaspoons vanilla extract
+To finish the cake:
+1 cup unsweetened coconut flakes, toasted
+1 cup lemon curd
+1 cup shredded unsweetened coconut
+
 coffee_cake
 2 cups baking mix, such as Bisquick
 2/3 cup milk or water
@@ -393,6 +684,18 @@ coffee_cake
 1/3 cup packed brown sugar
 1/2 teaspoon ground cinnamon
 4 tablespoons butter, thinly sliced
+
+compote
+1 1/2 pounds mixed marbled potatoes, halved lengthwise
+1 pound asparagus, tough ends trimmed away
+6 tablespoons extra virgin olive oil, divided
+4 6-ounce boneless halibut filets
+Salt and ground black pepper
+For the compote:
+1 cup red wine
+1/4 cup balsamic vinegar
+2 tablespoons honey
+1 1/2 cups Well•Pict strawberries, coarsely chopped
 
 confit
 Duck legs (at least one per person)
@@ -423,6 +726,22 @@ cottage_pie
 1/2 cup beef broth
 1 teaspoon Worcestershire sauce
 Pepper and/or other seasonings of choice
+
+couscous
+1 pound large shrimp (31-35/pound) shelled
+1 tablespoon seafood dry rub
+1 tablespoon olive oil
+Lemon Pepper Couscous:
+1 cup water
+1 tablespoon butter
+1 cup couscous
+1 teaspoon lemon pepper, or 1/2 teaspoon black pepper and 1 teaspoon lemon zest
+1 teaspoon fresh lemon zest
+For the Sautéed Swiss Chard:
+1 bunch Swiss chard, stems removed
+1 tablespoon olive oil
+1/2 teaspoon lemon juice
+1/8 teaspoon table salt
 
 crab_cake
 1 pound lump crabmeat, picked through and any bits of shell removed (try not to break up the lumps of crabmeat as you pick through it)
@@ -488,6 +807,48 @@ creme_brulee
 1/4 teaspoon kosher salt
 4 tablespoons sugar (2 teaspoons per ramekin)
 
+croque_madame
+2 tablespoons mayonnaise
+1 tablespoon Dijon mustard
+2 thin slices Gruyere, or other firm, melting cheese (like Comté, Emmental, Jarlsberg), or enough cheese to cover the bread slices
+2 thin slices deli ham, like Black Forest
+2 tablespoons mayonnaise
+1 1/2 tablespoons butter
+1 tablespoons olive oil
+1 large egg
+Pinch teaspoon salt
+Pinch teaspoon black pepper
+1 teaspoons chopped fresh thyme or parsley
+
+crumb_cake
+1/2 batch all-butter Perfect Pie Crust, chilled
+For the filling:
+6 to 7 cups peaches (about 2 to 2 1/2 pounds), halved and cut into 1/2-inch slices (peeled or not—your call)
+1 1/2 cups (scant dry pint) blueberries, stems removed
+1/4 cup (50 g) sugar
+Juice of half a lemon
+1/4 cup plus 2 tablespoons cornstarch
+For the crumb topping:
+1 cup (128 g) all-purpose flour
+2/3 cup light brown sugar
+1/2 cup unsalted butter, melted (room temperature to cool is fine)
+Pinch of salt
+1/4 to 1/2 teaspoon ground ginger, optional
+
+cup_cakes
+4 ounces bittersweet chocolate (or 2/3 cup dark chocolate chips)
+3 large eggs
+1/4 cup honey
+1/4 cup coconut sugar or lightly packed brown sugar
+1/2 cup fine almond flour
+1 teaspoon vanilla extract
+1/4 teaspoon kosher salt
+Powdered sugar for dusting the top
+
+cupcake
+
+custard
+
 deviled_egg
 12 large eggs
 2 teaspoons Dijon mustard
@@ -505,6 +866,39 @@ deviled_eggs
 1/4 teaspoon Tabasco sauce
 Salt and pepper, to taste
 Paprika, to taste
+
+donut
+
+donuts
+1 tablespoon flax meal
+1 1/2 cup plus 1 tablespoon (215g) gluten-free flour blend, such as Bob's Red Mill 1:1 Gluten Free Baking Flour Blend
+1/2 cup (100g) granulated sugar
+1/3 cup plus 1 tablespoon (30g) unsweetened dairy-free cocoa powder
+1 teaspoon baking powder
+1/2 teaspoon baking soda
+1/4 teaspoon cream of tartar
+1/2 teaspoon kosher salt
+1/4 cup coconut oil, melted and liquid, but slightly cooled
+1 teaspoon vanilla extract
+1 tablespoon apple cider vinegar
+3/4 cup plus 2 tablespoons warm non-dairy milk, such as soy milk or oat milk
+For the glaze:
+1 cup (115g) powdered sugar (make sure it's gluten-free)
+3 tablespoons unsweetened dairy-free cocoa powder
+2 to 4 tablespoons non-dairy milk, such as soy milk or oat milk
+Rainbow sprinkles, to top
+
+dumpling
+4 cloves garlic, minced
+4 tablespoons soy sauce
+10 cups water
+32 homemade or store-bought mandu (Korean dumplings), fresh or frozen
+2 large eggs
+4 green onions, trimmed and cut diagonally into 2-inch slices
+2 tablespoons toasted sesame oil
+2 teaspoons salt, plus more to taste
+1 teaspoon white or black pepper, plus more to taste
+2 roasted nori (seaweed sheets), for serving
 
 dumplings
 3 to 3 1/2 pounds chicken thighs and breasts, skin-on, bone-in, trimmed of excess fat
@@ -528,6 +922,16 @@ Ground black or white pepper
 3/4 cup milk
 1/4 cup minced fresh herb leaves such as parsley, chives, and tarragon, optional
 
+edamame
+1/2 cup, packed, roughly chopped fresh cilantro, including stems
+1/2 cup plain yogurt
+1 avocado, peeled, pitted, roughly chopped
+1/2 cup water
+1/4 cup lime or lemon juice
+1-2 teaspoons salt
+5 shakes of Tabasco (less or more to taste)
+3 drops of dark sesame oil (more to taste)
+
 egg_roll
 1 tablespoon olive oil
 1 pound ground pork or chicken
@@ -543,6 +947,8 @@ Oil, for brushing
 Duck sauce
 Plum sauce
 Soy sauce
+
+eggs_benedict
 
 enchilada
 Extra virgin olive oil, corn oil, or peanut oil
@@ -591,6 +997,18 @@ Fresh lettuce
 1/2 red onion, sliced thinly
 1 cucumber, sliced thinly
 
+farfalle
+3 tablespoons extra virgin olive oil (divided, 1 Tbsp and 2 Tbsp)
+2 ounces prosciutto, thin slices separated and roughly chopped
+1/2 cup fresh or frozen peas
+1/2 cup shredded Parmesan cheese
+1/2 teaspoon freshly ground black pepper
+1 cup reserved pasta water
+1 large handful baby arugula (about a cup and a half, packed)
+2 tablespoons thinly sliced fresh mint leaves
+
+fettuccine
+
 filet_mignon
 2 to 4 filet mignon steaks, 1 to 2 inches thick (see recipe note)
 Salt
@@ -598,6 +1016,16 @@ Extra virgin olive oil or canola oil
 3 to 4 tablespoons unsalted butter, divided
 2 cups full bodied red wine (we used a favorite Zinfandel)
 Black pepper, to taste
+
+fish_and_chips
+2 1/2 pounds Yukon Gold or other yellow potatoes (3 large or 6 medium), unpeeled
+1 teaspoon salt
+1 cup Panko, or other unseasoned dry white breadcrumbs
+1/2 teaspoon ground black pepper
+2 pounds firm-fleshed white fish fillets, skins removed, such as haddock, halibut, pollock, flounder, whiting, redfish, cod, or other fish in your region
+1 tablespoon chopped fresh parsley
+1 lemon, cut into wedges, to serve
+Tartar sauce, to serve
 
 fish_stick
 1 cup mayonnaise
@@ -613,6 +1041,20 @@ Pinch salt and pepper
 1/4 teaspoon salt
 1/4 teaspoon black pepper
 2 cups vegetable oil, for frying
+
+flan
+1/2 cup granulated sugar
+2 Tbsp water
+Custard
+2 cups whole milk
+1/2 cup sugar
+2 eggs
+2 egg yolks
+1/4 teaspoon vanilla extract
+1 tablespoon rose water*
+Special items needed
+4 6-ounce ramekins
+*Rose water can be found in Mediterranean markets and also Whole Foods in the baking department. According to the Doña Tomàs book you can also make your own by boiling a cup of rose petals (fresh from a garden, not store-bought, no pesticides, no fungicides) in a cup of water with a tablespoon of honey, for 10 minutes. Let steep overnight and then strain. Refrigerate for up to 2 weeks.
 
 foie_gras
 1 pound beef tenderloin filet
@@ -688,6 +1130,8 @@ fried_calamari
 3/4 cup rice or regular flour plus more for sprinkling on squid
 Peanut oil or canola oil for frying
 
+fried_egg
+
 fried_rice
 3 cups cooked rice, fresh or frozen
 10 ounces lean pork loin, diced into 1/2-inch cubes
@@ -718,6 +1162,33 @@ frittata
 8 ounces (225g) or more fresh chopped spinach (can use baby spinach)
 2 ounces (56g) goat cheese
 
+fritter
+3/4 cup rice vinegar
+1/2 cup sugar
+1 1/2 teaspoons red chili pepper flakes
+1 1/2 teaspoons salt
+1 large clove garlic, minced
+Fritters
+1 cup flour
+1/4 teaspoon baking powder
+1/2 teaspoon salt
+1 teaspoon ground coriander
+1/2 teaspoon ground cumin
+1 egg, lightly beaten
+1 teaspoon lemon juice
+1/2 cup water
+2 cups of corn kernels, (see steps for cutting corn from a cob) cut from 3 large cobs (or frozen corn, defrost and drain first)
+4 large scallions or green onions, finely sliced (about half a cup)
+1/4 cup chopped cilantro
+Extra virgin olive oil or peanut oil for frying
+
+frozen_yogurt
+2 Tbsp lemon juice
+3/4 cup sugar (more or less depending on how sweet the cherries and how sweet you want your frozen yogurt to be)
+1/4 cup whole milk (can substitute half-and-half or cream for creamier version)
+1 1/2 cups full fat yogurt (if you are using non or low-fat yogurt, add 2 Tbsp heavy cream)
+2 Tbsp almond liqueuer such as Amaretto (optional)
+
 fruitcake
 1 teaspoon baking soda
 1 cup (236ml) full fat sour cream
@@ -739,6 +1210,10 @@ garlic_bread
 2 large cloves garlic, smashed and minced
 1 heaping tablespoon chopped fresh parsley
 1/4 cup (25 g) freshly grated Parmesan cheese (optional)
+
+gingerbread
+
+gnocchi
 
 greek_salad
 6 tablespoons extra virgin olive oil
@@ -797,6 +1272,39 @@ Pinch freshly ground black pepper
 Red radish or jicama slices for garnish (optional)
 Tortilla chips, to serve
 
+gyoza
+8 ounces medium-firm tofu
+8 ounces ground pork
+8 ounces ground beef
+2 cups buchu (Korean garlic chives), finely chopped
+1/2 medium yellow onion, finely chopped
+3 cloves garlic, minced
+1 tablespoon fresh ginger, minced
+1 large egg
+1 tablespoon soy sauce
+1 tablespoon toasted sesame oil
+1 teaspoon salt
+1 teaspoon white or black pepper
+For the mandu
+Flour, for sprinkling
+1 package (50 to 60 wrappers) store-bought or homemade mandu wrappers
+2 tablespoons vegetable oil, for pan frying
+For the dipping sauce
+4 tablespoons soy sauce
+4 tablespoons rice vinegar
+1 scallion, trimmed and thinly sliced
+1 clove garlic, minced
+1 teaspoon sesame oil
+1 teaspoon toasted sesame seeds
+1/2 teaspoon gochugaru (Korean chili flakes), optional
+
+ham_and_eggs
+1 egg
+2 slices rye bread
+Enough sliced ham to form a 1/4-inch layer to cover a slice of rye bread
+Small handful of baby spinach (or sliced young chard)
+A few slices of gruyere cheese
+
 ham_sandwich
 2 tablespoons unsalted butter
 2 tablespoons all-purpose flour
@@ -807,6 +1315,36 @@ A pinch each of salt, freshly ground pepper, nutmeg, or more to taste
 8 slices French or Italian loaf bread
 12 ounces ham, sliced
 1 teaspoon Dijon mustard
+
+hamburger
+
+hot_and_sour_soup
+6 dried wood ear, black, cloud, straw, or shiitake mushrooms, or one bunch of fresh enoki mushrooms
+5 dried lily buds
+1 (8 ounce) can bamboo shoots
+2 tablespoons red wine vinegar
+1 tablespoon white vinegar or rice vinegar
+1 1/2 tablespoons soy sauce
+1 tablespoon cornstarch
+4 cups chicken broth
+1/2 block firm tofu, diced into small cubes
+1 large egg, beaten
+1 teaspoon sesame oil
+3 scallions, diced
+1/4 teaspoon salt
+1 1/2 teaspoons finely ground white pepper
+1/4 teaspoon chili oil (optional)
+Cilantro (optional)
+
+hot_dog
+8 poppy seed hot dog buns or potato buns
+Yellow mustard for topping
+Sweet pickle relish for topping
+2 medium tomatoes, cut into 8 wedges each
+1 small yellow onion, diced
+8 dill pickle spears
+16 sport peppers or pepperoncini, whole or diced
+Celery salt for topping
 
 huevos_rancheros
 1 tablespoon extra virgin olive oil
@@ -829,6 +1367,8 @@ hummus
 1/2 teaspoon salt
 Garnishes: A sprinkling of paprika, a swirl of olive oil, toasted pine nuts, and/or chopped parsley
 
+ice_cream
+
 jambalaya
 1 white onion, diced
 3 ribs celery, diced
@@ -846,6 +1386,18 @@ jambalaya
 1/2 teaspoon black pepper, or to taste
 Fresh parsley, chopped, for garnish
 
+jerky
+
+kabob
+
+lasagna
+
+linguine
+
+lobster_bisque
+
+lobster_food
+
 lobster_roll_sandwich
 1 pound cooked lobster meat, cut into 1-inch pieces
 3 tablespoons lemon juice
@@ -857,6 +1409,40 @@ lobster_roll_sandwich
 2 to 3 tablespoons soft butter
 Lemon wedges
 Potato chips
+
+macaron
+1/2 cup heavy cream
+1 1/2 cups white chocolate chips
+1 to 2 drops peppermint extract
+For the macaron shells
+1 1/4 cups (100g) blanched almond meal
+3/4 cup (80g) powdered sugar
+Distilled white vinegar, for cleaning the bowl
+2 or 3 (80g) large egg whites at room temperature
+1/4 teaspoon cream of tartar
+1/3 cup (80g) sugar
+Red food coloring
+Special equipment
+Silicone baking mat or parchment paper
+Small pastry brush
+
+macaroni_and_cheese
+
+macarons
+1/2 cup heavy cream
+1 1/2 cups white chocolate chips
+1 to 2 drops peppermint extract
+For the macaron shells
+1 1/4 cups (100g) blanched almond meal
+3/4 cup (80g) powdered sugar
+Distilled white vinegar, for cleaning the bowl
+2 or 3 (80g) large egg whites at room temperature
+1/4 teaspoon cream of tartar
+1/3 cup (80g) sugar
+Red food coloring
+Special equipment
+Silicone baking mat or parchment paper
+Small pastry brush
 
 marble_cake
 1 tablespoon unsalted butter, at room temperature
@@ -881,6 +1467,105 @@ marble_cake
 2 to 2 1/2 cups (230g to 290g) powdered sugar
 Chocolate pearls, chocolate shavings, or chocolate sprinkles (optional)
 
+matzo_ball
+2 large eggs
+2 tablespoons schmaltz (chicken fat), melted, or any neutral-flavored oil
+2 tablespoons water
+1 teaspoon kosher salt
+1/4 teaspoon ground black pepper
+1/2 cup matzo meal
+For the soup:
+6 cups chicken stock, homemade or store-bought
+1 large carrot, peeled and sliced thinly (about 1/8-inch thick)
+2 inner ribs of celery, peeled and sliced thinly (about 1/8-inch thick)
+To serve:
+1 tablespoon chopped fresh parsley or dill
+Ground black pepper
+
+meat_loaf_food
+1 large egg
+1 teaspoon salt
+1/4 teaspoon ground black pepper
+1 to 2 small zucchini (10 ounces), grated to make about 2 cups
+1 small carrot, coarsely grated to make about 3/4 cup
+2 tablespoons grated onion, optional
+1/3 cup chopped fresh parsley
+Zest of one lemon, finely grated
+2 tablespoons lemon juice
+1 tablespoon Dijon mustard
+4 tablespoons sweet chili sauce, divided (or substitute ketchup)
+1 1/2 pounds ground turkey
+2 tablespoons ketchup
+
+meatball
+
+miso_soup
+1 (14x2 1/2-inch) piece of dried kelp (kombu)
+8 cups water
+2 cups (20g) large dried bonito flakes (katsuobushi), lightly packed
+1/3 cup white miso paste
+1 (16 ounce) package silken tofu, cut into 1-inch cubes
+2 teaspoons sesame oil
+1 scallion, thinly sliced
+1/8 teaspoon shichimi togarashi (optional)
+Steamed rice, to serve
+
+moo_goo_gai_pan
+1 1/2 pounds boneless, skinless chicken breast
+1 large egg
+1 tablespoon cornstarch
+For the stir fry sauce:
+1 1/2 cups chicken stock
+3 tablespoons soy sauce
+2 tablespoons corn starch
+1 tablespoon hoisin sauce
+1 tablespoon oyster sauce
+1/2 teaspoon Chinese five spice powder
+Pinch of ground white pepper
+For the vegetables:
+1 tablespoon vegetable oil
+3 carrots, peeled and sliced thinly on a diagonal
+3/4  cup (3 ounces) snow peas
+2 teaspoons grated fresh garlic
+1 teaspoons grated fresh ginger
+2 cups (5 ounces) shiitake (or white button) mushrooms, sliced
+1/3 cup (4 ounces) canned water chestnuts, drained
+1/3 cup (4 ounces) canned bamboo shoots, drained
+Kosher salt, to taste
+To serve:
+6 cups cooked jasmine rice
+
+moussaka
+2 pounds ground lamb or beef
+2 tablespoons extra virgin olive oil
+1 onion, chopped
+4 garlic cloves, chopped
+1 teaspoon allspice
+1 teaspoon cinnamon
+1 teaspoon black pepper
+1 tablespoon dried oregano
+2 tablespoons tomato paste
+1/2 cup red wine
+Zest of 1 lemon
+2 tablespoons lemon juice, or more to taste
+Salt to taste
+Bechamel sauce
+1 stick unsalted butter
+1/2 cup flour
+1 teaspoon salt
+4 cups whole milk
+4 egg yolks
+1/2 teaspoon ground nutmeg
+To assemble
+3 large globe eggplants
+1/2 cup salt
+8 cups water
+2-3 Yukon gold or other yellow potatoes
+1 cup grated mizithra (or pecorino or Parmesan) cheese
+Extra virgin olive oil
+
+mussel
+
 mussels
 4 strips bacon, chopped
 1/2 small white onion, chopped
@@ -894,6 +1579,22 @@ mussels
 1 pound spaghetti, drained, if serving as a main course
 Crusty bread, if serving as an appetizer
 Fresh parsley
+
+nacho
+1 cup red onion, diced
+1 cup Roma tomatoes, diced
+1 jalapeno, seeded and diced
+2 tablespoons fresh cilantro, chopped
+1/2 lime, juiced
+1/8 teaspoon salt
+For the burger
+2 pounds ground beef
+2 tablespoons Old Paso taco seasoning
+8 ounces queso fresco, crumbled
+6 potato hamburger buns
+2 ripe avocados, pitted and sliced
+Tortilla chips, for topping
+Pickled jalapenos, for topping
 
 nachos
 2 tablespoons chili powder
@@ -933,6 +1634,23 @@ Cooking spray or extra virgin olive oil
 Pinch salt
 Pinch black pepper
 
+onion_rings
+3 medium sweet yellow onions
+1 cup all-purpose flour
+2 tablespoons cornstarch
+1 teaspoon kosher salt
+1 teaspoon black pepper
+3 large eggs
+3/4 cup milk
+4 cups panko breadcrumbs
+Nonstick spray, for cooking
+Minced parsley, garnish (optional)
+For the easy fry dip
+1/3 cup mayonnaise
+2 tablespoons ketchup
+
+orzo
+
 osso_buco
 4 ounces pancetta, diced into 1/4 inch cubes (see recipe note)
 2 1/2 to 3 pounds veal shanks (4 to 6 pieces 2 to 3 inches thick)
@@ -948,6 +1666,33 @@ Salt and pepper
 2 tablespoons minced flat (Italian) parsley
 1 tablespoon grated lemon zest
 2 cloves garlic, crushed and minced
+
+oyster
+
+oysters
+4 tablespoons unsalted butter, softened to room temperature
+2 teaspoons white miso paste
+1 1/2 teaspoons sriracha
+1 large lime, zested
+1 baguette, for serving
+
+pad_thai
+1 (14-ounce) package of flat, wide rice noodles
+6 to 8 tablespoons fish sauce
+3/4 cup rice vinegar
+1 to 2 teaspoons tamarind paste (also sometimes called concentrate)
+1 cup granulated sugar
+Pinch of paprika (or cayenne powder)
+10 to 12 tablespoons canola or vegetable oil, divided
+4 large eggs
+1 pound shrimp, peeled, deveined, and defrosted
+1/3 cup roasted unsalted peanuts, chopped roughly
+1 cup bean sprouts
+For garnish (optional):
+1 lime, cut into quarters
+2 tablespoons roasted unsalted peanuts, chopped roughly
+Chopped cilantro, for garnish
+Red pepper flakes, for garnish
 
 paella
 4 1/2 cups chicken stock
@@ -989,6 +1734,66 @@ pancakes
 3 tablespoons melted unsalted butter
 2 teaspoons vanilla extract
 
+panna_cotta
+Vegetable oil, or vegetable oil spray (for the molds)
+1/2 cup cold milk
+3 teaspoons unflavored gelatin powder
+3 cups heavy cream
+1/3 cup (67g) sugar
+Pinch of salt
+1/2 cup sour cream
+1 teaspoon vanilla extract
+For the sauce and berries:
+1 12-ounce package (about 3 cups) frozen raspberries, defrosted
+3 tablespoons sugar
+3 tablespoons orange juice
+2 cups fresh blueberries, raspberries, blackberries, sliced strawberries, or a mix
+
+pate
+1 lb lean pork
+1 lb mild Italian sausage meat
+1 Tbsp chopped chives or scallions
+1 Tbsp chopped parsley
+1 Tbsp fresh coarsely ground pepper
+1/2 teaspoon ground ginger
+1/2 teaspoon cinnamon
+1 teaspoon salt
+2 Tbsp brandy
+2 Tbsp dry sherry
+10 slices bacon (uncooked)
+
+pavlova
+1 1/2 teaspoons pure vanilla extract
+1/2 teaspoon cream of tartar OR 2 teaspoons white wine vinegar OR distilled white vinegar
+1 1/2 tablespoons cornstarch
+1 1/2 cups granulated sugar
+3/4 cup (6 ounces, about 6) large egg whites, preferably room temperature
+Pinch salt
+Topping:
+2 pints fresh or frozen berries
+1/4 cup sugar
+Whipped Cream for topping
+
+peach_melba
+2 tablespoons butter, softened
+8 ounces fresh or frozen peaches, peeled and sliced 1/2 inch thick
+6 ounces fresh or frozen raspberries
+8 large eggs
+2 1/3 cups heavy whipping cream
+3/4 cup sugar
+3/4 teaspoon salt
+1 tablespoon vanilla extract
+For the topping:
+2 tablespoons sugar
+1/2 cup sliced almonds (optional)
+For the raspberry sauce:
+10 ounces fresh or frozen raspberries
+1/4 cup sugar
+1 teaspoon vanilla extract
+1/8 teaspoon salt
+
+penne
+
 pepper_steak
 3 tablespoons canola or peanut oil
 1/2 lb asparagus, trimmed, cut on the diagonal into 1 1/2 inch lengths (about 1 1/2 cups)
@@ -1016,6 +1821,8 @@ About 1/2 teaspoon fine sea salt
 About 1/2 teaspoon organic sugar, or 1 teaspoon maple syrup (optional)
 Pepper (optional)
 Optional extras: Bean sprouts, mint sprigs, Thai basil, cilantro leaves, lime wedges, thinly-sliced chili peppers
+
+pilaf
 
 pizza
 1 1/2 cups (355 ml) warm water (105°F-115°F)
@@ -1049,6 +1856,18 @@ poached_egg
 1/2 cup room temperature water
 Salt and pepper to taste
 
+pork_chop
+1/4 cup cumin seeds
+3 tablespoons whole black peppercorns
+1 tablespoon coriander seeds
+2 tablespoons sugar
+1 1/2 teaspoons sea salt
+For the pork chops:
+4 pork chops (bone-in or boneless)
+1 teaspoon bacon fat or extra virgin olive oil
+Salt
+1 to 2 teaspoons dry rub
+
 porridge
 1 tablespoon unsalted butter
 1 cup steel-cut oats
@@ -1078,6 +1897,28 @@ pound_cake
 2 teaspoons vanilla extract
 2 to 3 tablespoons milk
 
+prime_rib
+8 pound boneless prime rib roast
+1/2 tablespoon salt
+For the garlic herb butter
+12 tablespoons (6 ounces; 1 1/2 sticks) unsalted butter, softened
+10 large garlic cloves, minced
+1 shallot (slightly larger than a golf ball), minced
+1 1/2 tablespoons dried thyme
+1 1/2 tablespoons minced fresh rosemary
+1 1/2 tablespoons ground pepper
+1 1/2 teaspoons kosher salt
+1 1/2 teaspoons lemon juice
+For the dripping gravy (about 4 1/2 cups)
+1/2 cup all-purpose flour or cornstarch
+1/2 cup fat prime rib roast drippings
+4 cups beef stock or water
+salt, to taste
+Special equipment:
+Kitchen String (unless your butcher ties the roast)
+Instant-read or Probe-Style Oven Thermometer
+Roasting pan, at least 14”x12”x3”
+
 pulled_pork_sandwich
 1 large onion, chopped
 6 cloves garlic, peeled
@@ -1094,6 +1935,18 @@ Salt
 1 bay leaf
 3 pounds pork butt shoulder roast
 Hamburger buns
+
+ramen
+4 cups low-sodium chicken stock
+1 cup water
+2 tablespoons soy sauce
+2 tablespoons mirin rice wine vinegar
+1/2 teaspoon sugar
+2 to 4 large eggs
+One 7.1-ounce package fresh egg noodles, or 2 packages instant ramen, seasoning packets discarded
+2 scallions, thinly sliced
+
+ravioli
 
 red_velvet_cake
 1 1/2 cups sugar
@@ -1113,6 +1966,30 @@ red_velvet_cake
 2 to 3 cups powdered sugar
 1 teaspoon vanilla extract
 
+reuben
+1/3 cup mayonnaise
+1-1/2 tablespoon ketchup
+1-1/2 teaspoons prepared horseradish
+1/2 teaspoon Worcestershire sauce
+Freshly ground black pepper, to taste
+(This makes 1/2 cup of dressing)
+Sandwich ingredients:
+2 tablespoons butter, softened
+8 slices rye bread
+8 slices Swiss cheese
+3/4 pound corned beef brisket, thinly sliced
+1/2 pound sauerkraut
+1/4 cup Russian Dressing (see above)
+
+rigatoni
+1/4 cup extra virgin olive oil
+3 large garlic cloves, smashed
+1/4 teaspoon red pepper flakes, or to taste
+1/2 teaspoon kosher salt, or to taste, plus more for cooking pasta
+12 ounces dry pasta like rigatoni or orecchiette
+2 tablespoons fresh lemon juice
+1/2 cup finely grated Parmesan cheese, plus more for garnish
+
 risotto
 2 tablespoons butter
 2 cups flavorful mushrooms (such as shiitake, chanterelle, or oyster), cleaned, trimmed, and cut into 1/2- to 1-inch pieces
@@ -1123,6 +2000,39 @@ risotto
 1/3 cup freshly grated Parmesan cheese
 Salt and freshly ground black pepper, to taste
 2 tablespoons fresh parsley or chives
+
+rock_cake
+
+roulade
+1 cup chopped parsley
+1/2 cup shelled walnuts, about 1 3/4 ounces
+1/4 cup grated parmesan or pecorino cheese
+2 garlic cloves, roughly chopped
+1/4 teaspoon salt
+1/4 cup extra virgin olive oil
+Flank steak roulade:
+1/2 pound thin-cut bacon
+1 1/2 to 1 3/4 pounds flank steak
+Salt and black pepper
+Lemon wedges to serve
+
+salisbury_steak
+1 pound ground beef
+1/3 cup plain breadcrumbs
+1 large egg
+1/2 teaspoon salt
+1/4 teaspoon ground black pepper
+2 tablespoons neutral-flavored oil cooking oil (I use avocado oil)
+For the mushroom sauce:
+8 ounces crimini or brown mushrooms, sliced
+1 small yellow onion, sliced
+1 clove garlic, chopped
+2 tablespoons tomato paste
+1 1/2 teaspoons prepared yellow mustard
+1 1/2 cups low sodium beef broth
+2 teaspoons cornstarch
+1 tablespoon water
+2 tablespoons chopped fresh parsley, for garnish (optional)
 
 samosa
 2 cups cilantro, coarsely chopped
@@ -1163,6 +2073,58 @@ Sliced radish
 1 large avocado, cubed
 Furikake
 Red pepper flakes
+
+sauerbraten
+1/4 cup melted butter or extra virgin olive oil
+8 gingersnap cookies
+3 Tbsp butter
+2 Tbsp flour
+Salt
+Marinade Ingredients:
+1 bottle of red wine
+1/2 cup red wine vinegar
+2 cups water
+1 Tbsp black peppercorns
+1 Tbsp juniper berries
+1 Tbsp mustard seed
+6-8 cloves
+3-5 bay leaves
+1 Tbsp dried thyme
+2 celery stalks, chopped
+2 carrots, peeled and chopped
+1 medium onion, chopped
+
+sauerkraut
+
+sausage_roll
+1 tablespoon canola oil
+1 pound cold pizza dough, homemade or store-bought
+1 large egg
+1 tablespoon water
+1/8 teaspoon salt
+Yellow or brown mustard, to serve
+Pickles, to serve
+
+scallop
+
+scallops
+5 ears corn, shucked
+2 tablespoons butter
+1/2 medium onion, finely chopped
+1/2 poblano chile, finely chopped
+1/2 cup heavy cream
+1/2 cup water, plus more as needed
+1/4 teaspoon salt
+1/8 teaspoon ground black pepper
+1/4 cup chopped fresh cilantro or parsley
+For the scallops:
+12 to 16 dry sea scallops (about 1 1/4 pounds)
+1/2 teaspoon salt
+1/8 teaspoon ground black pepper
+2 tablespoons olive oil
+2 tablespoons lime juice
+Lime wedges, for serving
+3 to 4 tablespoons coarsely chopped cilantro or parsley, for serving
 
 scampi
 1 pound (16 to 20 count) large raw shrimp, shelled and de-veined, (if you want, keep the tail on for an attractive presentation)
@@ -1207,6 +2169,32 @@ scrambled_eggs
 Fresh cracked pepper
 Mix-ins, like leftover meat, cooked vegetables, cheese, or herbs
 
+scrapple
+1 teaspoon salt
+1 tablespoon brown sugar
+2 1/4 teaspoons instant dry yeast (one packet)
+Scant 1 cup warm water
+1/4 cup baking soda
+Kosher or coarse sea salt, for sprinkling
+4 tablespoons unsalted butter, melted
+
+seaweed_salad
+5 x 9-inch piece of kombu (about ¾ ounce), soaked in warm water for 15–20 minutes
+1 head of lettuce (red oak or butter), leaves separated, washed and dried thoroughly
+1 avocado, sliced or cut into thin wedges
+1 tablespoon toasted white sesame seeds
+1 scallion, finely chopped
+Sea salt and black pepper
+For the spicy sesame dressing
+1 garlic clove, grated
+1 scallion, finely chopped
+1 teaspoon sugar
+1 tablespoon rice vinegar
+1 tablespoon gochugaru (Korean red chile flakes) or 1 teaspoon red chile flakes
+2 tablespoons toasted sesame oil
+1 tablespoon toasted white sesame seeds
+1 teaspoon sea salt
+
 shrimp_and_grits
 4 1/2 cups water
 1 teaspoon kosher salt
@@ -1223,6 +2211,27 @@ shrimp_and_grits
 2 tablespoons chopped parsley
 Juice of 1 lemon, about 1 to 2 tablespoons
 
+sloppy_joe
+1/4 teaspoon salt
+2 tablespoons olive oil
+1 medium yellow onion, diced small
+1 green pepper, diced small
+2 small carrots, diced small
+3 cloves garlic, minced
+1 tablespoon mild chili powder
+2 teaspoons paprika
+1/2 cup ketchup
+1 cup tomato sauce
+2 tablespoons apple cider vinegar
+2 tablespoons brown sugar
+1/2 cup water
+Salt and pepper, to taste
+Buns, for serving
+Sliced red onion, for serving
+Pickles, for serving
+
+souffle
+
 spaghetti_bolognese
 2 ounces pancetta , finely chopped
 1 medium Spanish onion or yellow onion, finely chopped
@@ -1238,6 +2247,69 @@ Dash ground cinnamon
 2 pounds peeled and chopped tomatoes (or one 28-ounce can whole peeled tomatoes, packed in water)
 1 cup whole milk
 1/2 teaspoon sea salt
+
+spaghetti_carbonara
+
+sponge_cake
+3/4 cup (100g) cake flour
+1/2 cup (56g) cocoa powder
+3 1/2 tablespoons (26g) cornstarch
+3/4 cups (170g) granulated sugar
+6 large eggs, room temperature
+1/2 teaspoon (3g) kosher salt
+4 tablespoons (58g) melted unsalted butter
+1 teaspoon vanilla extract
+2 tablespoons cocoa powder (for dusting the tea towel)
+For the stabilized whipped cream
+1 1/2 tablespoons cold water
+1 teaspoon plain gelatin powder
+1 1/2 cups heavy cream
+1/2 cup (50g) powdered sugar
+1 teaspoon vanilla extract
+For the chocolate ganache
+1 cup (170g) semi-sweet chocolate chips
+1/2 cup heavy cream
+1 teaspoon vanilla extract, optional
+Special equipment
+Half sheet pan (18 x 13 x 2-inches)
+Tea towel
+Parchment paper
+
+spring_roll
+1 pound pork loin or tenderloin
+1 tablespoon cornstarch
+1 1/2 teaspoons sugar
+1 tablespoon sesame oil
+1 1/2 teaspoons Shaoxing rice wine, optional
+4 teaspoons soy sauce
+1/2 medium head napa cabbage, thinly sliced (about 6 cups)
+3 medium carrots, julienned
+1/2 teaspoon Kosher salt
+3 scallions, thinly sliced on a bias
+2 teaspoons minced ginger
+4 cups canola or vegetable oil, divided
+3 tablespoons oyster sauce
+1 large egg
+50 to 60 (6-inch) square spring roll wrappers
+Chingkiang vinegar or black vinegar, to serve
+
+spring_rolls
+1 pound pork loin or tenderloin
+1 tablespoon cornstarch
+1 1/2 teaspoons sugar
+1 tablespoon sesame oil
+1 1/2 teaspoons Shaoxing rice wine, optional
+4 teaspoons soy sauce
+1/2 medium head napa cabbage, thinly sliced (about 6 cups)
+3 medium carrots, julienned
+1/2 teaspoon Kosher salt
+3 scallions, thinly sliced on a bias
+2 teaspoons minced ginger
+4 cups canola or vegetable oil, divided
+3 tablespoons oyster sauce
+1 large egg
+50 to 60 (6-inch) square spring roll wrappers
+Chingkiang vinegar or black vinegar, to serve
 
 steak
 4 good-sized steaks (1/2 pound to a pound each, allow for 1/2 pound per person)
@@ -1261,6 +2333,8 @@ Salt
 1/4 cup heavy cream
 1/4 cup finely chopped parsley
 
+steak_tartare
+
 strawberry_shortcake
 3 pint baskets fresh strawberries (about 6 cups)
 1/2 cup (100g) white granulated sugar for the strawberries
@@ -1275,6 +2349,46 @@ strawberry_shortcake
 1 cup (236ml) milk
 1/4 cup (60ml) heavy cream
 1 1/2 teaspoons vanilla extract
+
+streusel
+1 medium (about 2 1/2-pound) butternut squash
+1 teaspoon canola or vegetable oil
+For the topping
+1/3 cup (70g) light brown sugar, packed
+1/3 cup (46g) all-purpose flour
+1/2 teaspoon ground cinnamon
+1 pinch salt
+3 tablespoons unsalted butter, melted
+1/3 cup (42g) chopped pecans
+For the bread
+Nonstick cooking spray for the loaf pan
+1/2 cup (100g) sugar
+1/2 cup (105g) light brown sugar, packed
+1/4 cup canola or vegetable oil
+4 tablespoons unsalted butter, melted
+2 large eggs
+2 tablespoons water
+1/2 teaspoon vanilla extract
+1 1/2 cups (210g) all-purpose flour
+1 teaspoon ground cinnamon
+1/4 teaspoon ground nutmeg
+3/4 teaspoon baking soda
+1/4 teaspoon baking powder
+1/2 teaspoon salt
+
+strudel
+3 cups (360 g) all-purpose flour, plus more for pans
+2 1/2 cups (495 g) granulated sugar
+2 tablespoons grated orange zest, from 2 large oranges
+8 large eggs, at room temperature
+1/3 cup (80 ml) marmalade
+1 tablespoon vanilla extract
+1 1/2 teaspoons baking powder
+1 teaspoon salt
+For the glaze:
+3/4 cup (85 g) powdered sugar
+2/3 cup (160 ml) marmalade
+1/2 cup (120 ml) water
 
 stuffed_cabbage
 2 pounds sauerkraut (preferably a good brand, such as Bubbies, that you would find in the refrigerated section of your grocery store)
@@ -1293,6 +2407,22 @@ Freshly ground pepper
 1 cup tomato puree
 1 cup full-fat sour cream
 
+stuffed_peppers
+1 1/2 pounds boneless skinless chicken (thighs or breasts)
+2 tablespoons chili powder
+1 teaspoon ground cumin
+1 teaspoon dried oregano
+1 teaspoon kosher salt
+1/2 teaspoon garlic powder
+2 tablespoons olive oil
+1 small white onion, chopped
+1/2 cup sweet corn
+1 cup crumbled queso fresco
+To serve:
+Sliced scallion
+Sour cream
+Salsa
+
 stuffed_tomato
 4 medium tomatoes with firm, fleshy walls, 2 1/2 inches wide
 1 cup shredded mozzarella cheese
@@ -1304,6 +2434,33 @@ stuffed_tomato
 1/4 teaspoon salt
 1/8 teaspoon pepper
 Olive oil for drizzling
+
+succotash
+2 cups shucked and shelled fava beans* (can substitute fresh or frozen lima beans or peas)
+2 cups corn (fresh or frozen)
+2 cups diced ham (check ham ingredients for gluten-free if cooking gluten-free)
+2 diced carrots
+2-3 chopped spring onions
+2 tablespoons chopped mint or parsley
+Juice of a lemon
+Salt to taste
+* To get 2 cups of shelled fava beans, start with 3 lbs of whole fava beans. Working over a large bowl, remove the outer shell by bending a pod near one of the beans, cracking the pod and then squeezing the bean with your fingers to shoot it into the bowl. Once you have filled your bowl, take the beans and boil them in salted water for 5 minutes. Shock them in ice water to preserve their bright green color. Then peel off the outer peel of the bean.
+
+sukiyaki
+
+sushi
+2 jalapeño chiles, seeded, de-ribbed, minced (if very hot, use only 1 chile)
+2 tablespoons of peeled and minced fresh ginger
+4 garlic cloves, minced
+4 tablespoons freshly squeezed lime juice (from 2 to 4 limes, depending on how juicy your limes are)
+1/3 cup soy sauce (use gluten-free soy sauce if you need to avoid gluten)
+1-2 tablespoons sugar
+Salt and freshly ground black pepper
+1 teaspoon dark sesame oil
+1/4 cup extra-virgin olive oil
+2 tablespoons canola oil or extra virgin olive oil
+4 (6 ounce) blocks sashimi-quality tuna
+2 ripe avocados, halved, pitted, peeled and sliced
 
 syllabub
 2 cups (473ml) heavy whipping cream
@@ -1400,6 +2557,21 @@ tamale_pie
 1 (16-ounce) package prepared cornbread mix, such as Jiffy or Bob's Red Mill
 Water, egg, oil, or milk as needed for mixing the cornbread batter according to package directions
 
+tapenade
+3 cups California ripe olives, mix of black and green, drained
+3 tablespoons fresh flat leaf parsley
+2 tablespoons fresh rosemary
+2 tablespoons apple cider vinegar
+1 tablespoon olive oil
+1 clove garlic
+1/2 teaspoon sea salt
+1/4 teaspoon black pepper
+For the brie:
+1 (7-ounce) wheel of brie
+2 tablespoons olive oil
+1 tablespoon chopped fresh flat leaf parsley, for serving
+Crackers or toasted bread, for serving
+
 tempura
 1 pound cleaned squid
 1 egg yolk
@@ -1419,6 +2591,23 @@ Freshly ground black pepper
 1/2 cup tawny port wine
 4 to 5 medium cloves garlic
 5 to 6 sprigs fresh thyme, plus extra to serve
+
+terrine
+3 large red bell peppers (about 1 1/2 pounds)
+2 large, firm eggplants (about 2 1/2 pounds)
+2 tablespoons extra virgin olive oil
+1 1/2 cups loosely-packed flat-leaf parsley leaves
+3/4 teaspoon salt
+1/2 teaspoon freshly ground black pepper
+8 oz of fresh Mozzarella, cut into 1/8-in slices, about 14 slices
+Raw tomato sauce:
+3 cloves of garlic, peeled and finely chopped
+2 to 3 ripe tomatoes (1 1/4 pounds), each cut into 6 to 8 pieces
+1/4 cup virgin olive oil
+2 Tbsp red wine vinegar
+1/2 teaspoon salt
+1/4 teaspoon freshly ground black pepper
+1/4 teaspoon Tabasco sauce
 
 tetrazzini
 12 ounces mushrooms,sliced (about 4 to 5 cups)
@@ -1459,6 +2648,21 @@ Pinch freshly ground black pepper
 2 tablespoons (28g) butter, melted
 1 tablespoon vegetable oil
 1 pound (454g) bangers (English sausage made with pork and breadcrumbs), or good quality pork or beef sausage links
+
+torte
+One 9-ounce box “Nabisco’s Famous” chocolate wafers, or your favorite chocolate nut cookies
+2/3 cup pecans
+4 Tbsp (2 ounces, 1/2 stick) butter, melted (you may need less)
+For the filling:
+1 1/2 to 2 pounds of the best available semi-sweet or bittersweet chocolate, well chopped into small pieces (use brick chocolate, not chips)
+1/2 cup (4 ounces, 1 stick) butter, melted
+1 cup (or more) heavy whipping cream
+For the sauce:
+1/2 cup (4 ounces, 1 stick) butter, melted
+2 1/4 cups (a pound) cane sugar (white granulated sugar)
+1 cup heavy whipping cream
+
+tortellini
 
 tostada
 Corn oil or extra virgin olive oil
@@ -1524,6 +2728,8 @@ vermicelli
 1/4 cup peanuts, coarsely chopped
 1 lime, quartered, for garnish
 
+waffle
+
 waffles
 1 3/4 cups whole milk
 2 1/4 teaspoon (7g) active yeast (or 1 package, not fast acting or instant)
@@ -1539,6 +2745,34 @@ Maple syrup
 Whipped cream
 Fresh fruit
 Jam or preserves of your choice
+
+wonton
+1 (4-pound) whole chicken
+15 cups cold water
+1 medium yellow onion, halved
+3 cloves garlic, smashed
+3 scallions, halved crosswise
+1-inch fresh ginger, cut into 1/4-inch coins and smashed
+1 tablespoon Tianjin preserved vegetables, finely chopped (optional)
+Kosher salt, for seasoning the broth to taste
+For the wontons
+1 pound ground pork
+2 scallions, minced
+1 clove garlic, minced
+1/4-inch fresh ginger, peeled and minced
+1 large egg
+1 tablespoon Shaoxing wine
+3 tablespoons water
+1 tablespoon toasted sesame oil
+1 1/2 teaspoons cornstarch
+1 teaspoon sugar
+1 teaspoon kosher salt
+1/8 teaspoon freshly ground black pepper
+All-purpose flour, for dusting the sheet pan (optional)
+80 square wonton wrappers
+To serve
+1 scallion, thinly sliced
+1 tablespoon toasted sesame oil
 
 ziti
 1 pound ziti or penne pasta

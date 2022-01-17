@@ -36,7 +36,6 @@ class Spider:
       if "text/html" in response.getheader("Content-Type"):
         html_bytes = response.read()
         html_string = html_bytes.decode("utf-8")
-        # TODO: maybe add more than 1 result
         return find_result(html_string)
     except Exception as e:
       print(str(e))
@@ -57,12 +56,12 @@ class Spider:
   def thread_work(self, f_category):
     result_url = self.search(f_category)
     if result_url is None:
-      self.search_not_found.add(f_category)  # TODO: handle not-found recipes
+      self.search_not_found.add(restore_search(f_category))  # TODO: handle not-found searches (maybe from a different domain)
     else:
       #print("[~] Gathering ingredients from:", result_url)
       ingredients = self.gather_ingredients(result_url)
       if ingredients is None:
-        self.ing_not_found.add(f_category)  # TODO: handle not-found recipes
+        self.ing_not_found.add(restore_search(f_category))  # TODO: handle not-found ingredients
       else:
         #print("Ingredients:")
         #print(ingredients)
@@ -104,12 +103,4 @@ if __name__ == "__main__":
     f.write(write_str)
     f.close()
     print("[+] Wrote stuff in search_not_found.txt")
-
-  with open("ingredients_not_found.txt", 'w') as f:
-    write_str = ""
-    for item in spider.ing_not_found:
-      write_str += str(item) + "\n"
-    f.write(write_str)
-    f.close()
-    print("[+] Wrote stuff in ingredients_not_found.txt")
 
