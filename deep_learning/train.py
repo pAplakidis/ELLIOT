@@ -45,8 +45,11 @@ def train(model, images, labels, classes):
 
   # plot stats
   print("Training Done")
+  plt.figure(0)
   plt.plot(losses, label="loss")
   plt.plot(accuracies, label="train accuracy")
+  plt.xlabel("Epochs")
+  plt.legend(loc="upper left")
   plt.savefig("../plots/training_stats.png")
   #plt.show()
 
@@ -73,7 +76,12 @@ def evaluate(model, device, images, labels, classes):
   # plot stats
   print("Evaluation Done")
   print("[+] Average Validation Accuracy: %.2f"%(sum(accuracies)/len(accuracies)))
+  plt.figure(1)
+  plt.ylim(0, 1)
   plt.plot(accuracies, label="validation accuracy")
+  plt.xlabel("Batch")
+  plt.ylabel("Accurary")
+  plt.legend(loc="upper left")
   plt.savefig("../plots/evaluation_stats.png")
   plt.show()
 
