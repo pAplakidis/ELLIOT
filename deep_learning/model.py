@@ -7,8 +7,6 @@ import torchvision.models as models
 class FoodClassifier(nn.Module):
   def __init__(self, n_classes):
     super(FoodClassifier, self).__init__()
-
-    # number of classes/foods
     self.n_classes = n_classes
 
     # Convolutional Layers (Feature Detector)
@@ -22,11 +20,11 @@ class FoodClassifier(nn.Module):
     #self.conv4 = nn.Conv2d(256, 512, 5)
     #self.conv2_bn4 = nn.BatchNorm2d(512)
 
+    self.dropout = nn.Dropout(0.5)
+
     # Fully Connected Layers (Classifier)
     self.fc1 = nn.Linear(256 * 12 * 12, 512)
     self.bn1 = nn.BatchNorm1d(num_features=512)
-    #self.fc2 = nn.Linear(4096, 4096)
-    #self.bn2 = nn.BatchNorm1d(num_features=4096)
     self.fc2 = nn.Linear(512, self.n_classes)
 
   def forward(self, x):
@@ -37,9 +35,8 @@ class FoodClassifier(nn.Module):
     #print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
     x = F.relu(self.bn1(self.fc1(x)))
-    #x = F.relu(self.bn2(self.fc2(x)))
-    #x = F.softmax(self.fc3(x))
-    x = self.fc2(x) # NOTE: don't forget to use softmax in deployment (in training CrossEntropy already applies softmax)
+    x = self.dropout(x)
+    x = self.fc2(x)
     return x
 
   def num_flat_features(self, x):
