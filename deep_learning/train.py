@@ -8,11 +8,11 @@ from util import *
 def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
-  optim = torch.optim.Adam(model.parameters(), lr=0.0001)
+  optim = torch.optim.Adam(model.parameters(), lr=0.00001)
 
   losses, accuracies = [], []
   BS = 64
-  epochs = 100
+  epochs = 150
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
@@ -57,6 +57,8 @@ def train(model, images, labels, classes):
 
 def evaluate(model, device, images, labels, classes):
   model.eval()
+  loss_function = nn.CrossEntropyLoss()
+  losses = []
   accuracies = []
   BS = 64
 
@@ -70,6 +72,9 @@ def evaluate(model, device, images, labels, classes):
     cat = torch.argmax(out, dim=1)
     accuracy = (cat == Y).float().mean()
     accuracy = accuracy.item()
+    loss = loss_function(out, Y).mean()
+    loss = loss.item()
+    losses.append(loss)
     accuracies.append(accuracy)
     t.set_description("accuracy %.2f"%accuracy)
 
@@ -78,9 +83,9 @@ def evaluate(model, device, images, labels, classes):
   print("[+] Average Validation Accuracy: %.2f"%(sum(accuracies)/len(accuracies)))
   plt.figure(1)
   plt.ylim(0, 1)
+  plt.plot(losses, label="validation loss")
   plt.plot(accuracies, label="validation accuracy")
   plt.xlabel("Batch")
-  plt.ylabel("Accurary")
   plt.legend(loc="upper left")
   plt.savefig("../plots/evaluation_stats.png")
   plt.show()
