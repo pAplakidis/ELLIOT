@@ -8,7 +8,7 @@ from util import *
 def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
-  optim = torch.optim.Adam(model.parameters(), lr=0.00001)
+  optim = torch.optim.Adam(model.parameters(), lr=0.0001)
 
   losses, accuracies = [], []
   BS = 64
@@ -40,6 +40,7 @@ def train(model, images, labels, classes):
       t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
 
     print("Epoch average loss: %.2f"%(np.array(epoch_losses).mean()))
+    print("Epoch average accuracy: %.2f"%(np.array(epoch_acc).mean()))
     losses.append(np.array(epoch_losses).mean())
     accuracies.append(np.array(epoch_acc).mean())
 
