@@ -8,7 +8,7 @@ from util import *
 def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
-  optim = torch.optim.Adam(model.parameters(), lr=0.0001)
+  optim = torch.optim.Adam(model.parameters(), lr=0.0001, weight_decay=1e-5)
 
   losses, accuracies = [], []
   BS = 64
