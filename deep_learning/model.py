@@ -9,6 +9,7 @@ class FoodClassifier(nn.Module):
     super(FoodClassifier, self).__init__()
     self.n_classes = n_classes
 
+    # TODO: maybe add dropout in convolutional layers as well
     # Convolutional Layers (Feature Detector)
     self.conv1 = nn.Conv2d(3, 64, 5)
     self.conv2_bn1 = nn.BatchNorm2d(64)
@@ -47,10 +48,12 @@ class FoodClassifier(nn.Module):
     return num_features
 
 
+# TODO: try ResNet18
 def init_resnet(num_classes, feature_extract, input_size, device):
-  model = models.resnet34(pretrained=False)
+  model = models.resnet18(pretrained=False)
   num_feats = model.fc.in_features
   model.fc = nn.Linear(num_feats, num_classes)
+  print(model)
   return model.to(device)
 
 def save_model(model, path):

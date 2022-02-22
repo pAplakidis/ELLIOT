@@ -8,11 +8,11 @@ from util import *
 def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
-  optim = torch.optim.Adam(model.parameters(), lr=0.0001, weight_decay=1e-5)
+  optim = torch.optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-5)
 
   losses, accuracies = [], []
-  BS = 64
-  epochs = 150
+  BS = 256
+  epochs = 200
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
@@ -104,8 +104,8 @@ if __name__ == '__main__':
   #writer.add_image('food_images', img_grid)
 
   # train
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), False, IMG_SIZE, device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
 

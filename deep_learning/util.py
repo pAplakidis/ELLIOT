@@ -4,11 +4,10 @@
 IMG_SIZE = 128
 
 # Model Paths
-model_path = "../models/classifier.pth"
-#model_path = "../models/resnet_classifier.pth"
-cpp_model_path = "../models/traced_classifier.pt"
-#model_path = "../models/vgg_classifier.pth"
-#cpp_model_path = "../models/traced_vgg_classifier.pt"
+#model_path = "../models/classifier.pth"
+model_path = "../models/resnet18_classifier.pth"
+#cpp_model_path = "../models/traced_classifier.pt"
+cpp_model_path = "../models/traced_renset18_classifier.pt"
 classes_path = "../models/classes.json"
 
 # Data Paths
