@@ -1,22 +1,31 @@
 package com.example.elliot
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.Manifest
+import android.app.AlertDialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import java.util.concurrent.Executors
-import androidx.camera.core.*
-import androidx.camera.lifecycle.ProcessCameraProvider
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_camera.*
+import kotlinx.android.synthetic.main.dialog_texts_camera.*
+import kotlinx.android.synthetic.main.dialog_texts_camera.view.*
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 // TODO: 10/26/2021 Delete Log statements after development
 
@@ -41,6 +50,9 @@ class CameraActivity : AppCompatActivity() {
 
         // Set up the listener for take photo button
         camera_capture_button.setOnClickListener { takePhoto() }
+        back_button_camera.setOnClickListener{
+            startActivity(Intent(baseContext, MainActivity::class.java))
+        }
 
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -96,12 +108,52 @@ class CameraActivity : AppCompatActivity() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    val savedUri = Uri.fromFile(photoFile)
-                    val msg = "Photo capture succeeded: $savedUri"
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-                    Log.d(TAG, msg)
+//                    val savedUri = Uri.fromFile(photoFile)
+//                    val msg = "Photo capture succeeded: $savedUri"
+//                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+//                    Log.d(TAG, msg)
                 }
+
             })
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Prediction Check")
+            .setMessage("Is the food '...' the correct prediction?")
+
+            .setPositiveButton("Yes") { _, _ ->
+                // ΒΑΛΕ ΠΡΟΒΛΕΨΗ ΣΤΗΝ ΒΑΣΗ
+            }
+
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss() // ΚΛΕΙΣΕ ΠΡΟΗΓΟΥΜΕΝΟ DIALOG ΓΙΑ ΝΑ ΜΠΕΙ ΑΥΤΟ
+
+                val dialogTextsCamera = LayoutInflater.from(this).
+                inflate(R.layout.dialog_texts_camera, null) // INFLATE TO VIEW ΓΙΑ ΕΝΩΣΗ
+
+                MaterialAlertDialogBuilder(this)
+                    .setTitle("Meal Entry")
+
+                    .setView(dialogTextsCamera)
+
+                    .setPositiveButton("OK") { _, _ ->
+                        val answers = Array<String?>(4) { null }    // ΠΕΡΑΣΜΑ ΑΠΑΝΤΗΣΕΩΝ
+                        answers[0] = dialogTextsCamera.editTextFoodName.text.toString()
+                        answers[1] = dialogTextsCamera.editTextIngredient1.text.toString()
+                        answers[2] = dialogTextsCamera.editTextIngredient2.text.toString()
+                        answers[3] = dialogTextsCamera.editTextIngredient3.text.toString()
+                        if(answers[0] == "" || answers[1] == "") {
+                            val failureMessage = "Please enter a food and at least one ingredient and try again."
+                            val toast = Toast.makeText(this, failureMessage, Toast.LENGTH_SHORT)
+                            toast.show()
+                        }
+                    }
+
+                    .setNegativeButton("Cancel") { _, _ ->  }
+
+                    .show()
+            }
+
+            .show()
     }
 
     private fun startCamera() {

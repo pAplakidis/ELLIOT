@@ -1,11 +1,13 @@
 package com.example.elliot
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,5 +21,9 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView.setupWithNavController(navController)
 
+        val cameraButton = findViewById<FloatingActionButton>(R.id.floating_action_button)
+        cameraButton.setOnClickListener{
+            startActivity(Intent(this, CameraActivity::class.java))
+        }
     }
 }

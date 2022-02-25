@@ -7,12 +7,25 @@
     tools:context=".CameraActivity">
 
     <ImageButton
+        android:id="@+id/back_button_camera"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:elevation="2dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Back Button"/>
+
+    <ImageButton
         android:id="@+id/camera_capture_button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         android:background="@null"
-        android:elevation="2dp"
+        android:elevation="3dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_radio_button_unchecked_24"
         app:layout_constraintBottom_toBottomOf="parent"
