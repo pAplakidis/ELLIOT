@@ -11,7 +11,7 @@ class StatsAdapter(
     private val statistics: List<Statistic>
 ) : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
 
-    class StatsViewHolder (statsView: View) : RecyclerView.ViewHolder(statsView) {
+    class StatsViewHolder(statsView: View) : RecyclerView.ViewHolder(statsView) {
         val listStatistics: RecyclerView = statsView.findViewById(R.id.list_statistic)
     }
 

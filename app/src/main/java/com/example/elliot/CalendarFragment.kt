@@ -1,9 +1,7 @@
 package com.example.elliot
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +13,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.util.Calendar
 import java.util.TimeZone
 
-class CalendarFragment: Fragment(R.layout.fragment_food_details) {
+class CalendarFragment : Fragment(R.layout.fragment_food_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

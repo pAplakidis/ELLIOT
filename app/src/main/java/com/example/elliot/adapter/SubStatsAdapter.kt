@@ -12,7 +12,7 @@ class SubStatsAdapter(
     private val subStatistics: List<SubStatistic>
 ) : RecyclerView.Adapter<SubStatsAdapter.SubStatsViewHolder>() {
 
-    class SubStatsViewHolder (SubStatsView: View) : RecyclerView.ViewHolder(SubStatsView) {
+    class SubStatsViewHolder(SubStatsView: View) : RecyclerView.ViewHolder(SubStatsView) {
         val statName: TextView = SubStatsView.findViewById(R.id.stat_name)
         val statValue: TextView = SubStatsView.findViewById(R.id.stat_value)
     }
