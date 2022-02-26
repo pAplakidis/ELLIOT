@@ -3,6 +3,7 @@
     package="com.example.elliot">
 
     <uses-feature android:name="android.hardware.camera.any" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -13,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Elliot">
         <activity
-            android:name="com.example.elliot.SplashActivity"
+            android:name=".ModelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,11 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.elliot.MainActivity" />
-
-        <activity android:name="com.example.elliot.CameraActivity" />
-
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CameraActivity" />
     </application>
 
 </manifest>
