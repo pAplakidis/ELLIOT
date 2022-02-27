@@ -41,6 +41,7 @@ public class ModelActivity extends AppCompatActivity {
         setContentView(R.layout.activity_model);
     }
 
+    // TODO: call these functions once, on construction, and classify() on a button press
     public List<String> load_classes(String path){
         String jsonFileString = Utils.getJsonFromAssets(getApplicationContext(), "models/classes.json");
         Log.i("data", jsonFileString);
@@ -54,5 +55,33 @@ public class ModelActivity extends AppCompatActivity {
         }
 
         return classes;
+    }
+
+    public Module load_model(){
+        Module module = Module.load(getAssets().open("models/traced_resnet18_classifier.pt"));
+        return module;
+    }
+
+    public Bitmap load_img(){
+        Bitmap img = BitmapFactory.decodeStream(getAssets().open("image.jpg"));
+        return img;
+    }
+
+    public void classify(Bitmap img, Module module, List<String> classes){
+        // TODO: check if it is the same as opening with cv2!!!
+        // forward image to net
+        Tensor inputTensor = TensorImageUtils.bitmapToFloat32Tensor(img, TensorImageUtils.TORCHVISION_NORM_MEAN_RGB, TensorImageUtils.TORCHVISION_NORM_STD_RGB);
+        Tensor outputTensor = module.forward(IValue.from(inputTensor)).toTensor();
+        float[] scores = outputTensor.getDataAsFloatArray();
+
+        // get argmax
+        float maxScore = -Float.MAX_VALUE;
+        int maxScoreIdx = -1;
+        for(int i=0; i<scores.length; i++){
+            if(scores[i] > maxScore){
+                maxScoreIdx = i;
+            }
+        }
+        String food = classes.get(maxScoreIdx);
     }
 }
