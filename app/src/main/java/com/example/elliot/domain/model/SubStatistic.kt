@@ -1,4 +1,4 @@
-package com.example.elliot.model
+package com.example.elliot.domain.model
 
 data class SubStatistic(
     val statName : String,

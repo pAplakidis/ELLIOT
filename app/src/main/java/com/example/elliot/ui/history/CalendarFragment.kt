@@ -1,4 +1,4 @@
-package com.example.elliot
+package com.example.elliot.ui.history
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.elliot.R
 import com.example.elliot.adapter.MealAdapter
 import com.example.elliot.data.Datasource
 import com.google.android.material.datepicker.CalendarConstraints
@@ -13,7 +14,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.util.Calendar
 import java.util.TimeZone
 
-class CalendarFragment : Fragment(R.layout.fragment_food_details) {
+class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

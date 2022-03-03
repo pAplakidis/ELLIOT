@@ -1,4 +1,4 @@
-package com.example.elliot
+package com.example.elliot.ui.camera
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -20,7 +21,16 @@ import androidx.core.content.ContextCompat
 import java.util.concurrent.Executors
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
+import androidx.lifecycle.lifecycleScope
+import com.example.elliot.MainActivity
+import com.example.elliot.R
+import com.example.elliot.domain.model.Food
+import com.example.elliot.util.UiEvent
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,8 +38,10 @@ import java.util.concurrent.ExecutorService
 
 // TODO: 10/26/2021 Delete Log statements after development
 
+@AndroidEntryPoint
 class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
+    private val cameraViewModel: CameraViewModel by viewModels()
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
@@ -84,6 +96,51 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
+    private fun showPredictionCheckDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Prediction Check")
+            .setMessage("Is the food '...' the correct prediction?")
+            .setPositiveButton("Yes") { _, _ ->
+                // It needs to update the prediction value stored in database
+                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(Food("noo")))
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                dialog.dismiss()    // Close previous dialog
+                showMealEntryDialog()
+            }
+            .show()
+    }
+
+    private fun showMealEntryDialog() {
+        val dialogTextsCamera = LayoutInflater.from(this)
+            .inflate(R.layout.dialog_texts_camera, null)
+        val answers = Array<String?>(4) { null }
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Meal Entry")
+            .setView(dialogTextsCamera)
+            .setPositiveButton("OK") { _, _ ->
+                answers[0] =
+                    dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName).text.toString()
+                answers[1] =
+                    dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1).text.toString()
+                answers[2] =
+                    dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient2).text.toString()
+                answers[3] =
+                    dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient3).text.toString()
+
+                if (answers[0].isNullOrEmpty() || answers[1].isNullOrEmpty()) {
+                    Toast.makeText(
+                        this,
+                        "Please enter a food and at least one ingredient and try again.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+            .setNegativeButton("Cancel") { _, _ -> }
+            .show()
+    }
+
     private fun takePhoto() {
         // Get a stable reference of the modifiable image capture use case
         val imageCapture = imageCapture ?: return
@@ -117,46 +174,7 @@ class CameraActivity : AppCompatActivity() {
                 }
             })
 
-        MaterialAlertDialogBuilder(this)
-            .setTitle("Prediction Check")
-            .setMessage("Is the food '...' the correct prediction?")
-
-            .setPositiveButton("Yes") { _, _ ->
-                // ΒΑΛΕ ΠΡΟΒΛΕΨΗ ΣΤΗΝ ΒΑΣΗ
-            }
-
-            .setNegativeButton("No") { dialog, _ ->
-                dialog.dismiss() // ΚΛΕΙΣΕ ΠΡΟΗΓΟΥΜΕΝΟ DIALOG ΓΙΑ ΝΑ ΜΠΕΙ ΑΥΤΟ
-
-                val dialogTextsCamera = LayoutInflater.from(this)
-                    .inflate(R.layout.dialog_texts_camera, null) // INFLATE TO VIEW ΓΙΑ ΕΝΩΣΗ
-
-                MaterialAlertDialogBuilder(this)
-                    .setTitle("Meal Entry")
-
-                    .setView(dialogTextsCamera)
-
-                    .setPositiveButton("OK") { _, _ ->
-                        val answers = Array<String?>(4) { null }    // ΠΕΡΑΣΜΑ ΑΠΑΝΤΗΣΕΩΝ
-                        answers[0] =
-                            dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName).text.toString()
-                        answers[1] =
-                            dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1).text.toString()
-                        answers[2] =
-                            dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient2).text.toString()
-                        answers[3] =
-                            dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient3).text.toString()
-                        if (answers[0] == "" || answers[1] == "") {
-                            val failureMessage =
-                                "Please enter a food and at least one ingredient and try again."
-                            val toast = Toast.makeText(this, failureMessage, Toast.LENGTH_SHORT)
-                            toast.show()
-                        }
-                    }
-                    .setNegativeButton("Cancel") { _, _ -> }
-                    .show()
-            }
-            .show()
+        showPredictionCheckDialog()
     }
 
     private fun startCamera() {

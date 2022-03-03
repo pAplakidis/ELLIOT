@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
-import com.example.elliot.model.Statistic
+import com.example.elliot.domain.model.Statistic
 
 class StatsAdapter(
     private val statistics: List<Statistic>

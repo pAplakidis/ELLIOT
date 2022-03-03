@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
-import com.example.elliot.model.Meal
+import com.example.elliot.domain.model.Meal
 
 class MealAdapter(
     private val dataset: List<Meal>
@@ -30,7 +30,7 @@ class MealAdapter(
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         holder.apply {
             mealTitle.text = dataset[position].mealName
-            listFoodDetails.adapter = FoodDetailsAdapter(dataset[position].foodDetailList)
+            listFoodDetails.adapter = FoodsAdapter(dataset[position].foodList)
         }
     }
 

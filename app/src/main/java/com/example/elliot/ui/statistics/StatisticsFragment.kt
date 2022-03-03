@@ -1,13 +1,14 @@
-package com.example.elliot
+package com.example.elliot.ui.statistics
 
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.example.elliot.R
 import com.example.elliot.adapter.StatsAdapter
 import com.example.elliot.data.Datasource
-import com.example.elliot.model.Statistic
+import com.example.elliot.domain.model.Statistic
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend

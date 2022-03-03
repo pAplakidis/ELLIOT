@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
+        android:name=".FoodApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Elliot">
         <activity
-            android:name="com.example.elliot.SplashActivity"
+            android:name="com.example.elliot.ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +25,7 @@
 
         <activity android:name="com.example.elliot.MainActivity" />
 
-        <activity android:name="com.example.elliot.CameraActivity" />
+        <activity android:name="com.example.elliot.ui.camera.CameraActivity" />
 
     </application>
 

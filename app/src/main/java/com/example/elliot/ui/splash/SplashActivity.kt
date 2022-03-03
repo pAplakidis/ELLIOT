@@ -1,4 +1,4 @@
-package com.example.elliot
+package com.example.elliot.ui.splash
 
 import android.animation.ObjectAnimator
 import android.content.Intent
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.TextView
+import com.example.elliot.MainActivity
+import com.example.elliot.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

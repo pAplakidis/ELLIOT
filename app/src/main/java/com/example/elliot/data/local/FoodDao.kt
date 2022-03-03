@@ -1,8 +1,7 @@
-package com.example.elliot.data
+package com.example.elliot.data.local
 
-import androidx.room.Dao
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
+import com.example.elliot.data.local.entity.Food
 
 @Dao
 interface FoodDao {
@@ -13,4 +12,10 @@ interface FoodDao {
     @Transaction
     @Query("SELECT * FROM Ingredient")
     suspend fun getIngredientWithFoods(): List<IngredientWithFoods>
+
+    @Insert(entity = Food::class)
+    suspend fun insertFood(food: Food)
+
+    @Query("SELECT * FROM Food")
+    suspend fun getFoods(): List<Food>
 }

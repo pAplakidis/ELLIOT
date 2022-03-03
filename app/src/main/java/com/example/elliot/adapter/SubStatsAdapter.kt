@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
-import com.example.elliot.model.SubStatistic
+import com.example.elliot.domain.model.SubStatistic
 
 class SubStatsAdapter(
     private val subStatistics: List<SubStatistic>

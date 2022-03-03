@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.elliot.CalendarFragment"
-        tools:layout="@layout/fragment_food_details"
+        android:name="com.example.elliot.ui.history.CalendarFragment"
+        tools:layout="@layout/fragment_foods"
         android:label="CalendarFragment"/>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.elliot.ProfileFragment"
+        android:name="com.example.elliot.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/statisticsFragment"
-        android:name="com.example.elliot.StatisticsFragment"
+        android:name="com.example.elliot.ui.statistics.StatisticsFragment"
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
 </navigation>

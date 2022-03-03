@@ -1,4 +1,4 @@
-package com.example.elliot.data
+package com.example.elliot.data.local.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

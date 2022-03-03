@@ -1,27 +1,27 @@
 package com.example.elliot.data
 
-import com.example.elliot.model.FoodDetail
-import com.example.elliot.model.Meal
-import com.example.elliot.model.Statistic
-import com.example.elliot.model.SubStatistic
+import com.example.elliot.domain.model.Food
+import com.example.elliot.domain.model.Meal
+import com.example.elliot.domain.model.Statistic
+import com.example.elliot.domain.model.SubStatistic
 
 class Datasource {
     fun loadMeals(): List<Meal> {
         return listOf(
             Meal(
                 "Breakfast", listOf(
-                    FoodDetail("Apple", "12:00"),
-                    FoodDetail("Milk", "12:00")
+                    Food("Apple"),
+                    Food("Milk")
                 )
             ),
             Meal(
                 "Lunch", listOf(
-                    FoodDetail("Chicken", "15:00")
+                    Food("Chicken")
                 )
             ),
             Meal(
                 "Dinner", listOf(
-                    FoodDetail("Toast", "21:00")
+                    Food("Toast")
                 )
             )
         )
