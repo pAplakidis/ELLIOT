@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -100,9 +101,11 @@ class CameraActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Prediction Check")
             .setMessage("Is the food '...' the correct prediction?")
-            .setPositiveButton("Yes") { _, _ ->
+            .setPositiveButton("Yes") { dialog, _ ->
+                dialog.dismiss()
+                showConfirmationDialog()
                 // It needs to update the prediction value stored in database
-                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(Food("noo")))
+//                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(Food("noo")))
             }
             .setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()    // Close previous dialog
@@ -111,10 +114,49 @@ class CameraActivity : AppCompatActivity() {
             .show()
     }
 
+    private fun showConfirmationDialog() {
+        val multiItems = arrayOf("Item 1", "Item 2", "Item 3")
+        val checkedItems = booleanArrayOf(false, false, false)
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Confirm Food Ingredients")
+
+            .setPositiveButton("OK") { _, _ ->
+                for ((counter, checker) in checkedItems.withIndex()) {
+                    if(checker) {
+                        Log.d(TAG, multiItems[counter])
+                    }
+                }
+            }
+
+            .setNegativeButton("Cancel") { _, _ -> }
+
+            .setMultiChoiceItems(multiItems, checkedItems) { _, _, checked ->
+            }
+            .show()
+    }
+
     private fun showMealEntryDialog() {
         val dialogTextsCamera = LayoutInflater.from(this)
             .inflate(R.layout.dialog_texts_camera, null)
-        val answers = Array<String?>(4) { null }
+        val answers : MutableList<String> = ArrayList()
+        answers.add("empty")
+
+        val ingredientButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertIngredient)
+        val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
+
+        ingredientButton.setOnClickListener {
+            if (ingredientText.text.toString() != "") {
+                answers.add(ingredientText.text.toString())
+                ingredientText.setText("")
+            } else {
+                Toast.makeText(
+                    this,
+                    "Please enter an ingredient before trying to enter a new one.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
 
         MaterialAlertDialogBuilder(this)
             .setTitle("Meal Entry")
@@ -122,14 +164,8 @@ class CameraActivity : AppCompatActivity() {
             .setPositiveButton("OK") { _, _ ->
                 answers[0] =
                     dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName).text.toString()
-                answers[1] =
-                    dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1).text.toString()
-                answers[2] =
-                    dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient2).text.toString()
-                answers[3] =
-                    dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient3).text.toString()
 
-                if (answers[0].isNullOrEmpty() || answers[1].isNullOrEmpty()) {
+                if (answers[0] == "empty" || answers.size < 2) {
                     Toast.makeText(
                         this,
                         "Please enter a food and at least one ingredient and try again.",
