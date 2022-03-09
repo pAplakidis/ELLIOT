@@ -39,9 +39,17 @@ public class ModelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_model);
+
+        // load food categories and the neural net
+        List<String> classes = load_classes();
+        try {
+            Module module = load_model();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    // TODO: call load_classes() and load_model() once, on construction, and classify() on a button press
+    // TODO: call load_img() and classify() on button presses
     public List<String> load_classes(){
         String jsonFileString = Utils.getJsonFromAssets(getApplicationContext(), "models/classes.json");
         Log.i("data", jsonFileString);
