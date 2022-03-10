@@ -8,11 +8,11 @@ from util import *
 def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
-  optim = torch.optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-5)
+  optim = torch.optim.Adam(model.parameters(), lr=1e-4, weight_decay=1e-5)
 
   losses, accuracies = [], []
   BS = 256
-  epochs = 200
+  epochs = 250
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
