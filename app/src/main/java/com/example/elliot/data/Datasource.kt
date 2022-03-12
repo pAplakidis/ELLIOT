@@ -1,6 +1,6 @@
 package com.example.elliot.data
 
-import com.example.elliot.domain.model.Food
+import com.example.elliot.domain.model.FoodModel
 import com.example.elliot.domain.model.Meal
 import com.example.elliot.domain.model.Statistic
 import com.example.elliot.domain.model.SubStatistic
@@ -10,18 +10,18 @@ class Datasource {
         return listOf(
             Meal(
                 "Breakfast", listOf(
-                    Food("Apple"),
-                    Food("Milk")
+                    FoodModel(0, "Apple"),
+                    FoodModel(1, "Milk")
                 )
             ),
             Meal(
                 "Lunch", listOf(
-                    Food("Chicken")
+                    FoodModel(3, "Chicken")
                 )
             ),
             Meal(
                 "Dinner", listOf(
-                    Food("Toast")
+                    FoodModel(4, "Toast")
                 )
             )
         )

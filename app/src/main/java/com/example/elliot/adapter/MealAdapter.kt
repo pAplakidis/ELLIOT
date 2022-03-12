@@ -30,7 +30,7 @@ class MealAdapter(
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         holder.apply {
             mealTitle.text = dataset[position].mealName
-            listFoodDetails.adapter = FoodsAdapter(dataset[position].foodList)
+            listFoodDetails.adapter = FoodsAdapter(dataset[position].foodModelList)
         }
     }
 

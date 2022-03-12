@@ -22,16 +22,12 @@ import androidx.core.content.ContextCompat
 import java.util.concurrent.Executors
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
-import androidx.lifecycle.lifecycleScope
 import com.example.elliot.MainActivity
 import com.example.elliot.R
-import com.example.elliot.domain.model.Food
-import com.example.elliot.util.UiEvent
+import com.example.elliot.databinding.ActivityCameraBinding
+import com.example.elliot.domain.model.FoodModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,10 +42,12 @@ class CameraActivity : AppCompatActivity() {
 
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
+    private lateinit var binding: ActivityCameraBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_camera)
+        binding = ActivityCameraBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -61,11 +59,9 @@ class CameraActivity : AppCompatActivity() {
         }
 
         // Set up the listener for take photo button
-        val cameraButton = findViewById<ImageButton>(R.id.camera_capture_button)
-        cameraButton.setOnClickListener { takePhoto() }
+        binding.cameraCaptureButton.setOnClickListener { takePhoto() }
 
-        val backButton = findViewById<ImageButton>(R.id.back_button_camera)
-        backButton.setOnClickListener {
+        binding.backButtonCamera.setOnClickListener {
             startActivity(Intent(baseContext, MainActivity::class.java))
         }
 
@@ -105,7 +101,7 @@ class CameraActivity : AppCompatActivity() {
                 dialog.dismiss()
                 showConfirmationDialog()
                 // It needs to update the prediction value stored in database
-//                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(Food("noo")))
+                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(FoodModel(foodName = "eren")))
             }
             .setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()    // Close previous dialog
@@ -120,34 +116,28 @@ class CameraActivity : AppCompatActivity() {
 
         MaterialAlertDialogBuilder(this)
             .setTitle("Confirm Food Ingredients")
-
             .setPositiveButton("OK") { _, _ ->
                 for ((counter, checker) in checkedItems.withIndex()) {
-                    if(checker) {
+                    if (checker) {
                         Log.d(TAG, multiItems[counter])
                     }
                 }
             }
-
             .setNegativeButton("Cancel") { _, _ -> }
-
-            .setMultiChoiceItems(multiItems, checkedItems) { _, _, checked ->
-            }
+            .setMultiChoiceItems(multiItems, checkedItems) { _, _, checked -> }
             .show()
     }
 
     private fun showMealEntryDialog() {
         val dialogTextsCamera = LayoutInflater.from(this)
             .inflate(R.layout.dialog_texts_camera, null)
-        val answers : MutableList<String> = ArrayList()
-        answers.add("empty")
-
         val ingredientButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertIngredient)
         val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
+        val foodText = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
         ingredientButton.setOnClickListener {
             if (ingredientText.text.toString() != "") {
-                answers.add(ingredientText.text.toString())
+                cameraViewModel.ingredients.add(ingredientText.text.toString())
                 ingredientText.setText("")
             } else {
                 Toast.makeText(
@@ -162,16 +152,17 @@ class CameraActivity : AppCompatActivity() {
             .setTitle("Meal Entry")
             .setView(dialogTextsCamera)
             .setPositiveButton("OK") { _, _ ->
-                answers[0] =
-                    dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName).text.toString()
-
-                if (answers[0] == "empty" || answers.size < 2) {
+                if (cameraViewModel.ingredients.isEmpty()
+                    || cameraViewModel.foodName.isBlank()
+                ) {
                     Toast.makeText(
                         this,
                         "Please enter a food and at least one ingredient and try again.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
+                cameraViewModel.foodName = foodText.text.toString()
             }
             .setNegativeButton("Cancel") { _, _ -> }
             .show()
@@ -225,8 +216,7 @@ class CameraActivity : AppCompatActivity() {
                 .build()
                 .also {
                     it.setSurfaceProvider(
-                        findViewById<PreviewView>(R.id.view_finder)
-                            .surfaceProvider
+                        binding.viewFinder.surfaceProvider
                     )
                 }
 

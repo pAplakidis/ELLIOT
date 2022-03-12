@@ -18,4 +18,7 @@ interface FoodDao {
 
     @Query("SELECT * FROM Food")
     suspend fun getFoods(): List<Food>
+
+    @Query("SELECT MAX(food_id) FROM Food")
+    suspend fun getLatestFoodId(): Int
 }

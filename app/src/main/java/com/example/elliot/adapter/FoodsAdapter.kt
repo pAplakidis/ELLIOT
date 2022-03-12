@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
-import com.example.elliot.domain.model.Food
+import com.example.elliot.domain.model.FoodModel
 
 class FoodsAdapter(
-    private val foods: List<Food>
+    private val foodModels: List<FoodModel>
 ) : RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
 
     class FoodsViewHolder(foodDetailsView: View) : RecyclerView.ViewHolder(foodDetailsView) {
@@ -26,10 +26,10 @@ class FoodsAdapter(
 
     override fun onBindViewHolder(holder: FoodsViewHolder, position: Int) {
         holder.apply {
-            foodName.text = foods[position].foodName
+            foodName.text = foodModels[position].foodName
 //            time.text = foods[position].time
         }
     }
 
-    override fun getItemCount(): Int = foods.size
+    override fun getItemCount(): Int = foodModels.size
 }
