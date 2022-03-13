@@ -1,28 +1,26 @@
-package com.example.elliot
+package com.example.elliot;
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.elliot.databinding.ActivityMainBinding;
+import com.example.elliot.NNModel;
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController = navHostFragment.navController
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val nnModel = NNModel(this)
+        val classes = nnModel.load_classes()
+        val model = nnModel.load_model()
+        val img = nnModel.load_img("images/banaan-large.jpg")
 
-        bottomNavigationView.setupWithNavController(navController)
-
-        val cameraButton = findViewById<FloatingActionButton>(R.id.floating_action_button)
-        cameraButton.setOnClickListener {
-            startActivity(Intent(this, CameraActivity::class.java))
+        binding.button.setOnClickListener {
+            binding.imageView.setImageBitmap(img)
         }
     }
 }
