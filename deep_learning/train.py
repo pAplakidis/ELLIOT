@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import matplotlib.pyplot as plt
+from torch.utils.mobile_optimizer import optimize_for_mobile
 
 from model import *
 from data_proc import *
@@ -115,14 +116,12 @@ if __name__ == '__main__':
 
   # save the model for the C++ API
   # load a sample image
-  samp_img, samp_label = images[0:32], labels[0:32] # TODO: 32 is the Batch Size
+  samp_img = images[0:32]
   samp_img = torch.Tensor(np.array(samp_img)).float().to(device)
-  samp_label = torch.Tensor(np.array(samp_label)).float().to(device)
 
-  # run the tracing
+  # run the tracing and save the lite model
   model.eval()
   traced_script_module = torch.jit.trace(model, samp_img)
-
-  # save the converted model
-  traced_script_module.save(cpp_model_path)
+  traced_script_module_optimized = optimize_for_mobile(traced_script_module)
+  traced_script_module_optimized._save_for_lite_interpreter(cpp_model_path)
 

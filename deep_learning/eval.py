@@ -14,8 +14,8 @@ if __name__ == '__main__':
   print("[+] %d classes loaded"%len(classes))
 
   # load model
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), False, IMG_SIZE, device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
   model = load_model(model, model_path)
 
   test_imgs, test_lbls = get_eval_data(base_dir, classes)
