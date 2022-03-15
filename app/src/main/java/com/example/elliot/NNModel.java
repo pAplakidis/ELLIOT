@@ -1,8 +1,10 @@
 package com.example.elliot;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -15,6 +17,8 @@ import org.pytorch.torchvision.TensorImageUtils;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
 
 
@@ -27,7 +31,7 @@ public class NNModel {
 
     // TODO: call load_img() and classify() on button presses
     public List<String> load_classes() {
-        String jsonFileString = Utils.getJsonFromAssets(context, "models/classes.json");
+        String jsonFileString = Utils.getJsonFromAssets(context, "classes.json");
         // Log.i("data", jsonFileString);
 
         Gson gson = new Gson();
@@ -42,10 +46,9 @@ public class NNModel {
         return classes;
     }
 
-    public Module load_model() throws IOException {
-
-        //return LiteModuleLoader.load(Utils.assetFilePath(context, "tracedrenset18classifier.pt"));
-        return Module.load("models/resnet18_classifier.ptl");
+    // TODO: has problems with paths!!!
+    public Module load_model() throws IOException, URISyntaxException {
+        return LiteModuleLoader.load(Utils.assetFilePath(context, "resnet18_classifier.ptl"));
     }
 
     public Bitmap load_img(String path) throws IOException {
