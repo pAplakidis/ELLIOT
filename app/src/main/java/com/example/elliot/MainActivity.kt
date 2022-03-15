@@ -22,5 +22,10 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             binding.imageView.setImageBitmap(img)
         }
+
+        binding.classifyButton.setOnClickListener{
+            val food = nnModel.classify(img, model, classes);
+            binding.classifyText.setText(food);
+        }
     }
 }
