@@ -14,7 +14,6 @@ class FoodsAdapter(
 
     class FoodsViewHolder(foodDetailsView: View) : RecyclerView.ViewHolder(foodDetailsView) {
         val foodName: TextView = foodDetailsView.findViewById(R.id.food_name)
-        val time: TextView = foodDetailsView.findViewById(R.id.time)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodsViewHolder {
@@ -27,7 +26,6 @@ class FoodsAdapter(
     override fun onBindViewHolder(holder: FoodsViewHolder, position: Int) {
         holder.apply {
             foodName.text = foodModels[position].foodName
-//            time.text = foods[position].time
         }
     }
 

@@ -11,9 +11,11 @@ import com.example.elliot.adapter.MealAdapter
 import com.example.elliot.data.Datasource
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
 import java.util.TimeZone
 
+@AndroidEntryPoint
 class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

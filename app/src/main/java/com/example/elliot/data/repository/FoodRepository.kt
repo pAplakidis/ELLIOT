@@ -1,5 +1,6 @@
 package com.example.elliot.data.repository
 
+import com.example.elliot.domain.model.CardModel
 import com.example.elliot.domain.model.FoodModel
 import kotlinx.coroutines.flow.Flow
 
@@ -9,4 +10,6 @@ interface FoodRepository {
     fun getFoods(): Flow<List<FoodModel>>
 
     suspend fun getLatestFoodId(): Int
+
+    suspend fun getHistoryInformation(): List<CardModel>
 }

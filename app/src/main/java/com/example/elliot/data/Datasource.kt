@@ -1,9 +1,6 @@
 package com.example.elliot.data
 
-import com.example.elliot.domain.model.FoodModel
-import com.example.elliot.domain.model.Meal
-import com.example.elliot.domain.model.Statistic
-import com.example.elliot.domain.model.SubStatistic
+import com.example.elliot.domain.model.*
 
 class Datasource {
     fun loadMeals(): List<Meal> {
@@ -23,6 +20,34 @@ class Datasource {
                 "Dinner", listOf(
                     FoodModel(4, "Toast")
                 )
+            )
+        )
+    }
+
+//    TODO
+//     "COMPLETE THE IMPLEMENTATION" +
+//     "VIEWMODEL FUNCTION" +
+//     "INJECT TO RECYCLED VIEW"
+
+    fun loadMealsDemo(): List<CardModel> {
+        return listOf(
+            CardModel(
+                1,
+                mutableListOf("Tomatoula", "Aggouraki"),
+                "16/03/2022",
+                "Kwriatiki"
+            ),
+            CardModel(
+                2,
+                mutableListOf("Kotopoylo", "Patates"),
+                "16/03/2022",
+                "Kot patataoua"
+            ),
+            CardModel(
+                3,
+                mutableListOf("Makaronia", "Kimakos"),
+                "16/03/2022",
+                "Makaronia me kimako"
             )
         )
     }

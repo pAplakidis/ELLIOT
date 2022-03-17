@@ -132,21 +132,21 @@ class CameraActivity : AppCompatActivity() {
         val dialogTextsCamera = LayoutInflater.from(this)
             .inflate(R.layout.dialog_texts_camera, null)
         val ingredientButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertIngredient)
-        val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
+//        val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
         val foodText = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
-        ingredientButton.setOnClickListener {
-            if (ingredientText.text.toString() != "") {
-                cameraViewModel.ingredients.add(ingredientText.text.toString())
-                ingredientText.setText("")
-            } else {
-                Toast.makeText(
-                    this,
-                    "Please enter an ingredient before trying to enter a new one.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
+//        ingredientButton.setOnClickListener {
+//            if (ingredientText.text.toString() != "") {
+//                cameraViewModel.ingredients.add(ingredientText.text.toString())
+//                ingredientText.setText("")
+//            } else {
+//                Toast.makeText(
+//                    this,
+//                    "Please enter an ingredient before trying to enter a new one.",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
 
         MaterialAlertDialogBuilder(this)
             .setTitle("Meal Entry")
