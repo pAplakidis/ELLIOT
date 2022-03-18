@@ -13,18 +13,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val img_path = "train_029993.jpg";
 
         val nnModel = NNModel(this)
         val classes = nnModel.load_classes()
         val model = nnModel.load_model()
-        val img = nnModel.load_img("images/banaan-large.jpg")
+        val img = nnModel.load_img(img_path)
 
         binding.button.setOnClickListener {
             binding.imageView.setImageBitmap(img)
         }
 
         binding.classifyButton.setOnClickListener{
-            val food = nnModel.classify(img, model, classes);
+            val food = nnModel.classify(img_path, model, classes);
             binding.classifyText.setText(food);
         }
     }

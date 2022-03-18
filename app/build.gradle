@@ -53,6 +53,9 @@ dependencies {
     // Gson
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    // OpenCV
+    implementation 'com.quickbirdstudios:opencv-contrib:3.4.15'
+
     // CameraX
     def camerax_version = "1.1.0-beta01"
     // CameraX core library using camera2 implementation

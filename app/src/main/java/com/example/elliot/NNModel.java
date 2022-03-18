@@ -9,18 +9,38 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.opencv.core.CvException;
+import org.opencv.core.Mat;
+import org.opencv.dnn.Dnn;
+import org.opencv.dnn.Net;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
+import org.opencv.imgproc.Imgproc;
+
 import org.pytorch.IValue;
 import org.pytorch.LiteModuleLoader;
 import org.pytorch.Module;
 import org.pytorch.Tensor;
 import org.pytorch.torchvision.TensorImageUtils;
 
+
+
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.List;
-
 
 public class NNModel {
     private final Context context;
@@ -29,7 +49,6 @@ public class NNModel {
         this.context = context;
     }
 
-    // TODO: call load_img() and classify() on button presses
     public List<String> load_classes() {
         String jsonFileString = Utils.getJsonFromAssets(context, "classes.json");
         // Log.i("data", jsonFileString);
@@ -46,19 +65,55 @@ public class NNModel {
         return classes;
     }
 
-    // TODO: has problems with paths!!!
     public Module load_model() throws IOException, URISyntaxException {
         return LiteModuleLoader.load(Utils.assetFilePath(context, "resnet18_classifier.ptl"));
+    }
+
+    public Net load_onnx_model() throws IOException {
+        return Dnn.readNetFromONNX(Utils.assetFilePath(context, "resnet18_classifier.onnx"));
     }
 
     public Bitmap load_img(String path) throws IOException {
         return BitmapFactory.decodeStream(context.getAssets().open(path));
     }
 
-    public String classify(Bitmap img, Module module, List<String> classes) {
-        // TODO: check if it is the same as opening with cv2!!!
+    public String classify_onnx(String img_path, Net model, List<String> classes) throws IOException {
+        // load and preprocess image
+        Mat img = Imgcodecs.imread(Utils.assetFilePath(context, img_path));
+        Mat new_img = new Mat();
+        Imgproc.resize(new_img, img, new Size(128, 128));
+
+        // forward to net
+        model.setInput(img);
+        Mat out = model.forward();
+
+        // get argmax
+        Core.MinMaxLocResult mm = Core.minMaxLoc(out);
+        int maxValIdx = (int)mm.maxLoc.x;
+
+        return classes.get(maxValIdx);
+    }
+
+    public String classify(Bitmap img, Module module, List<String> classes) throws IOException {
+        // prep image for net (128x128 BGR)
+        img = Utils.getResizedBitmap(img, 128, 128);
+        Bitmap in_img = Utils.toBGR(img);
+
+        // TODO: either convert Mat to Bitmap or follow this: https://learnopencv.com/image-classification-with-opencv-java/
+        try{
+            // TODO: the problem here is that bitmaps are always RGB
+            //in_img = Bitmap.createBitmap(new_img.cols(), new_img.rows(), Bitmap.Config.)
+        }
+        catch(CvException e){
+            Log.d("Exception", e.getMessage());
+        }
+
         // forward image to net
-        Tensor inputTensor = TensorImageUtils.bitmapToFloat32Tensor(img, TensorImageUtils.TORCHVISION_NORM_MEAN_RGB, TensorImageUtils.TORCHVISION_NORM_STD_RGB);
+        Tensor inputTensor = TensorImageUtils.bitmapToFloat32Tensor(in_img, TensorImageUtils.TORCHVISION_NORM_MEAN_RGB, TensorImageUtils.TORCHVISION_NORM_STD_RGB);
+        long[] shape = inputTensor.shape();
+        for (long s : shape) {
+            Log.i("[+++++] Input Shape: ", Long.toString(s));
+        }
         Tensor outputTensor = module.forward(IValue.from(inputTensor)).toTensor();
         float[] scores = outputTensor.getDataAsFloatArray();
 
@@ -66,6 +121,7 @@ public class NNModel {
         float maxScore = -Float.MAX_VALUE;
         int maxScoreIdx = -1;
         for (int i = 0; i < scores.length; i++) {
+            Log.i("[+]", Float.toString(scores[i]));
             if (scores[i] > maxScore) {
                 maxScoreIdx = i;
             }
