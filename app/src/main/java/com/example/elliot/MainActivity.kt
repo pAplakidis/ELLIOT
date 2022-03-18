@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         val nnModel = NNModel(this)
         val classes = nnModel.load_classes()
-        val model = nnModel.load_model()
+        //val model = nnModel.load_model()
+        val model = nnModel.load_onnx_model()
         val img = nnModel.load_img(img_path)
 
         binding.button.setOnClickListener {
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.classifyButton.setOnClickListener{
-            val food = nnModel.classify(img_path, model, classes);
+            //val food = nnModel.classify(img_path, model, classes)
+            val food = nnModel.classify_onnx(img_path, model, classes)
             binding.classifyText.setText(food);
         }
     }

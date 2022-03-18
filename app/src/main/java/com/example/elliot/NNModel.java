@@ -65,25 +65,22 @@ public class NNModel {
         return classes;
     }
 
-    public Module load_model() throws IOException, URISyntaxException {
-        return LiteModuleLoader.load(Utils.assetFilePath(context, "resnet18_classifier.ptl"));
-    }
-
-    public Net load_onnx_model() throws IOException {
-        return Dnn.readNetFromONNX(Utils.assetFilePath(context, "resnet18_classifier.onnx"));
-    }
-
     public Bitmap load_img(String path) throws IOException {
         return BitmapFactory.decodeStream(context.getAssets().open(path));
     }
 
+    public Net load_onnx_model() throws IOException {
+        OpenCVLoader.initDebug();
+        return Dnn.readNetFromONNX(Utils.assetFilePath(context, "resnet18_classifier.onnx"));
+    }
+
     public String classify_onnx(String img_path, Net model, List<String> classes) throws IOException {
         // load and preprocess image
-        Mat img = Imgcodecs.imread(Utils.assetFilePath(context, img_path));
-        Mat new_img = new Mat();
-        Imgproc.resize(new_img, img, new Size(128, 128));
+        Mat img = Imgcodecs.imread(Utils.assetFilePath(context, img_path), Imgcodecs.IMREAD_COLOR);
+        Imgproc.resize(img, img, new Size(128, 128));
 
         // forward to net
+        Log.i("[+++] Img Shape: ", img.size().toString());  // FIXME: dimensions are wrong (128x128 instead of BSx3x128x128)
         model.setInput(img);
         Mat out = model.forward();
 
@@ -94,14 +91,17 @@ public class NNModel {
         return classes.get(maxValIdx);
     }
 
+    public Module load_model() throws IOException, URISyntaxException {
+        return LiteModuleLoader.load(Utils.assetFilePath(context, "resnet18_classifier.ptl"));
+    }
+
     public String classify(Bitmap img, Module module, List<String> classes) throws IOException {
         // prep image for net (128x128 BGR)
         img = Utils.getResizedBitmap(img, 128, 128);
         Bitmap in_img = Utils.toBGR(img);
 
-        // TODO: either convert Mat to Bitmap or follow this: https://learnopencv.com/image-classification-with-opencv-java/
         try{
-            // TODO: the problem here is that bitmaps are always RGB
+            // FIXME: the problem here is that Bitmap can only be RGB
             //in_img = Bitmap.createBitmap(new_img.cols(), new_img.rows(), Bitmap.Config.)
         }
         catch(CvException e){
@@ -110,10 +110,12 @@ public class NNModel {
 
         // forward image to net
         Tensor inputTensor = TensorImageUtils.bitmapToFloat32Tensor(in_img, TensorImageUtils.TORCHVISION_NORM_MEAN_RGB, TensorImageUtils.TORCHVISION_NORM_STD_RGB);
+        /*
         long[] shape = inputTensor.shape();
         for (long s : shape) {
             Log.i("[+++++] Input Shape: ", Long.toString(s));
         }
+        */
         Tensor outputTensor = module.forward(IValue.from(inputTensor)).toTensor();
         float[] scores = outputTensor.getDataAsFloatArray();
 
