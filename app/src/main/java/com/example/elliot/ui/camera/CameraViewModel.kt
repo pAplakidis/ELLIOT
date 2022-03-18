@@ -7,13 +7,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.ArrayList
 import javax.inject.Inject
+import javax.inject.Named
 
 @HiltViewModel
 class CameraViewModel @Inject constructor(
-    private val repository: FoodRepository
+    @Named("FoodRepImpl") private val repository: FoodRepository
 ) : ViewModel() {
 
-    private var foodId: Int = 0;
+    private var foodId: Int = 0
 
     val ingredients: MutableList<String> = ArrayList()
     var foodName = String()

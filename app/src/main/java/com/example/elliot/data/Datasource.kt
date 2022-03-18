@@ -1,53 +1,52 @@
 package com.example.elliot.data
 
 import com.example.elliot.domain.model.*
+import javax.inject.Inject
 
-class Datasource {
-    fun loadMeals(): List<Meal> {
-        return listOf(
-            Meal(
-                "Breakfast", listOf(
-                    FoodModel(0, "Apple"),
-                    FoodModel(1, "Milk")
-                )
-            ),
-            Meal(
-                "Lunch", listOf(
-                    FoodModel(3, "Chicken")
-                )
-            ),
-            Meal(
-                "Dinner", listOf(
-                    FoodModel(4, "Toast")
-                )
-            )
-        )
-    }
-
-//    TODO
-//     "COMPLETE THE IMPLEMENTATION" +
-//     "VIEWMODEL FUNCTION" +
-//     "INJECT TO RECYCLED VIEW"
+class Datasource @Inject constructor(){
+//    fun loadMeals(): List<Meal> {
+//        return listOf(
+//            Meal(
+//                "Breakfast", listOf(
+//                    FoodModel(0, "Apple"),
+//                    FoodModel(1, "Milk")
+//                )
+//            ),
+//            Meal(
+//                "Lunch", listOf(
+//                    FoodModel(3, "Chicken")
+//                )
+//            ),
+//            Meal(
+//                "Dinner", listOf(
+//                    FoodModel(4, "Toast")
+//                )
+//            )
+//        )
+//    }
 
     fun loadMealsDemo(): List<CardModel> {
         return listOf(
-            CardModel(
-                1,
-                mutableListOf("Tomatoula", "Aggouraki"),
-                "16/03/2022",
-                "Kwriatiki"
+            CardModel("Breakfast",
+                mutableListOf(
+                    FoodModel(1, "Kwriatiki",
+                    "16/03/2022",
+                    mutableListOf("Tomatoula", "Aggouraki"))
+                )
             ),
-            CardModel(
-                2,
-                mutableListOf("Kotopoylo", "Patates"),
-                "16/03/2022",
-                "Kot patataoua"
+            CardModel("Lunch",
+                mutableListOf(
+                    FoodModel(2, "Kot Patataoua",
+                        "16/03/2022",
+                        mutableListOf("kota", "patates"))
+                )
             ),
-            CardModel(
-                3,
-                mutableListOf("Makaronia", "Kimakos"),
-                "16/03/2022",
-                "Makaronia me kimako"
+            CardModel("Dinner",
+                mutableListOf(
+                    FoodModel(3, "Makaronia me kimako",
+                        "16/03/2022",
+                        mutableListOf("makaronakia", "kimakos"))
+                )
             )
         )
     }

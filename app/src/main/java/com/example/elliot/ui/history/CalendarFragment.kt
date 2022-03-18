@@ -3,28 +3,38 @@ package com.example.elliot.ui.history
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
 import com.example.elliot.adapter.MealAdapter
-import com.example.elliot.data.Datasource
+import com.example.elliot.domain.model.CardModel
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.InternalCoroutinesApi
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import java.util.Calendar
 import java.util.TimeZone
 
+@InternalCoroutinesApi
 @AndroidEntryPoint
 class CalendarFragment : Fragment(R.layout.fragment_foods) {
+    private val calendarViewModel: CalendarViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun callRecycleView(recyclerView: RecyclerView, dataset: List<CardModel>) {
+        recyclerView.apply {
+            adapter = MealAdapter(dataset)
+            addItemDecoration(DividerItemDecoration(recyclerView.context,
+                LinearLayoutManager.VERTICAL))
+            setHasFixedSize(true)
+        }
+    }
 
-        val myDataset = Datasource().loadMeals()
-        val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
-        val divider = DividerItemDecoration(recyclerView.context, LinearLayoutManager.VERTICAL)
-
+    private fun constraintsCalendar(): CalendarConstraints.Builder {
         val today = MaterialDatePicker.todayInUtcMilliseconds()
         val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
 
@@ -37,26 +47,54 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         val decThisYear = calendar.timeInMillis
 
         // Build constraints.
-        val constraintsBuilder =
-            CalendarConstraints.Builder()
-                .setStart(janThisYear)
-                .setEnd(decThisYear)
+        return CalendarConstraints.Builder()
+            .setStart(janThisYear)
+            .setEnd(decThisYear)
+    }
 
+    private fun initializeCalendar(): MaterialDatePicker<Long> {
         val datePicker =
             MaterialDatePicker.Builder.datePicker()
                 .setTitleText("Select date")
-                .setCalendarConstraints(constraintsBuilder.build())
+                .setCalendarConstraints(constraintsCalendar().build())
                 .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 .setTheme(R.style.ThemeOverlay_Elliot_DatePicker)
                 .build()
 
         datePicker.show(childFragmentManager, "tag")
+
+        return datePicker
+    }
+
+    private fun setCardHeight(height: String) {
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
+
+        val datePicker = initializeCalendar()
+
         datePicker.addOnPositiveButtonClickListener {
-            recyclerView.apply {
-                adapter = MealAdapter(myDataset)
-                addItemDecoration(divider)
-                setHasFixedSize(true)
+            calendarViewModel.onEvent(CalendarEvent.OnDateClick(datePicker.headerText))
+        }
+
+        lifecycleScope.launch {
+            calendarViewModel.cardUiState.collect { cardUiState ->
+                when (cardUiState) {
+                    is CalendarViewModel.CalendarUiState.CardListPick -> callRecycleView(recyclerView, cardUiState.cardsChosen)
+                }
+            }
+
+            calendarViewModel.heightUiState.collect { heightUiState ->
+                when (heightUiState) {
+                    is CalendarViewModel.CalendarUiState.HeightSetter -> setCardHeight(heightUiState.heightChosen)
+                }
             }
         }
+
     }
 }

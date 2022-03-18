@@ -1,10 +1,8 @@
 package com.example.elliot.domain.model
 
 data class CardModel(
-    var foodId: Int? = null,
-    var foodIngredients: MutableList<String?> = mutableListOf(),
-    val foodDate: String,
-    val foodName: String,
+    val timeOfDay: String,
+    var foodDetails: MutableList<FoodModel> = mutableListOf()
     ) {
     fun toCardModel() {
         TODO("Make CardModel in DB")

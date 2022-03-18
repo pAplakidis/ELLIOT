@@ -101,7 +101,7 @@ class CameraActivity : AppCompatActivity() {
                 dialog.dismiss()
                 showConfirmationDialog()
                 // It needs to update the prediction value stored in database
-                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(FoodModel(foodName = "eren")))
+                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(FoodModel(foodName = "ereeeen")))
             }
             .setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()    // Close previous dialog

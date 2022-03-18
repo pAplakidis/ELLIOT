@@ -1,11 +1,14 @@
 package com.example.elliot.data.repository
 
+import com.example.elliot.data.Datasource
 import com.example.elliot.domain.model.CardModel
 import com.example.elliot.domain.model.FoodModel
 import kotlinx.coroutines.flow.Flow
 
 class MealRepositoryImpl (
+    private val dtsrc: Datasource
 ) : FoodRepository {
+
     override suspend fun insertFood(foodModel: FoodModel) {
         TODO("Not yet implemented")
     }
@@ -19,7 +22,7 @@ class MealRepositoryImpl (
     }
 
     override suspend fun getHistoryInformation(): List<CardModel> {
-        TODO("Not yet implemented")
+        return dtsrc.loadMealsDemo()
     }
 
 }

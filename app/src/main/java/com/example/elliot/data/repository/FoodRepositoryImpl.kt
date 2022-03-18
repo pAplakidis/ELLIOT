@@ -1,6 +1,5 @@
 package com.example.elliot.data.repository
 
-import com.example.elliot.data.Datasource
 import com.example.elliot.data.local.FoodDao
 import com.example.elliot.domain.model.CardModel
 import com.example.elliot.domain.model.FoodModel
@@ -8,8 +7,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FoodRepositoryImpl(
-    private val dao: FoodDao,
-    private val dtsrc: Datasource
+    private val dao: FoodDao
 ) : FoodRepository {
 
     override suspend fun insertFood(foodModel: FoodModel) {
@@ -25,6 +23,7 @@ class FoodRepositoryImpl(
     }
 
     override suspend fun getHistoryInformation(): List<CardModel> {
-        return dtsrc.loadMealsDemo()
+        // TODO("FAKE GIA NA MHN SKAEI.")
+       return emptyList()
     }
 }
