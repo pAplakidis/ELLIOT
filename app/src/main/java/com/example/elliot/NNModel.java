@@ -76,13 +76,22 @@ public class NNModel {
 
     public String classify_onnx(String img_path, Net model, List<String> classes) throws IOException {
         // load and preprocess image
+        final double SCALE_FACTOR = 1 / 255.0;
+        Scalar mean = new Scalar(0.485, 0.456, 0.406);
+        Scalar std = new Scalar( 0.229, 0.224, 0.225);
+        Size size = new Size(128, 128);
+
         Mat img = Imgcodecs.imread(Utils.assetFilePath(context, img_path), Imgcodecs.IMREAD_COLOR);
-        Imgproc.resize(img, img, new Size(128, 128));
+        Imgproc.resize(img, img, size);
+        Mat imgFloat = new Mat(img.rows(), img.cols(), CvType.CV_32FC3);
+        img.convertTo(imgFloat, CvType.CV_32FC3, SCALE_FACTOR);
+        //imgFloat = Utils.center_crop(imgFloat);
+        Mat blob = Dnn.blobFromImage(imgFloat, 1.0, size, mean, true, false);
+        Core.divide(blob, std, blob);
 
         // forward to net
-        Log.i("[+++] Img Shape: ", img.size().toString());  // FIXME: dimensions are wrong (128x128 instead of BSx3x128x128)
-        model.setInput(img);
-        Mat out = model.forward();
+        model.setInput(blob);
+        Mat out = model.forward();  // FIXME: always the same output
 
         // get argmax
         Core.MinMaxLocResult mm = Core.minMaxLoc(out);

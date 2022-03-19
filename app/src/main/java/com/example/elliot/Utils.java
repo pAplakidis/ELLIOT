@@ -7,6 +7,9 @@ import android.util.Log;
 import android.graphics.Bitmap;
 
 
+import org.opencv.core.Mat;
+import org.opencv.core.Rect;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -82,5 +85,14 @@ public class Utils {
             // NOTE: alpha is discarded
         }
         return BitmapFactory.decodeByteArray(pixels, 0, pixels.length);
+    }
+
+    public static Rect center_crop(Mat img){
+        int y1 = Math.round((img.rows() - 128) / 2);
+        int y2 = Math.round(y1 + 128);
+        int x1 = Math.round((img.cols() - 128) / 2);
+        int x2 = Math.round(x1 + 128);
+
+        return new Rect(x1, y1, (x2 - x1), (y2 - y1));
     }
 }

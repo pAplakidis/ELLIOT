@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val img_path = "train_029993.jpg";
+        val img_path = "banaan-large.jpg";
 
         val nnModel = NNModel(this)
         val classes = nnModel.load_classes()
