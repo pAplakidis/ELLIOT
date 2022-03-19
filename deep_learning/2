@@ -10,15 +10,13 @@ def train(model, images, labels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
-  #lr = 1e-3  # food-101
-  lr = 1e-3   # food-241
+  lr = 1e-3
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
   losses, accuracies = [], []
-  BS = 128
-  #epochs = 250 # full dataset
-  #epochs = 100 # food-101
-  epochs = 100  # food-251
+  BS = 256
+  #epochs = 250
+  epochs = 150
 
   for epoch in range(epochs):
     print("[+] Epoch %d/%d"%(epoch+1,epochs))
@@ -60,9 +58,6 @@ def train(model, images, labels, classes):
   plt.savefig(train_plot)
   plt.show()
 
-  # save onnx
-  inpt = torch.tensor(np.array(images[0:2])).float().to(device)
-  save_onnx(model, inpt, onnx_path)
   return model
 
 def evaluate(model, device, images, labels, classes):
@@ -91,7 +86,6 @@ def evaluate(model, device, images, labels, classes):
   # plot stats
   print("Evaluation Done")
   print("[+] Average Validation Accuracy: %.2f"%(sum(accuracies)/len(accuracies)))
-  print("[+] Average Validation Loss: %.2f"%(sum(losses)/len(losses)))
   plt.figure(1)
   plt.ylim(0, 1)
   plt.plot(losses, label="validation loss")
@@ -114,8 +108,8 @@ if __name__ == '__main__':
   #writer.add_image('food_images', img_grid)
 
   # train
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), False, IMG_SIZE, device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
 
@@ -125,7 +119,7 @@ if __name__ == '__main__':
 
   # save the model for the C++ API
   # load a sample image
-  samp_img = images[0:2]
+  samp_img = images[0:32]
   samp_img = torch.Tensor(np.array(samp_img)).float().to(device)
 
   # run the tracing and save the lite model

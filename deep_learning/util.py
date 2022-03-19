@@ -5,10 +5,20 @@ IMG_SIZE = 128
 
 # Model Paths
 #model_path = "../models/classifier.pth"
-model_path = "../models/resnet18_classifier.pth"
-#cpp_model_path = "../models/traced_classifier.pt"
-cpp_model_path = "../models/resnet18_classifier.ptl"
-classes_path = "../models/classes.json"
+#model_path = "../models/resnet18_classifier.pth"
+model_path = "../models/classifier_101.pth"
+#onnx_path = "../models/resnet18_classifier.onnx"
+onnx_path = "../models/classifier_101.onnx"
+#cpp_model_path = "../models/resnet18_classifier.ptl"
+cpp_model_path = "../models/classifier_101.ptl"
+#classes_path = "../models/classes.json"
+classes_path = "../models/classes_101.json"
+
+# plot paths
+#train_plot = "../plots/training_stats.png"
+#eval_plot = "../plots/evaluation_stats.png"
+train_plot = "../plots/training_stats_101.png"
+eval_plot = "../plots/evaluation_stats_101.png"
 
 # Data Paths
 base_dir = "../data/"

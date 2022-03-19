@@ -60,6 +60,12 @@ def save_model(model, path):
   torch.save(model.state_dict(), path)
   print("Model saved at", path)
 
+def save_onnx(model, x, path):
+  torch.onnx.export(model, x, path, export_params=True, opset_version=10,
+                    do_constant_folding=True, input_names=['image'], output_names=['class'],
+                    dynamic_axes={'input': {0: 'batch_size'}, 'output': {0: 'batch_size'}})
+  print("[+] Saved onnx model at:", path)
+
 def load_model(model, path):
   model.load_state_dict(torch.load(path))
   print("Loaded model from", path)

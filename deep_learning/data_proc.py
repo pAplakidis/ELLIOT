@@ -18,6 +18,7 @@ def get_training_data(base_dir):
   classes = set()  # list of all possible classes  (same size as NN's output tensor)
   images, labels = [], [] # images and their corresponding class
 
+  """
   # handle Food-101 dataset
   print("[+] Loading data from FOOD-101 ...")
   valid = []
@@ -39,6 +40,7 @@ def get_training_data(base_dir):
       images.append(img)
       labels.append(f)
       t.set_description("processing file: %s"%(f+'/'+image))
+  """
 
   # handle Food-251 dataset
   print("[+] Loading data from FOOD-251 ...")
@@ -78,8 +80,8 @@ def get_training_data(base_dir):
     idx = classes.index(l)
     new_labels.append(idx)
 
-  #for idx, c in enumerate(classes):
-  #  print("%d images for %s"%(new_labels.count(idx), c))
+  for idx, c in enumerate(classes):
+    print("%d images for: %s"%(new_labels.count(idx), c))
 
   print("[+] Loaded %d food categories"%len(classes))
   with open(classes_path, 'w') as f:
@@ -93,6 +95,7 @@ def get_training_data(base_dir):
 def get_eval_data(base_dir, classes):
   images, labels = [], [] # images and their corresponding class
 
+  """
   # handle Food-101 dataset
   print("[+] Loading validation data for FOOD-101 ...")
   valid = []
@@ -113,6 +116,7 @@ def get_eval_data(base_dir, classes):
       images.append(img)
       labels.append(f)
       t.set_description("processing file: %s"%(f+'/'+image))
+  """
 
   # handle FOOD-251
   print("[+] Loading validation data for FOOD-251 ...")
@@ -146,8 +150,8 @@ def get_eval_data(base_dir, classes):
     idx = classes.index(l)
     new_labels.append(idx)
 
-  #for idx, c in enumerate(classes):
-  #  print("%d images for %s"%(new_labels.count(idx), c))
+  for idx, c in enumerate(classes):
+    print("%d images for: %s"%(new_labels.count(idx), c))
 
   print("[+] Loaded %d food categories"%len(classes))
   print("[+] %d images"%len(images))

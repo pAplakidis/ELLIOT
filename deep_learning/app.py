@@ -33,8 +33,12 @@ if __name__ == '__main__':
   print("[+] %d classes loaded"%len(classes))
 
   # load model
-  model = FoodClassifier(len(classes)).to(device)
-  model = load_model(model, model_path)
+  #model = FoodClassifier(len(classes)).to(device)
+  #model = init_resnet(len(classes), False, IMG_SIZE, device)
+  #model = load_model(model, model_path)
+
+  # load onnx
+  model = onnx.load("../models/resnet18_classifier.onnx")
   model.eval()
 
   # make tensor
@@ -45,7 +49,7 @@ if __name__ == '__main__':
   print(X.shape)
 
   # forward to model
-  pred = model(X) # TODO: softmax the output, might not be needed though
+  pred = model(X)
   cat = torch.argmax(pred, dim=1).item()
   food_name = classes[cat]
   print("Model prediction")
