@@ -1,7 +1,11 @@
 package com.example.elliot.ui.history
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -11,14 +15,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
 import com.example.elliot.adapter.MealAdapter
 import com.example.elliot.domain.model.CardModel
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import java.util.Calendar
-import java.util.TimeZone
+import java.util.*
 
 @InternalCoroutinesApi
 @AndroidEntryPoint
@@ -66,7 +70,33 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         return datePicker
     }
 
-    private fun setCardHeight(height: String) {
+    private fun clickListener(recyclerView: RecyclerView, height: Int) {
+
+        val listener = CalendarClickListener(requireActivity(), recyclerView, object : CalendarClickListener.OnItemClickListener {
+            override fun onItemClick(view: View, position: Int) {
+
+                val card = view.findViewById<MaterialCardView>(R.id.card)
+                val heightFound = card.height
+
+//                calendarViewModel.onEvent(CalendarEvent.OnCardClick(height = heightFound))
+
+                if (heightFound == 69) {
+                    card.layoutParams =
+                        ConstraintLayout.LayoutParams(WRAP_CONTENT, 138)
+                } else {
+                    card.layoutParams =
+                        ConstraintLayout.LayoutParams(WRAP_CONTENT, 69)
+                }
+
+            }
+
+            override fun onItemLongClick(view: View?, position: Int) {
+            }
+        })
+
+//        recyclerView.removeOnItemTouchListener(listener)
+
+        recyclerView.addOnItemTouchListener(listener)
 
     }
 
@@ -85,16 +115,23 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         lifecycleScope.launch {
             calendarViewModel.cardUiState.collect { cardUiState ->
                 when (cardUiState) {
-                    is CalendarViewModel.CalendarUiState.CardListPick -> callRecycleView(recyclerView, cardUiState.cardsChosen)
-                }
-            }
-
-            calendarViewModel.heightUiState.collect { heightUiState ->
-                when (heightUiState) {
-                    is CalendarViewModel.CalendarUiState.HeightSetter -> setCardHeight(heightUiState.heightChosen)
+                    is CalendarViewModel.CalendarUiState.CardListPick -> {
+                        callRecycleView(recyclerView, cardUiState.cardsChosen)
+                        clickListener(recyclerView, 0)
+                    }
                 }
             }
         }
+
+//        lifecycleScope.launch {
+//            calendarViewModel.heightUiState.collect { heightUiState ->
+//                when (heightUiState) {
+//                    is CalendarViewModel.CalendarUiState.HeightSetter -> {
+//                        clickListener(recyclerView, heightUiState.heightChosen)
+//                    }
+//                }
+//            }
+//        }
 
     }
 }

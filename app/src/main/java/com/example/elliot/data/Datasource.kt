@@ -31,7 +31,10 @@ class Datasource @Inject constructor(){
                 mutableListOf(
                     FoodModel(1, "Kwriatiki",
                     "16/03/2022",
-                    mutableListOf("Tomatoula", "Aggouraki"))
+                    mutableListOf("Tomatoula", "Aggouraki")),
+                    FoodModel(4, "Test",
+                        "16/03/2022",
+                        mutableListOf("Tomatoula", "Aggouraki"))
                 )
             ),
             CardModel("Lunch",

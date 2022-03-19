@@ -99,7 +99,8 @@ class CameraActivity : AppCompatActivity() {
             .setMessage("Is the food '...' the correct prediction?")
             .setPositiveButton("Yes") { dialog, _ ->
                 dialog.dismiss()
-                showConfirmationDialog()
+                // ΧΤΥΠΑΩ ΜΕ EVENT ΤΗΝ ΒΑΣΗ ΜΕ ΤΗΝ ΠΡΟΒΛΕΨΗ ΓΙΑ ΝΑ ΠΑΡΩ ΤΑ INGREDIENTS
+                showConfirmationDialog("", emptyList()) // ΠΕΡΝΑΩ ΤΟ STRING ΤΗΣ ΠΡΟΒΛΕΨΗΣ ΚΑΙ ΤΑ ΥΛΙΚΑ ΑΠΟ ΒΑΣΗ
                 // It needs to update the prediction value stored in database
                 cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(FoodModel(foodName = "ereeeen")))
             }
@@ -110,8 +111,8 @@ class CameraActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun showConfirmationDialog() {
-        val multiItems = arrayOf("Item 1", "Item 2", "Item 3")
+    private fun showConfirmationDialog(foodName: String, ingredients: List<String>) {
+        val multiItems = arrayOf("Item 1", "Item 2", "Item 3") // ΑΡΓΟΤΕΡΑ ΣΩΣΤΟ POPULATE TOY multiItems
         val checkedItems = booleanArrayOf(false, false, false)
 
         MaterialAlertDialogBuilder(this)
@@ -119,7 +120,8 @@ class CameraActivity : AppCompatActivity() {
             .setPositiveButton("OK") { _, _ ->
                 for ((counter, checker) in checkedItems.withIndex()) {
                     if (checker) {
-                        Log.d(TAG, multiItems[counter])
+                        Log.d(TAG, multiItems[counter]) // ΕΔΩ ΤΑ ΤΣΕΚΑΡΙΣΜΕΝΑ
+                        // EVENT ΓΙΑ ΕΙΣΑΓΩΓΗ ΠΙΣΩ ΣΤΗΝ ΒΑΣΗ
                     }
                 }
             }
@@ -131,11 +133,11 @@ class CameraActivity : AppCompatActivity() {
     private fun showMealEntryDialog() {
         val dialogTextsCamera = LayoutInflater.from(this)
             .inflate(R.layout.dialog_texts_camera, null)
-        val ingredientButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertIngredient)
+//        val mealInsertButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertFood)
 //        val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
         val foodText = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
-//        ingredientButton.setOnClickListener {
+//        mealInsertButton.setOnClickListener {
 //            if (ingredientText.text.toString() != "") {
 //                cameraViewModel.ingredients.add(ingredientText.text.toString())
 //                ingredientText.setText("")
@@ -152,17 +154,20 @@ class CameraActivity : AppCompatActivity() {
             .setTitle("Meal Entry")
             .setView(dialogTextsCamera)
             .setPositiveButton("OK") { _, _ ->
-                if (cameraViewModel.ingredients.isEmpty()
-                    || cameraViewModel.foodName.isBlank()
-                ) {
+                if (foodText.text.toString().isBlank()) {
                     Toast.makeText(
                         this,
-                        "Please enter a food and at least one ingredient and try again.",
+                        "Please enter a food and try again.",
                         Toast.LENGTH_SHORT
                     ).show()
+                } else {
+                    cameraViewModel.foodName = foodText.text.toString()
+                    // ΧΤΥΠΑΩ ΒΑΣΗ ΓΙΑ ΝΑ ΠΑΡΩ ΤΑ INGREDIENTS ΚΑΙ ΝΑ ΤΑ ΓΥΡΙΣΩ
+                    showConfirmationDialog(
+                        foodText.text.toString(),
+                        emptyList()
+                    ) // ΑΝΤΙ ΓΙΑ ΑΥΤΗΝ, STATEFLOW ME ΠΑΡΑΜΕΤΡΟ ΤΗΝ ΛΙΣΤΑ ΜΕ INGREDIENTS ΚΑΙ ΤΟ MEAL?
                 }
-
-                cameraViewModel.foodName = foodText.text.toString()
             }
             .setNegativeButton("Cancel") { _, _ -> }
             .show()

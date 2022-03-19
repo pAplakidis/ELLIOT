@@ -3,7 +3,6 @@ package com.example.elliot.ui.history
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.elliot.data.repository.FoodRepository
-import com.example.elliot.data.repository.MealRepositoryImpl
 import com.example.elliot.domain.model.CardModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,8 +22,8 @@ class CalendarViewModel @Inject constructor(
     // The UI collects from this StateFlow to get its state updates
     val cardUiState: StateFlow<CalendarUiState> = _cardUiState
 
-    private val _heightUiState = MutableStateFlow(CalendarUiState.HeightSetter(""))
-    val heightUiState: StateFlow<CalendarUiState> = _heightUiState
+//    private val _heightUiState = MutableStateFlow(CalendarUiState.HeightSetter(0))
+//    val heightUiState: StateFlow<CalendarUiState> = _heightUiState
 
     fun onEvent(event: CalendarEvent) {
         when (event) {
@@ -36,21 +35,21 @@ class CalendarViewModel @Inject constructor(
 
                 }
             }
-            is CalendarEvent.OnCardClick -> {
-                viewModelScope.launch {
-                    if (event.height == "25") {
-                        _heightUiState.update {it.copy(heightChosen = "55")}
-                    } else {
-                        _heightUiState.update {it.copy(heightChosen = "25")}
-                    }
-                }
-            }
+//            is CalendarEvent.OnCardClick -> {
+//                viewModelScope.launch {
+//                    if (event.height == 69) {
+//                        _heightUiState.update {it.copy(heightChosen = 138)}
+//                    } else {
+//                        _heightUiState.update {it.copy(heightChosen = 69)}
+//                    }
+//                }
+//            }
         }
     }
 
     sealed class CalendarUiState {
         data class CardListPick(val cardsChosen: List<CardModel>): CalendarUiState()
-        data class HeightSetter(val heightChosen: String): CalendarUiState()
+//        data class HeightSetter(val heightChosen: Int): CalendarUiState()
     }
 
 }
