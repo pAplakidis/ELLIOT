@@ -34,12 +34,8 @@ if __name__ == '__main__':
 
   # load model
   #model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), False, IMG_SIZE, device)
-  #model = load_model(model, model_path)
-
-  # load onnx
-  model = onnx.load("../models/resnet18_classifier.onnx")
-  model.eval()
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
+  model = load_model(model, model_path)
 
   # make tensor
   img_in = np.moveaxis(img, -1, 0)

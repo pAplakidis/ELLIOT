@@ -11,7 +11,7 @@ def train(model, images, labels, classes):
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
-  lr = 1e-3   # food-241
+  lr = 1e-4   # food-241
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
   losses, accuracies = [], []
@@ -20,35 +20,38 @@ def train(model, images, labels, classes):
   #epochs = 100 # food-101
   epochs = 100  # food-251
 
-  for epoch in range(epochs):
-    print("[+] Epoch %d/%d"%(epoch+1,epochs))
-    epoch_losses = []
-    epoch_acc = []
-    for i in (t := trange(0, len(images), BS)):
-      X = torch.tensor(np.array(images[i:i+BS])).float().to(device)
-      Y = torch.tensor(np.array(labels[i:i+BS])).long().to(device)
+  try:
+    for epoch in range(epochs):
+      print("[+] Epoch %d/%d"%(epoch+1,epochs))
+      epoch_losses = []
+      epoch_acc = []
+      for i in (t := trange(0, len(images), BS)):
+        X = torch.tensor(np.array(images[i:i+BS])).float().to(device)
+        Y = torch.tensor(np.array(labels[i:i+BS])).long().to(device)
 
-      # feed forward and backpropagate
-      optim.zero_grad()
-      out = model(X)
-      cat = torch.argmax(out, dim=1)
-      accuracy = (cat == Y).float().mean()
-      loss = loss_function(out, Y).mean()
-      loss.backward()
-      optim.step()
+        # feed forward and backpropagate
+        optim.zero_grad()
+        out = model(X)
+        cat = torch.argmax(out, dim=1)
+        accuracy = (cat == Y).float().mean()
+        loss = loss_function(out, Y).mean()
+        loss.backward()
+        optim.step()
 
-      # stats
-      loss, accuracy = loss.item(), accuracy.item()
-      #losses.append(loss)
-      #accuracies.append(accuracy)
-      epoch_losses.append(loss)
-      epoch_acc.append(accuracy)
-      t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
+        # stats
+        loss, accuracy = loss.item(), accuracy.item()
+        #losses.append(loss)
+        #accuracies.append(accuracy)
+        epoch_losses.append(loss)
+        epoch_acc.append(accuracy)
+        t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
 
-    print("Epoch average loss: %.2f"%(np.array(epoch_losses).mean()))
-    print("Epoch average accuracy: %.2f"%(np.array(epoch_acc).mean()))
-    losses.append(np.array(epoch_losses).mean())
-    accuracies.append(np.array(epoch_acc).mean())
+      print("Epoch average loss: %.2f"%(np.array(epoch_losses).mean()))
+      print("Epoch average accuracy: %.2f"%(np.array(epoch_acc).mean()))
+      losses.append(np.array(epoch_losses).mean())
+      accuracies.append(np.array(epoch_acc).mean())
+  except KeyboardInterrupt:
+    print("[-] Training was interrupted")
 
   # plot stats
   print("Training Done")
