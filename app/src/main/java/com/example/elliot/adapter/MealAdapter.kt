@@ -9,7 +9,7 @@ import com.example.elliot.R
 import com.example.elliot.domain.model.CardModel
 
 class MealAdapter(
-    private val dataset: List<CardModel>
+    private val dataset: List<CardModel>,
 ) : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
 
     // Holds references for every view inside the layout we want to inflate

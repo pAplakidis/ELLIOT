@@ -4,26 +4,6 @@ import com.example.elliot.domain.model.*
 import javax.inject.Inject
 
 class Datasource @Inject constructor(){
-//    fun loadMeals(): List<Meal> {
-//        return listOf(
-//            Meal(
-//                "Breakfast", listOf(
-//                    FoodModel(0, "Apple"),
-//                    FoodModel(1, "Milk")
-//                )
-//            ),
-//            Meal(
-//                "Lunch", listOf(
-//                    FoodModel(3, "Chicken")
-//                )
-//            ),
-//            Meal(
-//                "Dinner", listOf(
-//                    FoodModel(4, "Toast")
-//                )
-//            )
-//        )
-//    }
 
     fun loadMealsDemo(): List<CardModel> {
         return listOf(
