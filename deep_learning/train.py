@@ -18,7 +18,7 @@ def train(model, images, labels, classes):
   BS = 256
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 15   # food-251
+  epochs = 20   # food-251
 
   try:
     for epoch in range(epochs):

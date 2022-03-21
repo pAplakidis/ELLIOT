@@ -32,8 +32,8 @@ if __name__ == '__main__':
   print("[+] %d classes loaded"%len(classes))
 
   # load and  preprocess image
-  img = cv2.imread(img_path)
-  img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+  img_original = cv2.imread(img_path)
+  img = cv2.resize(img_original, (IMG_SIZE, IMG_SIZE))
   print("[+] Loaded image", img_path)
 
   img_in = np.moveaxis(img, -1, 0).astype('float32')
@@ -47,8 +47,10 @@ if __name__ == '__main__':
   cat = np.argmax(pred)
   food_name= classes[cat]
   print("Model prediction")
+  print(pred)
+  print(pred.shape)
   print(food_name)
 
-  cv2.imshow(food_name, cv2.resize(img, (DISP_RES, DISP_RES)))
+  cv2.imshow(food_name, cv2.resize(img_original, (DISP_RES, DISP_RES)))
   cv2.waitKey(0)
 
