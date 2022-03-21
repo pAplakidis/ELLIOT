@@ -66,7 +66,7 @@ public class NNModel {
     }
 
     public Bitmap load_img(String path) throws IOException {
-        return BitmapFactory.decodeStream(context.getAssets().open(path));
+        return Utils.getResizedBitmap(BitmapFactory.decodeStream(context.getAssets().open(path)), 1080, 1080);
     }
 
     public Net load_onnx_model() throws IOException {
@@ -86,12 +86,13 @@ public class NNModel {
         Mat imgFloat = new Mat(img.rows(), img.cols(), CvType.CV_32FC3);
         img.convertTo(imgFloat, CvType.CV_32FC3, SCALE_FACTOR);
         //imgFloat = Utils.center_crop(imgFloat);
-        Mat blob = Dnn.blobFromImage(imgFloat, 1.0, size, mean, true, false);
+        Mat blob = Dnn.blobFromImage(imgFloat, 1.0, size, mean, false, false);
         Core.divide(blob, std, blob);
 
         // forward to net
         model.setInput(blob);
         Mat out = model.forward();  // FIXME: always the same output
+        Log.i("[++] Model output:", out.dump());
 
         // get argmax
         Core.MinMaxLocResult mm = Core.minMaxLoc(out);
