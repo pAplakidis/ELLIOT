@@ -49,6 +49,6 @@ if __name__ == '__main__':
   print("Model prediction")
   print(food_name)
 
-  cv2.imshow(food_name, img)
+  cv2.imshow(food_name, cv2.resize(img, (DISP_RES, DISP_RES)))
   cv2.waitKey(0)
 

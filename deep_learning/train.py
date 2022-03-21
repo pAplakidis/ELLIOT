@@ -15,10 +15,10 @@ def train(model, images, labels, classes):
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
   losses, accuracies = [], []
-  BS = 128
+  BS = 256
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 100  # food-251
+  epochs = 15   # food-251
 
   try:
     for epoch in range(epochs):
@@ -117,8 +117,8 @@ if __name__ == '__main__':
   #writer.add_image('food_images', img_grid)
 
   # train
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), False, IMG_SIZE, device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
   model = train(model, images, labels, classes)
   save_model(model, model_path)
 
