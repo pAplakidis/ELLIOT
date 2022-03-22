@@ -11,7 +11,7 @@ def train(model, images, labels, classes):
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
-  lr = 1e-4   # food-251
+  lr = 1e-3   # food-251
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
 
   losses, accuracies = [], []
@@ -68,6 +68,7 @@ def train(model, images, labels, classes):
   save_onnx(model, inpt, onnx_path)
   return model
 
+# TODO: calculate overall accuracy instead of the average of all batches
 def evaluate(model, device, images, labels, classes):
   model.eval()
   loss_function = nn.CrossEntropyLoss()
@@ -134,6 +135,7 @@ if __name__ == '__main__':
   # run the tracing and save the lite model
   model.eval()
   traced_script_module = torch.jit.trace(model, samp_img)
+  traced_script_module.save(cpp_model_path)
   traced_script_module_optimized = optimize_for_mobile(traced_script_module)
-  traced_script_module_optimized._save_for_lite_interpreter(cpp_model_path)
+  traced_script_module_optimized._save_for_lite_interpreter(light_model_path)
 

@@ -9,7 +9,6 @@ class FoodClassifier(nn.Module):
     super(FoodClassifier, self).__init__()
     self.n_classes = n_classes
 
-    # TODO: maybe add dropout in convolutional layers as well
     # Convolutional Layers (Feature Detector)
     self.conv1 = nn.Conv2d(3, 64, 5)
     self.conv2_bn1 = nn.BatchNorm2d(64)

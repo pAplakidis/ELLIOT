@@ -9,9 +9,10 @@ model_path = "../models/classifier_251.pth"
 #model_path = "../models/resnet18_classifier_251.pth"
 onnx_path = "../models/classifier_251.onnx"
 #onnx_path = "../models/resnet18_classifier_251.onnx"
-cpp_model_path = "../models/classifier_251.ptl"
+cpp_model_path = "../models/classifier_251.pt"
 #cpp_model_path = "../models/resnet18_classifier_251.ptl"
 #classes_path = "../models/classes.json"
+light_model_path = "../models/classifier_251.ptl"
 classes_path = "../models/classes_251.json"
 
 # plot paths
