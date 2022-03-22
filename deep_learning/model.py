@@ -24,9 +24,9 @@ class FoodClassifier(nn.Module):
     self.dropout = nn.Dropout(0.5)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(256 * 12 * 12, 128)
-    self.bn1 = nn.BatchNorm1d(num_features=128)
-    self.fc2 = nn.Linear(128, self.n_classes)
+    self.fc1 = nn.Linear(256 * 12 * 12, 64)
+    self.bn1 = nn.BatchNorm1d(num_features=64)
+    self.fc2 = nn.Linear(64, self.n_classes)
 
   def forward(self, x):
     x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
