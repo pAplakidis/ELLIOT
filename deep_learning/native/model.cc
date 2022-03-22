@@ -105,9 +105,6 @@ int main(int argc, char** argv){
     return -1;
   }
 
-  // FIXME: use the same version of libtorch in both python and C++ (currently 1.10, need to downgrade to 1.9, which pytorch uses)
-  std::cout << "Pytorch Version: " << TORCH_VERSION_MAJOR << "." << TORCH_VERSION_MINOR << "." << TORCH_VERSION_PATCH << std::endl;
-
   std::string img_path = argv[1];
   int n_classes;
 
