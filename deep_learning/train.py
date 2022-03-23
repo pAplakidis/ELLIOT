@@ -6,25 +6,29 @@ from model import *
 from data_proc import *
 from util import *
 
-def train(model, images, labels, classes):
+def train(model, images, labels, timages, tlabels, classes):
   model.train()
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
   lr = 1e-3   # food-251
-  optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)
+  optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)  # TODO: play with weight decay
 
   losses, accuracies = [], []
-  BS = 128
+  vlosses, vaccuracies = [], []
+  BS = 256
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 150  # food-251
+  epochs = 15  # food-251
 
   try:
     for epoch in range(epochs):
       print("[+] Epoch %d/%d"%(epoch+1,epochs))
       epoch_losses = []
       epoch_acc = []
+      epoch_vlosses = []
+      epoch_vacc = []
+      # train
       for i in (t := trange(0, len(images), BS)):
         X = torch.tensor(np.array(images[i:i+BS])).float().to(device)
         Y = torch.tensor(np.array(labels[i:i+BS])).long().to(device)
@@ -45,19 +49,43 @@ def train(model, images, labels, classes):
         epoch_losses.append(loss)
         epoch_acc.append(accuracy)
         t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
+      
+      # TODO: implement early stopping (best_vloss, etc)
+      # eval
+      for i in (t := trange(0, len(timages), BS)):
+        # prep tensor/batch
+        X = torch.tensor(np.array(timages[i:i+BS])).float().to(device)
+        Y = torch.tensor(np.array(tlabels[i:i+BS])).long().to(device)
 
-      print("Epoch average loss: %.2f"%(np.array(epoch_losses).mean()))
-      print("Epoch average accuracy: %.2f"%(np.array(epoch_acc).mean()))
+        # feed to net and stats
+        out = model(X)
+        cat = torch.argmax(out, dim=1)
+        accuracy = (cat == Y).float().mean()
+        accuracy = accuracy.item()
+        loss = loss_function(out, Y).mean()
+        loss = loss.item()
+        epoch_vlosses.append(loss)
+        epoch_vacc.append(accuracy)
+        t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
+
+      print("Epoch average training loss: %.2f"%(np.array(epoch_losses).mean()))
+      print("Epoch average training accuracy: %.2f"%(np.array(epoch_acc).mean()))
       losses.append(np.array(epoch_losses).mean())
       accuracies.append(np.array(epoch_acc).mean())
+      print("Epoch average val loss: %.2f"%(np.array(epoch_vlosses).mean()))
+      print("Epoch average val accuracy: %.2f"%(np.array(epoch_vacc).mean()))
+      vlosses.append(np.array(epoch_losses).mean())
+      vaccuracies.append(np.array(epoch_acc).mean())
   except KeyboardInterrupt:
     print("[-] Training was interrupted")
 
   # plot stats
   print("Training Done")
   plt.figure(0)
-  plt.plot(losses, label="loss")
+  plt.plot(losses, label="train loss")
   plt.plot(accuracies, label="train accuracy")
+  plt.plot(vlosses, label="val loss")
+  plt.plot(vaccuracies, label="val accuracy")
   plt.xlabel("Epochs")
   plt.legend(loc="upper left")
   plt.savefig(train_plot)
@@ -68,7 +96,6 @@ def train(model, images, labels, classes):
   save_onnx(model, inpt, onnx_path)
   return model
 
-# TODO: calculate overall accuracy instead of the average of all batches
 def evaluate(model, device, images, labels, classes):
   model.eval()
   loss_function = nn.CrossEntropyLoss()
@@ -90,7 +117,7 @@ def evaluate(model, device, images, labels, classes):
     loss = loss.item()
     losses.append(loss)
     accuracies.append(accuracy)
-    t.set_description("accuracy %.2f"%accuracy)
+    t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
 
   # plot stats
   print("Evaluation Done")
@@ -110,21 +137,21 @@ if __name__ == '__main__':
   device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
   print(device)
 
-  # preprocess data
+  # get and preprocess data
   images, labels, classes = get_training_data(base_dir)
+  test_imgs, test_lbls = get_eval_data(base_dir, classes)
 
   # print images on tensorboard
   #img_grid = torchvision.utils.make_grid(images)
   #writer.add_image('food_images', img_grid)
 
   # train
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), False, IMG_SIZE, device)
-  model = train(model, images, labels, classes)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), False, IMG_SIZE, device)
+  model = train(model, images, labels, test_imgs, test_lbls, classes)
   save_model(model, model_path)
 
   # evaluate
-  test_imgs, test_lbls = get_eval_data(base_dir, classes)
   evaluate(model, device, test_imgs, test_lbls, classes)
 
   # save the model for the C++ API

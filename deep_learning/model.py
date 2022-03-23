@@ -4,6 +4,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.models as models
 
+# NOTE: best models are custom with 1 Linear and resnet18 (it also takes a bigger BS)
+
 class FoodClassifier(nn.Module):
   def __init__(self, n_classes):
     super(FoodClassifier, self).__init__()
@@ -23,9 +25,10 @@ class FoodClassifier(nn.Module):
     self.dropout = nn.Dropout(0.5)
 
     # Fully Connected Layers (Classifier)
-    self.fc1 = nn.Linear(256 * 12 * 12, 64)
-    self.bn1 = nn.BatchNorm1d(num_features=64)
-    self.fc2 = nn.Linear(64, self.n_classes)
+    #self.fc1 = nn.Linear(256 * 12 * 12, 64)
+    #self.bn1 = nn.BatchNorm1d(num_features=64)
+    #self.fc2 = nn.Linear(64, self.n_classes)
+    self.fc = nn.Linear(256*12*12, self.n_classes)
 
   def forward(self, x):
     x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
@@ -34,9 +37,10 @@ class FoodClassifier(nn.Module):
     #x = self.pool(F.relu(self.conv2_bn4(self.conv4(x))))
     #print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
-    x = F.relu(self.bn1(self.fc1(x)))
-    x = self.dropout(x)
-    x = self.fc2(x)
+    #x = F.relu(self.bn1(self.fc1(x)))
+    #x = self.dropout(x)
+    #x = self.fc2(x)
+    x = self.fc(x)
     return x
 
   def num_flat_features(self, x):
@@ -47,7 +51,6 @@ class FoodClassifier(nn.Module):
     return num_features
 
 
-# TODO: try ResNet18
 def init_resnet(num_classes, feature_extract, input_size, device):
   model = models.resnet18(pretrained=False)
   num_feats = model.fc.in_features
