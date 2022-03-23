@@ -67,15 +67,18 @@ std::string classify(torch::Tensor img, torch::jit::script::Module module){
   return "No Food";
 }
 
-// TODO: implement onnx functions
 cv::dnn::Net load_onnx_model(){
   cv::dnn::Net net = cv::dnn::readNetFromONNX(onnx_path);
-  std::cout << "Loaded model from: " << model_path << std::endl;
+  std::cout << "Loaded model from: " << onnx_path << std::endl;
   return net;
 }
 
 cv::Mat load_image_onnx(std::string path){
   cv::Mat img = cv::imread(path);
+  cv::imshow("food", img);
+  cv::waitKey(0);
+  cv::destroyAllWindows();
+
   cv::resize(img, img, cv::Size(IMG_SIZE, IMG_SIZE), 0, 0, 1);
   cv::Mat ret;
   cv::dnn::blobFromImage(img, ret); // like np.moveaxis
@@ -83,7 +86,7 @@ cv::Mat load_image_onnx(std::string path){
   return ret;
 }
 
-std::string onnx_classify(cv::Mat img, cv::dnn::Net model){
+std::string onnx_classify(cv::Mat img, cv::dnn::Net model, std::string* classes){
   // forward to net
   model.setInput(img);
   cv::Mat out = model.forward();
@@ -94,9 +97,9 @@ std::string onnx_classify(cv::Mat img, cv::dnn::Net model){
   int minIdx, maxIdx;
   cv::minMaxLoc((cv::SparseMat)out, &minVal, &maxVal, &minIdx, &maxIdx);
   int idx = maxVal;
-  std::cout << "Max idx: " << idx << std::endl;
+  std::cout << "Max-Val idx: " << idx << std::endl;
 
-  return "no classification for you mate!";
+  return classes[idx];
 }
 
 int main(int argc, char** argv){
@@ -116,6 +119,7 @@ int main(int argc, char** argv){
 
   cv::dnn::Net model = load_onnx_model();
   cv::Mat img = load_image_onnx(img_path);
-  std::string food = onnx_classify(img, model);
+  std::string food = onnx_classify(img, model, classes);
+  std::cout << "Food Detected: " << food << std::endl;
 }
 

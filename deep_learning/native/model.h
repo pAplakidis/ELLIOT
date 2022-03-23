@@ -13,7 +13,7 @@
 
 //std::string model_path = "../../models/traced_simple_classifier.pt";
 std::string model_path = "../../../models/classifier_251.pt";
-std::string onnx_path = "../../../models/classifier_251.onnx";
+std::string onnx_path = "../../../models/resnet18_classifier_251.onnx";
 std::string classes_path = "../../../models/classes_251.json";
 
 // using torch
@@ -25,6 +25,5 @@ std::string classify(torch::Tensor img, torch::jit::script::Module module);
 // using onnx
 cv::dnn::Net load_onnx_model();
 cv::Mat load_image_onnx(std::string path);
-std::string onnx_classify(cv::Mat img, cv::dnn::Net model);
-
+std::string onnx_classify(cv::Mat img, cv::dnn::Net model, std::string* classes);
 
