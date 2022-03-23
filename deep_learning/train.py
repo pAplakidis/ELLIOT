@@ -19,7 +19,7 @@ def train(model, images, labels, timages, tlabels, classes):
   BS = 256
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 15  # food-251
+  epochs = 6  # food-251
 
   try:
     for epoch in range(epochs):
@@ -48,9 +48,9 @@ def train(model, images, labels, timages, tlabels, classes):
         #accuracies.append(accuracy)
         epoch_losses.append(loss)
         epoch_acc.append(accuracy)
-        t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
+        t.set_description("t_loss %.2f t_accuracy %.2f"%(loss, accuracy))
       
-      # TODO: implement early stopping (best_vloss, etc)
+      # TODO: implement automated early stopping (best_vloss, etc)
       # eval
       for i in (t := trange(0, len(timages), BS)):
         # prep tensor/batch
@@ -66,7 +66,7 @@ def train(model, images, labels, timages, tlabels, classes):
         loss = loss.item()
         epoch_vlosses.append(loss)
         epoch_vacc.append(accuracy)
-        t.set_description("loss %.2f accuracy %.2f"%(loss, accuracy))
+        t.set_description("v_loss %.2f v_accuracy %.2f"%(loss, accuracy))
 
       print("Epoch average training loss: %.2f"%(np.array(epoch_losses).mean()))
       print("Epoch average training accuracy: %.2f"%(np.array(epoch_acc).mean()))
