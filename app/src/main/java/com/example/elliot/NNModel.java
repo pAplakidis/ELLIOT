@@ -6,6 +6,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+import com.chaquo.python.PyObject;
+import com.chaquo.python.Python;
+import com.chaquo.python.android.AndroidPlatform;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -47,6 +50,16 @@ public class NNModel {
 
     public NNModel(Context context) {
         this.context = context;
+    }
+
+    public PyObject init(){
+        if(!Python.isStarted()){
+            Python.start(new AndroidPlatform(context));
+        }
+
+        Python py = Python.getInstance();
+        PyObject pyobj = py.getModule("model");
+        return pyobj;
     }
 
     public List<String> load_classes() {
