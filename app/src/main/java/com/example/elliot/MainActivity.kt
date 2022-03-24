@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // model stuff
-        val img_path = "test_004771.jpg";
+        val img_path = "val_000011.jpg";
         val model_path = Utils.assetFilePath(this, "resnet18_classifier.pth")
-        val classes_path = Utils.getJsonFromAssets(this, "classes.json")
+        val classes_path = Utils.assetFilePath(this, "classes.json")
 
         val nnModel = NNModel(this)
         val pyobj = nnModel.init()
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         binding.classifyButton.setOnClickListener{
             //val food = nnModel.classify(img_path, model, classes)
             //val food = nnModel.classify_onnx(img_path, model, classes)
-            // FIXME: crashes here with no debug messages
             val food = pyobj.callAttr("classify", Utils.assetFilePath(this, img_path), model_path, classes_path)
             binding.classifyText.setText(food.toString());
         }
