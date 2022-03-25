@@ -83,6 +83,24 @@ cv::Mat load_image_onnx(std::string path){
   cv::Mat ret;
   cv::dnn::blobFromImage(img, ret); // like np.moveaxis
   std::cout << "Loaded image\n";
+
+  /*
+  std::vector<float> matrix;
+  if(ret.isContinuous()){
+    matrix.assign((float*)ret.data, (float*)ret.data + ret.total()*ret.channels());
+  }
+  else{
+    for(int i=0; i<ret.rows; i++){
+      matrix.insert(matrix.end(), ret.ptr<float>(i), ret.ptr<float>(i)+ret.cols*ret.channels());
+    }
+  }
+
+  for(float i: matrix){
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+  */
+
   return ret;
 }
 

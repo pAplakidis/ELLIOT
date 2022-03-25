@@ -51,11 +51,18 @@ class FoodClassifier(nn.Module):
     return num_features
 
 
-def init_resnet(num_classes, feature_extract, input_size, device):
+def init_resnet(num_classes, input_size, device):
   model = models.resnet18(pretrained=False)
   num_feats = model.fc.in_features
   model.fc = nn.Linear(num_feats, num_classes)
-  print(model)
+  #print(model)
+  return model.to(device)
+
+def init_inception(num_classes, input_size, device):
+  model = models.inception_v3(pretrained=False)
+  num_feats = model.fc.in_features
+  model.fc = nn.Linear(num_feats, num_classes)
+  #print(model)
   return model.to(device)
 
 def save_model(model, path):

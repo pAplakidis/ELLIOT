@@ -12,14 +12,15 @@ def train(model, images, labels, timages, tlabels, classes):
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
   lr = 1e-3   # food-251
-  optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=1e-5)  # TODO: play with weight decay
+  optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=0)  # TODO: play with weight decay (1e-3, 1e-4, 0)
 
   losses, accuracies = [], []
   vlosses, vaccuracies = [], []
   BS = 256
+  EBS = 256
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 6  # food-251
+  epochs = 30  # food-251
 
   try:
     for epoch in range(epochs):
@@ -50,12 +51,12 @@ def train(model, images, labels, timages, tlabels, classes):
         epoch_acc.append(accuracy)
         t.set_description("t_loss %.2f t_accuracy %.2f"%(loss, accuracy))
       
-      # TODO: implement automated early stopping (best_vloss, etc)
+      # TODO: maybe implement automated early stopping (best_vloss, etc)
       # eval
       for i in (t := trange(0, len(timages), BS)):
         # prep tensor/batch
-        X = torch.tensor(np.array(timages[i:i+BS])).float().to(device)
-        Y = torch.tensor(np.array(tlabels[i:i+BS])).long().to(device)
+        X = torch.tensor(np.array(timages[i:i+EBS])).float().to(device)
+        Y = torch.tensor(np.array(tlabels[i:i+EBS])).long().to(device)
 
         # feed to net and stats
         out = model(X)
@@ -147,7 +148,8 @@ if __name__ == '__main__':
 
   # train
   #model = FoodClassifier(len(classes)).to(device)
-  model = init_resnet(len(classes), False, IMG_SIZE, device)
+  model = init_resnet(len(classes), IMG_SIZE, device)
+  #model = init_inception(len(classes), IMG_SIZE, device)
   model = train(model, images, labels, test_imgs, test_lbls, classes)
   save_model(model, model_path)
 
