@@ -8,9 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.camera.core.CameraSelector
@@ -21,13 +19,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import java.util.concurrent.Executors
 import androidx.camera.lifecycle.ProcessCameraProvider
-import androidx.camera.view.PreviewView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.elliot.MainActivity
 import com.example.elliot.R
 import com.example.elliot.databinding.ActivityCameraBinding
-import com.example.elliot.domain.model.FoodModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -58,8 +59,23 @@ class CameraActivity : AppCompatActivity() {
             )
         }
 
+        // Collecting ingredients to show with checkboxes on dialog.
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                cameraViewModel.ingredientsListUiState.collect {
+                    if (it.ingredients.isNotEmpty()) {
+                        showConfirmationDialog(it)
+                    }
+                }
+            }
+        }
+
         // Set up the listener for take photo button
-        binding.cameraCaptureButton.setOnClickListener { takePhoto() }
+        binding.cameraCaptureButton.setOnClickListener {
+            takePhoto()
+            cameraViewModel.onEvent(CameraEvent.OnCameraButtonClick)
+            showPredictionCheckDialog()
+        }
 
         binding.backButtonCamera.setOnClickListener {
             startActivity(Intent(baseContext, MainActivity::class.java))
@@ -96,37 +112,28 @@ class CameraActivity : AppCompatActivity() {
     private fun showPredictionCheckDialog() {
         MaterialAlertDialogBuilder(this)
             .setTitle("Prediction Check")
-            .setMessage("Is the food '...' the correct prediction?")
-            .setPositiveButton("Yes") { dialog, _ ->
-                dialog.dismiss()
-                // ΧΤΥΠΑΩ ΜΕ EVENT ΤΗΝ ΒΑΣΗ ΜΕ ΤΗΝ ΠΡΟΒΛΕΨΗ ΓΙΑ ΝΑ ΠΑΡΩ ΤΑ INGREDIENTS
-                showConfirmationDialog("", emptyList()) // ΠΕΡΝΑΩ ΤΟ STRING ΤΗΣ ΠΡΟΒΛΕΨΗΣ ΚΑΙ ΤΑ ΥΛΙΚΑ ΑΠΟ ΒΑΣΗ
-                // It needs to update the prediction value stored in database
-                cameraViewModel.onEvent(CameraEvent.OnDialogYesClick(FoodModel(foodName = "ereeeen")))
+            .setMessage("Is the food ${cameraViewModel.foodName} the correct prediction?")
+            .setPositiveButton("Yes") { _, _ ->
+                cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick)
             }
-            .setNegativeButton("No") { dialog, _ ->
-                dialog.dismiss()    // Close previous dialog
+            .setNegativeButton("No") { _, _ ->
                 showMealEntryDialog()
             }
             .show()
     }
 
-    private fun showConfirmationDialog(foodName: String, ingredients: List<String>) {
-        val multiItems = arrayOf("Item 1", "Item 2", "Item 3") // ΑΡΓΟΤΕΡΑ ΣΩΣΤΟ POPULATE TOY multiItems
-        val checkedItems = booleanArrayOf(false, false, false)
-
+    private fun showConfirmationDialog(state: CameraViewModel.IngredientListUiState) {
         MaterialAlertDialogBuilder(this)
             .setTitle("Confirm Food Ingredients")
             .setPositiveButton("OK") { _, _ ->
-                for ((counter, checker) in checkedItems.withIndex()) {
-                    if (checker) {
-                        Log.d(TAG, multiItems[counter]) // ΕΔΩ ΤΑ ΤΣΕΚΑΡΙΣΜΕΝΑ
-                        // EVENT ΓΙΑ ΕΙΣΑΓΩΓΗ ΠΙΣΩ ΣΤΗΝ ΒΑΣΗ
-                    }
-                }
+                // Store the selected ingredients in database.
+                cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick)
             }
             .setNegativeButton("Cancel") { _, _ -> }
-            .setMultiChoiceItems(multiItems, checkedItems) { _, _, checked -> }
+            .setMultiChoiceItems(
+                state.ingredients,
+                state.checked
+            ) { _, _, _ -> }
             .show()
     }
 
@@ -135,7 +142,7 @@ class CameraActivity : AppCompatActivity() {
             .inflate(R.layout.dialog_texts_camera, null)
 //        val mealInsertButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertFood)
 //        val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
-        val foodText = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
+        val foodEntry = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
 //        mealInsertButton.setOnClickListener {
 //            if (ingredientText.text.toString() != "") {
@@ -154,19 +161,15 @@ class CameraActivity : AppCompatActivity() {
             .setTitle("Meal Entry")
             .setView(dialogTextsCamera)
             .setPositiveButton("OK") { _, _ ->
-                if (foodText.text.toString().isBlank()) {
+                if (foodEntry.text.toString().isBlank()) {
                     Toast.makeText(
                         this,
                         "Please enter a food and try again.",
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    cameraViewModel.foodName = foodText.text.toString()
-                    // ΧΤΥΠΑΩ ΒΑΣΗ ΓΙΑ ΝΑ ΠΑΡΩ ΤΑ INGREDIENTS ΚΑΙ ΝΑ ΤΑ ΓΥΡΙΣΩ
-                    showConfirmationDialog(
-                        foodText.text.toString(),
-                        emptyList()
-                    ) // ΑΝΤΙ ΓΙΑ ΑΥΤΗΝ, STATEFLOW ME ΠΑΡΑΜΕΤΡΟ ΤΗΝ ΛΙΣΤΑ ΜΕ INGREDIENTS ΚΑΙ ΤΟ MEAL?
+                    cameraViewModel.foodName = foodEntry.text.toString()
+                    cameraViewModel.onEvent(CameraEvent.OnMealEntryDialogOkClick)
                 }
             }
             .setNegativeButton("Cancel") { _, _ -> }
@@ -201,12 +204,10 @@ class CameraActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                     val savedUri = Uri.fromFile(photoFile)
                     val msg = "Photo capture succeeded: $savedUri"
-                    Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
                     Log.d(TAG, msg)
                 }
             })
-
-        showPredictionCheckDialog()
     }
 
     private fun startCamera() {
@@ -262,7 +263,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "CameraXBasic"
+        private const val TAG = "Elliot"
         private const val FILENAME_FORMAT = "dd-MM-yyyy-HH-mm-ss-SSS"
         private const val REQUEST_CODE_PERMISSIONS = 10
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)

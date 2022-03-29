@@ -6,6 +6,7 @@ import androidx.room.Relation
 import com.example.elliot.data.local.entity.Food
 import com.example.elliot.data.local.entity.FoodIngredientCrossRef
 import com.example.elliot.data.local.entity.Ingredient
+import com.example.elliot.domain.model.FoodWithIngredientsModel
 
 data class FoodWithIngredients(
     @Embedded val food: Food,
@@ -15,4 +16,11 @@ data class FoodWithIngredients(
         associateBy = Junction(FoodIngredientCrossRef::class)
     )
     val ingredients: List<Ingredient>
-)
+) {
+    fun toFoodWithIngredientsModel(): FoodWithIngredientsModel {
+        return FoodWithIngredientsModel(
+            foodName = food.foodName,
+            ingredients = ingredients.map { it.ingredientName }
+        )
+    }
+}

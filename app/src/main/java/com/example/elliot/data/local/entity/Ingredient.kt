@@ -13,5 +13,8 @@ data class Ingredient(
     val ingredientId: Int,
     @ColumnInfo(name = "ingredient_name")
     @NotNull
-    val ingredientName: String
+    val ingredientName: String,
+    val fat: String?,
+    val carbohydrate: String?,
+    val protein: String?
 )

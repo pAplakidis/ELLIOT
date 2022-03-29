@@ -1,15 +1,18 @@
 package com.example.elliot.data.repository
 
-import com.example.elliot.domain.model.CardModel
-import com.example.elliot.domain.model.FoodModel
+import com.example.elliot.data.local.FoodWithIngredients
+import com.example.elliot.data.local.entity.HistoryIngredient
+import com.example.elliot.domain.model.HistoryModel
 import kotlinx.coroutines.flow.Flow
 
 interface FoodRepository {
-    suspend fun insertFood(foodModel: FoodModel)
-
-    fun getFoods(): Flow<List<FoodModel>>
+    fun getFoodWithIngredients(foodName: String): Flow<FoodWithIngredients>
 
     suspend fun getLatestFoodId(): Int
 
-    suspend fun getHistoryInformation(): List<CardModel>
+    suspend fun getFoodHistoryId(foodName: String): Int
+
+    suspend fun insertFood(history: HistoryModel)
+
+    suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredient)
 }

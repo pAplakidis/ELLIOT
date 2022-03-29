@@ -10,7 +10,7 @@ import com.example.elliot.domain.model.FoodModel
 import com.google.android.material.card.MaterialCardView
 
 class FoodsAdapter(
-    private val foodModels: List<FoodModel>,
+    private val foodModels: List<FoodModel>
 ) : RecyclerView.Adapter<FoodsAdapter.FoodsViewHolder>() {
 
     class FoodsViewHolder(foodDetailsView: View) : RecyclerView.ViewHolder(foodDetailsView) {
@@ -47,9 +47,7 @@ class FoodsAdapter(
             timeEaten.text = foodModels[position].foodDate
             ingredients.text = foodModels[position].foodIngredients.joinToString(",")
         }
-
     }
 
     override fun getItemCount(): Int = foodModels.size
-
 }

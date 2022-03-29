@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Elliot">
         <activity
-            android:name="com.example.elliot.ui.splash.SplashActivity"
+            android:name="com.example.elliot.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.example.elliot.MainActivity" />
 
         <activity android:name="com.example.elliot.ui.camera.CameraActivity" />
 

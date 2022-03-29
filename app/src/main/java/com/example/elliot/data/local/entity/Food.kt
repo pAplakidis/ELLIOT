@@ -16,9 +16,9 @@ data class Food(
     @NotNull
     val foodName: String
 ) {
-    fun toFoodModel(): FoodModel {
-        return FoodModel(
-            foodName = foodName
-        )
-    }
+//    fun toFoodModel(): FoodModel {
+//        return FoodModel(
+//            foodName = foodName
+//        )
+//    }
 }

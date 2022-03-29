@@ -14,21 +14,23 @@ import com.example.elliot.domain.model.CardModel
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.*
 
-@InternalCoroutinesApi
 @AndroidEntryPoint
 class CalendarFragment : Fragment(R.layout.fragment_foods) {
     private val calendarViewModel: CalendarViewModel by viewModels()
 
-    private fun callRecycleView(recyclerView: RecyclerView, dataset: List<CardModel>) {
+    private fun callRecycleView(recyclerView: RecyclerView, cards: List<CardModel>) {
         recyclerView.apply {
-            adapter = MealAdapter(dataset)
-            addItemDecoration(DividerItemDecoration(recyclerView.context,
-                LinearLayoutManager.VERTICAL))
+            adapter = MealAdapter(cards)
+            addItemDecoration(
+                DividerItemDecoration(
+                    recyclerView.context,
+                    LinearLayoutManager.VERTICAL
+                )
+            )
             setHasFixedSize(true)
         }
     }
@@ -66,11 +68,9 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
-
         val datePicker = initializeCalendar()
 
         datePicker.addOnPositiveButtonClickListener {
@@ -87,6 +87,5 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
                 }
             }
         }
-
     }
 }

@@ -10,15 +10,15 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Named
 
 @HiltViewModel
 class CalendarViewModel @Inject constructor(
-    @Named("MealRepImpl") private val repository: FoodRepository
+    private val repository: FoodRepository
 ) : ViewModel() {
 
     // Backing property to avoid state updates from other classes
     private val _cardUiState = MutableStateFlow(CalendarUiState.CardListPick(emptyList()))
+
     // The UI collects from this StateFlow to get its state updates
     val cardUiState: StateFlow<CalendarUiState> = _cardUiState
 
@@ -31,7 +31,7 @@ class CalendarViewModel @Inject constructor(
                 viewModelScope.launch {
 
                     // ΒΑΛΕ ΤΣΕΚ ΓΙΑ ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΣΚΑΣΕ UPDATE ΜΕΤΑ ΑΠΟ FETCH ΒΑΣΗΣ
-                    _cardUiState.update { it.copy(cardsChosen = repository.getHistoryInformation()) }
+//                    _cardUiState.update { it.copy(cardsChosen = repository.getHistoryInformation()) }
 
                 }
             }
@@ -48,8 +48,7 @@ class CalendarViewModel @Inject constructor(
     }
 
     sealed class CalendarUiState {
-        data class CardListPick(val cardsChosen: List<CardModel>): CalendarUiState()
+        data class CardListPick(val cardsChosen: List<CardModel>) : CalendarUiState()
 //        data class HeightSetter(val heightChosen: Int): CalendarUiState()
     }
-
 }
