@@ -11,16 +11,17 @@ def train(model, images, labels, timages, tlabels, classes):
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
-  lr = 1e-3   # food-251
-  optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=0)  # TODO: play with weight decay (1e-3, 1e-4, 0)
+  lr = 1e-4   # food-251
+  wd = 1e-2   # TODO: 0.01, 0.1
+  optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=wd)
 
   losses, accuracies = [], []
   vlosses, vaccuracies = [], []
-  BS = 256
-  EBS = 256
+  BS = 128
+  EBS = 32
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 30  # food-251
+  epochs = 75  # food-251
 
   try:
     for epoch in range(epochs):
@@ -147,8 +148,8 @@ if __name__ == '__main__':
   #writer.add_image('food_images', img_grid)
 
   # train
-  #model = FoodClassifier(len(classes)).to(device)
-  model = init_resnet(len(classes), IMG_SIZE, device)
+  model = FoodClassifier(len(classes)).to(device)
+  #model = init_resnet(len(classes), IMG_SIZE, device)
   #model = init_inception(len(classes), IMG_SIZE, device)
   model = train(model, images, labels, test_imgs, test_lbls, classes)
   save_model(model, model_path)

@@ -11,35 +11,30 @@ class FoodClassifier(nn.Module):
     super(FoodClassifier, self).__init__()
     self.n_classes = n_classes
 
+    # TODO: img_size 224x224 kernel_size 3
+    # TODO: optimize this part of the net (maybe more conv layers? or same with no BN?)
     # Convolutional Layers (Feature Detector)
-    self.conv1 = nn.Conv2d(3, 64, 5)
-    self.conv2_bn1 = nn.BatchNorm2d(64)
-    self.pool = nn.MaxPool2d(2, 2)
-    self.conv2 = nn.Conv2d(64, 128, 5)
-    self.conv2_bn2 = nn.BatchNorm2d(128)
-    self.conv3 = nn.Conv2d(128, 256, 5)
-    self.conv2_bn3 = nn.BatchNorm2d(256)
-    #self.conv4 = nn.Conv2d(256, 512, 5)
-    #self.conv2_bn4 = nn.BatchNorm2d(512)
-
-    self.dropout = nn.Dropout(0.5)
+    #self.pool = nn.MaxPool2d(2, 2)
+    self.pool = nn.AvgPool2d(2, 2)
+    self.conv1 = nn.Conv2d(3, 32, 5)
+    self.conv2_bn1 = nn.BatchNorm2d(32)
+    self.conv2 = nn.Conv2d(32, 64, 5)
+    self.conv2_bn2 = nn.BatchNorm2d(64)
+    self.conv3 = nn.Conv2d(64, 128, 5)
+    self.conv2_bn3 = nn.BatchNorm2d(128)
+    self.conv4 = nn.Conv2d(128, 256, 5)
+    self.conv2_bn4 = nn.BatchNorm2d(256)
 
     # Fully Connected Layers (Classifier)
-    #self.fc1 = nn.Linear(256 * 12 * 12, 64)
-    #self.bn1 = nn.BatchNorm1d(num_features=64)
-    #self.fc2 = nn.Linear(64, self.n_classes)
-    self.fc = nn.Linear(256*12*12, self.n_classes)
+    self.fc = nn.Linear(256*4*4, self.n_classes)
 
   def forward(self, x):
     x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
     x = self.pool(F.relu(self.conv2_bn2(self.conv2(x))))
     x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
-    #x = self.pool(F.relu(self.conv2_bn4(self.conv4(x))))
+    x = self.pool(F.relu(self.conv2_bn4(self.conv4(x))))
     #print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
-    #x = F.relu(self.bn1(self.fc1(x)))
-    #x = self.dropout(x)
-    #x = self.fc2(x)
     x = self.fc(x)
     return x
 
