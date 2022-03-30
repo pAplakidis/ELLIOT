@@ -2,6 +2,7 @@ package com.example.elliot.data.repository
 
 import com.example.elliot.data.local.FoodDao
 import com.example.elliot.data.local.FoodWithIngredients
+import com.example.elliot.data.local.HistoryWithIngredients
 import com.example.elliot.data.local.entity.HistoryIngredient
 import com.example.elliot.domain.model.HistoryModel
 import kotlinx.coroutines.flow.Flow
@@ -28,5 +29,9 @@ class FoodRepositoryImpl(
 
     override suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredient) {
         dao.insertHistoryIngredients(historyIngredient)
+    }
+
+    override suspend fun getHistoryWithIngredients(foodName: String): Flow<HistoryWithIngredients> = flow {
+        emit(dao.getHistoryWithIngredients(foodName))
     }
 }

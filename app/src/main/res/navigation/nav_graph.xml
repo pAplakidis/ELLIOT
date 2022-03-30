@@ -9,7 +9,11 @@
         android:id="@+id/calendarFragment"
         android:name="com.example.elliot.ui.history.CalendarFragment"
         tools:layout="@layout/fragment_foods"
-        android:label="CalendarFragment"/>
+        android:label="CalendarFragment">
+        <action
+            android:id="@+id/action_calendarFragment_to_foodDetailsFragment"
+            app:destination="@id/foodDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.elliot.ui.profile.ProfileFragment"
@@ -20,4 +24,13 @@
         android:name="com.example.elliot.ui.statistics.StatisticsFragment"
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.example.elliot.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details" >
+        <action
+            android:id="@+id/action_foodDetailsFragment_to_calendarFragment"
+            app:destination="@id/calendarFragment" />
+    </fragment>
 </navigation>

@@ -9,7 +9,7 @@ import com.example.elliot.R
 import com.example.elliot.domain.model.CardModel
 
 class MealAdapter(
-    private val cards: List<CardModel>
+    private val dataset: List<CardModel>,
 ) : RecyclerView.Adapter<MealAdapter.MealViewHolder>() {
 
     // Holds references for every view inside the layout we want to inflate
@@ -29,10 +29,10 @@ class MealAdapter(
     // Binds the data to every view accordingly
     override fun onBindViewHolder(holder: MealViewHolder, position: Int) {
         holder.apply {
-            mealTitle.text = cards[position].timeOfDay
-            listFoodDetails.adapter = FoodsAdapter(cards[position].foodDetails)
+//            mealTitle.text = dataset[position].timeOfDay
+//            listFoodDetails.adapter = FoodsAdapter(dataset[position].foodDetails)
         }
     }
 
-    override fun getItemCount(): Int = cards.size
+    override fun getItemCount(): Int = dataset.size
 }

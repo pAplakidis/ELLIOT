@@ -3,49 +3,17 @@ package com.example.elliot.data
 import com.example.elliot.domain.model.*
 import javax.inject.Inject
 
-class Datasource @Inject constructor() {
+class Datasource @Inject constructor(){
 
-    fun loadMealsDemo(): List<CardModel> {
+    fun loadMealsDemo(): List<HistoryModel> {
         return listOf(
-            CardModel(
-                "Breakfast",
-                mutableListOf(
-                    FoodModel(
-                        "Kwriatiki",
-                        "16/03/2022",
-                        listOf("Tomatoula", "Aggouraki")
-                    ),
-                    FoodModel(
-                        "Test",
-                        "16/03/2022",
-                        listOf("Tomatoula", "Aggouraki")
-                    )
-                )
-            ),
-            CardModel(
-                "Lunch",
-                mutableListOf(
-                    FoodModel(
-                        "Kot Patataoua",
-                        "16/03/2022",
-                        listOf("kota", "patates")
-                    )
-                )
-            ),
-            CardModel(
-                "Dinner",
-                mutableListOf(
-                    FoodModel(
-                        "Makaronia me kimako",
-                        "16/03/2022",
-                        listOf("makaronakia", "kimakos")
-                    )
-                )
-            )
+            HistoryModel("Cereal", "08:56", "13/06", "breakfast"),
+            HistoryModel("Kwriatiki", "13:56", "13/06", "lunch"),
+            HistoryModel("Chickenaki", "20:56", "13/06", "dinner"),
         )
     }
 
-    fun loadStatistics1(): List<Statistic> {
+    fun loadStatistics1() : List<Statistic> {
         return listOf(
             Statistic(
                 listOf(
@@ -57,7 +25,7 @@ class Datasource @Inject constructor() {
         )
     }
 
-    fun loadStatistics2(): List<Statistic> {
+    fun loadStatistics2() : List<Statistic> {
         return listOf(
             Statistic(
                 listOf(
@@ -70,7 +38,7 @@ class Datasource @Inject constructor() {
         )
     }
 
-    fun loadStatistics3(): List<Statistic> {
+    fun loadStatistics3() : List<Statistic> {
         return listOf(
             Statistic(
                 listOf(
