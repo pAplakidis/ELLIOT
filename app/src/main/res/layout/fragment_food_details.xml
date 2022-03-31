@@ -27,13 +27,13 @@
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/back_button_history">
 
         <ImageView
-            android:src="@drawable/ic_round_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_round_view" />
 
         <LinearLayout
             android:layout_width="match_parent"
