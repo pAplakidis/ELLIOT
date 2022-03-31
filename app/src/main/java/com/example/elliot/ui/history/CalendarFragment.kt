@@ -1,7 +1,9 @@
 package com.example.elliot.ui.history
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
 import com.example.elliot.adapter.FoodsAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -19,11 +23,14 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CalendarFragment : Fragment(R.layout.fragment_foods) {
 //    motionLayout.getTransition(R.id.yourTransition).setEnable(false)
-    //  arrow button na paei pisw, krypsimo na epanaferetai sto navbar, krypsimo kameras, scrollable cardview + design
+    //  scrollable cardview + design
 
     private val calendarViewModel: CalendarViewModel by viewModels()
 
-    private fun callRecycleView(recyclerView: RecyclerView, dataset: CalendarViewModel.CardListPick) {
+    private fun callRecycleView(
+        recyclerView: RecyclerView,
+        dataset: CalendarViewModel.CardListPick
+    ) {
         recyclerView.apply {
             adapter = FoodsAdapter(dataset)
             addItemDecoration(
@@ -34,6 +41,14 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
             )
             setHasFixedSize(true)
         }
+    }
+
+    private fun showNavbar() {
+        val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        navBar?.visibility = View.VISIBLE
+
+        val cameraButton = activity?.findViewById<FloatingActionButton>(R.id.floating_action_button)
+        cameraButton?.visibility = View.VISIBLE
     }
 
 //    private fun constraintsCalendar(): CalendarConstraints.Builder {
@@ -67,6 +82,16 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
 //
 //        return datePicker
 //    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        showNavbar()
+
+        return inflater.inflate(R.layout.fragment_foods, container, false)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 

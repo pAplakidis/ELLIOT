@@ -5,34 +5,57 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.navigation.Navigation
+import com.example.elliot.databinding.FragmentFoodDetailsBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class FoodDetailsFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    private var _binding: FragmentFoodDetailsBinding? = null
 
+    private val binding get() = _binding!!
+
+    private fun hideNavbar() {
         val navBar = activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation)
         navBar?.visibility = View.GONE
 
-        return inflater.inflate(R.layout.fragment_food_details, container, false)
+        val cameraButton = activity?.findViewById<FloatingActionButton>(R.id.floating_action_button)
+        cameraButton?.visibility = View.GONE
+    }
+
+    private fun fillTextViews() {
+        binding.foodNameDetails.text = arguments?.getString("foodName")
+        binding.foodDateDetails.text = arguments?.getString("dateEaten")
+        binding.foodTimeDetails.text = arguments?.getString("timeEaten")
+        binding.foodMealDetails.text = arguments?.getString("meal")
+        binding.foodIngredients.text = arguments?.getString("ingredients")
+
+        binding.backButtonHistory.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(R.id.action_foodDetailsFragment_to_calendarFragment)
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+
+        hideNavbar()
+
+        _binding = FragmentFoodDetailsBinding.inflate(layoutInflater, container, false)
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val foodName : TextView? = getView()?.findViewById(R.id.food_name_details)
-        foodName?.text = arguments?.getString("foodName")
-
-        val foodDate : TextView? = getView()?.findViewById(R.id.food_date_details)
-        foodDate?.text = arguments?.getString("dateEaten")
-
-        val foodTime : TextView? = getView()?.findViewById(R.id.food_time_details)
-        foodTime?.text = arguments?.getString("timeEaten")
-
-        val foodMeal : TextView? = getView()?.findViewById(R.id.food_meal_details)
-        foodMeal?.text = arguments?.getString("meal")
-
-        val foodIngredients : TextView? = getView()?.findViewById(R.id.food_ingredients)
-        foodIngredients?.text = arguments?.getString("ingredients")
+        fillTextViews()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

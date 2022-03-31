@@ -31,7 +31,8 @@ class FoodRepositoryImpl(
         dao.insertHistoryIngredients(historyIngredient)
     }
 
-    override suspend fun getHistoryWithIngredients(foodName: String): Flow<HistoryWithIngredients> = flow {
-        emit(dao.getHistoryWithIngredients(foodName))
-    }
+    override suspend fun getHistoryWithIngredients(foodName: String): Flow<HistoryWithIngredients> =
+        flow {
+            emit(dao.getHistoryWithIngredients(foodName))
+        }
 }
