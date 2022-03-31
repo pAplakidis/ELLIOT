@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
   # forward to model
   pred = model(X)
-  cat = torch.argmax(pred, dim=1).item()
+  cat = torch.argmax(pred, dim=1).item()  # TODO: get the next 2-3 best guesses as well
   food_name = classes[cat]
   print("Model prediction")
   print(pred)

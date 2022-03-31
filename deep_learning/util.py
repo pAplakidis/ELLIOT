@@ -26,6 +26,8 @@ train_plot = "../plots/training_stats_251.png"
 eval_plot = "../plots/evaluation_stats_251.png"
 #train_plot = "../plots/training_stats_inc251.png"
 #eval_plot = "../plots/evaluation_stats_inc251.png"
+cf_plot = "../plots/confusion_matrix_251.png"
+cf_csv = "../plots/confusion_matrix_251.csv"
 
 # Data Paths
 base_dir = "../data/"
