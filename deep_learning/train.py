@@ -14,8 +14,8 @@ def train(model, images, labels, timages, tlabels, classes):
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
-  lr = 1e-3   # food-251
-  wd = 1e-3
+  lr = 1e-4   # food-251
+  wd = 1e-2
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=wd)
 
   losses, accuracies = [], []
@@ -84,7 +84,7 @@ def train(model, images, labels, timages, tlabels, classes):
       vaccuracies.append(np.array(epoch_acc).mean())
 
       # automated early stopping
-      # TODO: need to save model from previous epoch
+      # TODO: need to save model from previous/best epoch
       if avg_epoch_loss < best_vloss:
         best_vloss = avg_epoch_loss
       elif avg_epoch_loss > best_vloss:
@@ -148,21 +148,24 @@ def evaluate(model, device, images, labels, classes):
 
   # feed images one by one
   preds = []
+  accs = 0
   for i in (t := trange(len(images))):
     X = torch.tensor(np.array([images[i], images[i]])).float().to(device)
     Y = torch.tensor(np.array([labels[i], labels[i]])).long().to(device)
 
     out = model(X)
     pred = torch.argmax(out, dim=1)
+    if (pred == Y)[0].item():
+      accs += 1
     preds.append(pred[0].item())
     t.set_description("Building confusion matrix")
 
-  # FIXME: not shown correctly
   # build confusion matrix
   cf_matrix = confusion_matrix(labels, preds)
   df_cm = pd.DataFrame(cf_matrix/np.sum(cf_matrix) *10, index = [i for i in classes],
                        columns = [i for i in classes])
   print("[+] Built Confusion Matrix")
+  print("[+] Overall Evaluation Accuracy: %.2f"%(accs/len(images)))
   print(df_cm)
   df_cm.to_csv(cf_csv)
   plt.figure(2, figsize=(100, 100))

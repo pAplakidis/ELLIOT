@@ -46,13 +46,18 @@ if __name__ == '__main__':
 
   # forward to model
   pred = model(X)
-  cat = torch.argmax(pred, dim=1).item()  # TODO: get the next 2-3 best guesses as well
+  cat = torch.argmax(pred, dim=1).item()
   food_name = classes[cat]
+  # get top 3 guesses
+  cats = torch.topk(pred[0], 3).indices
+  best_guesses = [classes[i.item()] for i in cats]
   print("Model prediction")
   print(pred)
   print(pred.shape)
   print(cat)
   print(food_name)
+  print("Top 3 predictions:")
+  print(best_guesses)
 
   cv2.imshow(food_name, img)
   cv2.waitKey(0)
