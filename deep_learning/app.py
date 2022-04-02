@@ -33,9 +33,10 @@ if __name__ == '__main__':
   print("[+] %d classes loaded"%len(classes))
 
   # load model
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), IMG_SIZE, device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), IMG_SIZE, device)
   model = load_model(model, model_path)
+  model.eval()
 
   # make tensor
   img_in = np.moveaxis(img, -1, 0)

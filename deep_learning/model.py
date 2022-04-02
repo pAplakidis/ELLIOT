@@ -12,7 +12,6 @@ class FoodClassifier(nn.Module):
     self.n_classes = n_classes
 
     # TODO: reduce feature maps and play with kernel sizes
-    # TODO: conv1, conv2 + input, conv3, conv4 + input (implement custom residual blocks)
 
     # TODO: optimize this part of the net (maybe more conv layers? or same with no BN?)
     # Convolutional Layers (Feature Detector)
@@ -22,20 +21,31 @@ class FoodClassifier(nn.Module):
     self.conv2_bn1 = nn.BatchNorm2d(32)
     self.conv2 = nn.Conv2d(32, 64, 5)
     self.conv2_bn2 = nn.BatchNorm2d(64)
-    self.conv3 = nn.Conv2d(64, 128, 5)
+    self.conv3 = nn.Conv2d(64, 128, 3)
     self.conv2_bn3 = nn.BatchNorm2d(128)
-    self.conv4 = nn.Conv2d(128, 256, 5)
+    self.conv4 = nn.Conv2d(128, 256, 3)
     self.conv2_bn4 = nn.BatchNorm2d(256)
+
+    # TODO: downsample correctly
+    # for residual blocks
+    #self.res_conv1 = nn.Conv2d(3, 64, 7)
 
     # Fully Connected Layers (Classifier)
     self.fc = nn.Linear(256*4*4, self.n_classes)
 
   def forward(self, x):
-    x = self.pool(F.relu(self.conv2_bn1(self.conv1(x))))
-    x = self.pool(F.relu(self.conv2_bn2(self.conv2(x))))
-    x = self.pool(F.relu(self.conv2_bn3(self.conv3(x))))
-    x = self.pool(F.relu(self.conv2_bn4(self.conv4(x))))
-    #print(x.shape)
+    res = x
+    x = self.conv2_bn1(self.conv1(x))
+    x = self.conv2_bn2(self.conv2(x))
+    res = self.res_conv1(res)
+    #x += res
+    x = self.pool(F.relu(x))
+    res = x
+    x = self.conv2_bn3(self.conv3(x))
+    x = self.conv2_bn4(self.conv4(x))
+    #x += res
+    x = self.pool(F.relu(x))
+    print(x.shape)
     x = x.view(-1, self.num_flat_features(x))
     x = self.fc(x)
     return x
@@ -49,7 +59,7 @@ class FoodClassifier(nn.Module):
 
 
 def init_resnet(num_classes, input_size, device):
-  model = models.resnet18(pretrained=False)
+  model = models.resnet18(pretrained=True)
   num_feats = model.fc.in_features
   model.fc = nn.Linear(num_feats, num_classes)
   #print(model)

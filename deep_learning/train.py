@@ -9,23 +9,23 @@ from model import *
 from data_proc import *
 from util import *
 
-def train(model, images, labels, timages, tlabels, classes):
+def train(model, images, labels, timages, tlabels, classes, estop=False):
   model.train()
   loss_function = nn.CrossEntropyLoss()
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
-  lr = 1e-4   # food-251
-  wd = 1e-2
+  lr = 1e-3   # food-251
+  wd = 1e-4
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=wd)
 
   losses, accuracies = [], []
   vlosses, vaccuracies = [], []
   best_vloss = float('inf')
-  BS = 128
+  BS = 256
   EBS = 16
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
-  epochs = 75  # food-251
+  epochs = 100 # food-251
 
   try:
     for epoch in range(epochs):
@@ -74,12 +74,12 @@ def train(model, images, labels, timages, tlabels, classes):
         t.set_description("v_loss %.2f v_accuracy %.2f"%(loss, accuracy))
 
       avg_epoch_loss = np.array(epoch_vlosses).mean()
-      print("Epoch average training loss: %.2f"%(np.array(epoch_losses).mean()))
-      print("Epoch average training accuracy: %.2f"%(np.array(epoch_acc).mean()))
+      print("Epoch average training loss: %.4f"%(np.array(epoch_losses).mean()))
+      print("Epoch average training accuracy: %.4f"%(np.array(epoch_acc).mean()))
       losses.append(np.array(epoch_losses).mean())
       accuracies.append(np.array(epoch_acc).mean())
-      print("Epoch average val loss: %.2f"%(avg_epoch_loss))
-      print("Epoch average val accuracy: %.2f"%(np.array(epoch_vacc).mean()))
+      print("Epoch average val loss: %.4f"%(avg_epoch_loss))
+      print("Epoch average val accuracy: %.4f"%(np.array(epoch_vacc).mean()))
       vlosses.append(np.array(epoch_losses).mean())
       vaccuracies.append(np.array(epoch_acc).mean())
 
@@ -87,7 +87,7 @@ def train(model, images, labels, timages, tlabels, classes):
       # TODO: need to save model from previous/best epoch
       if avg_epoch_loss < best_vloss:
         best_vloss = avg_epoch_loss
-      elif avg_epoch_loss > best_vloss:
+      elif avg_epoch_loss > best_vloss and estop:
         print("[+] Stopped Early at epoch", epoch)
         break
   except KeyboardInterrupt:
@@ -187,10 +187,10 @@ if __name__ == '__main__':
   #writer.add_image('food_images', img_grid)
 
   # train
-  model = FoodClassifier(len(classes)).to(device)
-  #model = init_resnet(len(classes), IMG_SIZE, device)
+  #model = FoodClassifier(len(classes)).to(device)
+  model = init_resnet(len(classes), IMG_SIZE, device)
   #model = init_inception(len(classes), IMG_SIZE, device)
-  model = train(model, images, labels, test_imgs, test_lbls, classes)
+  model = train(model, images, labels, test_imgs, test_lbls, classes, True)
   save_model(model, model_path)
 
   # evaluate
