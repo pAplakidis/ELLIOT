@@ -15,7 +15,7 @@ def train(model, images, labels, timages, tlabels, classes, estop=False):
   #lr = 1e-4  # full dataset
   #lr = 1e-3  # food-101
   lr = 1e-3   # food-251
-  wd = 1e-4
+  wd = 1e-4   # TODO: try 1e-3 with resnet18
   optim = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=wd)
 
   losses, accuracies = [], []

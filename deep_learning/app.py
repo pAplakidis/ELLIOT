@@ -21,8 +21,8 @@ if __name__ == '__main__':
   print(device)
 
   # load and downscale image
-  img = cv2.imread(img_path)
-  img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+  img_origin = cv2.imread(img_path)
+  img = cv2.resize(img_origin, (IMG_SIZE, IMG_SIZE))
   print("[+] Loaded image", img_path)
   
   # load classes
@@ -60,6 +60,6 @@ if __name__ == '__main__':
   print("Top 3 predictions:")
   print(best_guesses)
 
-  cv2.imshow(food_name, img)
+  cv2.imshow(food_name, cv2.resize(img_origin, (DISP_RES, DISP_RES)))
   cv2.waitKey(0)
 
