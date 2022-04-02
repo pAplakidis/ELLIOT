@@ -10,7 +10,7 @@ import torchvision.models as models
 
 IMG_SIZE = 128
 
-def init_resnet(num_classes, feature_extract, input_size, device):
+def init_resnet(num_classes, input_size, device):
   model = models.resnet18(pretrained=False)
   num_feats = model.fc.in_features
   model.fc = nn.Linear(num_feats, num_classes)
@@ -18,12 +18,12 @@ def init_resnet(num_classes, feature_extract, input_size, device):
   return model.to(device)
 
 def load_model(model, path):
-  #model.load_state_dict(torch.load(path))
   model.load_state_dict(torch.load(path, map_location=torch.device("cpu")))
+  model.eval()
   return model
 
 def classify(img_path, model_path, classes_path):
-  device = "cpu"
+  device = torch.device("cpu")
 
   # load classes
   classes = []
@@ -43,8 +43,7 @@ def classify(img_path, model_path, classes_path):
   #print(img_in.shape)
 
   # load model
-  model = init_resnet(len(classes), False, IMG_SIZE, device)
-  # FIXME: crashes here due to cuda error
+  model = init_resnet(len(classes), IMG_SIZE, device)
   model = load_model(model, model_path)
 
   # forward to model
