@@ -57,7 +57,7 @@ class FoodClassifier(nn.Module):
       num_features *= s
     return num_features
 
-
+# TODO: try mobilenetv2 as well
 def init_resnet(num_classes, input_size, device):
   model = models.resnet18(pretrained=True)
   num_feats = model.fc.in_features
