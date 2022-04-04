@@ -45,6 +45,7 @@ import java.lang.reflect.Type;
 import java.net.URISyntaxException;
 import java.util.List;
 
+// TODO: cleanup
 public class NNModel {
     private final Context context;
 
@@ -62,96 +63,7 @@ public class NNModel {
         return pyobj;
     }
 
-    public List<String> load_classes() {
-        String jsonFileString = Utils.getJsonFromAssets(context, "classes.json");
-        // Log.i("data", jsonFileString);
-
-        Gson gson = new Gson();
-        Type listStringType = new TypeToken<List<String>>() {
-        }.getType();
-        List<String> classes = gson.fromJson(jsonFileString, listStringType);
-
-        // for (int i = 0; i < classes.size(); i++) {
-        // Log.i("Data", ">Item" + i + "\n" + classes.get(i));
-        // }
-
-        return classes;
-    }
-
     public Bitmap load_img(String path) throws IOException {
         return Utils.getResizedBitmap(BitmapFactory.decodeStream(context.getAssets().open(path)), 1080, 1080);
-    }
-
-    public Net load_onnx_model() throws IOException {
-        OpenCVLoader.initDebug();
-        return Dnn.readNetFromONNX(Utils.assetFilePath(context, "resnet18_classifier.onnx"));
-    }
-
-    public String classify_onnx(String img_path, Net model, List<String> classes) throws IOException {
-        // load and preprocess image
-        final double SCALE_FACTOR = 1 / 255.0;
-        Scalar mean = new Scalar(0.485, 0.456, 0.406);
-        Scalar std = new Scalar( 0.229, 0.224, 0.225);
-        Size size = new Size(128, 128);
-
-        Mat img = Imgcodecs.imread(Utils.assetFilePath(context, img_path), Imgcodecs.IMREAD_COLOR);
-        Imgproc.resize(img, img, size);
-        Mat imgFloat = new Mat(img.rows(), img.cols(), CvType.CV_32FC3);
-        img.convertTo(imgFloat, CvType.CV_32FC3, SCALE_FACTOR);
-        //imgFloat = Utils.center_crop(imgFloat);
-        Mat blob = Dnn.blobFromImage(imgFloat, 1.0, size, mean, false, false);
-        Core.divide(blob, std, blob);
-
-        // forward to net
-        model.setInput(blob);
-        Mat out = model.forward();  // FIXME: always the same output
-        Log.i("[++] Model output:", out.dump());
-
-        // get argmax
-        Core.MinMaxLocResult mm = Core.minMaxLoc(out);
-        int maxValIdx = (int)mm.maxLoc.x;
-
-        return classes.get(maxValIdx);
-    }
-
-    public Module load_model() throws IOException, URISyntaxException {
-        return LiteModuleLoader.load(Utils.assetFilePath(context, "resnet18_classifier.ptl"));
-    }
-
-    public String classify(Bitmap img, Module module, List<String> classes) throws IOException {
-        // prep image for net (128x128 BGR)
-        img = Utils.getResizedBitmap(img, 128, 128);
-        Bitmap in_img = Utils.toBGR(img);
-
-        try{
-            // FIXME: the problem here is that Bitmap can only be RGB
-            //in_img = Bitmap.createBitmap(new_img.cols(), new_img.rows(), Bitmap.Config.)
-        }
-        catch(CvException e){
-            Log.d("Exception", e.getMessage());
-        }
-
-        // forward image to net
-        Tensor inputTensor = TensorImageUtils.bitmapToFloat32Tensor(in_img, TensorImageUtils.TORCHVISION_NORM_MEAN_RGB, TensorImageUtils.TORCHVISION_NORM_STD_RGB);
-        /*
-        long[] shape = inputTensor.shape();
-        for (long s : shape) {
-            Log.i("[+++++] Input Shape: ", Long.toString(s));
-        }
-        */
-        Tensor outputTensor = module.forward(IValue.from(inputTensor)).toTensor();
-        float[] scores = outputTensor.getDataAsFloatArray();
-
-        // get argmax
-        float maxScore = -Float.MAX_VALUE;
-        int maxScoreIdx = -1;
-        for (int i = 0; i < scores.length; i++) {
-            Log.i("[+]", Float.toString(scores[i]));
-            if (scores[i] > maxScore) {
-                maxScoreIdx = i;
-            }
-        }
-
-        return classes.get(maxScoreIdx);
     }
 }
