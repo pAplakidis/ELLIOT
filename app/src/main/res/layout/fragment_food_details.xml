@@ -19,10 +19,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="400dp"
         android:layout_margin="8dp"
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp"
@@ -39,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/food_name_details"
@@ -69,12 +70,12 @@
                 android:text="foodmeal"
                 android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/food_ingredients"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="foodingredients"
-                android:textSize="20sp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredient_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/list_ingredients" />
 
         </LinearLayout>
 

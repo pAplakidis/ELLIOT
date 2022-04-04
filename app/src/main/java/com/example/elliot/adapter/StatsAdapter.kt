@@ -8,7 +8,7 @@ import com.example.elliot.R
 import com.example.elliot.domain.model.Statistic
 
 class StatsAdapter(
-    private val statistics: List<Statistic>
+    private val statistics: Statistic
 ) : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
 
     class StatsViewHolder(statsView: View) : RecyclerView.ViewHolder(statsView) {
@@ -24,10 +24,10 @@ class StatsAdapter(
 
     override fun onBindViewHolder(holder: StatsViewHolder, position: Int) {
         holder.apply {
-            listStatistics.adapter = SubStatsAdapter(statistics[position].subStatList)
+            listStatistics.adapter = SubStatsAdapter(statistics.subStatList)
         }
     }
 
-    override fun getItemCount(): Int = statistics.size
+    override fun getItemCount(): Int = 1
 
 }

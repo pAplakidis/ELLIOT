@@ -23,7 +23,6 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class CalendarFragment : Fragment(R.layout.fragment_foods) {
 //    motionLayout.getTransition(R.id.yourTransition).setEnable(false)
-    //  scrollable cardview + design
 
     private val calendarViewModel: CalendarViewModel by viewModels()
 

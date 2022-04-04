@@ -2,12 +2,16 @@ package com.example.elliot.ui.statistics
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.example.elliot.R
 import com.example.elliot.adapter.StatsAdapter
-import com.example.elliot.data.Datasource
 import com.example.elliot.domain.model.Statistic
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
@@ -17,43 +21,67 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.google.android.material.button.MaterialButtonToggleGroup
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
+import java.util.*
+import kotlin.collections.ArrayList
 
+@AndroidEntryPoint
 class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
     private lateinit var pieChart: PieChart
+    private val statisticsViewModel: StatisticsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        pieChart = view.findViewById(R.id.pie_chart)
+        //TODO MAKE CALENDAR, PUT LISTENER AND PASS THE DATE CHOICE TO VIEWMODEL WITH SIMILAR TO 48 LINE CALL
 
+        pieChart = view.findViewById(R.id.pie_chart)
         initPieChart()
+
+        val year = Calendar.getInstance().get(Calendar.YEAR)
+        val month = Calendar.getInstance().get(Calendar.MONTH) + 1
+        val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        val date = "$day/$month/$year"
+
+        statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose(date))
 
         val buttonContainer = view.findViewById<MaterialButtonToggleGroup>(R.id.buttonContainer)
         buttonContainer.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            val recyclerView: RecyclerView = view.findViewById(R.id.list_information)
 
             if (isChecked) {
-                lateinit var dataset: List<Statistic>
                 when (checkedId) {
                     R.id.button1 -> {
-                        dataset = Datasource().loadStatistics1()
-                        setDataToPieChart(1)
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Breakfast"))
                     }
 
                     R.id.button2 -> {
-                        dataset = Datasource().loadStatistics2()
-                        setDataToPieChart(2)
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Lunch"))
                     }
 
                     R.id.button3 -> {
-                        dataset = Datasource().loadStatistics3()
-                        setDataToPieChart(3)
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Dinner"))
                     }
 
                 }
-                recyclerView.apply {
-                    adapter = StatsAdapter(dataset)
-                    setHasFixedSize(true)
+
+            }
+        }
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                statisticsViewModel.dateState.collect {
+                    setDataToPieChart(it.pieValues)
+                }
+            }
+        }
+
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                statisticsViewModel.statState.collect {
+                    val recyclerView: RecyclerView = view.findViewById(R.id.list_information)
+                    initRecycler(recyclerView, it.statList)
                 }
             }
         }
@@ -76,36 +104,11 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.legend.isWordWrapEnabled = true
     }
 
-    private fun setDataToPieChart(choice: Int) {
-        pieChart.setUsePercentValues(true)
-        val dataEntries = ArrayList<PieEntry>()
-        when (choice) {
-            1 -> {
-                dataEntries.add(PieEntry(30f, "Test1"))
-                dataEntries.add(PieEntry(40f, "Test2"))
-                dataEntries.add(PieEntry(30f, "Test3"))
-            }
-
-            2 -> {
-                dataEntries.add(PieEntry(70f, "New1"))
-                dataEntries.add(PieEntry(10f, "New2"))
-                dataEntries.add(PieEntry(20f, "New3"))
-            }
-
-            3 -> {
-                dataEntries.add(PieEntry(85f, "Create1"))
-                dataEntries.add(PieEntry(5f, "Create2"))
-                dataEntries.add(PieEntry(10f, "Create3"))
-            }
-        }
-
+    private fun pieSettings(data: PieData, dataSet: PieDataSet) {
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#4DD0E1"))
         colors.add(Color.parseColor("#FFF176"))
         colors.add(Color.parseColor("#FF8A65"))
-
-        val dataSet = PieDataSet(dataEntries, "")
-        val data = PieData(dataSet)
 
         // In Percentage
         data.setValueFormatter(PercentFormatter())
@@ -124,8 +127,29 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
         //add text in center
         pieChart.setDrawCenterText(true)
-        pieChart.centerText = "Mobile OS Market share"
+        pieChart.centerText = "Macronutrients Information"
 
         pieChart.invalidate()
+    }
+
+    private fun setDataToPieChart(stat: List<Float>) {
+        pieChart.setUsePercentValues(true)
+        val dataEntries = ArrayList<PieEntry>()
+
+        dataEntries.add(PieEntry(stat[0], "Proteins"))
+        dataEntries.add(PieEntry(stat[1], "Carbs"))
+        dataEntries.add(PieEntry(stat[2], "Fat"))
+
+        val dataSet = PieDataSet(dataEntries, "")
+        val data = PieData(dataSet)
+
+        pieSettings(data, dataSet)
+    }
+
+    private fun initRecycler(recyclerView: RecyclerView, statList: Statistic) {
+        recyclerView.apply {
+            adapter = StatsAdapter(statList)
+            setHasFixedSize(true)
+        }
     }
 }

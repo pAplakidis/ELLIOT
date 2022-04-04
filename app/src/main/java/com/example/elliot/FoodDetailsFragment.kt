@@ -1,11 +1,16 @@
 package com.example.elliot
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.elliot.adapter.IngredientsAdapter
 import com.example.elliot.databinding.FragmentFoodDetailsBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,16 +29,36 @@ class FoodDetailsFragment : Fragment() {
         cameraButton?.visibility = View.GONE
     }
 
-    private fun fillTextViews() {
+    private fun fillTextViews(recyclerView: RecyclerView) {
         binding.foodNameDetails.text = arguments?.getString("foodName")
         binding.foodDateDetails.text = arguments?.getString("dateEaten")
         binding.foodTimeDetails.text = arguments?.getString("timeEaten")
         binding.foodMealDetails.text = arguments?.getString("meal")
-        binding.foodIngredients.text = arguments?.getString("ingredients")
+//        binding.foodIngredients.text = arguments?.getString("ingredients")
 
         binding.backButtonHistory.setOnClickListener {
             Navigation.findNavController(it)
                 .navigate(R.id.action_foodDetailsFragment_to_calendarFragment)
+        }
+
+        val ingredients =
+            arguments?.getString("ingredients")?.split(",")?.toTypedArray()
+
+//        if (ingredients != null) {
+//            for (ingredient in ingredients) {
+//                Log.d("TAG", ingredient)
+//            }
+//        }
+
+        recyclerView.apply {
+            adapter = IngredientsAdapter(ingredients)
+            addItemDecoration(
+                DividerItemDecoration(
+                    recyclerView.context,
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+            setHasFixedSize(true)
         }
     }
 
@@ -50,7 +75,9 @@ class FoodDetailsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        fillTextViews()
+        val recyclerView: RecyclerView = view.findViewById(R.id.ingredient_recycler)
+
+        fillTextViews(recyclerView)
     }
 
     override fun onDestroyView() {
