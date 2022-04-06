@@ -21,7 +21,8 @@ def train(model, images, labels, timages, tlabels, classes, estop=False):
   losses, accuracies = [], []
   vlosses, vaccuracies = [], []
   best_vloss = float('inf')
-  BS = 128
+  #BS = 128 # resnet18
+  BS = 32   # mobilenet_v2
   EBS = 16
   #epochs = 250 # full dataset
   #epochs = 100 # food-101
@@ -88,7 +89,7 @@ def train(model, images, labels, timages, tlabels, classes, estop=False):
       if avg_epoch_loss < best_vloss:
         best_vloss = avg_epoch_loss
       elif avg_epoch_loss > best_vloss and estop:
-        print("[+] Stopped Early at epoch", epoch)
+        print("[+] Stopped Early at epoch", epoch+1)
         break
   except KeyboardInterrupt:
     print("[-] Training was interrupted")
@@ -188,7 +189,8 @@ if __name__ == '__main__':
 
   # train
   #model = FoodClassifier(len(classes)).to(device)
-  model = init_resnet(len(classes), IMG_SIZE, device)
+  #model = init_resnet(len(classes), IMG_SIZE, device)
+  model = init_mobilenet(len(classes), IMG_SIZE, device)
   #model = init_inception(len(classes), IMG_SIZE, device)
   model = train(model, images, labels, test_imgs, test_lbls, classes, True)
   save_model(model, model_path)

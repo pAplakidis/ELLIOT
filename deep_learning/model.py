@@ -57,12 +57,19 @@ class FoodClassifier(nn.Module):
       num_features *= s
     return num_features
 
-# TODO: try mobilenetv2 as well
 def init_resnet(num_classes, input_size, device):
   model = models.resnet18(pretrained=True)
   num_feats = model.fc.in_features
   model.fc = nn.Linear(num_feats, num_classes)
   #print(model)
+  return model.to(device)
+
+def init_mobilenet(num_classes, input_size, device):
+  model = models.mobilenet_v2(pretrained=True)
+  num_feats = 1280  # TODO: too static
+  model.classifier = nn.Sequential(nn.Dropout(p=0.2, inplace=False),
+                                   nn.Linear(num_feats, num_classes))
+  print(model)
   return model.to(device)
 
 def init_inception(num_classes, input_size, device):
