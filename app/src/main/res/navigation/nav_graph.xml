@@ -12,7 +12,8 @@
         android:label="CalendarFragment">
         <action
             android:id="@+id/action_calendarFragment_to_foodDetailsFragment"
-            app:destination="@id/foodDetailsFragment" />
+            app:destination="@id/foodDetailsFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -31,6 +32,7 @@
         tools:layout="@layout/fragment_food_details" >
         <action
             android:id="@+id/action_foodDetailsFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment" />
+            app:destination="@id/calendarFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>

@@ -1,30 +1,36 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Elliot" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/green</item>
-        <item name="colorPrimaryVariant">@color/dark_green</item>
-        <item name="colorOnPrimary">@color/brown</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/green</item>
-        <item name="colorSecondaryVariant">@color/dark_green</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
 
+        <!-- ICONS COLOR -->
+        <item name="colorPrimary">@color/brown</item>
+
+        <!-- STATUS BAR COLOR -->
+        <item name="colorPrimaryDark">@color/brown</item>
+
+        <!-- STATUS BAR COLOR -->
+        <item name="colorPrimaryVariant">@color/light_black</item>
+
+        <!-- BACKGROUND COLOR -->
+        <item name="android:windowBackground">@color/dark_white</item>
+
+        <!-- TEXTVIEW DEFAULT COLOR -->
+        <item name="android:textColor">@color/brown</item>
+
+        <!-- SET STYLES -->
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Elliot.SmallComponent
         </item>
         <item name="floatingActionButtonStyle">@style/Widget.Elliot.FloatingActionButton</item>
-
         <item name="materialCalendarTheme">@style/ThemeOverlay.Elliot.DatePicker</item>
+
     </style>
 
-    <!--  Style for all small components  -->
+    <!--  ALL SMALL COMPONENTS ARE ROUNDED  -->
     <style name="ShapeAppearance.Elliot.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerSize">16dp</item>
     </style>
 
-    <!-- FAB -->
+    <!-- FAB -> SET AS SMALL COMPONENT AND CHANGE COLOR -->
     <style name="Widget.Elliot.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
         <item name="materialThemeOverlay">@style/ThemeOverlay.Elliot.FloatingActionButton</item>
         <item name="shapeAppearanceOverlay">
@@ -33,21 +39,55 @@
     </style>
 
     <style name="ThemeOverlay.Elliot.FloatingActionButton" parent="">
-        <item name="colorSecondary">@color/green</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorOnSecondary">@color/brown</item>
     </style>
 
+    <!-- SET STYLE FOR CALENDAR BUTTON COLOR -->
+    <style name="ButtonColor" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/brown</item>
+        <item name="backgroundTint">@color/dark_white</item>
+    </style>
 
-
+    <!-- CALENDAR THEME -->
     <style name="ThemeOverlay.Elliot.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
-        <item name="colorPrimary">@color/green</item>
+        <!-- CALENDAR PRIMARY COLOR -->
+        <item name="colorPrimary">@color/light_gray</item>
+
+        <!-- CALENDAR TEXT COLOR -->
         <item name="colorOnPrimary">@color/brown</item>
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Elliot.SmallComponent</item>
+
+        <!-- CALENDAR BUTTON COLOR -->
+        <item name="buttonBarPositiveButtonStyle">@style/ButtonColor</item>
+        <item name="buttonBarNegativeButtonStyle">@style/ButtonColor</item>
+
+        <!-- MAKE ROUND AND HIDE SOME SPECIFIC USELESS BUTTONS -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Elliot.SmallComponent
+        </item>
         <item name="materialCalendarHeaderCancelButton">@null</item>
         <item name="materialCalendarHeaderConfirmButton">@null</item>
-<!--        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.Elliot.MediumComponent</item>-->
-        <!-- Customize text field of the text input mode. -->
-<!--        <item name="textInputStyle">@style/Widget.Elliot.TextInputLayout</item>-->
+    </style>
+
+
+    <!-- CHANGE THE ALERT DIALOG TEXT COLORS DEPENDING ON LIGHT/DARK THEME -->
+    <style name="AlertDialog" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="materialAlertDialogTitleTextStyle">@style/AlertDialogTitleText</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/AlertDialogBodyText</item>
+
+
+        <item name="textColorAlertDialogListItem">@color/icon_light_dark</item>
+
+        <!-- CHANGE THE CHECKBOX COLOR -->
+        <item name="android:colorAccent">@color/icon_light_dark</item>
+        <item name="colorAccent">@color/icon_light_dark</item>
+    </style>
+
+    <style name="AlertDialogTitleText" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/icon_light_dark</item>
+    </style>
+
+    <style name="AlertDialogBodyText" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/icon_light_dark</item>
     </style>
 
 </resources>

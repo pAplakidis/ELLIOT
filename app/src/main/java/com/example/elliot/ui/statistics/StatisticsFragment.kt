@@ -1,9 +1,13 @@
 package com.example.elliot.ui.statistics
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageButton
+import androidx.core.content.ContextCompat
+import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -21,11 +25,13 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.google.android.material.button.MaterialButtonToggleGroup
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 @AndroidEntryPoint
 class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
@@ -35,39 +41,22 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //TODO MAKE CALENDAR, PUT LISTENER AND PASS THE DATE CHOICE TO VIEWMODEL WITH SIMILAR TO 48 LINE CALL
-
         pieChart = view.findViewById(R.id.pie_chart)
         initPieChart()
+
+        setButtonListeners(view)
+
+        val calendarButton = view.findViewById<ImageButton>(R.id.calendar_button)
+        calendarButton.setOnClickListener {
+            initializeCalendar()
+        }
 
         val year = Calendar.getInstance().get(Calendar.YEAR)
         val month = Calendar.getInstance().get(Calendar.MONTH) + 1
         val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-        val date = "$day/$month/$year"
+        val date = "$day/$month/$year - $day/$month/$year"
 
         statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose(date))
-
-        val buttonContainer = view.findViewById<MaterialButtonToggleGroup>(R.id.buttonContainer)
-        buttonContainer.addOnButtonCheckedListener { _, checkedId, isChecked ->
-
-            if (isChecked) {
-                when (checkedId) {
-                    R.id.button1 -> {
-                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Breakfast"))
-                    }
-
-                    R.id.button2 -> {
-                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Lunch"))
-                    }
-
-                    R.id.button3 -> {
-                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Dinner"))
-                    }
-
-                }
-
-            }
-        }
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -118,16 +107,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         data.setValueTextSize(15f)
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
         pieChart.animateY(1400, Easing.EaseInOutQuad)
-
-        //create hole in center
-        pieChart.holeRadius = 58f
-        pieChart.transparentCircleRadius = 61f
-        pieChart.isDrawHoleEnabled = true
-        pieChart.setHoleColor(Color.WHITE)
-
-        //add text in center
-        pieChart.setDrawCenterText(true)
-        pieChart.centerText = "Macronutrients Information"
+        pieChart.legend.textColor = context?.let { ContextCompat.getColor(it, R.color.pie_labels) }!!
 
         pieChart.invalidate()
     }
@@ -152,4 +132,70 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             setHasFixedSize(true)
         }
     }
+
+    private fun constraintsCalendar(): CalendarConstraints.Builder {
+        val today = MaterialDatePicker.todayInUtcMilliseconds()
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+
+        calendar.timeInMillis = today
+        calendar[Calendar.MONTH] = Calendar.JANUARY
+        val janThisYear = calendar.timeInMillis
+
+        calendar.timeInMillis = today
+        calendar[Calendar.MONTH] = Calendar.DECEMBER
+        val decThisYear = calendar.timeInMillis
+
+        // Build constraints.
+        return CalendarConstraints.Builder()
+            .setStart(janThisYear)
+            .setEnd(decThisYear)
+    }
+
+    private fun initializeCalendar() {
+        val dateRangePicker =
+            MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText("Select dates")
+                .setCalendarConstraints(constraintsCalendar().build())
+                .setSelection(
+                    Pair(
+                        MaterialDatePicker.thisMonthInUtcMilliseconds(),
+                        MaterialDatePicker.todayInUtcMilliseconds()
+                    )
+                )
+                .setTheme(R.style.ThemeOverlay_Elliot_DatePicker)
+                .build()
+
+        dateRangePicker.show(childFragmentManager, "tag")
+
+        dateRangePicker.addOnPositiveButtonClickListener {
+            Log.d("TAG", dateRangePicker.headerText) // Month Day - Month Day
+            statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose(dateRangePicker.headerText))
+        }
+
+    }
+
+    private fun setButtonListeners(view: View) {
+        val buttonContainer = view.findViewById<MaterialButtonToggleGroup>(R.id.buttonContainer)
+        buttonContainer.addOnButtonCheckedListener { _, checkedId, isChecked ->
+
+            if (isChecked) {
+                when (checkedId) {
+                    R.id.button1 -> {
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Breakfast"))
+                    }
+
+                    R.id.button2 -> {
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Lunch"))
+                    }
+
+                    R.id.button3 -> {
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Dinner"))
+                    }
+
+                }
+
+            }
+        }
+    }
+
 }

@@ -13,6 +13,6 @@
     <color name="purple">#4617B3</color>
     <color name="dark_purple">#1E0557</color>
 
-    <color name="icon_light_dark">#4E342E</color>
-    <color name="pie_labels">#4E342E</color>
+    <color name="icon_light_dark">#FFFFFFFF</color>
+    <color name="pie_labels">#FFFFFFFF</color>
 </resources>

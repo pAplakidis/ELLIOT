@@ -110,7 +110,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showPredictionCheckDialog() {
-        MaterialAlertDialogBuilder(this)
+        MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle("Prediction Check")
             .setMessage("Is the food ${cameraViewModel.foodName} the correct prediction?")
             .setPositiveButton("Yes") { _, _ ->
@@ -123,7 +123,7 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showConfirmationDialog(state: CameraViewModel.IngredientListUiState) {
-        MaterialAlertDialogBuilder(this)
+        MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle("Confirm Food Ingredients")
             .setPositiveButton("OK") { _, _ ->
                 // Store the selected ingredients in database.
@@ -157,7 +157,7 @@ class CameraActivity : AppCompatActivity() {
 //            }
 //        }
 
-        MaterialAlertDialogBuilder(this)
+        MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle("Meal Entry")
             .setView(dialogTextsCamera)
             .setPositiveButton("OK") { _, _ ->

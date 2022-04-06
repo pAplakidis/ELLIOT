@@ -15,7 +15,8 @@
         android:contentDescription="Back Button"
         android:elevation="2dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_baseline_arrow_back_green_24"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:tint="@color/icon_light_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,12 +24,12 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="250dp"
         android:layout_margin="8dp"
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/back_button_history">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:layout_width="match_parent"
