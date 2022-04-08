@@ -84,7 +84,7 @@ def train(model, images, labels, timages, tlabels, classes, estop=False):
       vaccuracies.append(np.array(epoch_acc).mean())
 
       # automated early stopping
-      # TODO: need to save model from previous/best epoch
+      # TODO: maybe save model from previous/best epoch
       if avg_epoch_loss < best_vloss:
         best_vloss = avg_epoch_loss
       elif avg_epoch_loss > best_vloss and estop:
@@ -149,12 +149,18 @@ def evaluate(model, device, images, labels, classes):
   # feed images one by one
   preds = []
   accs = 0
+  accs1 = 0
   for i in (t := trange(len(images))):
     X = torch.tensor(np.array([images[i], images[i]])).float().to(device)
     Y = torch.tensor(np.array([labels[i], labels[i]])).long().to(device)
 
     out = model(X)
     pred = torch.argmax(out, dim=1)
+    cats = torch.topk(out[0], 3).indices
+    for cat in cats:
+      if cat == Y[0]:
+        accs1 += 1
+        break
     if (pred == Y)[0].item():
       accs += 1
     preds.append(pred[0].item())
@@ -166,6 +172,7 @@ def evaluate(model, device, images, labels, classes):
                        columns = [i for i in classes])
   print("[+] Built Confusion Matrix")
   print("[+] Overall Evaluation Accuracy: %.2f"%(accs/len(images)))
+  print("[+] Accuracy of top 3: %.2f"%(accs1/len(images)))
   print(df_cm)
   df_cm.to_csv(cf_csv)
   plt.figure(2, figsize=(100, 100))
