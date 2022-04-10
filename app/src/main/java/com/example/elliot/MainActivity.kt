@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         // model stuff
         val img_path = "val_000011.jpg";
+        //val img_path = "test_004771.jpg";
         val model_path = Utils.assetFilePath(this, "resnet18_classifier.pth")
         val classes_path = Utils.assetFilePath(this, "classes.json")
 
