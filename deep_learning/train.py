@@ -156,7 +156,7 @@ def evaluate(model, device, images, labels, classes):
 
     out = model(X)
     pred = torch.argmax(out, dim=1)
-    cats = torch.topk(out[0], 3).indices
+    cats = torch.topk(out[0], K).indices
     for cat in cats:
       if cat == Y[0]:
         accs1 += 1
@@ -172,7 +172,7 @@ def evaluate(model, device, images, labels, classes):
                        columns = [i for i in classes])
   print("[+] Built Confusion Matrix")
   print("[+] Overall Evaluation Accuracy: %.2f"%(accs/len(images)))
-  print("[+] Accuracy of top 3: %.2f"%(accs1/len(images)))
+  print("[+] Accuracy of top %d: %.2f"%(K, accs1/len(images)))
   print(df_cm)
   df_cm.to_csv(cf_csv)
   plt.figure(2, figsize=(100, 100))

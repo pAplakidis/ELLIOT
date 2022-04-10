@@ -28,7 +28,7 @@ if __name__ == '__main__':
   # load classes
   classes = []
   with open(classes_path, 'r') as f:
-    classes = json.load(f)
+    classes = sorted(json.load(f))
     f.close()
   print("[+] %d classes loaded"%len(classes))
 
@@ -49,8 +49,8 @@ if __name__ == '__main__':
   pred = model(X)
   cat = torch.argmax(pred, dim=1).item()
   food_name = classes[cat]
-  # get top 3 guesses
-  cats = torch.topk(pred[0], 3).indices
+  # get top k guesses
+  cats = torch.topk(pred[0], K).indices
   best_guesses = [classes[i.item()] for i in cats]
   print("Model prediction")
   print(pred)

@@ -75,7 +75,7 @@ def get_training_data(base_dir):
 
   # convert labels to indicies from classes
   new_labels = []
-  classes = list(classes)
+  classes = sorted(list(classes))
   for l in labels:
     idx = classes.index(l)
     new_labels.append(idx)

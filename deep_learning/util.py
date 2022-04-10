@@ -4,6 +4,8 @@
 IMG_SIZE = 224
 DISP_RES = 1080//2
 
+K = 3 # dictates top k predictions printed out and evaluated
+
 # Model Paths
 #model_path = "../models/cres_classifier_251.pth"
 model_path = "../models/big_resnet18_classifier_251.pth"
