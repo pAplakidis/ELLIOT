@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/calendarFragment"
-        android:name="com.example.elliot.ui.history.CalendarFragment"
-        tools:layout="@layout/fragment_foods"
-        android:label="CalendarFragment">
+        android:name="com.iprism.elliot.ui.history.CalendarFragment"
+        android:label="CalendarFragment"
+        tools:layout="@layout/fragment_foods">
         <action
             android:id="@+id/action_calendarFragment_to_foodDetailsFragment"
             app:destination="@id/foodDetailsFragment"
@@ -17,19 +17,19 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.elliot.ui.profile.ProfileFragment"
+        android:name="com.iprism.elliot.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/statisticsFragment"
-        android:name="com.example.elliot.ui.statistics.StatisticsFragment"
+        android:name="com.iprism.elliot.ui.statistics.StatisticsFragment"
         android:label="fragment_statistics"
         tools:layout="@layout/fragment_statistics" />
     <fragment
         android:id="@+id/foodDetailsFragment"
-        android:name="com.example.elliot.FoodDetailsFragment"
+        android:name="com.iprism.elliot.ui.history.FoodDetailsFragment"
         android:label="fragment_food_details"
-        tools:layout="@layout/fragment_food_details" >
+        tools:layout="@layout/fragment_food_details">
         <action
             android:id="@+id/action_foodDetailsFragment_to_calendarFragment"
             app:destination="@id/calendarFragment"

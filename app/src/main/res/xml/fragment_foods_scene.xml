@@ -67,8 +67,8 @@
             android:id="@+id/history_small_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
             android:alpha="1"
             motion:layout_constraintBottom_toTopOf="@+id/meal_recycler"
             motion:layout_constraintStart_toStartOf="parent" />
