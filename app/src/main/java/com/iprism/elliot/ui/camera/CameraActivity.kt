@@ -21,7 +21,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.chaquo.python.PyObject
 import com.iprism.elliot.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.iprism.elliot.R
@@ -109,16 +108,22 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 
-    private fun showPredictionCheckDialog(foodNames: Array<PyObject>) {
+    private fun showPredictionCheckDialog(foodNames: Array<String>) {
+        var foodNameIndex = 0
+        var foodName = foodNames[foodNameIndex]
+
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
-            .setTitle("Prediction Check")
-            .setMessage("Is the food predicted any of the following?")
-            .setPositiveButton("Yes") { _, _ ->
-                //cameraViewModel.onEvent(CameraEvent.OnCameraButtonClick(foodName))
+            .setTitle("Is the food predicted any of the following?")
+            .setPositiveButton("OK") { _, _ ->
+                cameraViewModel.onEvent(CameraEvent.OnCameraButtonClick(foodName))
                 cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick)
             }
-            .setNegativeButton("No") { _, _ ->
+            .setNegativeButton("Cancel") { _, _ ->
                 showMealEntryDialog()
+            }
+            .setSingleChoiceItems(foodNames, foodNameIndex) { _, which ->
+                foodNameIndex = which
+                foodName = foodNames[foodNameIndex]
             }
             .show()
     }
@@ -209,7 +214,8 @@ class CameraActivity : AppCompatActivity() {
                         photoFile.absolutePath,
                         ModelUtils.assetFilePath(this@CameraActivity, "resnet18_classifier.pth"),
                         ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
-                    ).asList().toTypedArray()
+                    ).asList().joinToString(",").split(",").toTypedArray()
+                    Log.e("TAG", foodNames.toString())
                     showPredictionCheckDialog(foodNames)
                 }
             })
