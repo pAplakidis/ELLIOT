@@ -215,7 +215,6 @@ class CameraActivity : AppCompatActivity() {
                         ModelUtils.assetFilePath(this@CameraActivity, "resnet18_classifier.pth"),
                         ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
                     ).asList().joinToString(",").split(",").toTypedArray()
-                    Log.e("TAG", foodNames.toString())
                     showPredictionCheckDialog(foodNames)
                 }
             })
