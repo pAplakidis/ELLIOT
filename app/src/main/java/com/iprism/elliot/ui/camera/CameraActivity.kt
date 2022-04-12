@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -23,6 +24,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.iprism.elliot.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.iprism.elliot.R
 import com.iprism.elliot.databinding.ActivityCameraBinding
 import com.iprism.elliot.domain.cnn.NNModel
@@ -47,9 +49,12 @@ class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.cameraProgressCircle.hide()
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -146,22 +151,8 @@ class CameraActivity : AppCompatActivity() {
     private fun showMealEntryDialog() {
         val dialogTextsCamera = LayoutInflater.from(this)
             .inflate(R.layout.dialog_texts_camera, null)
-//        val mealInsertButton = dialogTextsCamera.findViewById<Button>(R.id.buttonInsertFood)
-//        val ingredientText = dialogTextsCamera.findViewById<EditText>(R.id.editTextIngredient1)
-        val foodEntry = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
-//        mealInsertButton.setOnClickListener {
-//            if (ingredientText.text.toString() != "") {
-//                cameraViewModel.ingredients.add(ingredientText.text.toString())
-//                ingredientText.setText("")
-//            } else {
-//                Toast.makeText(
-//                    this,
-//                    "Please enter an ingredient before trying to enter a new one.",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//        }
+        val foodEntry = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle("Meal Entry")
@@ -183,6 +174,8 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
+        binding.cameraProgressCircle.show()
+
         // Get a stable reference of the modifiable image capture use case
         val imageCapture = imageCapture ?: return
 
@@ -207,6 +200,7 @@ class CameraActivity : AppCompatActivity() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+
                     val nnModel = NNModel(this@CameraActivity)
                     val pyObj = nnModel.init()
                     val foodNames = pyObj.callAttr(
@@ -215,6 +209,9 @@ class CameraActivity : AppCompatActivity() {
                         ModelUtils.assetFilePath(this@CameraActivity, "resnet18_classifier.pth"),
                         ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
                     ).asList().joinToString(",").split(",").toTypedArray()
+
+                    binding.cameraProgressCircle.hide()
+
                     showPredictionCheckDialog(foodNames)
                 }
             })

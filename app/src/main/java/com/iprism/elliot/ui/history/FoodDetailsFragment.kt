@@ -34,7 +34,6 @@ class FoodDetailsFragment : Fragment() {
         binding.foodDateDetails.text = arguments?.getString("dateEaten")
         binding.foodTimeDetails.text = arguments?.getString("timeEaten")
         binding.foodMealDetails.text = arguments?.getString("meal")
-//        binding.foodIngredients.text = arguments?.getString("ingredients")
 
         binding.backButtonHistory.setOnClickListener {
             Navigation.findNavController(it)
@@ -43,12 +42,6 @@ class FoodDetailsFragment : Fragment() {
 
         val ingredients =
             arguments?.getString("ingredients")?.split(",")?.toTypedArray()
-
-//        if (ingredients != null) {
-//            for (ingredient in ingredients) {
-//                Log.d("TAG", ingredient)
-//            }
-//        }
 
         recyclerView.apply {
             adapter = IngredientsAdapter(ingredients)

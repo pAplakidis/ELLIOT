@@ -23,7 +23,7 @@ android {
         }
 
         python {
-            buildPython "C:\\Users\\George\\AppData\\Local\\Programs\\Python\\Python38\\python"
+            buildPython "C:\\Users\\Dimitris\\AppData\\Local\\Programs\\Python\\Python38\\python"
 
             pip {
                 install "numpy"

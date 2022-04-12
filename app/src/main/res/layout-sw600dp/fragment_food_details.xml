@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/foodDetailsFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/back_button_history"
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:background="@null"
+        android:contentDescription="Back Button"
+        android:elevation="2dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/icon_light_dark" />
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_margin="10dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_round_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/food_name_details"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="foodname"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/food_date_details"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="fooddate"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/food_time_details"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="foodtime"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/food_meal_details"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="foodmeal"
+                android:textSize="40sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredient_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/list_ingredients" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

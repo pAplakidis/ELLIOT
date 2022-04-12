@@ -109,6 +109,9 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.legend.textColor =
             context?.let { ContextCompat.getColor(it, R.color.pie_labels) }!!
 
+        pieChart.legend.textSize =
+            16f; //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
+
         pieChart.invalidate()
     }
 

@@ -3,25 +3,46 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2465" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/drawable/ic_baseline_edit_calendar_24.xml" value="0.252" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/drawable/ic_round_view.xml" value="0.293" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/activity_camera.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/dialog_texts_camera.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_camera.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_food_details.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_foods.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_profile.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_statistics.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_foods.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_ingredients.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_meal.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_statistics.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_substatistics.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/George/AndroidStudioProjects/Elliot/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/activity_camera.xml" value="0.25" />
+        <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/dialog_texts_camera.xml" value="0.36666666666666664" />
+        <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_food_details.xml" value="0.2586050724637681" />
+        <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_food_details.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/drawable-v24/ic_baseline_arrow_back_24.xml" value="0.2595" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/drawable/ic_baseline_arrow_back_green_24.xml" value="0.2595" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/drawable/ic_round_view.xml" value="0.17" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/drawable/ic_top_round_view.xml" value="0.147" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_food_details.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_foods.xml" value="0.18" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_profile.xml" value="0.18" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_statistics.xml" value="0.14" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_foods.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_ingredients.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_statistics.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_substatistics.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/activity_camera.xml" value="0.1" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/activity_main.xml" value="0.2821557971014493" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/activity_splash.xml" value="0.14709569577935647" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/dialog_texts_camera.xml" value="0.25" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/fragment_camera.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/fragment_food_details.xml" value="0.22" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/fragment_foods.xml" value="0.25" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/fragment_login.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/fragment_profile.xml" value="0.22" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/fragment_statistics.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/list_foods.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/list_ingredients.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/list_meal.xml" value="0.15" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/list_statistics.xml" value="0.14" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/layout/list_substatistics.xml" value="0.22" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.168" />
+        <entry key="..\:/Users/Dimitris/StudioProjects/ELLIOT/app/src/main/res/xml/fragment_foods_scene_sw600dp.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/activity_camera.xml" value="0.12545289855072464" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/dialog_texts_camera.xml" value="0.33" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_foods.xml" value="0.16527777777777777" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/list_foods.xml" value="0.25" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/list_meal.xml" value="0.15718157181571815" />
       </map>
     </option>
   </component>
