@@ -3,6 +3,8 @@
 keys_file = "ing_keys.txt"
 ing_file = "ingredients.txt"
 out_file = "new_ingredients.txt"
+#ing_file = "search_not_found.txt"
+#out_file = "new_search_not_found.txt"
 
 def get_keywords():
   k = None
