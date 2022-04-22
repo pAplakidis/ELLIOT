@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 keys_file = "ing_keys.txt"
-ing_file = "ingredients.txt"
-out_file = "new_ingredients.txt"
-#ing_file = "search_not_found.txt"
-#out_file = "new_search_not_found.txt"
+#ing_file = "ingredients.txt"
+#out_file = "new_ingredients.txt"
+ing_file = "search_not_found.txt"
+out_file = "new_search_not_found.txt"
 
 def get_keywords():
   k = None
@@ -35,9 +35,9 @@ def cleanup(keywords, foods, data):
         if key in ingredient or key.lower() in ingredient or key.upper() in ingredient:
           new_data[i][j] = key
 
+  # add food class and remove duplicate ingredients
   for i in range(len(new_data)):
-    new_data[i] = [foods[i]] + new_data[i]
-    print(new_data[i])
+    new_data[i] = [foods[i]] + list(set(new_data[i]))
 
   file_str = ""
   with open(out_file, "w") as f:

@@ -3,176 +3,160 @@ adobo
 ambrosia_food
 
 apple_pie
+Tea
+Cream
+Allspice
+1 tablespoon brandy , optional (if you have Calvados apple brandy, use it!)
+Nutmeg
 Apples
 Lemon
-Sugar
 Flour
 Cinnamon
-Allspice
-Nutmeg
-1 tablespoon brandy , optional (if you have Calvados apple brandy, use it!)
-Tea
-Cream
 Egg
-Cream
+Sugar
 
 apple_turnover
-Currant
-Walnuts
-Sugar
-Cinnamon
-Corn
-Apples
 Tea
-1 frozen puff pastry sheet, thawed, OR 2 pâte brisée dough recipes (enough for a double crust pie)
+Corn
 Butter
+Currant
+Apples
+Walnuts
+1 frozen puff pastry sheet, thawed, OR 2 pâte brisée dough recipes (enough for a double crust pie)
+Cinnamon
 Egg
+Sugar
 Milk
 
 applesauce
-Apples
-Lemon
-Lemon
-Cinnamon
-Sugar
 1 cup water
 Salt
+Apples
+Lemon
+Cinnamon
+Sugar
 
 applesauce_cake
-Flour
 Tea
-Cinnamon
-Allspice
-Nutmeg
 Cloves
-Salt
-Salt
-Sugar
-Egg
-Tea
-Apples
-Milk
-Walnuts
-Raisins
 Cream
+Allspice
+Salt
+Nutmeg
+Raisins
+Apples
 Walnuts
+Flour
+Cinnamon
+Egg
+Sugar
+Milk
 
 baby_back_rib
+Tea
 Pork
-Pork
+2 cups barbecue sauce, your favorite store-bought or homemade
 3/4 cup water
 Vinegar
-Tea
-2 cups barbecue sauce, your favorite store-bought or homemade
 
 bacon_and_eggs
+Tomato
+Basil
+Parmesan
+Black Pepper
+Olive oil, for garnish
 12 ounces (3/4 box) spaghetti
 Bacon
 Garlic
-Tomato
 Egg
-Parmesan
-Basil
-Black Pepper
-Olive oil, for garnish
 
 bacon_lettuce_tomato_sandwich
-Avocado
-Lettuce
 Tomato
 Salt
+Avocado
 Mayonnaise
+Lettuce
 
 baked_alaska
 
 baklava
-Pistachio
-1 pound phyllo dough
-Butter
-Sugar
-Cinnamon
-Cloves
 1 cup water
-Sugar
 Honey
+Cloves
+Pistachio
+Butter
+1 pound phyllo dough
 Lemon
 Cinnamon
-Pistachio
+Sugar
 
 barbecued_spareribs
+Tea
 Pork
-Pork
+2 cups barbecue sauce, your favorite store-bought or homemade
 3/4 cup water
 Vinegar
-Tea
-2 cups barbecue sauce, your favorite store-bought or homemade
 
 barbecued_wing
 
 beef_stroganoff
-Butter
-Salt
-Black Pepper
-1 pound top sirloin or tenderloin, cut thinly into 1-inch by 2 1/2-inch strips
-Onion
-Mushroom
-Nutmeg
 Tea
 Cream
+Black Pepper
+Salt
+Onion
+Butter
+Mushroom
+Nutmeg
+1 pound top sirloin or tenderloin, cut thinly into 1-inch by 2 1/2-inch strips
 
 beef_tartare
 
 beef_wellington
+2 tablespoons yellow mustard (we used Coleman's Original English Mustard)
 Beef
 Salt
-Olive Oil
-Mushroom
 Ham
-2 tablespoons yellow mustard (we used Coleman's Original English Mustard)
+Mushroom
 1 (7 to 8 1/2-ounce sheet) puff pastry, thawed (see recipe note)
+Olive Oil
 Egg
 
 beet_salad
 
 beignet
 Salt
+Butter
+Yeast
+Vegetable Oil
+Egg
 Sugar
 Milk
-Yeast
-Egg
-Butter
-Vegetable Oil
-Sugar
 
 bibimbap
 
 biryani
-Garlic
-Turmeric
-Jalapeno
-Milk
-Olive Oil
-Rum
-Salt
-Onion
-Rice
-Black Cardamom
-Green Cardamom
-Cinnamon
-Corn
-1 to 2 bay leaves
-Salt
 Saffron
-Milk
-1 cup cooking oil
-Onion
-To assemble the biryani:
-Salt
-1/4 cup cilantro, coarsely chopped
-1/4 cup mint, coarsely chopped
+Jalapeno
+Turmeric
 Milk
 Garam Masala
+Salt
+Black Cardamom
+1/4 cup cilantro, coarsely chopped
+1/4 cup mint, coarsely chopped
+1 to 2 bay leaves
+Olive Oil
+Green Cardamom
+1 cup cooking oil
+Garlic
+Corn
+Onion
+To assemble the biryani:
+Rice
+Rum
 Pomegranate
+Cinnamon
 
 boiled_egg
 
@@ -180,1104 +164,979 @@ boston_cream_pie
 
 bread_pudding
 16-ounce French brioche loaf, cut into 3/4-inch cubes (12 cups)
-Salt
-Egg
-4 cups half-and-half
-Sugar
-Sugar
-1 tablespoon pure vanilla extract (bourbon vanilla recommended)
-Cinnamon
-Nutmeg
-Salt
-Banana
-Sugar
 1/4 cup water
 Cream
+1 tablespoon pure vanilla extract (bourbon vanilla recommended)
+4 cups half-and-half
 Salt
+Nutmeg
+Banana
 Cinnamon
-Salt
+Egg
+Sugar
 
 brisket
-Beef
-3/4 cup barbecue sauce
 1/4 cup soy sauce
+Beef
 1 cup water
-Flour
 3/4 cup barbecue sauce
-1/4 cup soy sauce
-Beef
 Flour
 
 bruschetta
 Tomato
-Garlic
+Basil
+Black Pepper
+Salt
 Olive Oil
 Vinegar
-Basil
-Salt
-Black Pepper
+Garlic
 Bread
-Olive Oil
 
 bubble_and_squeak
-Mushroom
-Mushroom
-Salt
-Onion
-Olive Oil
-Garlic
-Tomato
-Tomato
+Tea
 Tomato
 1 cup water
-Thyme
-Tea
-Sugar
-Spinach
-1 pound lasagna noodles (16 to 20 noodles)
-Ricotta Cheese
+Mozzarella Cheese
 Basil
 Parmesan
-Mozzarella Cheese
+Spinach
+Ricotta Cheese
+Sugar
+Salt
+Onion
+Mushroom
+Olive Oil
+Garlic
+1 pound lasagna noodles (16 to 20 noodles)
+Thyme
 
 buffalo_wing
 Chicken
-Salt
-4 tablespoons bottled hot pepper sauce (like Crystal or Frank's Original)
-Paprika
-Salt
-Cayenne
-Black Pepper
 Cream
+4 tablespoons bottled hot pepper sauce (like Crystal or Frank's Original)
+Salt
+Black Pepper
 Blue Cheese
+Paprika
 Mayonnaise
 White Wine
 Garlic
+Cayenne
 Celery
 
 burrito
-Rice
-2 tablespoons chopped cilantro
-1/2 fresh lime, juiced
-Olive Oil
-Bell Pepper
-Onion
-Salt
 Tea
 Corn
-Black Beans
-4 tomatillos, peeled, washed, and chopped
-1 cup salsa
-Tea
-Flour
-Cheddar Cheese
 Cream
+Onion
+Salt
+4 tomatillos, peeled, washed, and chopped
+Bell Pepper
+Rice
+Black Beans
 Guacamole, for serving
+Olive Oil
+1 cup salsa
+Cheddar Cheese
+1/2 fresh lime, juiced
+Flour
+2 tablespoons chopped cilantro
 
 caesar_salad
+Parmesan
+Lettuce
+Black Pepper
+Salt
 Olive Oil
-Garlic
 1 baguette, preferably a day old, thinly sliced
 Lemon
-Parmesan
+Garlic
 Anchovies
 Egg
-Black Pepper
-Salt
-Lettuce
 
 cannelloni
-Zucchini
-Olive Oil
-Salt
 Tea
+Tomato
+1 cup fresh ricotta
+Basil
+Parmesan
+Zucchini
+Black Pepper
+Salt
+Nutmeg
 Olive Oil
 Garlic
-Tomato
-Salt
-Sugar
-Black Pepper
-Basil
-1 cup fresh ricotta
-Parmesan
-Egg
-Nutmeg
-Black Pepper
 Parsley
-Basil
+Egg
+Sugar
 
 cannoli
-Olive Oil
-Onion
-Carrot
-Celery
-Garlic
 Tea
-Tea
-Chicken
 Tomato
+Chicken
 Pasta
 2 (15-ounce) cans cannellini or borlotti beans, drained and rinsed (or 3 1/2 cups freshly cooked beans)
-Parsley
+Onion
 Salt
+Carrot
+Olive Oil
+Garlic
+Parsley
+Celery
 
 caprese_salad
-Salt
-Basil
 Mozzarella Cheese
+Black Pepper
+Salt
 Olive Oil
 Vinegar
-Black Pepper
+Basil
 
 carbonnade_flamande
 3 1/2 pounds chuck roast, cut into 1-inch pieces
-Salt
-Butter
-Onion
-Flour
 Beef
 Beer
-Thyme
 2 bay leaves
-1 tablespoon whole-grain mustard
 Sugar
+Salt
+Onion
+1 tablespoon whole-grain mustard
+Butter
+Flour
+Thyme
 
 carrot_cake
-Flour
-Sugar
-Salt
-Baking Soda
-Cinnamon
-Olive Oil
-Egg
-1 tablespoon vanilla extract
-Walnuts
+Tea
 Coconut
-Carrot
-Pineapple
+Baking Soda
 Cream
 Salt
-Sugar
-Tea
+Pineapple
+Carrot
 Lemon
+Olive Oil
+1 tablespoon vanilla extract
 Walnuts
+Flour
+Cinnamon
+Egg
+Sugar
 
 casserole
 
 ceviche
-Fish
-1/2 cup freshly squeezed lime juice
-Lemon
-Onion
 Tomato
+Fish
 1 serrano chili, seeded and finely diced
+Onion
 Salt
 Oregano
-Cayenne
-Cilantro
 Avocado
+1/2 cup freshly squeezed lime juice
 Tortilla
+Lemon
+Cilantro
+Cayenne
 
 cheesecake
-Ham
-Sugar
-Salt
-Salt
-Cream
-Sugar
-Salt
 Tea
-Egg
-Cream
-Cream
-Cream
-Sugar
-Tea
-12 ounces (340g) fresh raspberries
-Sugar
 1/2 cup (120ml) water
+Cream
+Salt
+Ham
+Egg
+Sugar
+12 ounces (340g) fresh raspberries
 
 chicken_cordon_bleu
-Garlic
-Black Pepper
-Flour
-Bread
-Parsley
 Egg
 Chicken
 1 1/2 tablespoons Dijon mustard
-Ham
+Black Pepper
 4 ounces Gruyere or Swiss cheese, cut into 1/2-inch thick sticks
-Vegetable Oil
+Ham
 To Serve:
+Vegetable Oil
 Lemon
+Garlic
+Flour
+Parsley
+Bread
 
 chicken_curry
-Vegetable Oil
+Tea
+Chicken
+2 tablespoons yellow curry powder
+Cilantro for garnish
+Mango
 Onion
+Salt
 Bell Pepper
+Rice
+Vegetable Oil
+Raisins
+Vinegar
 Garlic
 Ginger
-2 tablespoons yellow curry powder
-Tea
-Mango
-Vinegar
 Milk
-Chicken
-Raisins
-Salt
-Cilantro for garnish
-Rice
 
 chicken_quesadilla
-Chicken
-1/4 lb cheddar or Monterey jack cheese, sliced or grated
 1 apple, sliced
+1/4 lb cheddar or Monterey jack cheese, sliced or grated
+Chicken
 1/4 cup salsa
 
 chicken_wing
-Chicken
 1 cup water
+Chicken
+2 scallions, thinly sliced
 2 tablespoons soy sauce
 Rice
+Egg
 Sugar
-Egg
-Egg
-2 scallions, thinly sliced
 
 chiffon_cake
 
 chili
 
 chocolate_cake
-Flour
-Cocoa
 Tea
-Tea
-Salt
-1 cup boiling water
-Chocolate
-Chocolate
-Sugar
-Egg
-Canola Oil
-Tea
-Egg
-Milk
-Sugar
-Salt
-Tea
-Salt
 Coconut
 1 1/2 cups chopped pecans
+Canola Oil
+1 cup boiling water
+Salt
+Chocolate
+Cocoa
+Flour
+Egg
+Sugar
+Milk
 
 chocolate_mousse
-Cream
-Chocolate
-Salt
 Coffee
+Cream
+Salt
+Raspberries to serve, optional
+Chocolate
 Egg
 Sugar
-Raspberries to serve, optional
-Cream
 
 chop_suey
-2 cups uncooked macaroni 
-Olive Oil
 Beef
-Onion
-Salt
-Pinch chili pepper flakes
-Celery
 Tomato
+2 cups uncooked macaroni 
 2 tablespoons Worcestershire sauce
-Parsley
 Salt
+Onion
+Pinch chili pepper flakes
+Olive Oil
+Parsley
+Celery
 
 chow_mein
-Salt
-Sesame Oil
-1 tablespoon canola or peanut oil
 Tea
-Lettuce
-Bell Pepper
-3-4 scallions, sliced
-Carrot
-1/2 cup loosely packed cilantro leaves, chopped
 Peanuts
-Chow mein noodles, to taste
-1 tablespoon soy sauce (use gluten-free soy sauce for gluten-free option)
-Rice
-Mustard Powder
-Ginger
-Garlic
-Tea
-Sugar
-Sesame Oil
 Canola Oil
+1 tablespoon soy sauce (use gluten-free soy sauce for gluten-free option)
+Salt
+Carrot
+Sesame Oil
+Bell Pepper
+1 tablespoon canola or peanut oil
+3-4 scallions, sliced
+1/2 cup loosely packed cilantro leaves, chopped
+Rice
+Garlic
+Mustard Powder
+Lettuce
+Chow mein noodles, to taste
+Ginger
+Sugar
 
 churro
-Butter
 1 cup water
+Rosemary
 Salt
+Butter
+Cheddar Cheese
+Freshly ground pepper
 Flour
 Egg
-Cheddar Cheese
-Rosemary
-Freshly ground pepper
 
 clam_chowder
-Cherry
-Salt
-Salt
-Onion
-Flour
-White Wine
-Potatoes
 1 to 2 cups water
-Bay Leaf
-Thyme
-Black Pepper
-Paprika
 Corn
 Cream
+Black Pepper
+Salt
+Onion
+Cherry
+Paprika
+Bay Leaf
+White Wine
+Potatoes
+Flour
 Parsley
+Thyme
 
 clam_food
-Cherry
-Salt
-Salt
-Onion
-Flour
-White Wine
-Potatoes
 1 to 2 cups water
-Bay Leaf
-Thyme
-Black Pepper
-Paprika
 Corn
 Cream
+Black Pepper
+Salt
+Onion
+Cherry
+Paprika
+Bay Leaf
+White Wine
+Potatoes
+Flour
 Parsley
+Thyme
 
 club_sandwich
-Turkey
-Olive Oil
-Salt
-Black Pepper
-Bacon
-Bread
-Cheddar Cheese
-Avocado
 Tomato
-Lettuce
+Black Pepper
+Salt
+Avocado
 Garlic
+Bacon
+Olive Oil
+Cheddar Cheese
+Turkey
 Mayonnaise
 Lemon
-Salt
+Lettuce
+Bread
 
 coconut_cake
-Butter
-Flour
-Flour
-Tea
-Tea
-Salt
-Egg
-Salt
-Coconut
-Sugar
-Cream
-Tea
-Milk
-Salt
-Lemon
-Lemon
-Sugar
-Egg
-Egg
-Salt
-Salt
-Salt
-Egg
-Sugar
 Tea
 To finish the cake:
 Coconut
+Cream
+Salt
+Butter
 Lemon
-Coconut
+Flour
+Egg
+Sugar
+Milk
 
 coffee_cake
 2 cups baking mix, such as Bisquick
-Milk
-Sugar
-Egg
 1 tart green apple, cored, peeled, sliced
-1/3 cup baking mix, such as Bisquick
-Sugar
-Cinnamon
 Butter
+1/3 cup baking mix, such as Bisquick
+Cinnamon
+Egg
+Sugar
+Milk
 
 compote
+Honey
+Red Wine
+Salt
+4 6-ounce boneless halibut filets
+Olive Oil
+Vinegar
 Potatoes
 Asparagus
-Olive Oil
-4 6-ounce boneless halibut filets
-Salt
-Red Wine
-Vinegar
-Honey
 1 1/2 cups Well•Pict strawberries, coarsely chopped
 
 confit
-Salt
-Black Pepper
-Garlic
-Thyme
 Cloves
+Black Pepper
+Salt
 3 bay leaves
 Olive Oil
+Garlic
+Thyme
 
 coq_au_vin
-Bacon
-Chicken
-Onion
-Garlic
-Salt
+2 bay leaves
 Chicken
 Red Wine
-2 bay leaves
-Thyme
-Parsley
-Mushroom
+Salt
+Onion
 Butter
+Bacon
+Mushroom
+Garlic
 Parsley
+Thyme
 
 cottage_pie
-Salt
-Potatoes
-Butter
-Onion
-Corn
-Beef
-Beef
 Tea
+Beef
+Corn
+Salt
+Onion
+Butter
 Pepper and/or other seasonings of choice
+Potatoes
 
 couscous
-Shrimp
-1 tablespoon seafood dry rub
-Olive Oil
-Couscous
 1 cup water
-Butter
 Couscous
-Black Pepper
-Lemon
 1 bunch Swiss chard, stems removed
-Olive Oil
-Lemon
+Shrimp
+Black Pepper
 Salt
+Butter
+Olive Oil
+1 tablespoon seafood dry rub
+Lemon
 
 crab_cake
-Crab
-Salt
 Shallots
-Salt
-Egg
 Tea
-Paprika
-Black Pepper
+Crab
 2 tablespoons prepared tartar sauce
+Black Pepper
+Salt
+Paprika
 Lemon
-Tea
+Bread
 Parsley
-Bread
-Bread
+Egg
 
 crab_food
-Crab
-White Wine
-Onion
-Carrot
-Celery
-Tomato
-Thyme
-Parsley
-Bay Leaf
-Corn
-Salt
-Salt
 Shallots
-White Wine
-Fish
-Rice
 Tomato
 Crab
-Cream
-Salt
+Corn
 Cayenne
+Fish
+Cream
+Onion
+Salt
+Carrot
+Rice
+Bay Leaf
+White Wine
+Parsley
+Celery
+Thyme
 
 creme_brulee
+Tea
 Cream
-Sugar
-Tea
-Egg
-Tea
 Salt
+Egg
 Sugar
 
 croque_madame
-Mayonnaise
-1 tablespoon Dijon mustard
-Bread
-Ham
-Mayonnaise
-Butter
-Olive Oil
 Egg
-Salt
+1 tablespoon Dijon mustard
 Black Pepper
+Salt
+Butter
+Ham
+Olive Oil
+Mayonnaise
+Bread
 Thyme
 
 crumb_cake
+Ginger
+Corn
+Salt
 Butter
 Peach
-Blueberries
-Sugar
 Lemon
-Corn
+Blueberries
 Flour
 Sugar
-Salt
-Salt
-Ginger
 
 cupcake
 
 custard
 
 deviled_egg
-Egg
 Tea
-Mayonnaise
 Onion
-Tea
 Salt
+Mayonnaise
 Paprika
+Egg
 
 donut
 
 dumpling
 Beef
-Garlic
-4 tablespoons soy sauce
-10 cups water
 32 homemade or store-bought mandu (Korean dumplings), fresh or frozen
-Egg
 Onion
-Sesame Oil
 Salt
 Black Pepper
+Sesame Oil
 2 roasted nori (seaweed sheets), for serving
+10 cups water
+4 tablespoons soy sauce
+Garlic
+Egg
 
 edamame
-1/2 cup, packed, roughly chopped fresh cilantro, including stems
 Yogurt
+5 shakes of Tabasco (less or more to taste)
+1/2 cup, packed, roughly chopped fresh cilantro, including stems
+Salt
 Avocado
+Sesame Oil
 1/2 cup water
 Lemon
-Salt
-5 shakes of Tabasco (less or more to taste)
-Sesame Oil
 
 egg_roll
-Canola Oil
-Cabbage
-Carrot
-Celery
-Mushroom
-Ginger
-Garlic
-Onion
-Sesame Oil
-Salt
-Five Spice Powder
-Black Pepper
-Flour
 Egg
-Chinese hot mustard
 Duck sauce
+Canola Oil
+Black Pepper
+Onion
+Salt
+Carrot
+Sesame Oil
+Garlic
+Five Spice Powder
+Mushroom
 Chili sauce
+Chinese hot mustard
+Cabbage
+Flour
+Ginger
+Celery
 
 eggs_benedict
 
 enchilada
-Corn
-Corn
-2 14-ounce cans red chile enchilada sauce, or 3 cups homemade enchilada sauce
-Chicken
-2 cups grated cheese (about 1/3 pound)
-Olive Oil
-5 tablespoons chili powder
-Cayenne
-Tomato
 3 cups water
-Garlic
-Onion
+Tomato
 Tea
-Oregano
-Salt
+2 cups grated cheese (about 1/3 pound)
 Corn
-Onion
+Chicken
 Chopped fresh cilantro
 Lettuce
 Cream
+Onion
+Oregano
+Salt
 Avocado
+2 14-ounce cans red chile enchilada sauce, or 3 cups homemade enchilada sauce
+5 tablespoons chili powder
+Olive Oil
+Garlic
+Cayenne
 
 falafel
-1/2 cup tahini (I like Joyva)
-Yogurt
-Lemon
-Olive Oil
-1/4 to 1/2 cup hot water
-Chickpeas
-Parsley
-1/4 cup cilantro
-Garlic
-1 large shallot, chopped
-Flour
-Sesame Seeds
 Tea
-Paprika
-Lemon
-Salt
-Olive Oil
-Bread
-Lettuce
-Tomato
-Onion
 Cucumber
+1 large shallot, chopped
+1/4 to 1/2 cup hot water
+1/4 cup cilantro
+Lemon
+Flour
+Salt
+Paprika
+Sesame Seeds
+1/2 cup tahini (I like Joyva)
+Tomato
+Yogurt
+Olive Oil
+Garlic
+Chickpeas
+Onion
+Lettuce
+Parsley
+Bread
 
 farfalle
 Pasta
-Olive Oil
-Onion
-Garlic
-Mushroom
-Thyme
-Sage
-Flour
-White Wine
-1 cup low-sodium vegetable stock
 2 tablespoons vegan Worcestershire sauce
-Milk
-Salt
 Black Pepper
+Onion
+Salt
+1 cup low-sodium vegetable stock
+Mushroom
+Olive Oil
+Sage
+White Wine
+Garlic
+Flour
+Thyme
+Milk
 
 fettuccine
 
 filet_mignon
 Tea
-Salt
+Red Wine
 Canola Oil
 Salt
-Red Wine
 Black pepper, to taste
 
 fish_and_chips
-Potatoes
-Salt
-Bread
-Black Pepper
-Haddock
-Parsley
-Lemon
 Tartar sauce, to serve
+Black Pepper
+Salt
+Lemon
+Haddock
+Potatoes
+Parsley
+Bread
 
 fish_stick
-Mayonnaise
-1 cup minced pickles, about 2 small pickles diced
-Lemon
-Salt
-Black Pepper
 Vinegar
-1 tablespoon chili oil
+1 cup minced pickles, about 2 small pickles diced
+Black Pepper
+Salt
 Haddock
+Mayonnaise
+1 tablespoon chili oil
+Vegetable Oil
+Lemon
+Bread
 Flour
 Egg
-Bread
-Salt
-Black Pepper
-Vegetable Oil
 
 flan
-Sugar
-2 Tbsp water
-Custard
-Milk
-Sugar
-Egg
-Egg
 Tea
-Rose Water
-Special items needed
+Custard
 4 6-ounce ramekins
 Honey
+Rose Water
+2 Tbsp water
+Special items needed
+Egg
+Sugar
+Milk
 
 foie_gras
+2 tablespoons yellow mustard (we used Coleman's Original English Mustard)
 Beef
 Salt
-Olive Oil
-Mushroom
 Ham
-2 tablespoons yellow mustard (we used Coleman's Original English Mustard)
+Mushroom
 1 (7 to 8 1/2-ounce sheet) puff pastry, thawed (see recipe note)
+Olive Oil
 Egg
 
 fondue
-8 ounces Swiss-style cheese such as Jarlsberg or Emmenthaler, shredded
-8 ounces Gruyere cheese, shredded
-Corn
-Garlic
-White Wine
-Lemon
-Cherry
 Tea
-Nutmeg
-Bread
-Ham
-Broccoli
-Carrot
-Cauliflower
+8 ounces Swiss-style cheese such as Jarlsberg or Emmenthaler, shredded
 Tomato
-Bell Pepper
-Apples
+Corn
 Pear
+Lemon
+Carrot
+Bell Pepper
+Ham
+Cherry
+Nutmeg
+8 ounces Gruyere cheese, shredded
+Cauliflower
+Apples
+White Wine
+Garlic
+Broccoli
+Bread
 
 french_fries
-Potatoes
 Canola Oil
 Rosemary
 Salt
 Black Pepper
+Potatoes
 
 french_onion_soup
+Tea
+Beef
+Thyme
+6 (1-inch thick) slices of a baguette
+Black Pepper
 Salt
 Onion
-Sugar
-Salt
 1/4 cup dry sherry or vermouth
-Beef
-Tea
-Black Pepper
-Thyme
-Bay Leaf
-6 (1-inch thick) slices of a baguette
-Tea
 1 cup grated Gruyere cheese
-Black Pepper
+Bay Leaf
+Sugar
 
 french_toast
 Egg
-Milk
+Maple syrup
+1/4 cup triple sec
+Orange
+Butter
+Fresh berries
 Cinnamon
 Bread
-Butter
-Maple syrup
-Orange
-1/4 cup triple sec
-Fresh berries
+Milk
 
 fried_calamari
-1 pound cleaned squid
-Egg
-1 cup ice-cold sparkling water (the colder the better)
 Tea
-Salt
 Corn
-Flour
 Canola Oil
+Salt
+1 pound cleaned squid
+1 cup ice-cold sparkling water (the colder the better)
+Flour
+Egg
 
 fried_egg
 
 fried_rice
-Rice
+Tea
 Pork
-Salt
 Black Pepper
-Vegetable Oil
+Salt
 Onion
-Garlic
-Ginger
 Carrot
-Egg
-1 tablespoon soy sauce
 Sesame Oil
-Tea
-Tea
+Rice
+1 tablespoon soy sauce
+Vegetable Oil
+Garlic
 Sesame Seeds
+Ginger
+Egg
 
 frittata
+Tea
+Tomato
+Parmesan
+Spinach
+Salt
+Onion
+2 ounces (56g) goat cheese
+Olive Oil
+Garlic
 Egg
 Milk
-Parmesan
-Salt
-Tea
-Olive Oil
-Onion
-Garlic
-Tomato
-Spinach
-2 ounces (56g) goat cheese
 
 fritter
-Zucchini
-Salt
-Cream
-Garlic
-Lemon
-Lemon
-Salt
-Egg
-Flour
-Onion
-Thyme
 Basil
-Lemon
-Salt
-Black Pepper
 Canola Oil
+Zucchini
+Cream
+Black Pepper
+Salt
+Onion
+Lemon
+Garlic
+Flour
+Egg
+Thyme
 
 frozen_yogurt
-Lemon
 Yogurt
-Milk
 Cream
+Lemon
 2 Tbsp almond liqueuer such as Amaretto (optional)
+Milk
 
 fruitcake
 Tea
-Cream
-Dates
-Raisins
 1/2 cup (75g) chopped glazed cherries (can sub dried sweetened cranberries)
+1 to 2 ounces (30 to 60ml) brandy, optional
+Orange
+Cream
+Sugar
+Salt
+Raisins
 Walnuts
 Flour
-Salt
-Sugar
 Egg
-Orange
-Salt
-1 to 2 ounces (30 to 60ml) brandy, optional
+Dates
 
 garlic_bread
-Bread
+Parmesan
 Salt
 Garlic
 Parsley
-Parmesan
+Bread
 
 gingerbread
 
 gnocchi
 
 greek_salad
-Olive Oil
-Lemon
-Garlic
-Red Wine
-Oregano
-Dill
-Salt
 Tomato
 Cucumber
+Red Wine
+Feta Cheese
+Salt
+Oregano
 Onion
 Bell Pepper
+Olive Oil
 Olives
-Feta Cheese
+Lemon
+Garlic
+Dill
 
 grilled_cheese_sandwich
+Butter
 3 ounces (about 2/3 to 1 cup) shredded cheddar, Swiss, Jack, or fontina cheese
 Bread
-Butter
 
 grilled_salmon
+1/2 cup soy sauce (use gluten-free soy sauce if cooking gluten-free)
+3/4 cup soy sauce (use gluten-free soy sauce if cooking gluten-free)
+Sake
+Onion
+1/2 cup mirin
+Rice
 Salmon
 Olive Oil
-3/4 cup soy sauce (use gluten-free soy sauce if cooking gluten-free)
+Vegetable Oil
+Pinch red chili pepper flakes
+Dash red chili pepper flakes
 Garlic
 1 cup soy sauce (use gluten-free soy sauce if cooking gluten-free)
 Ginger
-Garlic
-Sugar
-1/2 cup soy sauce (use gluten-free soy sauce if cooking gluten-free)
-Rice
-Sugar
-Garlic
-Ginger
-Onion
-Vegetable Oil
-Pinch red chili pepper flakes
-Sake
-1/2 cup soy sauce (use gluten-free soy sauce if cooking gluten-free)
-1/2 cup mirin
-Ginger
-Garlic
-Dash red chili pepper flakes
 Sugar
 
 guacamole
-Avocado
-Salt
-Lemon
-Onion
-1-2 serrano (or jalapeño) chilis, stems and seeds removed, minced
+Tomato
 2 tablespoons cilantro (leaves and tender stems), finely chopped
 Black Pepper
-Tomato
+Salt
+Onion
+Avocado
 Radish
 Tortilla
+Lemon
+1-2 serrano (or jalapeño) chilis, stems and seeds removed, minced
 
 gyoza
-Tofu
-Pork
-Beef
-Garlic
-Onion
-Garlic
-Ginger
-Egg
-1 tablespoon soy sauce
-Sesame Oil
-Salt
-Black Pepper
-Flour
-1 package (50 to 60 wrappers) store-bought or homemade mandu wrappers
-Vegetable Oil
-4 tablespoons soy sauce
-Rice
-1 scallion, trimmed and thinly sliced
-Garlic
-Sesame Oil
-Sesame Seeds
 Tea
+Beef
+Flour
+Salt
+Sesame Oil
+Vegetable Oil
+Sesame Seeds
+Ginger
+Pork
+Black Pepper
+1 package (50 to 60 wrappers) store-bought or homemade mandu wrappers
+1 scallion, trimmed and thinly sliced
+1 tablespoon soy sauce
+Garlic
+Tofu
+Egg
+Onion
+Rice
+4 tablespoons soy sauce
 
 gyro
-Bread
-Milk
-Egg
-1 pound ground lamb
-Garlic
-1/2 cup cilantro, chopped
-3 tablespoons mint, chopped
 Tea
-Salt
-Tea
-Orange
-Cinnamon
-Cayenne
-Canola Oil
-Pomegranate
-Yogurt
-Garlic
-Lemon
-Salt
-Pepper, to taste
-4 pita pockets, halved (and warmed, optional)
 4 cups lightly packed arugula or baby watercress
+Pepper, to taste
 Mint Leaves
-Pomegranate
+Cinnamon
+1/2 cup cilantro, chopped
+Lemon
+Milk
+4 pita pockets, halved (and warmed, optional)
+Salt
+1 pound ground lamb
+3 tablespoons mint, chopped
+Yogurt
+Orange
+Canola Oil
 Garlic
+Egg
+Pomegranate
+Cayenne
+Bread
 
 ham_and_eggs
-Egg
-Bread
-Bread
 Spinach
+Bread
 Gruyere Cheese
+Egg
 
 ham_sandwich
-Salt
-Flour
-Milk
-Salt
-1 1/2 cups Gruyère cheese, grated (about 1 1/2 cups grated)
-Parmesan
-Bread
-Ham
 Tea
+Parmesan
+Salt
+Ham
+1 1/2 cups Gruyère cheese, grated (about 1 1/2 cups grated)
+Flour
+Bread
+Milk
 
 hamburger
 
 hot_and_sour_soup
-Mushroom
-5 dried lily buds
-Bamboo Shoot
-Red Wine
-Rice
-1 1/2 tablespoons soy sauce
-Corn
-Chicken
-Tofu
-Egg
-Sesame Oil
-3 scallions, diced
-Salt
-White Pepper
 Tea
 Cilantro (optional)
+Corn
+Chicken
+Red Wine
+Salt
+Sesame Oil
+Rice
+Bamboo Shoot
+5 dried lily buds
+Mushroom
+3 scallions, diced
+White Pepper
+1 1/2 tablespoons soy sauce
+Tofu
+Egg
 
 hot_dog
 Beef
+Tomato
+16 sport peppers or pepperoncini, whole or diced
+Onion
 8 poppy seed hot dog buns or potato buns
 Yellow mustard for topping
 Sweet pickle relish for topping
-Tomato
-Onion
-Dill
-16 sport peppers or pepperoncini, whole or diced
 Celery
+Dill
 
 huevos_rancheros
-Olive Oil
-Onion
-Tomato
 1/2 (6 ounce) can diced green Anaheim chiles
-Chipotle chili powder, adobo sauce, or ground cumin to taste, optional
+Tomato
 Corn
+Onion
 Butter
-Egg
+Olive Oil
 2 tablespoons fresh cilantro, chopped, optional
+Chipotle chili powder, adobo sauce, or ground cumin to taste, optional
+Egg
 
 hummus
-1/2 cup tahini (roasted, not raw)
+Salt
+1/2 cup water
 Olive Oil
-Garlic
+Paprika
 Chickpeas
 Lemon
-1/2 cup water
-Salt
-Paprika
+Garlic
+1/2 cup tahini (roasted, not raw)
 
 ice_cream
 
 jambalaya
-Onion
-Celery
-Bell Pepper
-Garlic
-Sage
-Chicken
 Tomato
-Oregano
 2 bay leaves
-1 to 2 tablespoons Creole seasoning (I like Tony Chachere’s Creole Seasoning)
+Chicken
 Shrimp
-Rice
+1 to 2 tablespoons Creole seasoning (I like Tony Chachere’s Creole Seasoning)
+Onion
+Oregano
 Salt
+Bell Pepper
+Rice
 Black Pepper
+Sage
+Garlic
 Parsley
+Celery
 
 jerky
 
@@ -1292,1219 +1151,1084 @@ lobster_bisque
 lobster_food
 
 lobster_roll_sandwich
-1 pound cooked lobster meat, cut into 1-inch pieces
-Lemon
-Salt
-Black Pepper
-Celery
-Mayonnaise
-4 to 6 New England style split-top hot dog buns
-Butter
-Lemon
 Potato chips
+Black Pepper
+Salt
+4 to 6 New England style split-top hot dog buns
+Celery
+Butter
+Mayonnaise
+Lemon
+1 pound cooked lobster meat, cut into 1-inch pieces
 
 macaron
-Cream
-Chocolate
-1 to 2 drops peppermint extract
 1 1/4 cups (100g) blanched almond meal
-Sugar
+Cream
+1 to 2 drops peppermint extract
+Red food coloring
+Chocolate
 Vinegar
 Egg
-Cream
 Sugar
-Red food coloring
 
 macaroni_and_cheese
-Cheddar Cheese
 Corn
-2 quarts water
+Black Pepper
 Salt
+Lemon
 2 cups uncooked elbow macaroni
-Salt
+Ham
+Cheddar Cheese
+2 quarts water
 Flour
 Milk
-Lemon
-Ham
-Black Pepper
 
 marble_cake
-Salt
-Flour
-Sugar
-Cocoa
-Coffee
+Tea
 Honey
-Tea
-Sugar
-Salt
-Tea
-Egg
-Tea
-Tea
-Salt
-Flour
-Milk
-Chocolate
 1 vanilla bean or 1 tablespoon vanilla extract
-Milk
-Sugar
+Coffee
 Pear
+Salt
+Chocolate
+Cocoa
+Flour
+Egg
+Sugar
+Milk
 
 matzo_ball
-Egg
 Chicken
 2 tablespoons water
+Black Pepper
 Salt
-Black Pepper
-1/2 cup matzo meal
-Chicken
 Carrot
-Celery
 To serve:
+Celery
+1/2 cup matzo meal
+Egg
 Dill
-Black Pepper
 
 meat_loaf_food
 
 meatball
 
 miso_soup
-2 tablespoons dried precut wakame seaweed
-1 (14x2 1/2-inch) piece of dried kelp (kombu)
-8 cups water
-2 cups (20g) large dried bonito flakes (katsuobushi), lightly packed
-1/3 cup white miso paste
-Tofu
-Sesame Oil
-1 scallion, thinly sliced
 Tea
+2 tablespoons dried precut wakame seaweed
+Sesame Oil
+2 cups (20g) large dried bonito flakes (katsuobushi), lightly packed
+1 scallion, thinly sliced
+8 cups water
+1 (14x2 1/2-inch) piece of dried kelp (kombu)
+Tofu
+1/3 cup white miso paste
 
 moo_goo_gai_pan
-Chicken
+Water Chestnut
+Salt
+Mushroom
+Vegetable Oil
+White Pepper
+Ginger
+3/4  cup (3 ounces) snow peas
+Carrot
+Bamboo Shoot
+Garlic
+3 tablespoons soy sauce
 Egg
 Corn
 Chicken
-3 tablespoons soy sauce
-Corn
 Hoisin Sauce
-Oyster Sauce
-Five Spice Powder
-White Pepper
-Vegetable Oil
-Carrot
-3/4  cup (3 ounces) snow peas
-Garlic
-Ginger
-Mushroom
-Water Chestnut
-Bamboo Shoot
-Salt
 To serve:
 Rice
+Oyster Sauce
+Five Spice Powder
 
 moussaka
-Olive oil, for the baking dish
-Egg
-Zucchini
-Olive Oil
-Salt
-Olive Oil
-Onion
-Salt
-Garlic
-Cinnamon
-Oregano
-White Wine
-Tomato
-1/2 cup dried red lentils
-Salt
-Flour
-Milk
-Salt
-Egg
-Parmesan
-Bread
-Oregano
-Parmesan
 Parsley
+Tomato
+Bread
+Parmesan
+Zucchini
+Salt
+Onion
+Oregano
+Olive oil, for the baking dish
+1/2 cup dried red lentils
+Olive Oil
+White Wine
+Garlic
+Flour
+Cinnamon
+Egg
+Milk
 
 mussel
 
 nacho
-Onion
 Tomato
-Jalapeno
-2 tablespoons fresh cilantro, chopped
 1/2 lime, juiced
-Salt
 Beef
 2 tablespoons taco seasoning
-Rum
-Ham
-Avocado
-Tortilla
+Onion
+Salt
 Jalapeno
+Avocado
+Ham
+Rum
+Tortilla
+2 tablespoons fresh cilantro, chopped
 
 omelette
-Olive Oil
-Egg
-Milk
-Cheddar Cheese
-Bell Pepper
+Black Pepper
 Onion
 Salt
-Black Pepper
+Bell Pepper
+Olive Oil
+Cheddar Cheese
+Egg
+Milk
 
 onion_rings
-Onion
-Flour
 Corn
-Salt
 Black Pepper
-Egg
-Milk
+Onion
+Salt
+2 tablespoons ketchup
+Mayonnaise
 Bread
 Nonstick spray, for cooking
+Flour
 Parsley
-Mayonnaise
-2 tablespoons ketchup
+Egg
+Milk
 
 orzo
 
 osso_buco
-4 ounces pancetta, diced into 1/4 inch cubes (see recipe note)
-2 1/2 to 3 pounds veal shanks (4 to 6 pieces 2 to 3 inches thick)
-Carrot
-Celery
-Onion
-Garlic
-Thyme
-White Wine
 Chicken
-Flour
+4 ounces pancetta, diced into 1/4 inch cubes (see recipe note)
+Onion
 Salt
-Parsley
+Carrot
+2 1/2 to 3 pounds veal shanks (4 to 6 pieces 2 to 3 inches thick)
 Lemon
+White Wine
 Garlic
+Flour
+Parsley
+Celery
+Thyme
 
 oyster
 
 pad_thai
-Rice
-Fish
-Rice
-Tamarind
-Sugar
-Paprika
-Vegetable Oil
-Egg
-Shrimp
-Salt
-Bean Sprouts
 1 lime, cut into quarters
+Bean Sprouts
+Fish
+Shrimp
 Salt
 Chopped cilantro, for garnish
+Rice
+Paprika
+Vegetable Oil
+Tamarind
 Red pepper flakes, for garnish
+Egg
+Sugar
 
 paella
-Chicken
-Saffron
-Salt
-Olive Oil
-Onion
-Bell Pepper
-Garlic
-Sage
-Rice
 Tomato
-Green Peas
-Shrimp
-Mussels
+Chicken
 Clams
+Green Peas
+Saffron
+Shrimp
+Onion
+Salt
+Bell Pepper
+Rice
+Mussels
+Olive Oil
+Sage
+Garlic
 Parsley
 
 pancake
-Flour
-Sugar
-Baking Powder
 Tea
-Salt
 1 cup pancake mix
-Milk
-Egg
-Tea
+Baking Powder
+Salt
 Butter
+Flour
+Egg
+Sugar
+Milk
 
 panna_cotta
-Vegetable Oil
-Milk
-Gelatin
-Cream
-Sugar
-Salt
-Cream
 Tea
-1 12-ounce package (about 3 cups) frozen raspberries, defrosted
-Sugar
+Gelatin
 Orange
+Cream
+Salt
+1 12-ounce package (about 3 cups) frozen raspberries, defrosted
+Vegetable Oil
 Blueberries
+Sugar
+Milk
 
 pate
-Onion
-Salt
-Orange
-Corn
 Beef
+Corn
 Cloves
-Salt
+Orange
 Onion
+Salt
 
 pavlova
 Tea
-Cream
 Corn
-Sugar
-Egg
+Cream
 Salt
 Topping:
 2 pints fresh or frozen berries
+Egg
 Sugar
-Cream
 
 peach_melba
+Tea
+6 ounces fresh or frozen raspberries
+Cream
+Salt
 Butter
 Peach
-6 ounces fresh or frozen raspberries
-Egg
-Cream
-Sugar
-Salt
-1 tablespoon vanilla extract
-Sugar
-Almonds
 10 ounces fresh or frozen raspberries
+1 tablespoon vanilla extract
+Almonds
+Egg
 Sugar
-Tea
-Salt
 
 penne
 
 pepper_steak
-3 tablespoons canola or peanut oil
-Asparagus
 Tea
-Bell Pepper
 Corn
-3 tablespoons soy sauce (use gluten-free soy sauce for gluten-free version)
-Ginger
-Garlic
 Onion
-Tea
+Bell Pepper
+Garlic
+Ginger
+Asparagus
+3 tablespoons canola or peanut oil
+3 tablespoons soy sauce (use gluten-free soy sauce for gluten-free version)
 
 pho
-Ginger
-Onion
 1 very small (15 g) bunch cilantro sprigs
-Coriander Seeds
-1 whole clove
 Chicken
-2 cups (480 ml) water
-Chicken
-Salt
-Rice
 Fish
-Sugar
+2 cups (480 ml) water
+Onion
+Salt
 Pepper (optional)
+Rice
+Coriander Seeds
 Basil
+1 whole clove
+Ginger
+Sugar
 
 pilaf
 
 pizza
-1 1/2 cups (355 ml) warm water (105°F-115°F)
 Yeast
-Flour
-Olive Oil
-Salt
-Sugar
-Olive Oil
-Corn
-Tomato
-Mozzarella Cheese
-Mozzarella Cheese
-Fontina cheese, grated
-Parmesan
-Rum
-Mushroom
-Bell peppers, stems and seeds removed, very thinly sliced
-Italian pepperoncini, thinly sliced
-Sage
-Olives
 Basil
-Olive Oil
 Pesto
+Flour
+Sugar
+Italian pepperoncini, thinly sliced
+1 1/2 cups (355 ml) warm water (105°F-115°F)
 Pepperoni, thinly sliced
-Onion
+Salt
 Ham
+Mushroom
+Tomato
+Bell peppers, stems and seeds removed, very thinly sliced
+Parmesan
+Fontina cheese, grated
+Olive Oil
+Olives
+Corn
+Mozzarella Cheese
+Onion
+Rum
+Sage
 
 poached_egg
-Egg
 1/2 cup room temperature water
 Salt
+Egg
 
 pork_chop
-Cumin Seeds
+Tea
+Pork
 Corn
+Salt
+Bacon
+Cumin Seeds
 Coriander Seeds
 Sugar
-Salt
-Pork
-Bacon
-Salt
-Tea
 
 porridge
+Honey
 Salt
 Oats
 3 1/4 cups water
 Milk
-Salt
-Honey
-Milk
 
 potpie
+Tea
 Cream
-Sugar
-Tea
-Egg
-Tea
 Salt
+Egg
 Sugar
 
 pound_cake
-Sugar
-Salt
-1 tablespoon vanilla extract
-Egg
-Flour
-Butter
-Sugar
 Tea
+Salt
+Butter
+1 tablespoon vanilla extract
+Flour
+Egg
+Sugar
 Milk
 
 prime_rib
-8 pounds boneless prime rib roast
-Salt
-Salt
-Garlic
-1 shallot (slightly larger than a golf ball), minced
-Thyme
-Rosemary
-1 1/2 tablespoons ground pepper
-Salt
-Lemon
+Beef
 Corn
 1/2 cup fat prime rib roast drippings
-Beef
+1 shallot (slightly larger than a golf ball), minced
+1 1/2 tablespoons ground pepper
+Rosemary
 Salt
+Lemon
+Garlic
+8 pounds boneless prime rib roast
+Thyme
 
 pulled_pork_sandwich
-Onion
-Garlic
-1 pickled jalapeño pepper, seeded and chopped
 Tea
 Tomato
 2 tablespoons Dijon mustard
-Vinegar
+Pork
+Onion
+Salt
+1 pickled jalapeño pepper, seeded and chopped
+Ham
 Paprika
 1/3 cup ketchup
-Tea
-Sugar
-Salt
 Bay Leaf
-Pork
-Ham
+Vinegar
+Garlic
+Sugar
 
 ramen
-Chicken
 1 cup water
+Chicken
+2 scallions, thinly sliced
 2 tablespoons soy sauce
 Rice
+Egg
 Sugar
-Egg
-Egg
-2 scallions, thinly sliced
 
 ravioli
 
 red_velvet_cake
-Flour
-Cocoa
-Tea
-Salt
-Milk
-Vinegar
 Tea
 1 tablespoon red gel food coloring
-Salt
-Vegetable Oil
-Sugar
-Egg
 Cream
 Salt
-Sugar
+Vegetable Oil
 1 tablespoon vanilla extract
+Vinegar
+Cocoa
+Flour
+Egg
+Sugar
+Milk
 
 reuben
+Tea
+1/4 cup Russian Dressing (see above)
+Corn
+(This makes 1/2 cup of dressing)
+Black Pepper
+Radish
+Butter
+1/2 pound sauerkraut
 Mayonnaise
 1-1/2 tablespoon ketchup
-Radish
-Tea
-Black Pepper
-(This makes 1/2 cup of dressing)
-Sandwich ingredients:
-Butter
-Bread
 8 slices Swiss cheese
-Corn
-1/2 pound sauerkraut
-1/4 cup Russian Dressing (see above)
+Bread
+Sandwich ingredients:
 
 rigatoni
 
 risotto
+Shallots
+Chicken
+Parmesan
+Salt
+Rice
 Butter
 Mushroom
 White Wine
-Chicken
-Shallots
-Rice
-Parmesan
-Salt
 Parsley
 
 rock_cake
 
 roulade
 Shallots
-Bacon
 Chicken
-Black Pepper
 Parmesan
-Olive Oil
-Garlic
-White Wine
-Butter
-Flour
-Chicken
 Cream
+Black Pepper
+Butter
+Bacon
+Olive Oil
+White Wine
+Garlic
+Flour
 
 salisbury_steak
-Beef
-Bread
-Egg
-Salt
-Black Pepper
-Avocado
-Mushroom
-Onion
-Garlic
-Tomato
 Tea
 Beef
+Tomato
 Corn
+Black Pepper
+Salt
+Onion
+Avocado
 1 tablespoon water
+Garlic
+Mushroom
+Bread
 Parsley
+Egg
 
 samosa
+Tea
 2 cups cilantro, coarsely chopped
+Garam Masala
+Green Peas
 Mint Leaves
+1/4 cup cold water, added a tablespoon at a time
+Salt
+Onion
+Jalapeno
+Turmeric
+Cumin Seeds
+Vegetable Oil
 Lemon
 Garlic
-Jalapeno
-Ginger
-Salt
-Cumin Seeds
-Flour
-Salt
-Vegetable Oil
-1/4 cup cold water, added a tablespoon at a time
 Potatoes
+Flour
+Ginger
 1 tablespoon oil, plus more to wrap the samosas
-Cumin Seeds
-Onion
-Jalapeno
-Tea
-Garam Masala
-Turmeric
-Salt
-Green Peas
-Vegetable Oil
 
 sashimi
-Rice
-Salmon
 1/4 cup soy sauce
-Rice
-Sugar
-Sesame Oil
-Garlic
-2 scallions, thinly sliced
 Cucumber
-Radish
-Avocado
+2 scallions, thinly sliced
 Furikake
+Radish
+Sesame Oil
+Rice
+Avocado
+Salmon
 Red pepper flakes
+Garlic
+Sugar
 
 sauerbraten
-Butter
-Ginger
-Butter
-Flour
-Salt
-Marinade Ingredients:
-Red Wine
-Red Wine
 2 cups water
 Corn
-1 Tbsp juniper berries
-1 Tbsp mustard seed
 Cloves
-3-5 bay leaves
-Thyme
-Celery
-Carrot
+Red Wine
+1 Tbsp mustard seed
+Salt
 Onion
+Carrot
+Marinade Ingredients:
+Butter
+1 Tbsp juniper berries
+3-5 bay leaves
+Flour
+Ginger
+Celery
+Thyme
 
 sauerkraut
 
 sausage_roll
-Canola Oil
 1 pound cold pizza dough, homemade or store-bought
-Egg
-1 tablespoon water
+Canola Oil
 Salt
-Yellow or brown mustard, to serve
+1 tablespoon water
 Pickles, to serve
+Yellow or brown mustard, to serve
+Egg
 
 scallop
 
 scampi
-Shrimp
-Olive Oil
-Butter
-Salt
-Garlic
 Tea
-White Wine
-Parsley
+Shrimp
 Black Pepper
+Salt
 Lemon
+Butter
+Olive Oil
+White Wine
+Garlic
+Parsley
 
 schnitzel
 Egg
-1/2 tablespoon German mustard
-Bread
 Chicken
 Salt
 Canola oil for frying
 Lemon
+Bread
+1/2 tablespoon German mustard
 
 scotch_egg
-Sage
 1 tablespoon Worcestershire sauce
-Corn
-Thyme
 1/4 cup whole grain mustard
+Corn
 Honey
-Flour
-Bread
 Canola Oil
 Chopped chives, for garnish
+Sage
+Flour
+Bread
+Thyme
 
 scrambled_eggs
+Fresh cracked pepper
+Salt
+Butter
+Herbs
 Egg
 Milk
-Butter
-Salt
-Fresh cracked pepper
-Herbs
 
 scrapple
-Salt
-Sugar
-Yeast
 Scant 1 cup warm water
 Baking Soda
 Salt
-Salt
+Yeast
+Sugar
 
 seaweed_salad
-5 x 9-inch piece of kombu (about 3/4 ounce), soaked in warm water for 15–20 minutes
-Lettuce
-Avocado
-Sesame Seeds
-1 scallion, finely chopped
+Tea
 Salt
+Avocado
+Sesame Oil
+5 x 9-inch piece of kombu (about 3/4 ounce), soaked in warm water for 15–20 minutes
 Garlic
+Rice
+Lettuce
+Sesame Seeds
 1 scallion, finely chopped
 Sugar
-Rice
-Tea
-Sesame Oil
-Sesame Seeds
-Salt
 
 shrimp_and_grits
-4 1/2 cups water
-Salt
-1 cup stone-ground white grits
-Salt
-Cheddar Cheese
-Bacon
-Onion
-1 cup chopped green pepper
-Garlic
-Shrimp
-Chicken
-Onion
 Parsley
+Chicken
+Shrimp
+Salt
+Onion
+Bacon
+Cheddar Cheese
+1 cup chopped green pepper
 Lemon
+Garlic
+1 cup stone-ground white grits
+4 1/2 cups water
 
 sloppy_joe
-Salt
-Olive Oil
-Onion
-1 green pepper, diced small
-Carrot
-Garlic
-1 tablespoon mild chili powder
-Paprika
-1/2 cup ketchup
 Tomato
-Vinegar
-Sugar
-1/2 cup water
-Salt
+1/2 cup ketchup
 Buns, for serving
 Onion
+Salt
+Carrot
+1/2 cup water
+1 tablespoon mild chili powder
+Olive Oil
+Paprika
 Pickles, for serving
+Vinegar
+Garlic
+1 green pepper, diced small
+Sugar
 
 souffle
 
 spaghetti_bolognese
 2 ounces pancetta, finely chopped
-Onion
-Celery
-Carrot
-Salt
 Beef
 Pork
-Sage
-Cloves
-Cinnamon
-Black Pepper
 Tomato
-Milk
+Cloves
+Black Pepper
 Salt
+Onion
+Carrot
+Sage
+Cinnamon
+Celery
+Milk
 
 spaghetti_carbonara
 
 sponge_cake
-Flour
-Cocoa
-Corn
-Sugar
-Egg
-Salt
-Salt
-Tea
-Cocoa
-1 1/2 tablespoons cold water
-Gelatin
-Cream
-Sugar
-Tea
-Chocolate
-Cream
-Tea
-Half sheet pan (18 x 13 x 2-inches)
 Tea
 Parchment paper
+Corn
+Gelatin
+Cream
+Salt
+1 1/2 tablespoons cold water
+Half sheet pan (18 x 13 x 2-inches)
+Chocolate
+Cocoa
+Flour
+Egg
+Sugar
 
 spring_roll
-Mushroom
+Tea
 Pork
 Corn
-Sugar
+50 to 60 (6-inch) square spring roll wrappers
+Salt
+Carrot
 Sesame Oil
 Rice
-Tea
-Cabbage
-Carrot
-Salt
+Mushroom
 3 scallions, thinly sliced on a bias
-Ginger
 Vegetable Oil
 Oyster Sauce
-Egg
-50 to 60 (6-inch) square spring roll wrappers
 Vinegar
+Cabbage
+Ginger
+Egg
+Sugar
 
 steak_au_poivre
 Tea
-Salt
-Canola Oil
+Beef
 Corn
+Canola Oil
+Cream
+Salt
 Onion
 Cognac
-Beef
-Cream
 Parsley
 
 steak_tartare
 
 strawberry_shortcake
+Tea
 3 pint baskets fresh strawberries (about 6 cups)
-Sugar
 Cream
-Sugar
+Baking Powder
 2 drops vanilla extract
+Salt
 Flour
 Sugar
-Baking Powder
-Salt
-Salt
 Milk
-Cream
-Tea
 
 streusel
-Butter
-Vegetable Oil
-Sugar
-Flour
-Cinnamon
-Salt
-Salt
 1/3 cup (42g) chopped pecans
-Nonstick cooking spray for the loaf pan
-Sugar
-Sugar
-Vegetable Oil
-Salt
-Egg
-2 tablespoons water
 Tea
+2 tablespoons water
+Salt
+Butter
+Nutmeg
+Vegetable Oil
+Nonstick cooking spray for the loaf pan
 Flour
 Cinnamon
-Nutmeg
-Tea
-Tea
-Salt
+Egg
+Sugar
 
 strudel
 
 stuffed_cabbage
-2 pounds sauerkraut (preferably a good brand, such as Bubbies, that you would find in the refrigerated section of your grocery store)
-Cabbage
-Olive Oil
-Onion
-Garlic
 Pork
-Rice
-Egg
-Paprika
-Oregano
-Salt
-Freshly ground pepper
 1 cup water
 Tomato
+Cabbage
 Cream
+Onion
+Oregano
+Salt
+Rice
+Olive Oil
+Paprika
+2 pounds sauerkraut (preferably a good brand, such as Bubbies, that you would find in the refrigerated section of your grocery store)
+Garlic
+Freshly ground pepper
+Egg
 
 stuffed_peppers
-Rice
-Bell Pepper
-Olive Oil
-Onion
-Garlic
 Tea
-Paprika
-Salt
-Black Pepper
-Carrot
-Celery
-Mushroom
-1 cup low sodium vegetable stock or water
-Tofu
 Spinach
+Black Pepper
+Onion
+Salt
+Carrot
+Bell Pepper
+Rice
+1 cup low sodium vegetable stock or water
+Mushroom
+Olive Oil
+Paprika
 Lemon
+Garlic
+Tofu
+Celery
 5 ounces Gruyere cheese, grated
 
 stuffed_tomato
+Tea
 Tomato
 Mozzarella Cheese
 Parmesan
-Basil
-Bread
 Salt
 Garlic
-Salt
-Tea
 Olive oil for drizzling
+Basil
+Bread
 
 succotash
-Olive Oil
 2 cups fava beans
 Corn
-Ham
-Carrot
 Onion
-Parsley
-Lemon
 Salt
+Carrot
+Ham
+Olive Oil
+Lemon
+Parsley
 
 sukiyaki
 
 sushi
 
 syllabub
+Lemon
 Cream
-Sugar
-Lemon
-Lemon
 Blueberries
+Sugar
 
 taco
-Olive Oil
+Tea
 Beef
-Onion
-Salt
-Chicken
 Tomato
-Black Beans
-Kidney Beans
-1 (4-ounce) can green chiles
 Corn
-Tea
-Tea
-Paprika
-Salt
-Tortilla
-Cream
+Chicken
 1/2 cup chopped cilantro
+Cream
+Salt
 Onion
 6 lime wedges
+Black Beans
+Olive Oil
+Paprika
+Kidney Beans
+Tortilla
+1 (4-ounce) can green chiles
 
 tagliatelle
 2 ounces pancetta, finely chopped
-Onion
-Celery
-Carrot
-Salt
 Beef
 Pork
-Sage
-Cloves
-Cinnamon
-Black Pepper
 Tomato
-Milk
+Cloves
+Black Pepper
 Salt
+Onion
+Carrot
+Sage
+Cinnamon
+Celery
+Milk
 
 tamale
-Olive Oil
+Tea
 Beef
+Tomato
+Corn
+1/3 cup water
+Salt
 Onion
 Bell Pepper
-Salt
-Tea
-Tea
-Tomato
-1 (4-ounce) can green Anaheim chiles, drained, chopped
-Corn
+Olive Oil
 Olives
-Raisins
 Cheddar Cheese
-1/3 cup water
-Corn
-Corn
+Raisins
+1 (4-ounce) can green Anaheim chiles, drained, chopped
 
 tamale_pie
-Olive Oil
+Tea
 Beef
+Tomato
+Corn
+1/3 cup water
+Salt
 Onion
 Bell Pepper
-Salt
-Tea
-Tea
-Tomato
-1 (4-ounce) can green Anaheim chiles, drained, chopped
-Corn
+Olive Oil
 Olives
-Raisins
 Cheddar Cheese
-1/3 cup water
-Corn
-Corn
+Raisins
+1 (4-ounce) can green Anaheim chiles, drained, chopped
 
 tapenade
-Olives
-Parsley
 Rosemary
-Vinegar
-Olive Oil
-Garlic
 Salt
 Black Pepper
-1 (7-ounce) wheel of brie
 Olive Oil
+Olives
+Vinegar
+Garlic
 Parsley
 Bread
+1 (7-ounce) wheel of brie
 
 tempura
-1 pound cleaned squid
-Egg
-1 cup ice-cold sparkling water (the colder the better)
 Tea
-Salt
 Corn
-Flour
 Canola Oil
+Salt
+1 pound cleaned squid
+1 cup ice-cold sparkling water (the colder the better)
+Flour
+Egg
 
 tenderloin
 Beef
-Salt
-Black Pepper
-Vegetable Oil
-Butter
 1/2 cup tawny port wine
+Black Pepper
+Salt
+Butter
+Vegetable Oil
 Garlic
 Thyme
 
 terrine
-Bell Pepper
-Egg
-Olive Oil
-Parsley
-Salt
-Black Pepper
-8 oz of fresh Mozzarella, cut into 1/8-in slices, about 14 slices
-Tomato
-Garlic
-Tomato
-Olive Oil
-Red Wine
-Salt
-Black Pepper
 Tea
+Tomato
+8 oz of fresh Mozzarella, cut into 1/8-in slices, about 14 slices
+Red Wine
+Black Pepper
+Salt
+Bell Pepper
+Olive Oil
+Garlic
+Parsley
+Egg
 
 tetrazzini
-Mushroom
-Salt
-Flour
-Pasta
-Milk
-Cream
 Chicken
-White Wine
-Turkey
-1 cup peas
+Pasta
 Parmesan
+Cream
 1/3 cup shredded Swiss cheese
-Lemon
+1 cup peas
 Salt
+Lemon
+Mushroom
 Nutmeg
-Bread
+Turkey
+White Wine
+Flour
 Parsley
+Bread
+Milk
 
 tiramisu
+1 (7-ounce) package ladyfingers
+Mascarpone Cheese
+1 cup boiling water
+Cream
+1 tablespoon instant espresso powder
+Rum
+Cocoa
 Egg
 Sugar
-Rum
-Mascarpone Cheese
-Cream
-1 cup boiling water
-1 tablespoon instant espresso powder
-1 (7-ounce) package ladyfingers
-Cocoa
 
 toad_in_the_hole
-Flour
-Salt
 Black Pepper
-Egg
-Milk
+Salt
 Butter
 Vegetable Oil
 Sage
+Flour
+Egg
+Milk
 
 torte
 Chocolate
+Cream
+Butter
 2/3 cup pecans
-Butter
-Chocolate
-Butter
-Cream
-Butter
 Sugar
-Cream
 
 tortellini
 
 tostada
-Corn
-Corn
-Salt
-3 1/2 cups refried beans, homemade or from 2 (15-ounce) cans
-Lettuce
 Tomato
+Corn
+1 cup salsa, or 1/2 cup sliced pickled jalapeños
+3 1/2 cups refried beans, homemade or from 2 (15-ounce) cans
+Salt
 Avocado
 Rum
-1 cup salsa, or 1/2 cup sliced pickled jalapeños
+Lettuce
 A handful chopped fresh cilantro
 
 tuna_tartare
-2 (5 to 6-ounce) cans tuna
 Tea
-Bread
+Egg
+2 (5 to 6-ounce) cans tuna
+Onion
 Lemon
-Lemon
+Salt
+Butter
+Crystal or Tabasco hot sauce, to taste
+Olive Oil
 1 tablespoon water, or liquid from the cans of tuna
 Parsley
-Onion
-Salt
-Crystal or Tabasco hot sauce, to taste
-Egg
-Olive Oil
-Butter
-Lemon
+Bread
 
 upside_down_cake
-Salt
-Sugar
-Pineapple
-Flour
-Flour
-Almonds
-Tea
-Salt
-Sugar
-Salt
-Egg
 Tea
 Cream
+Salt
+Pineapple
 8 candied or maraschino cherries
+Almonds
+Flour
+Egg
+Sugar
 
 veal_cordon_bleu
 Egg
-1/2 tablespoon German mustard
-Bread
 Chicken
 Salt
 Canola oil for frying
 Lemon
+Bread
+1/2 tablespoon German mustard
 
 vermicelli
-Sugar
-Rice
-Fish
-Ginger
-Garlic
-Hoisin Sauce
-Oyster Sauce
-Canola Oil
-Chicken
-Rice
-Carrot
-Bean Sprouts
-1 jalapeño or other chili pepper, cored and thinly sliced
-2 scallions, thinly sliced
-3 tablespoons chopped fresh cilantro leaves
-Mint Leaves
 Peanuts
+1 jalapeño or other chili pepper, cored and thinly sliced
+Chicken
+Bean Sprouts
+Canola Oil
+Fish
+3 tablespoons chopped fresh cilantro leaves
+2 scallions, thinly sliced
+Hoisin Sauce
+Mint Leaves
+Carrot
+Rice
 1 lime, quartered, for garnish
+Oyster Sauce
+Garlic
+Ginger
+Sugar
 
 waffle
 
 wonton
-Chicken
-15 cups cold water
-Onion
-Garlic
-3 scallions, halved crosswise
-Ginger
-1 tablespoon Tianjin preserved vegetables, finely chopped (optional)
-Salt
-Pork
-2 scallions, minced
-Garlic
-Ginger
-Egg
-1 tablespoon Shaoxing wine
 3 tablespoons water
-Sesame Oil
-Corn
-Sugar
-Salt
-Black Pepper
+2 scallions, minced
+3 scallions, halved crosswise
+1 tablespoon Shaoxing wine
 Flour
+Sugar
 80 square wonton wrappers
-1 scallion, thinly sliced
+Salt
 Sesame Oil
+1 scallion, thinly sliced
+Ginger
+15 cups cold water
+Pork
+1 tablespoon Tianjin preserved vegetables, finely chopped (optional)
+Black Pepper
+Garlic
+Egg
+Corn
+Chicken
+Onion
 
 ziti
+Tea
+Tomato
+Mozzarella Cheese
 Pasta
+Parmesan
+Ricotta Cheese
+Rosemary
+Onion
 Salt
 Olive Oil
 Sage
-Onion
 Garlic
-Rosemary
-1 tablespoon Italian seasoning
-Tea
-Tomato
 Black pepper, to taste
-Mozzarella Cheese
-Parmesan
-Ricotta Cheese
+1 tablespoon Italian seasoning
 
 takoyaki
-2 cups (480ml) Dashi
-Egg
-1 tsp soy sauce
-Salt
 Flour
+Salt
+Egg
 Onion
 Ginger
-Boiled octopus*, cut into 1/2" cubes
 oil
+1 tsp soy sauce
 Takoyaki sauce or Okonomiyaki sauce
 mayo
 Aonori (green dried seaweed)
+2 cups (480ml) Dashi
 Katsuobushi (dried bonito flakes)
+Boiled octopus*, cut into 1/2" cubes
 
 chicken_kiev
-Chicken
-Bread
-Parmesan
-Egg
 Flour
-Paprika
-Vegetable Oil
+Egg
+Butter
 Garlic
 Parsley
-Butter
+Bread
 Lemon
+Paprika
+Parmesan
+Vegetable Oil
+Chicken
 
 blancmange
-Vegetable Oil
-Gelatin
 Corn
-Milk
-Lemon
-Sugar
 150g mixed fresh berries , to serve (optional)
+Milk
+Sugar
+Gelatin
+Lemon
+Vegetable Oil
 
 crayfish_food
 Fish
@@ -2512,467 +2236,418 @@ Fish
 pirogi
 Flour
 Salt
-1 cup water
-Egg
-Butter
-Potatoes
-Onion
-Butter
 Cream
-Salt
-Tea
+Egg
 Onion
+1 cup water
+Tea
 Butter
 Parsley
+Potatoes
 
 kedgeree
-Haddock
-2 bay leaves.
-Milk
-Egg
-Parsley
 handful chopped coriander.
-Vegetable Oil
-Onion
-1 tsp ground coriander
 Turmeric
-2 tsp curry powder
 Rice
+Egg
+Onion
+2 bay leaves.
+Parsley
+Milk
+Haddock
+1 tsp ground coriander
+Vegetable Oil
+2 tsp curry powder
 
 manicotti
+Salt
+1 (16 ounce) jar spaghetti sauce
 Ricotta Cheese
-Mozzarella Cheese
-Parmesan
 Egg
 Parsley
-Salt
-Black Pepper
-1 (16 ounce) jar spaghetti sauce
+Parmesan
+Mozzarella Cheese
 Pasta
+Black Pepper
 
 haggis
-1 ox bung
-1.4kg lamb's pluck, (heart, lungs and liver)
 Beef
-200g of suet
-500g of oatmeal, (coarse)
-Black Pepper
-Nutmeg
-Coriander Seeds
 Salt
+500g of oatmeal, (coarse)
+200g of suet
+Nutmeg
+1.4kg lamb's pluck, (heart, lungs and liver)
+1 ox bung
+Coriander Seeds
+Black Pepper
 
 beef_carpaccio
+Salt
 Beef
+Egg
+Tea
+Tomato
 One 5-ounce box fresh baby arugula, washed and dried (see note)
 Olive Oil
-Salt
 Lemon
-Tea
-Egg
-Tomato
 
 poutine
-Corn
-2 Tbsp water
-Salt
 Flour
+Corn
 Beef
+Salt
+Cheddar Cheese
+Peanut or other frying oil
+Potatoes
+2 Tbsp water
 Chicken
 Pepper
-Potatoes
-Peanut or other frying oil
-Cheddar Cheese
 
 victoria_sandwich
-Sugar
-Butter
-Egg
 Flour
-Baking Powder
-Milk
+Egg
 Butter
 Sugar
+Milk
 drop vanilla extract (optional)
 Strawberry
-Sugar
+Baking Powder
 
 cockle_food
-750g (26½ oz) cockles, cleaned
 Fish
-Sake
-Sugar
-Garlic
 6-8 red bird’s-eye chillies
+Sake
 Coriander Leaves
+Garlic
+Sugar
+750g (26½ oz) cockles, cleaned
 
 cruller
-Milk
-½ cup (4floz/115ml) water
-Butter
-Sugar
-Salt
 Flour
-Egg
-Lemon
 Vegetable oil (for frying)
+Salt
+Egg
+Butter
 Vanilla doughnut glaze
+Sugar
+Milk
+Lemon
+½ cup (4floz/115ml) water
 
 dolmas
-Olive Oil
-Currant
-Pine Nuts
+1 (8 ounce) jar grape leaves, drained and rinsed
 Cinnamon
-1 tablespoon dried mint
 Dill
 Allspice
 Tea
-1 (8 ounce) jar grape leaves, drained and rinsed
+Pine Nuts
+1 tablespoon dried mint
+Olive Oil
+Currant
 
 chicken_provencale
+Salt
+Red Wine
+Onion
+Tea
+Garlic
+Tomato
+Olives
+Thyme
+Rosemary
 Vegetable Oil
 Chicken
-Salt
 Black Pepper
-Onion
-Garlic
-Red Wine
-Tomato
-Rosemary
-Thyme
-Olives
-Tea
 
 welsh_rarebit
-225g grated, strong cheese such as Cheddar or Cheshire
-Butter
-Tea
-Tea
 Flour
-Shake of pepper
+225g grated, strong cheese such as Cheddar or Cheshire
+Tea
+Butter
 Milk
+Shake of pepper
 Bread
 
 chicken_marengo
-Chicken
 Flour
-Olive Oil
-Onion
+Salt
 Bell Pepper
-Salt
-Mushroom
-Garlic
 White Wine
-Chicken
-Tomato
-Lemon
-Tomato
-Parsley
-Bay Leaf
-Salt
-Black Pepper
-Parsley
+Onion
 Rice
+Bay Leaf
+Garlic
+Tomato
+Mushroom
+Parsley
+Olive Oil
+Lemon
+Chicken
+Black Pepper
 
 savarin
-10 tablespoons warm water, divided
-Yeast
-Sugar
-Salt
 Flour
-Egg
-Egg
 Salt
-Cooking spray
-1 cup water
-Sugar
-Rum
 Cream
-Sugar
+Egg
+1 cup water
 Tea
 Assorted berries, sliced fresh fruit, for garnish
+Yeast
+Sugar
+10 tablespoons warm water, divided
+Cooking spray
+Rum
 
 huitre
+1 cup grated Romano cheese
+Salt
 Onion
+Tea
 Butter
 Spinach
-1 cup grated Romano cheese
-Lemon
-Tea
-Salt
 3 dozen fresh oysters in the shell
+Lemon
 
 rugulah
 Flour
 Salt
-Salt
 Cream
-Cream
-Sugar
 Cinnamon
-Walnuts
 Raisins
+Sugar
+Walnuts
 
 crumpet
 Flour
 Salt
-Milk
-Yeast
-Sugar
 1 cup warm water
 Tea
+Yeast
+Sugar
+Milk
 
 coquilles_saint_jacques
 Salt
-Shallots
-Mushroom
-Salt
-White Wine
-1 pound sea scallops
 Cream
 Egg
-Cayenne
-Tea
-Lemon
 4 large oven-safe scallop shells
-¼ cup shredded Gruyere cheese
-Paprika
+Tea
 8 fresh tarragon leaves
+Cayenne
+Mushroom
+Paprika
+¼ cup shredded Gruyere cheese
+Lemon
+Shallots
+White Wine
+1 pound sea scallops
 
 eccles_cake
 Flour
+Salt
+Cinnamon
+Egg
+Allspice
 Butter
-Salt
-125 ml ice cold water (add more if needed)
-Salt
-Currant
 Orange
-Lemon
 Sugar
 Nutmeg
-Cinnamon
-Allspice
-Salt
+Lemon
+Currant
 Rum
-Egg
-Sugar
+125 ml ice cold water (add more if needed)
 
 mostaccioli
-Sage
 Onion
+Sage
 Garlic
-Pasta
-Pasta
-Mozzarella Cheese
 Parmesan
+Mozzarella Cheese
+Pasta
 
 escargot
-Garlic
-Salt
 Salt
 Tea
 Parsley
-Black Pepper
-White Wine
+Garlic
 12 to 16 snails* (from a 7- to 8-oz can)
-Salt
 Bread
+White Wine
+Black Pepper
 
 croquette
-Potatoes
-Butter
-Egg
-50g/1¾oz strong hard cheese, such as cheddar, emmental or gruyere
 Flour
-Bread
 Olive Oil
 Salt
+Egg
+50g/1¾oz strong hard cheese, such as cheddar, emmental or gruyere
+Butter
+Potatoes
+Bread
 
 limpet_food
-limpets q.b
-Vinegar
-Garlic
-Lemon
-Butter
-Garlic
 piri-piri (optional)
 coriander (optional)
 Salt
+Vinegar
+Butter
+Garlic
+Lemon
+limpets q.b
 
 peking_duck
 4 boneless duck breasts
-Salt
-Tea
-Tea
-Five Spice Powder
-1 tablespoon oil
 Flour
-Salt
 2/3 cup boiling water
-Tea
-Cucumber
-1/2 cup cantaloupe
+Salt
+1 tablespoon oil
 2 scallions
+Tea
+1/2 cup cantaloupe
 Garlic
+Five Spice Powder
 Hoisin Sauce
+Cucumber
 
 lutefisk
-2kg lutefisk
-Bacon
 Salt
-3dl peas, dried
 Butter
-Salt
+Bacon
 Sugar
 600g almond potato
+3dl peas, dried
+2kg lutefisk
 
 beef_bourguignonne
+Carrot
+Flour
+Red Wine
+Onion
 Tea
 3 bay leaves
-Thyme
-Red Wine
-2 tbsp oil
-Carrot
-Onion
-Flour
-Tomato
 Butter
 Bacon
-Onion
+Tomato
+2 tbsp oil
 Mushroom
 Parsley
+Thyme
 
 shirred_egg
-Butter
+Salt
 Cream
 Egg
-Salt
-Black Pepper
 Tea
+Butter
 Parmesan
+Black Pepper
 
 vol_au_vent
-1 package (17.30 ounces) frozen puff pastry, thawed
-Egg
-1 tablespoon water
-Bacon
 Leek
-1 medium sweet yellow pepper, diced
-Chicken
-Cream
 Salt
+1 tablespoon water
+Cream
+Egg
+1 package (17.30 ounces) frozen puff pastry, thawed
 Tea
+1 medium sweet yellow pepper, diced
+Bacon
 Parsley
+Chicken
 
 knish
-Salt
-Cream
-Cream
 Flour
 Salt
-Potatoes
-Onion
-Egg
-Potatoes
-Salt
-Potatoes
-Garlic
-1/2 tablespoon hot sauce, such as Tabasco
-4 ounces (1 cup) finely shredded Cheddar cheese, optional
-Egg
+Cream
 1 tablespoon water
+Egg
+Onion
+4 ounces (1 cup) finely shredded Cheddar cheese, optional
 1 drop yellow food coloring, optional
+1/2 tablespoon hot sauce, such as Tabasco
+Garlic
+Potatoes
 
 galantine
-Bread
-Milk
-Onion
-Garlic
 Beef
-Nutmeg
-Black Pepper
 Salt
-Sugar
-1 tablespoon sweet soy sauce (Indonesian: kecap manis)
-Oyster Sauce
+1 tablespoon thinly sliced scallions
+1 tablespoon soy sauce (Indonesian: kecap asin)
 Egg
+1 tablespoon sweet soy sauce (Indonesian: kecap manis)
 Butter
-Onion
-Garlic
+Carrot
 Cloves
 Cinnamon
-Nutmeg
+Garlic
+Milk
 Sugar
-Black Pepper
-1 tablespoon sweet soy sauce (Indonesian: kecap manis)
-Tomato
-1 tablespoon soy sauce (Indonesian: kecap asin)
-Oyster Sauce
-1 1/4 cup stock (or water)
-Corn
-1 tablespoon thinly sliced scallions
-Carrot
 Carb of your choice, usually fries, or potato wedges
+Oyster Sauce
+Black Pepper
+Corn
+Onion
+Tomato
+Nutmeg
+1 1/4 cup stock (or water)
+Bread
 
 rissole
+Carrot
 Beef
+Egg
 Onion
+Tea
+Select all ingredients
+Gravy, to serve
 Garlic
 Herbs
-Egg
-Bread
-Olive Oil
-Tea
-Carrot
 Potatoes
-Gravy, to serve
-Select all ingredients
+Olive Oil
+Bread
 
 profiterole
-Salt
-Sugar
-Salt
-Egg
-Cream
-few drops vanilla extract
 Cocoa
+Salt
+Cream
+Egg
 Sugar
+few drops vanilla extract
 
 entrecote
-Salt
-Onion
-1 tbsp Tarragon, chopped
-Parsley
-Sage
-Nutmeg
-Walnuts
-Salt
-Capers
-2 tsps Ground Pepper (white or black)
-Egg
 1 tbsp Mustard
-Lemon
 1 tsp Maggi Seasoning Sauce (or Worcestershire Sauce)
 Salt
+Egg
+Onion
+Sage
+2 tsps Ground Pepper (white or black)
+Parsley
+Nutmeg
+Lemon
+1 tbsp Tarragon, chopped
+Walnuts
+Capers
 
 lobster_thermidor
-1 medium (1 1/2 pound) cooked lobster
-Butter
-1 shallot, finely chopped
 Fish
-White Wine
-Cream
-Tea
-Lemon
-Parsley
 Salt
+Cream
+1 medium (1 1/2 pound) cooked lobster
+Tea
+Butter
+Parsley
+Lemon
+1 shallot, finely chopped
+White Wine
 Parmesan
 
 poi
-2 lb taro root, scrubbed, peeled and cubed
-Coconut
 Cream
-Cream
-Pineapple
-Sugar
 Cinnamon
+2 lb taro root, scrubbed, peeled and cubed
+Sugar
+Pineapple
+Coconut
 
