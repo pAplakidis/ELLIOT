@@ -18,9 +18,12 @@ class CalendarViewModel @Inject constructor(
     private val _cardUiState = MutableStateFlow(
         listOf(HistoryWithIngredientsModel("", "", "", "", emptyList()))
     )
+//    val cardUiState = _cardUiState.asStateFlow()
 
-    // The UI collects from this StateFlow to get its state updates
-    val cardUiState = _cardUiState.asStateFlow()
+    private val _oneTimeCardUiState = MutableSharedFlow<List<HistoryWithIngredientsModel>>()
+
+    // The UI collects from this SharedFlow to get its state updates
+    val oneTimeCardUiState = _oneTimeCardUiState.asSharedFlow()
 
     fun onEvent(event: CalendarEvent) {
         when (event) {
@@ -30,6 +33,8 @@ class CalendarViewModel @Inject constructor(
                         _cardUiState.value = it.map { historyWithIngredients ->
                             historyWithIngredients.toHistoryWithIngredientsModel()
                         }
+
+                        _oneTimeCardUiState.emit(_cardUiState.value)
                     }
                 }
             }

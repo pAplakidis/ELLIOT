@@ -2,7 +2,7 @@ package com.iprism.elliot.data.local
 
 import androidx.room.*
 import com.iprism.elliot.data.local.entity.History
-import com.iprism.elliot.data.local.entity.HistoryIngredient
+import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.domain.model.HistoryModel
 
 @Dao
@@ -22,7 +22,7 @@ interface FoodDao {
     suspend fun insertFood(history: HistoryModel)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredient)
+    suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredientCrossRef)
 
 //    @Transaction
 //    @Query("SELECT * FROM Ingredient")

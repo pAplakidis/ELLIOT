@@ -18,7 +18,6 @@ import com.iprism.elliot.databinding.FragmentFoodDetailsBinding
 class FoodDetailsFragment : Fragment() {
 
     private var _binding: FragmentFoodDetailsBinding? = null
-
     private val binding get() = _binding!!
 
     private fun hideNavbar() {

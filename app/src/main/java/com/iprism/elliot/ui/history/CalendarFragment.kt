@@ -1,7 +1,6 @@
 package com.iprism.elliot.ui.history
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -104,7 +103,7 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                calendarViewModel.cardUiState.collect {
+                calendarViewModel.oneTimeCardUiState.collect {
                     if (it.isNotEmpty()) {
 
                         if (it[0].foodName != "") {

@@ -3,7 +3,7 @@ package com.iprism.elliot.data.repository
 import com.iprism.elliot.data.local.FoodDao
 import com.iprism.elliot.data.local.FoodWithIngredients
 import com.iprism.elliot.data.local.HistoryWithIngredients
-import com.iprism.elliot.data.local.entity.HistoryIngredient
+import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.domain.model.HistoryModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -27,7 +27,7 @@ class FoodRepositoryImpl(
         dao.insertFood(history)
     }
 
-    override suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredient) {
+    override suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredientCrossRef) {
         dao.insertHistoryIngredients(historyIngredient)
     }
 

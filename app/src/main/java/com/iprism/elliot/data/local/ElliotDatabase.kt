@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.iprism.elliot.data.local.entity.*
 
 @Database(
-    entities = [Food::class, Ingredient::class, FoodIngredientCrossRef::class, History::class, HistoryIngredient::class],
+    entities = [Food::class, Ingredient::class, FoodIngredientCrossRef::class, History::class, HistoryIngredientCrossRef::class],
     version = 1,
     exportSchema = false
 )

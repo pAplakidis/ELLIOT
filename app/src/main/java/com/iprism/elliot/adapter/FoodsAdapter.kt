@@ -25,7 +25,9 @@ class FoodsAdapter(
                     "foodName" to foodName.text.toString(),
                     "timeEaten" to timeEaten.text.toString(),
                     "dateEaten" to dateEaten.text.toString(),
-                    "ingredients" to historyModel[position].ingredients.joinToString(","),
+                    "ingredients" to historyModel[position].ingredients.joinToString(",") { ingredient ->
+                        ingredient.ingredientName
+                    },
                     "meal" to historyModel[position].meal
                 )
                 Navigation.findNavController(it)

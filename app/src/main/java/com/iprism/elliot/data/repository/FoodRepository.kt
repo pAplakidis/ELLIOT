@@ -2,7 +2,7 @@ package com.iprism.elliot.data.repository
 
 import com.iprism.elliot.data.local.FoodWithIngredients
 import com.iprism.elliot.data.local.HistoryWithIngredients
-import com.iprism.elliot.data.local.entity.HistoryIngredient
+import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.domain.model.HistoryModel
 import kotlinx.coroutines.flow.Flow
 
@@ -15,7 +15,7 @@ interface FoodRepository {
 
     suspend fun insertFood(history: HistoryModel)
 
-    suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredient)
+    suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredientCrossRef)
 
     fun getHistoryWithIngredients(foodName: String): Flow<HistoryWithIngredients>
 

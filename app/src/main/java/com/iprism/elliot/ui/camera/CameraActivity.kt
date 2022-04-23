@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -24,7 +23,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.iprism.elliot.MainActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.iprism.elliot.R
 import com.iprism.elliot.databinding.ActivityCameraBinding
 import com.iprism.elliot.domain.cnn.NNModel
@@ -68,7 +66,7 @@ class CameraActivity : AppCompatActivity() {
         // Collecting ingredients to show with checkboxes on dialog.
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                cameraViewModel.ingredientsListUiState.collect {
+                cameraViewModel.oneTimeIngredientsListUiState.collect {
                     if (it.ingredients.isNotEmpty()) {
                         showConfirmationDialog(it)
                     }
