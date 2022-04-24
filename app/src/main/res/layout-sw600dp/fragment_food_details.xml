@@ -23,7 +23,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         app:cardElevation="0dp"
         app:cardMaxElevation="0dp"
@@ -73,7 +73,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/ingredient_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 app:layoutManager="LinearLayoutManager"
                 tools:listitem="@layout/list_ingredients" />
 
