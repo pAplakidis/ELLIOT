@@ -18,10 +18,10 @@ interface FoodDao {
     @Query("SELECT history_id FROM History WHERE food_name = :foodName")
     suspend fun getFoodHistoryId(foodName: String): Int
 
-    @Insert(entity = History::class, onConflict = OnConflictStrategy.REPLACE)
+    @Insert(entity = History::class)
     suspend fun insertFood(history: HistoryModel)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
     suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredientCrossRef)
 
 //    @Transaction

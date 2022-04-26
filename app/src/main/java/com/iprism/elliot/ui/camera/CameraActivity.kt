@@ -28,6 +28,7 @@ import com.iprism.elliot.databinding.ActivityCameraBinding
 import com.iprism.elliot.domain.cnn.NNModel
 import com.iprism.elliot.util.ModelUtils
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.io.File
@@ -101,15 +102,17 @@ class CameraActivity : AppCompatActivity() {
             if (allPermissionsGranted()) {
                 startCamera()
             } else {
-                Toast.makeText(
-                    this,
-                    "Permissions not granted by the user.",
-                    Toast.LENGTH_SHORT
-                ).show()
+                showToast("Permissions not granted by the user!")
                 finish()
             }
         }
     }
+
+    private fun showToast(message: String) = Toast.makeText(
+        this,
+        message,
+        Toast.LENGTH_SHORT
+    ).show()
 
     private fun showPredictionCheckDialog(foodNames: Array<String>) {
         var foodNameIndex = 0
@@ -137,6 +140,7 @@ class CameraActivity : AppCompatActivity() {
             .setPositiveButton("OK") { _, _ ->
                 // Store the selected ingredients in database.
                 cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick)
+                showToast("The choices are stored successfully!")
             }
             .setNegativeButton("Cancel") { _, _ -> }
             .setMultiChoiceItems(
@@ -157,11 +161,7 @@ class CameraActivity : AppCompatActivity() {
             .setView(dialogTextsCamera)
             .setPositiveButton("OK") { _, _ ->
                 if (foodEntry.text.toString().isBlank()) {
-                    Toast.makeText(
-                        this,
-                        "Please enter a food and try again.",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    showToast("Please enter a food and try again!")
                 } else {
                     cameraViewModel.foodName = foodEntry.text.toString()
                     cameraViewModel.onEvent(CameraEvent.OnMealEntryDialogOkClick)
@@ -169,6 +169,27 @@ class CameraActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel") { _, _ -> }
             .show()
+    }
+
+    private fun startCNNModel(imagePath: String) {
+        lifecycleScope.launch(Dispatchers.IO) {
+            val nnModel = NNModel(this@CameraActivity)
+            val pyObj = nnModel.init()
+            val foodNames = pyObj.callAttr(
+                "classify",
+                imagePath,
+                ModelUtils.assetFilePath(
+                    this@CameraActivity,
+                    "resnet18_classifier.pth"
+                ),
+                ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
+            ).asList().joinToString(",").split(",").toTypedArray()
+
+            runOnUiThread {
+                binding.cameraProgressCircle.hide()
+                showPredictionCheckDialog(foodNames)
+            }
+        }
     }
 
     private fun takePhoto() {
@@ -198,19 +219,7 @@ class CameraActivity : AppCompatActivity() {
                 }
 
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-
-                    val nnModel = NNModel(this@CameraActivity)
-                    val pyObj = nnModel.init()
-                    val foodNames = pyObj.callAttr(
-                        "classify",
-                        photoFile.absolutePath,
-                        ModelUtils.assetFilePath(this@CameraActivity, "resnet18_classifier.pth"),
-                        ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
-                    ).asList().joinToString(",").split(",").toTypedArray()
-
-                    binding.cameraProgressCircle.hide()
-
-                    showPredictionCheckDialog(foodNames)
+                    startCNNModel(photoFile.absolutePath)
                 }
             })
     }
