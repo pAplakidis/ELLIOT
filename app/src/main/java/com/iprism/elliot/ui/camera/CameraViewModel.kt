@@ -17,6 +17,10 @@ class CameraViewModel @Inject constructor(
 
     private val ingredientsToIDs = mutableMapOf<String, Int>()
     var foodName = ""
+    var date = ""
+    var hour = ""
+    var minutes = ""
+    var meal = ""
 
     // Backing property to avoid state updates from other classes
     private val _ingredientsListUiState =
@@ -32,6 +36,16 @@ class CameraViewModel @Inject constructor(
         when (event) {
             is CameraEvent.OnCameraButtonClick -> {
                 foodName = event.foodName
+                date = event.date
+                hour = event.hour
+                minutes = event.minutes
+                if (event.hour.toInt() < 12) {
+                    meal = "Breakfast"
+                } else if (event.hour.toInt() < 18) {
+                    meal = "Lunch"
+                } else {
+                    meal = "Dinner"
+                }
             }
             is CameraEvent.OnConfirmationDialogOkClick -> {
                 _ingredientsListUiState.value.checked.zip(_ingredientsListUiState.value.ingredients) { checked, ingredient ->
@@ -56,7 +70,7 @@ class CameraViewModel @Inject constructor(
 
     private fun insertFoodAndGetIngredients() {
         viewModelScope.launch {
-            repository.insertFood(HistoryModel(food_name = foodName))
+            repository.insertFood(HistoryModel(food_name = foodName, date = date, meal = meal, time = "$hour:$minutes"))
             getIngredients()
         }
     }

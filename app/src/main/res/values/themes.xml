@@ -39,8 +39,8 @@
     </style>
 
     <style name="ThemeOverlay.Elliot.FloatingActionButton" parent="">
-        <item name="colorSecondary">@color/white</item>
-        <item name="colorOnSecondary">@color/brown</item>
+        <item name="colorSecondary">@color/brown</item>
+        <item name="colorOnSecondary">@color/white</item>
     </style>
 
     <!-- SET STYLE FOR CALENDAR BUTTON COLOR -->

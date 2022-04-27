@@ -121,7 +121,17 @@ class CameraActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle("Is the food predicted any of the following?")
             .setPositiveButton("OK") { _, _ ->
-                cameraViewModel.onEvent(CameraEvent.OnCameraButtonClick(foodName))
+                val calendarInstance = Calendar.getInstance()
+                val year = calendarInstance.get(Calendar.YEAR).toString()
+                val month = calendarInstance.get(Calendar.MONTH).toString()
+                val day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
+                val date = "$day/$month/$year"
+
+                val hour = calendarInstance.get(Calendar.HOUR_OF_DAY).toString()
+
+                val minutes = calendarInstance.get(Calendar.MINUTE).toString()
+
+                cameraViewModel.onEvent(CameraEvent.OnCameraButtonClick(foodName, date, hour, minutes))
                 cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick)
             }
             .setNegativeButton("Cancel") { _, _ ->
