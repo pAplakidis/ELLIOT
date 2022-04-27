@@ -59,16 +59,25 @@ def get_training_data(base_dir):
     c_file.close()
 
   print("Loading images and labels ...")
+  labels_used = set()
   df = pd.read_csv(base_dir+FOOD251_annot_path+"train_info.csv", names=['img', 'class_idx'])
   for i in (t:= trange(len(files))):
     image = files[i]
-    img = cv2.imread(base_dir+FOOD251_train_path+'/'+image)
-    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+    #img = cv2.imread(base_dir+FOOD251_train_path+'/'+image)
+
+    origin_img = cv2.imread(base_dir+FOOD251_train_path+'/'+image)
+
+    img = cv2.resize(origin_img, (IMG_SIZE, IMG_SIZE))
     img = np.moveaxis(img, -1, 0) # [batch_size, channels, height, width] to be used in NN
     images.append(img)
     idx = int(df.loc[df['img'] == image]['class_idx']) # get class idx from csv
     label = food251_classes[idx]
     labels.append(label)
+
+    if label not in labels_used:
+      labels_used.add(label)
+      cv2.imwrite("example_images/" + str(label) + ".jpg", origin_img)
+
     t.set_description("processing file: %s"%image)
 
   # TODO: handle other datasets as well (need more classes/foods supported)
