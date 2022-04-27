@@ -12,11 +12,15 @@ interface FoodDao {
     suspend fun getFoodWithIngredients(foodName: String): FoodWithIngredients
 
     @Transaction
-    @Query("SELECT * FROM History WHERE food_name = :foodName")
-    suspend fun getHistoryWithIngredients(foodName: String): HistoryWithIngredients
+    @Query("SELECT * FROM History WHERE food_name = :foodName AND date = :date AND time = :time")
+    suspend fun getHistoryWithIngredients(
+        foodName: String,
+        date: String,
+        time: String
+    ): HistoryWithIngredients
 
-    @Query("SELECT history_id FROM History WHERE food_name = :foodName")
-    suspend fun getFoodHistoryId(foodName: String): Int
+    @Query("SELECT history_id FROM History WHERE food_name = :foodName AND date = :date AND time = :time")
+    suspend fun getFoodHistoryId(foodName: String, date: String, time: String): Int
 
     @Insert(entity = History::class)
     suspend fun insertFood(history: HistoryModel)

@@ -19,8 +19,8 @@ class FoodRepositoryImpl(
         return dao.getLatestFoodId()
     }
 
-    override suspend fun getFoodHistoryId(foodName: String): Int {
-        return dao.getFoodHistoryId(foodName)
+    override suspend fun getFoodHistoryId(foodName: String, date: String, time: String): Int {
+        return dao.getFoodHistoryId(foodName, date, time)
     }
 
     override suspend fun insertFood(history: HistoryModel) {
@@ -35,8 +35,12 @@ class FoodRepositoryImpl(
         emit(dao.getAllHistoryWithIngredients())
     }
 
-    override fun getHistoryWithIngredients(foodName: String): Flow<HistoryWithIngredients> =
+    override fun getHistoryWithIngredients(
+        foodName: String,
+        date: String,
+        time: String
+    ): Flow<HistoryWithIngredients> =
         flow {
-            emit(dao.getHistoryWithIngredients(foodName))
+            emit(dao.getHistoryWithIngredients(foodName, date, time))
         }
 }

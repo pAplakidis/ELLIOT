@@ -18,9 +18,11 @@ class CameraViewModel @Inject constructor(
     private val ingredientsToIDs = mutableMapOf<String, Int>()
     var foodName = ""
     var date = ""
-    var hour = ""
-    var minutes = ""
+    private var hour = ""
+    private var minutes = ""
+    private var seconds = ""
     var meal = ""
+    var time = ""
 
     // Backing property to avoid state updates from other classes
     private val _ingredientsListUiState =
@@ -39,6 +41,9 @@ class CameraViewModel @Inject constructor(
                 date = event.date
                 hour = event.hour
                 minutes = event.minutes
+                seconds = event.seconds
+                time = "$hour:$minutes:$seconds"
+
                 if (event.hour.toInt() < 12) {
                     meal = "Breakfast"
                 } else if (event.hour.toInt() < 18) {
@@ -48,11 +53,13 @@ class CameraViewModel @Inject constructor(
                 }
             }
             is CameraEvent.OnConfirmationDialogOkClick -> {
+                insertFood()
+
                 _ingredientsListUiState.value.checked.zip(_ingredientsListUiState.value.ingredients) { checked, ingredient ->
                     viewModelScope.launch {
                         if (checked) repository.insertHistoryIngredients(
                             HistoryIngredientCrossRef(
-                                historyId = repository.getFoodHistoryId(foodName),
+                                historyId = repository.getFoodHistoryId(foodName, date, time),
                                 ingredientId = ingredientsToIDs[ingredient]!!
                             )
                         )
@@ -60,33 +67,41 @@ class CameraViewModel @Inject constructor(
                 }
             }
             is CameraEvent.OnMealEntryDialogOkClick -> {
-                insertFoodAndGetIngredients()
+                getIngredients()
             }
             is CameraEvent.OnPredictionCheckDialogYesClick -> {
-                insertFoodAndGetIngredients()
+                getIngredients()
             }
         }
     }
 
-    private fun insertFoodAndGetIngredients() {
+    private fun insertFood() {
         viewModelScope.launch {
-            repository.insertFood(HistoryModel(food_name = foodName, date = date, meal = meal, time = "$hour:$minutes"))
-            getIngredients()
+            repository.insertFood(
+                HistoryModel(
+                    food_name = foodName,
+                    date = date,
+                    meal = meal,
+                    time = time
+                )
+            )
         }
     }
 
-    private suspend fun getIngredients() {
-        repository.getFoodWithIngredients(foodName).collect {
-            _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
-                ingredients = it.toFoodWithIngredientsModel().ingredients.toTypedArray(),
-                checked = BooleanArray(it.toFoodWithIngredientsModel().ingredients.toTypedArray().size) { true }
-            )
+    private fun getIngredients() {
+        viewModelScope.launch {
+            repository.getFoodWithIngredients(foodName).collect {
+                _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
+                    ingredients = it.toFoodWithIngredientsModel().ingredients.toTypedArray(),
+                    checked = BooleanArray(it.toFoodWithIngredientsModel().ingredients.toTypedArray().size) { true }
+                )
 
-            it.ingredients.forEach { ingredient ->
-                ingredientsToIDs[ingredient.ingredientName] = ingredient.ingredientId
+                it.ingredients.forEach { ingredient ->
+                    ingredientsToIDs[ingredient.ingredientName] = ingredient.ingredientId
+                }
+
+                _oneTimeIngredientsListUiState.emit(_ingredientsListUiState.value)
             }
-
-            _oneTimeIngredientsListUiState.emit(_ingredientsListUiState.value)
         }
     }
 

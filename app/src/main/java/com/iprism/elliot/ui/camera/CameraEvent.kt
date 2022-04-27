@@ -5,8 +5,10 @@ sealed class CameraEvent {
         val foodName: String,
         val date: String,
         val hour: String,
-        val minutes: String
+        val minutes: String,
+        val seconds: String
     ) : CameraEvent()
+
     object OnMealEntryDialogOkClick : CameraEvent()
     object OnConfirmationDialogOkClick : CameraEvent()
     object OnPredictionCheckDialogYesClick : CameraEvent()

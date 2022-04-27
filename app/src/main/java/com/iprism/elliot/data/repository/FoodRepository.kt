@@ -11,13 +11,17 @@ interface FoodRepository {
 
     suspend fun getLatestFoodId(): Int
 
-    suspend fun getFoodHistoryId(foodName: String): Int
+    suspend fun getFoodHistoryId(foodName: String, date: String, time: String): Int
 
     suspend fun insertFood(history: HistoryModel)
 
     suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredientCrossRef)
 
-    fun getHistoryWithIngredients(foodName: String): Flow<HistoryWithIngredients>
+    fun getHistoryWithIngredients(
+        foodName: String,
+        date: String,
+        time: String
+    ): Flow<HistoryWithIngredients>
 
     fun getAllHistoryWithIngredients(): Flow<List<HistoryWithIngredients>>
 }
