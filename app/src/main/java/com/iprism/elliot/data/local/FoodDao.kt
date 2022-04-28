@@ -19,8 +19,8 @@ interface FoodDao {
         time: String
     ): HistoryWithIngredients
 
-    @Query("SELECT history_id FROM History WHERE food_name = :foodName AND date = :date AND time = :time")
-    suspend fun getFoodHistoryId(foodName: String, date: String, time: String): Int
+    @Query("SELECT MAX(history_id) FROM History")
+    suspend fun getLatestFoodHistoryId(): Int
 
     @Insert(entity = History::class)
     suspend fun insertFood(history: HistoryModel)
@@ -31,9 +31,6 @@ interface FoodDao {
 //    @Transaction
 //    @Query("SELECT * FROM Ingredient")
 //    suspend fun getIngredientWithFoods(): List<IngredientWithFoods>
-
-    @Query("SELECT MAX(food_id) FROM Food")
-    suspend fun getLatestFoodId(): Int
 
     @Transaction
     @Query("SELECT * FROM History")

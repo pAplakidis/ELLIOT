@@ -15,12 +15,8 @@ class FoodRepositoryImpl(
         emit(dao.getFoodWithIngredients(foodName))
     }
 
-    override suspend fun getLatestFoodId(): Int {
-        return dao.getLatestFoodId()
-    }
-
-    override suspend fun getFoodHistoryId(foodName: String, date: String, time: String): Int {
-        return dao.getFoodHistoryId(foodName, date, time)
+    override suspend fun getLatestFoodHistoryId(): Int {
+        return dao.getLatestFoodHistoryId()
     }
 
     override suspend fun insertFood(history: HistoryModel) {

@@ -9,9 +9,7 @@ import kotlinx.coroutines.flow.Flow
 interface FoodRepository {
     fun getFoodWithIngredients(foodName: String): Flow<FoodWithIngredients>
 
-    suspend fun getLatestFoodId(): Int
-
-    suspend fun getFoodHistoryId(foodName: String, date: String, time: String): Int
+    suspend fun getLatestFoodHistoryId(): Int
 
     suspend fun insertFood(history: HistoryModel)
 

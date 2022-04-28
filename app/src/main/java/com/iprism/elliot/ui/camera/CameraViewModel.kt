@@ -5,9 +5,11 @@ import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.HistoryModel
+import com.iprism.elliot.util.Utils.capitalizeWords
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,11 +18,9 @@ class CameraViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val ingredientsToIDs = mutableMapOf<String, Int>()
+
     var foodName = ""
     var date = ""
-    private var hour = ""
-    private var minutes = ""
-    private var seconds = ""
     var meal = ""
     var time = ""
 
@@ -37,19 +37,27 @@ class CameraViewModel @Inject constructor(
     fun onEvent(event: CameraEvent) {
         when (event) {
             is CameraEvent.OnCameraButtonClick -> {
-                foodName = event.foodName
-                date = event.date
-                hour = event.hour
-                minutes = event.minutes
-                seconds = event.seconds
+                val calendarInstance = Calendar.getInstance()
+                val year = calendarInstance.get(Calendar.YEAR).toString()
+                val month = (calendarInstance.get(Calendar.MONTH) + 1).toString()
+                val day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
+                date = "$day/$month/$year"
+
+                val hour = calendarInstance.get(Calendar.HOUR_OF_DAY).toString()
+                val minutes = calendarInstance.get(Calendar.MINUTE).toString()
+                val seconds = calendarInstance.get(Calendar.SECOND).toString()
                 time = "$hour:$minutes:$seconds"
 
-                if (event.hour.toInt() < 12) {
-                    meal = "Breakfast"
-                } else if (event.hour.toInt() < 18) {
-                    meal = "Lunch"
-                } else {
-                    meal = "Dinner"
+                meal = when {
+                    hour.toInt() < 12 -> {
+                        "Breakfast"
+                    }
+                    hour.toInt() < 18 -> {
+                        "Lunch"
+                    }
+                    else -> {
+                        "Dinner"
+                    }
                 }
             }
             is CameraEvent.OnConfirmationDialogOkClick -> {
@@ -57,9 +65,10 @@ class CameraViewModel @Inject constructor(
 
                 _ingredientsListUiState.value.checked.zip(_ingredientsListUiState.value.ingredients) { checked, ingredient ->
                     viewModelScope.launch {
+                        val id = repository.getLatestFoodHistoryId()
                         if (checked) repository.insertHistoryIngredients(
                             HistoryIngredientCrossRef(
-                                historyId = repository.getFoodHistoryId(foodName, date, time),
+                                historyId = id,
                                 ingredientId = ingredientsToIDs[ingredient]!!
                             )
                         )
@@ -67,9 +76,11 @@ class CameraViewModel @Inject constructor(
                 }
             }
             is CameraEvent.OnMealEntryDialogOkClick -> {
+                foodName = foodName.capitalizeWords()
                 getIngredients()
             }
             is CameraEvent.OnPredictionCheckDialogYesClick -> {
+                foodName = event.foodName
                 getIngredients()
             }
         }

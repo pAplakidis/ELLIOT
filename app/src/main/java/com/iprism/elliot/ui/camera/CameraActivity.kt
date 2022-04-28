@@ -77,6 +77,9 @@ class CameraActivity : AppCompatActivity() {
 
         // Set up the listener for take photo button
         binding.cameraCaptureButton.setOnClickListener {
+            cameraViewModel.onEvent(
+                CameraEvent.OnCameraButtonClick
+            )
             takePhoto()
         }
 
@@ -121,27 +124,7 @@ class CameraActivity : AppCompatActivity() {
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle("Is the food predicted any of the following?")
             .setPositiveButton("OK") { _, _ ->
-                val calendarInstance = Calendar.getInstance()
-
-                val year = calendarInstance.get(Calendar.YEAR).toString()
-                val month = (calendarInstance.get(Calendar.MONTH) + 1).toString()
-                val day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
-                val date = "$day/$month/$year"
-
-                val hour = calendarInstance.get(Calendar.HOUR_OF_DAY).toString()
-                val minutes = calendarInstance.get(Calendar.MINUTE).toString()
-                val seconds = calendarInstance.get(Calendar.SECOND).toString()
-
-                cameraViewModel.onEvent(
-                    CameraEvent.OnCameraButtonClick(
-                        foodName,
-                        date,
-                        hour,
-                        minutes,
-                        seconds
-                    )
-                )
-                cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick)
+                cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick(foodName))
             }
             .setNegativeButton("Cancel") { _, _ ->
                 showMealEntryDialog()
