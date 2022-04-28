@@ -42,40 +42,116 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <TextView
-                android:id="@+id/food_name_details"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="foodname"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/food_date_details"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="fooddate"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/food_time_details"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="foodtime"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/food_meal_details"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="foodmeal"
-                android:textSize="20sp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/ingredient_recycler"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                app:layoutManager="LinearLayoutManager"
-                tools:listitem="@layout/list_ingredients" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/food_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Food: "
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/food_name_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="foodname"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/food_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Date: "
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/food_date_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="fooddate"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/food_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Time: "
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/food_time_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="foodtime"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/food_meal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Meal: "
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/food_meal_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="foodmeal"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/food_ingredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Ingredients: "
+                    android:textSize="20sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/ingredient_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/list_ingredients" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

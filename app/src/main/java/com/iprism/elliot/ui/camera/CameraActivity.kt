@@ -124,7 +124,7 @@ class CameraActivity : AppCompatActivity() {
                 val calendarInstance = Calendar.getInstance()
 
                 val year = calendarInstance.get(Calendar.YEAR).toString()
-                val month = calendarInstance.get(Calendar.MONTH).toString()
+                val month = (calendarInstance.get(Calendar.MONTH) + 1).toString()
                 val day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
                 val date = "$day/$month/$year"
 

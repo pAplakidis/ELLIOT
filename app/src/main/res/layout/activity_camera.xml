@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_round_view"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/loading_indicator_light_dark"
         android:indeterminate="true"
 
         app:layout_constraintBottom_toBottomOf="parent"
