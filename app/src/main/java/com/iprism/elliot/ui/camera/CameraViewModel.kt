@@ -1,5 +1,6 @@
 package com.iprism.elliot.ui.camera
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
@@ -43,9 +44,22 @@ class CameraViewModel @Inject constructor(
                 val day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
                 date = "$day/$month/$year"
 
-                val hour = calendarInstance.get(Calendar.HOUR_OF_DAY).toString()
-                val minutes = calendarInstance.get(Calendar.MINUTE).toString()
-                val seconds = calendarInstance.get(Calendar.SECOND).toString()
+                var hour = calendarInstance.get(Calendar.HOUR_OF_DAY).toString()
+                var minutes = calendarInstance.get(Calendar.MINUTE).toString()
+                var seconds = calendarInstance.get(Calendar.SECOND).toString()
+
+                if (hour.length < 2) {
+                    hour = "0$hour"
+                }
+
+                if (minutes.length < 2) {
+                    minutes = "0$minutes"
+                }
+
+                if (seconds.length < 2) {
+                    seconds = "0$seconds"
+                }
+
                 time = "$hour:$minutes:$seconds"
 
                 meal = when {
