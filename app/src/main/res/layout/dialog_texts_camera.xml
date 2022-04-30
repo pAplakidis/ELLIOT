@@ -6,37 +6,16 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:inputType="text"
+        android:autofillHints="Food Name"
         android:id="@+id/editTextFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:ems="10"
-        android:hint="Food Name"
+        android:hint="@string/food_name_enter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--    <EditText-->
-    <!--        android:id="@+id/editTextIngredient1"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="24dp"-->
-    <!--        android:ems="10"-->
-    <!--        android:hint="Ingredient"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/editTextFoodName" />-->
-
-    <!--    <com.google.android.material.button.MaterialButton-->
-    <!--        android:id="@+id/buttonInsertFood"-->
-    <!--        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="24dp"-->
-    <!--        android:text="Add Food"-->
-    <!--        app:cornerRadius="28dp"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/editTextFoodName" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

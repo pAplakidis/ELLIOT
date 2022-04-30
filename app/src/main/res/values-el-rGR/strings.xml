@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Όνομα Χρήστη</string>
+    <string name="password">Κωδικός</string>
+    <string name="lock_icon">Εικονίδιο Κλειδαριάς</string>
+    <string name="password_icon">Εικονίδιο Κωδικού</string>
+    <string name="login_button">Σύνδεση</string>
+    <string name="developers">Προγραμματιστές</string>
+    <string name="camera_back_button">Πίσω Κουμπί</string>
+    <string name="camera_button">Κουμπί Κάμερας</string>
+    <string name="floating_camera_button">Κουμπί Κάμερας</string>
+    <string name="food_name_enter">Όνομα Φαγητού</string>
+    <string name="back_button_history">Πίσω κουμπί</string>
+    <string name="food_name">Φαγητό:</string>
+    <string name="ingredients_history">Υλικά:</string>
+    <string name="meal_history">Γεύμα:</string>
+    <string name="time_history">Ώρα:</string>
+    <string name="date_history">Ημερομηνία:</string>
+    <string name="food_details_placeholder">Πλαίσιο Λεπτομερειών Φαγητού</string>
+    <string name="history_title">Ιστορικό</string>
+    <string name="no_history_text">Έλλειψη Ιστορικού</string>
+    <string name="profile_title">Προφίλ</string>
+    <string name="history_button">Ιστορικό</string>
+    <string name="profile_button">Προφίλ</string>
+    <string name="statistics_button">Στατιστικά</string>
+    <string name="language">Γλώσσα</string>
+    <string name="language_picker_hint">Επιλογέας Γλώσσας</string>
+    <string name="breakfast">Πρωινό</string>
+    <string name="lunch">Μεσημεριανό</string>
+    <string name="dinner">Βραδινό</string>
+    <string name="select_dates">Επιλογή Ημερομηνιών</string>
+    <string name="proteins">Πρωτεϊνες</string>
+    <string name="carbs">Υδατάνθρακες</string>
+    <string name="fat">Λίπος</string>
+    <string name="back_button_statistics">Πίσω Κουμπί Στατιστικά</string>
+    <string name="profile_image">Εικόνα Προφίλ</string>
+    <string name="permissions_denied">Οι άδειες δεν δόθηκαν από τον χρήστη!</string>
+    <string name="food_prediction_question">Είναι το φαγητό κάποιο από τα παρακάτω;</string>
+    <string name="ok">Εντάξει</string>
+    <string name="cancel">Ακύρωση</string>
+    <string name="food_ingredients_confirmation">Επιβεβαίωση Υλικών Φαγητού</string>
+    <string name="ingredients_confirmation_toast">Οι επιλογές αποθηκεύτηκαν με επιτυχία!</string>
+    <string name="meal_entry">Εισαγωγή Γεύματος</string>
+    <string name="enter_food_again">Παρακαλούμε εισάγετε ένα φαγητό και ξαναπροσπαθήστε!</string>
+</resources>

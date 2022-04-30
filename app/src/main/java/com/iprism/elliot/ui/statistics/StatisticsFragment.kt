@@ -110,7 +110,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             context?.let { ContextCompat.getColor(it, R.color.pie_labels) }!!
 
         pieChart.legend.textSize =
-            16f; //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
+            16f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
 
         pieChart.invalidate()
     }
@@ -119,9 +119,9 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.setUsePercentValues(true)
         val dataEntries = ArrayList<PieEntry>()
 
-        dataEntries.add(PieEntry(stat[0], "Proteins"))
-        dataEntries.add(PieEntry(stat[1], "Carbs"))
-        dataEntries.add(PieEntry(stat[2], "Fat"))
+        dataEntries.add(PieEntry(stat[0], getString(R.string.proteins)))
+        dataEntries.add(PieEntry(stat[1], getString(R.string.carbs)))
+        dataEntries.add(PieEntry(stat[2], getString(R.string.fat)))
 
         val dataSet = PieDataSet(dataEntries, "")
         val data = PieData(dataSet)
@@ -157,7 +157,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
     private fun initializeCalendar() {
         val dateRangePicker =
             MaterialDatePicker.Builder.dateRangePicker()
-                .setTitleText("Select dates")
+                .setTitleText(getString(R.string.select_dates))
                 .setCalendarConstraints(constraintsCalendar().build())
                 .setSelection(
                     Pair(
@@ -184,15 +184,15 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             if (isChecked) {
                 when (checkedId) {
                     R.id.button1 -> {
-                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Breakfast"))
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad(getString(R.string.breakfast)))
                     }
 
                     R.id.button2 -> {
-                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Lunch"))
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad(getString(R.string.lunch)))
                     }
 
                     R.id.button3 -> {
-                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad("Dinner"))
+                        statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad(getString(R.string.dinner)))
                     }
 
                 }

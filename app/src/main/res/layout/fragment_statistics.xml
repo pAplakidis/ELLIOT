@@ -30,24 +30,25 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Breakfast" />
+            android:text="@string/breakfast" />
 
         <Button
             android:id="@+id/button2"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lunch" />
+            android:text="@string/lunch" />
 
         <Button
             android:id="@+id/button3"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dinner" />
+            android:text="@string/dinner" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <ImageButton
+        android:contentDescription="@string/back_button_statistics"
         android:id="@+id/calendar_button"
         android:layout_width="50dp"
         android:layout_height="50dp"

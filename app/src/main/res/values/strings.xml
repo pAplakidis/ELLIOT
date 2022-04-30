@@ -1,11 +1,45 @@
 <resources>
-    <string name="app_name">Elliot</string>
+    <string name="app_name" translatable="false">Elliot</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="lock_icon">Lock Icon</string>
     <string name="password_icon">Password Icon</string>
     <string name="login_button">Login</string>
     <string name="developers">by iPRISM</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="camera_back_button">Back Button</string>
+    <string name="camera_button">Camera Button</string>
+    <string name="floating_camera_button">Floating Camera Button</string>
+    <string name="food_name_enter">Food Name</string>
+    <string name="back_button_history">Back Button</string>
+    <string name="food_name">Food: </string>
+    <string name="ingredients_history">Ingredients: </string>
+    <string name="meal_history">Meal: </string>
+    <string name="time_history">Time: </string>
+    <string name="date_history">Date: </string>
+    <string name="food_details_placeholder">Food Details Placeholder</string>
+    <string name="history_title">History</string>
+    <string name="no_history_text">No History</string>
+    <string name="profile_title">Profile</string>
+    <string name="history_button">History</string>
+    <string name="profile_button">Profile</string>
+    <string name="statistics_button">Statistics</string>
+    <string name="language">Language</string>
+    <string name="language_picker_hint">Language Picker</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="select_dates">Select Dates</string>
+    <string name="proteins">Proteins</string>
+    <string name="carbs">Carbs</string>
+    <string name="fat">Fat</string>
+    <string name="back_button_statistics">Back Button Statistics</string>
+    <string name="profile_image">Profile Image</string>
+    <string name="permissions_denied">Permissions not granted by the user!</string>
+    <string name="food_prediction_question">Is the food predicted any of the following?</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="food_ingredients_confirmation">Confirm Food Ingredients</string>
+    <string name="ingredients_confirmation_toast">The choices are stored successfully!</string>
+    <string name="meal_entry">Meal Entry</string>
+    <string name="enter_food_again">Please enter a food and try again!</string>
 </resources>

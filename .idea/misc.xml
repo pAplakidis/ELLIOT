@@ -9,6 +9,34 @@
         <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/fragment_foods.xml" value="0.11944444444444445" />
         <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_foods.xml" value="0.17831813576494426" />
         <entry key="..\:/Data/AndroidStudioProjects/Elliot/app/src/main/res/layout/list_ingredients.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-land/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-land/fragment_statistics.xml" value="0.25" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp-land/fragment_profile.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp-land/fragment_statistics.xml" value="0.15" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_food_details.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_foods.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_profile.xml" value="0.14" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/fragment_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_foods.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_ingredients.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_statistics.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout-sw600dp/list_substatistics.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/activity_camera.xml" value="0.12545289855072464" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/activity_main.xml" value="0.21422101449275363" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/dialog_texts_camera.xml" value="0.18" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/dropdown_item.xml" value="0.33" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_camera.xml" value="0.1255666364460562" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_food_details.xml" value="0.2" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_foods.xml" value="0.15718157181571815" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_login.xml" value="0.21422101449275363" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/fragment_statistics.xml" value="0.14542415378186377" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/list_foods.xml" value="0.1255666364460562" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/list_ingredients.xml" value="0.12545289855072464" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/list_statistics.xml" value="0.12545289855072464" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/layout/list_substatistics.xml" value="0.12545289855072464" />
+        <entry key="..\:/Users/Jim/AndroidStudioProjects/ELLIOT/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.13595553655408293" />
       </map>
     </option>
   </component>

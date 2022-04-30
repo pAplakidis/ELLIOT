@@ -11,7 +11,7 @@
         android:layout_width="50dp"
         android:layout_height="100dp"
         android:background="@null"
-        android:contentDescription="Back Button"
+        android:contentDescription="@string/back_button_history"
         android:elevation="2dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_arrow_back_24"
@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:contentDescription="@string/food_details_placeholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
@@ -52,14 +53,13 @@
                     android:id="@+id/food_name"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Food: "
+                    android:text="@string/food_name"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/food_name_details"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="foodname"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -74,14 +74,13 @@
                     android:id="@+id/food_date"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Date: "
+                    android:text="@string/date_history"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/food_date_details"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="fooddate"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -96,14 +95,13 @@
                     android:id="@+id/food_time"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Time: "
+                    android:text="@string/time_history"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/food_time_details"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="foodtime"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -119,14 +117,13 @@
                     android:id="@+id/food_meal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Meal: "
+                    android:text="@string/meal_history"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/food_meal_details"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="foodmeal"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -141,7 +138,7 @@
                     android:id="@+id/food_ingredients"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Ingredients: "
+                    android:text="@string/ingredients_history"
                     android:textSize="20sp" />
 
                 <androidx.recyclerview.widget.RecyclerView

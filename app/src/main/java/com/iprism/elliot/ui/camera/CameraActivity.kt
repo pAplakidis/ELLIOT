@@ -105,7 +105,7 @@ class CameraActivity : AppCompatActivity() {
             if (allPermissionsGranted()) {
                 startCamera()
             } else {
-                showToast("Permissions not granted by the user!")
+                showToast(getString(R.string.permissions_denied))
                 finish()
             }
         }
@@ -122,11 +122,11 @@ class CameraActivity : AppCompatActivity() {
         var foodName = foodNames[foodNameIndex]
 
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
-            .setTitle("Is the food predicted any of the following?")
-            .setPositiveButton("OK") { _, _ ->
+            .setTitle(getString(R.string.food_prediction_question))
+            .setPositiveButton(getString(R.string.ok)) { _, _ ->
                 cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick(foodName))
             }
-            .setNegativeButton("Cancel") { _, _ ->
+            .setNegativeButton(getString(R.string.cancel)) { _, _ ->
                 showMealEntryDialog()
             }
             .setSingleChoiceItems(foodNames, foodNameIndex) { _, which ->
@@ -138,13 +138,13 @@ class CameraActivity : AppCompatActivity() {
 
     private fun showConfirmationDialog(state: CameraViewModel.IngredientListUiState) {
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
-            .setTitle("Confirm Food Ingredients")
-            .setPositiveButton("OK") { _, _ ->
+            .setTitle(getString(R.string.food_ingredients_confirmation))
+            .setPositiveButton(getString(R.string.ok)) { _, _ ->
                 // Store the selected ingredients in database.
                 cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick)
-                showToast("The choices are stored successfully!")
+                showToast(getString(R.string.ingredients_confirmation_toast))
             }
-            .setNegativeButton("Cancel") { _, _ -> }
+            .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
             .setMultiChoiceItems(
                 state.ingredients,
                 state.checked
@@ -159,17 +159,17 @@ class CameraActivity : AppCompatActivity() {
         val foodEntry = dialogTextsCamera.findViewById<EditText>(R.id.editTextFoodName)
 
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
-            .setTitle("Meal Entry")
+            .setTitle(getString(R.string.meal_entry))
             .setView(dialogTextsCamera)
-            .setPositiveButton("OK") { _, _ ->
+            .setPositiveButton(getString(R.string.ok)) { _, _ ->
                 if (foodEntry.text.toString().isBlank()) {
-                    showToast("Please enter a food and try again!")
+                    showToast(getString(R.string.enter_food_again))
                 } else {
                     cameraViewModel.foodName = foodEntry.text.toString()
                     cameraViewModel.onEvent(CameraEvent.OnMealEntryDialogOkClick)
                 }
             }
-            .setNegativeButton("Cancel") { _, _ -> }
+            .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
             .show()
     }
 

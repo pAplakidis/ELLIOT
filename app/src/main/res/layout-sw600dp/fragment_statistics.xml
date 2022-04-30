@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Breakfast" />
+            android:text="@string/breakfast" />
 
         <Button
             android:id="@+id/button2"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Lunch" />
+            android:text="@string/lunch" />
 
         <Button
             android:id="@+id/button3"
@@ -47,10 +47,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="17sp"
-            android:text="Dinner" />
+            android:text="@string/dinner" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <ImageButton
+        android:contentDescription="@string/back_button_statistics"
         android:id="@+id/calendar_button"
         android:layout_width="70dp"
         android:layout_height="70dp"

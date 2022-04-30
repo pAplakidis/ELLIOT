@@ -1,7 +1,10 @@
 package com.iprism.elliot.ui.statistics
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.iprism.elliot.R
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.Statistic
 import com.iprism.elliot.domain.model.SubStatistic
@@ -13,30 +16,31 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StatisticsViewModel @Inject constructor(
+    application: Application,
     private val repository: FoodRepository
-) : ViewModel() {
+) : AndroidViewModel(application) {
 
     private val testListBreakfast = Statistic(
         listOf(
-            SubStatistic("Protein", "653"),
-            SubStatistic("Carbs", "23"),
-            SubStatistic("Fat", "24")
+            SubStatistic(getApplication<Application>().resources.getString(R.string.proteins), "653"),
+            SubStatistic(getApplication<Application>().resources.getString(R.string.carbs), "23"),
+            SubStatistic(getApplication<Application>().resources.getString(R.string.fat), "24")
         )
     )
 
     private val testListLunch = Statistic(
         listOf(
-            SubStatistic("Protein", "356"),
-            SubStatistic("Carbs", "12"),
-            SubStatistic("Fat", "35")
+            SubStatistic(getApplication<Application>().resources.getString(R.string.proteins), "356"),
+            SubStatistic(getApplication<Application>().resources.getString(R.string.carbs), "12"),
+            SubStatistic(getApplication<Application>().resources.getString(R.string.fat), "35")
         )
     )
 
     private val testListDinner = Statistic(
         listOf(
-            SubStatistic("Protein", "62"),
-            SubStatistic("Carbs", "235"),
-            SubStatistic("Fat", "13")
+            SubStatistic(getApplication<Application>().resources.getString(R.string.proteins), "62"),
+            SubStatistic(getApplication<Application>().resources.getString(R.string.carbs), "235"),
+            SubStatistic(getApplication<Application>().resources.getString(R.string.fat), "13")
         )
     )
 
@@ -69,12 +73,12 @@ class StatisticsViewModel @Inject constructor(
                 viewModelScope.launch {
                     // EDW THA FORTWNONTAI ME VASH TO MEAL
                     when (event.mealName) {
-                        "Breakfast" -> {
+                        getApplication<Application>().resources.getString(R.string.breakfast) -> {
                             _statState.value = statState.value.copy(
                                 statList = testListBreakfast
                             )
                         }
-                        "Lunch" -> {
+                        getApplication<Application>().resources.getString(R.string.lunch) -> {
                             _statState.value = statState.value.copy(
                                 statList = testListLunch
                             )

@@ -4,17 +4,17 @@
         android:id="@+id/calendarFragment"
         android:contentDescription=""
         android:icon="@drawable/ic_baseline_history_24"
-        android:title="History" />
+        android:title="@string/history_button" />
 
     <item
         android:id="@+id/profileFragment"
         android:contentDescription=""
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Profile" />
+        android:title="@string/profile_button" />
 
     <item
         android:id="@+id/statisticsFragment"
         android:contentDescription=""
         android:icon="@drawable/ic_baseline_analytics_24"
-        android:title="Statistics" />
+        android:title="@string/statistics_button" />
 </menu>
