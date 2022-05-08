@@ -64,7 +64,7 @@ def get_training_data(base_dir):
     image = files[i]
     img = cv2.imread(base_dir+FOOD251_train_path+'/'+image)
     img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
-    img = np.moveaxis(img, -1, 0) # [batch_size, channels, height, width] to be used in NN
+    #img = np.moveaxis(img, -1, 0)
     images.append(img)
     idx = int(df.loc[df['img'] == image]['class_idx']) # get class idx from csv
     label = food251_classes[idx]

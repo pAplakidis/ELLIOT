@@ -35,9 +35,27 @@ def train(model, images, labels, timages, tlabels, classes, estop=False):
       epoch_vlosses = []
       epoch_vacc = []
       # train
-      for i in (t := trange(0, len(images), BS)):
-        X = torch.tensor(np.array(images[i:i+BS])).float().to(device)
-        Y = torch.tensor(np.array(labels[i:i+BS])).long().to(device)
+      #for i in (t := trange(0, len(images), BS)):
+        #X = torch.tensor(np.array(images[i:i+BS])).float().to(device)
+        #Y = torch.tensor(np.array(labels[i:i+BS])).long().to(device)
+
+      for i in (t := trange(0, len(images), BS//4)):
+        X_train = []
+        Y_train = []
+        for j in range(i, i+(BS//4)):
+          if j >= len(images):
+            break
+          X_train.append(np.moveaxis(images[j], -1, 0))
+          Y_train.append(labels[j])
+          X_train.append(np.moveaxis(horizontal_shift(images[j]), -1, 0))
+          Y_train.append(labels[j])
+          X_train.append(np.moveaxis(rotation(images[j]), -1, 0))
+          Y_train.append(labels[j])
+          X_train.append(np.moveaxis(zoom(images[j]), -1, 0))
+          Y_train.append(labels[j])
+
+        X = torch.tensor(np.array(X_train)).float().to(device)
+        Y = torch.tensor(np.array(Y_train)).long().to(device)
 
         # feed forward and backpropagate
         optim.zero_grad()
@@ -106,8 +124,8 @@ def train(model, images, labels, timages, tlabels, classes, estop=False):
   plt.show()
 
   # save onnx
-  inpt = torch.tensor(np.array(images[0:2])).float().to(device)
-  save_onnx(model, inpt, onnx_path)
+  #inpt = torch.tensor(np.array(images[0:2])).float().to(device)
+  #save_onnx(model, inpt, onnx_path)
   return model
 
 def evaluate(model, device, images, labels, classes):
@@ -206,13 +224,13 @@ if __name__ == '__main__':
 
   # save the model for the C++ API
   # load a sample image
-  samp_img = images[0:2]
-  samp_img = torch.Tensor(np.array(samp_img)).float().to(device)
+  #samp_img = images[0:2]
+  #samp_img = torch.Tensor(np.array(samp_img)).float().to(device)
 
   # run the tracing and save the lite model
-  model.eval()
-  traced_script_module = torch.jit.trace(model, samp_img)
-  traced_script_module.save(cpp_model_path)
-  traced_script_module_optimized = optimize_for_mobile(traced_script_module)
-  traced_script_module_optimized._save_for_lite_interpreter(light_model_path)
+  #model.eval()
+  #traced_script_module = torch.jit.trace(model, samp_img)
+  #traced_script_module.save(cpp_model_path)
+  #traced_script_module_optimized = optimize_for_mobile(traced_script_module)
+  #traced_script_module_optimized._save_for_lite_interpreter(light_model_path)
 
