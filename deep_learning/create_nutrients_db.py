@@ -16,8 +16,8 @@ def get_classes(path):
     classes = sorted(json.load(f))
     f.close()
 
-  for i in range(len(classes)):
-    classes[i] = classes[i].replace("_", " ")
+  #for i in range(len(classes)):
+  #  classes[i] = classes[i].replace("_", " ")
 
   return classes
 
@@ -30,9 +30,8 @@ def similar(a, b):
   return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
 # maybe remove spaces or replace them with _
-# NOTE: a is always from classes and b from dataframe
 def check(a, b):
-  if b != None and a.lower() in b.lower().replace(" ", "_"):
+  if b != None and a in b.lower().replace(" ", "_"):
     return True
   return False
 
@@ -50,13 +49,16 @@ if __name__ == '__main__':
     t.set_description("Processing: %s"%f_class)
     data = [f_class]
     for idx, n in nutrients.iterrows():
+      # TODO: maybe add "or similar" with .lower().replace(" ", "_")
       if check(f_class, n["name"]):
+        #print(f_class, "matched with", n["name"])
         # NOTE: out_data = [[f_name, protein (g), fat (g), carbohydrate (g), fiber (g), sodium (g)], [...], ...]
         data.append(n["Protein (g)"])
         data.append(n["Fat (g)"])
         data.append(n["Carbohydrate (g)"])
         data.append(n["Fiber (g)"])
         data.append(n["Sodium (mg)"])
+        break
     out_data.append(data)
   print(out_data)
 
