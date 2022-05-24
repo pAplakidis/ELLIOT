@@ -103,29 +103,12 @@
                     android:text="Suggestions"
                     android:textAppearance="?attr/textAppearanceHeadline4" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="The user should not eat _ this week"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="The user should not eat _ this month"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textSize="25sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="The user should not eat _ this day"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textSize="25sp" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/suggestion_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    app:layoutManager="LinearLayoutManager"
+                    tools:listitem="@layout/list_suggestions" />
 
 
             </LinearLayout>

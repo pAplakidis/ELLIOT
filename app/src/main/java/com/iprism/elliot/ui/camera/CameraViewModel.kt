@@ -88,6 +88,7 @@ class CameraViewModel @Inject constructor(
                         )
                     }
                 }
+                // PARE TA NUTRIENTS EDW, KALESE TO RULESET KAI ME MIA FOR TSEKARE KATHE RULE. UPDATE TA SUGGESTIONS ANALOGWS
             }
             is CameraEvent.OnMealEntryDialogOkClick -> {
                 foodName = foodName.capitalizeWords()
