@@ -21,7 +21,12 @@ class ProfileViewModel @Inject constructor(
         when (event) {
             is ProfileEvent.LoadSuggestions -> {
                 viewModelScope.launch {
-                    // EDW TSIMPA TA ARXEIA KAI STEILTA PISW
+                    // EDW TSIMPA TIS PROTASEIS KAI STEILTES PISW
+                }
+            }
+            is ProfileEvent.SetMealTime -> {
+                viewModelScope.launch {
+                    // GIA EVENT.MEAL VALE EVENT.TIMESTART, EVENT.TIMEEND
                 }
             }
         }
