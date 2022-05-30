@@ -47,4 +47,6 @@
     <string name="breakfast_string">Breakfast times</string>
     <string name="lunch_string">Lunch times</string>
     <string name="dinner_string">Dinner times</string>
+    <string name="fiber">Fiber</string>
+    <string name="sodium">Sodium</string>
 </resources>

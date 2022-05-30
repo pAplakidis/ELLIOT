@@ -1,10 +1,13 @@
 package com.iprism.elliot.ui.camera
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.HistoryModel
+import com.iprism.elliot.domain.model.NutrientsModel
+import com.iprism.elliot.domain.model.SuggestionModel
 import com.iprism.elliot.domain.rules.Ruleset
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -95,9 +98,14 @@ class CameraViewModel @Inject constructor(
                         )
                     }
 
-                    // val nutrients = repository.getLastSevenDaysNutrients()
+                    val nutrients = repository.getLastSevenDaysNutrients()
 
-                    // repository.insertSuggestion(SuggestionModel(sentence = "RULE HERE!!!"))
+                    for (rule in checkRuleset(nutrients)) {
+                        if (rule != "") {
+                            repository.insertSuggestion(SuggestionModel(rule))
+                        }
+                    }
+
                 }
             }
             is CameraEvent.OnMealEntryDialogOkClick -> {
@@ -138,6 +146,13 @@ class CameraViewModel @Inject constructor(
                 _oneTimeIngredientsListUiState.emit(_ingredientsListUiState.value)
             }
         }
+    }
+
+    private fun checkRuleset(nutrients: NutrientsModel): List<String> {
+        val activeRules = mutableListOf<String>()
+        activeRules.add(Ruleset.proteinRule(nutrients.protein))
+        activeRules.add(Ruleset.fatRule(nutrients.fat))
+        return activeRules
     }
 
     data class IngredientListUiState(

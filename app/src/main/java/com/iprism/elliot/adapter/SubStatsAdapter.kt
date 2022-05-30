@@ -27,7 +27,7 @@ class SubStatsAdapter(
     override fun onBindViewHolder(holder: SubStatsViewHolder, position: Int) {
         holder.apply {
             statName.text = subStatistics[position].statName
-            statValue.text = subStatistics[position].statEval
+            statValue.text = subStatistics[position].statEval.toString()
         }
     }
 

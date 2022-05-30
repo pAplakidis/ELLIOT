@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.iprism.elliot.R
@@ -111,6 +112,9 @@ class ProfileFragment : Fragment() {
         val username = activity?.intent?.extras?.getString("USERNAME")
         val id = activity?.intent?.extras?.getString("TOKEN")
         val recyclerView: RecyclerView = view.findViewById(R.id.suggestion_recycler)
+
+        val cameraButton = activity?.findViewById<FloatingActionButton>(R.id.floating_action_button)
+        cameraButton?.visibility = View.VISIBLE
 
         initiateListeners()
 

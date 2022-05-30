@@ -1,6 +1,7 @@
 package com.iprism.elliot.ui.statistics
 
 import android.graphics.Color
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.RecyclerView
 import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.charts.Chart
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.data.PieData
@@ -22,9 +24,10 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iprism.elliot.R
 import com.iprism.elliot.adapter.StatsAdapter
-import com.iprism.elliot.domain.model.Statistic
+import com.iprism.elliot.domain.model.SubStatistic
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -41,6 +44,9 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         super.onViewCreated(view, savedInstanceState)
 
         pieChart = view.findViewById(R.id.pie_chart)
+        val cameraButton = activity?.findViewById<FloatingActionButton>(R.id.floating_action_button)
+        cameraButton?.visibility = View.GONE
+
         initPieChart()
 
         setButtonListeners(view)
@@ -70,8 +76,14 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 statisticsViewModel.dateState.collect {
-                    if (it.pieValues.isNotEmpty()) {
-                        setDataToPieChart(it.pieValues)
+//                    if (it.pieValues.isNotEmpty()) {
+//                        setDataToPieChart(it.pieValues)
+//                    }
+                    for (value in it.pieValues) {
+                        if (value > 0) {
+                            setDataToPieChart(it.pieValues)
+                            break
+                        }
                     }
                 }
             }
@@ -81,7 +93,14 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 statisticsViewModel.statState.collect {
                     val recyclerView: RecyclerView = view.findViewById(R.id.list_information)
-                    initRecycler(recyclerView, it.statList)
+                    val recycleDataset = listOf(
+                        SubStatistic("Protein",it.statList.protein),
+                        SubStatistic("Fat",it.statList.fat),
+                        SubStatistic("Carbohydrates",it.statList.carbohydrate),
+                        SubStatistic("Fiber",it.statList.fiber),
+                        SubStatistic("Sodium",it.statList.sodium)
+                    )
+                    initRecycler(recyclerView, recycleDataset)
                 }
             }
         }
@@ -94,6 +113,10 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.isDrawHoleEnabled = false
         pieChart.setTouchEnabled(false)
         pieChart.setDrawEntryLabels(false)
+        pieChart.setNoDataText("Please record a food for the specific week first.")
+        pieChart.setNoDataTextColor(Color.parseColor("#4E342E"))
+        val paint: Paint = pieChart.getPaint(Chart.PAINT_INFO)
+        paint.textSize = 50f
         //adding padding
         pieChart.setExtraOffsets(20f, 0f, 20f, 20f)
         pieChart.setUsePercentValues(true)
@@ -108,20 +131,22 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         colors.add(Color.parseColor("#4DD0E1"))
         colors.add(Color.parseColor("#FFF176"))
         colors.add(Color.parseColor("#FF8A65"))
+        colors.add(Color.parseColor("#16BF55"))
+        colors.add(Color.parseColor("#A416BF"))
 
         // In Percentage
         data.setValueFormatter(PercentFormatter())
         dataSet.sliceSpace = 3f
         dataSet.colors = colors
         pieChart.data = data
-        data.setValueTextSize(15f)
+        data.setValueTextSize(12f)
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
         pieChart.animateY(1400, Easing.EaseInOutQuad)
         pieChart.legend.textColor =
             context?.let { ContextCompat.getColor(it, R.color.pie_labels) }!!
 
         pieChart.legend.textSize =
-            16f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
+            10f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
 
         pieChart.invalidate()
     }
@@ -131,8 +156,10 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         val dataEntries = ArrayList<PieEntry>()
 
         dataEntries.add(PieEntry(stat[0], getString(R.string.proteins)))
-        dataEntries.add(PieEntry(stat[1], getString(R.string.carbs)))
-        dataEntries.add(PieEntry(stat[2], getString(R.string.fat)))
+        dataEntries.add(PieEntry(stat[1], getString(R.string.fat)))
+        dataEntries.add(PieEntry(stat[2], getString(R.string.carbs)))
+        dataEntries.add(PieEntry(stat[3], getString(R.string.fiber)))
+        dataEntries.add(PieEntry(stat[4], getString(R.string.sodium)))
 
         val dataSet = PieDataSet(dataEntries, "")
         val data = PieData(dataSet)
@@ -140,7 +167,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieSettings(data, dataSet)
     }
 
-    private fun initRecycler(recyclerView: RecyclerView, statList: Statistic) {
+    private fun initRecycler(recyclerView: RecyclerView, statList: List<SubStatistic>) {
         recyclerView.apply {
             adapter = StatsAdapter(statList)
             setHasFixedSize(true)

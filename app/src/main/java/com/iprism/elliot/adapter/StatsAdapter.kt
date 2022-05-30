@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.iprism.elliot.R
-import com.iprism.elliot.domain.model.Statistic
+import com.iprism.elliot.domain.model.SubStatistic
 
 class StatsAdapter(
-    private val statistics: Statistic
+    private val statistics: List<SubStatistic>
 ) : RecyclerView.Adapter<StatsAdapter.StatsViewHolder>() {
 
     class StatsViewHolder(statsView: View) : RecyclerView.ViewHolder(statsView) {
@@ -24,7 +24,7 @@ class StatsAdapter(
 
     override fun onBindViewHolder(holder: StatsViewHolder, position: Int) {
         holder.apply {
-            listStatistics.adapter = SubStatsAdapter(statistics.subStatList)
+            listStatistics.adapter = SubStatsAdapter(statistics)
         }
     }
 

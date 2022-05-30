@@ -4,15 +4,27 @@ import io.insource.framework.rule.rule
 
 class Ruleset {
     companion object Rules {
-        val emptyRule = rule("Empty string") {
+        val fatRule = rule("Check Fat") {
             given {
-                anyString()
+                anyFloat()
             } and {
-                it.isEmpty()
-            } thenDo {
-                println("Empty string")
-            } otherwiseDo {
-                println("Not an empty string")
+                it > 3
+            } thenReturn {
+                "Too much fat"
+            } otherwiseReturn {
+                ""
+            }
+        }
+
+        val proteinRule = rule("Check Protein") {
+            given {
+                anyFloat()
+            } and {
+                it < 3
+            } thenReturn {
+                "Too little protein"
+            } otherwiseReturn {
+                ""
             }
         }
     }
