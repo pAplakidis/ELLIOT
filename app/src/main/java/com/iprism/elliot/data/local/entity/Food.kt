@@ -11,9 +11,16 @@ data class Food(
     @ColumnInfo(name = "food_id")
     @NotNull
     val foodId: Int,
-    @ColumnInfo(name = "food_name")
     @NotNull
-    val foodName: String
+    val protein: Double,
+    @NotNull
+    val fat: Double,
+    @NotNull
+    val carbohydrate: Double,
+    @NotNull
+    val fiber: Double,
+    @NotNull
+    val sodium: Double
 ) {
 //    fun toFoodModel(): FoodModel {
 //        return FoodModel(

@@ -30,32 +30,32 @@
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:text="@string/breakfast" />
+            android:text="@string/breakfast"
+            android:textSize="17sp" />
 
         <Button
             android:id="@+id/button2"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:text="@string/lunch" />
+            android:text="@string/lunch"
+            android:textSize="17sp" />
 
         <Button
             android:id="@+id/button3"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="17sp"
-            android:text="@string/dinner" />
+            android:text="@string/dinner"
+            android:textSize="17sp" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <ImageButton
-        android:contentDescription="@string/back_button_statistics"
         android:id="@+id/calendar_button"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@null"
+        android:contentDescription="@string/back_button_statistics"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_edit_calendar_24"
         app:layout_constraintStart_toStartOf="parent"

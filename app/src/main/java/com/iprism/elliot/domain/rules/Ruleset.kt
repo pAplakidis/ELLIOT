@@ -1,4 +1,4 @@
-package com.iprism.elliot.domain
+package com.iprism.elliot.domain.rules
 
 import io.insource.framework.rule.rule
 

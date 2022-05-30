@@ -1,12 +1,11 @@
 package com.iprism.elliot.ui.camera
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.HistoryModel
-import com.iprism.elliot.util.Utils.capitalizeWords
+import com.iprism.elliot.domain.rules.Ruleset
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -40,9 +39,18 @@ class CameraViewModel @Inject constructor(
             is CameraEvent.OnCameraButtonClick -> {
                 val calendarInstance = Calendar.getInstance()
                 val year = calendarInstance.get(Calendar.YEAR).toString()
-                val month = (calendarInstance.get(Calendar.MONTH) + 1).toString()
-                val day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
-                date = "$day/$month/$year"
+                var month = (calendarInstance.get(Calendar.MONTH) + 1).toString()
+                var day = calendarInstance.get(Calendar.DAY_OF_MONTH).toString()
+
+                if (day.length < 2) {
+                    day = "0$day"
+                }
+
+                if (month.length < 2) {
+                    month = "0$month"
+                }
+
+                date = "$year-$month-$day"
 
                 var hour = calendarInstance.get(Calendar.HOUR_OF_DAY).toString()
                 var minutes = calendarInstance.get(Calendar.MINUTE).toString()
@@ -75,23 +83,25 @@ class CameraViewModel @Inject constructor(
                 }
             }
             is CameraEvent.OnConfirmationDialogOkClick -> {
-                insertFood()
+                viewModelScope.launch {
+                    insertFood()
 
-                _ingredientsListUiState.value.checked.zip(_ingredientsListUiState.value.ingredients) { checked, ingredient ->
-                    viewModelScope.launch {
-                        val id = repository.getLatestFoodHistoryId()
+                    _ingredientsListUiState.value.checked.zip(_ingredientsListUiState.value.ingredients) { checked, ingredient ->
                         if (checked) repository.insertHistoryIngredients(
                             HistoryIngredientCrossRef(
-                                historyId = id,
+                                historyId = repository.getLatestFoodHistoryId(),
                                 ingredientId = ingredientsToIDs[ingredient]!!
                             )
                         )
                     }
+
+                    // val nutrients = repository.getLastSevenDaysNutrients()
+
+                    // repository.insertSuggestion(SuggestionModel(sentence = "RULE HERE!!!"))
                 }
-                // PARE TA NUTRIENTS EDW, KALESE TO RULESET KAI ME MIA FOR TSEKARE KATHE RULE. UPDATE TA SUGGESTIONS ANALOGWS
             }
             is CameraEvent.OnMealEntryDialogOkClick -> {
-                foodName = foodName.capitalizeWords()
+                // foodName = foodName.capitalizeWords()
                 getIngredients()
             }
             is CameraEvent.OnPredictionCheckDialogYesClick -> {
@@ -101,28 +111,27 @@ class CameraViewModel @Inject constructor(
         }
     }
 
-    private fun insertFood() {
-        viewModelScope.launch {
-            repository.insertFood(
-                HistoryModel(
-                    food_name = foodName,
-                    date = date,
-                    meal = meal,
-                    time = time
-                )
+    private suspend fun insertFood() {
+        repository.insertFood(
+            HistoryModel(
+                food_name = foodName,
+                date = date,
+                meal = meal,
+                time = time
             )
-        }
+        )
     }
 
     private fun getIngredients() {
         viewModelScope.launch {
-            repository.getFoodWithIngredients(foodName).collect {
+            repository.getFoodWithIngredients(foodName).collect { ingredients ->
                 _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
-                    ingredients = it.toFoodWithIngredientsModel().ingredients.toTypedArray(),
-                    checked = BooleanArray(it.toFoodWithIngredientsModel().ingredients.toTypedArray().size) { true }
+                    ingredients = ingredients.map { it.ingredientName }.toTypedArray(),
+                    checked = BooleanArray(ingredients.map { it.ingredientName }
+                        .toTypedArray().size) { true }
                 )
 
-                it.ingredients.forEach { ingredient ->
+                ingredients.forEach { ingredient ->
                     ingredientsToIDs[ingredient.ingredientName] = ingredient.ingredientId
                 }
 

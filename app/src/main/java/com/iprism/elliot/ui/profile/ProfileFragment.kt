@@ -1,11 +1,9 @@
 package com.iprism.elliot.ui.profile
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -19,15 +17,15 @@ import com.google.android.material.timepicker.TimeFormat
 import com.iprism.elliot.R
 import com.iprism.elliot.adapter.SuggestionsAdapter
 import com.iprism.elliot.databinding.FragmentProfileBinding
-import com.iprism.elliot.ui.camera.CameraViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
+    private val profileViewModel: ProfileViewModel by viewModels()
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
-    private val profileViewModel: ProfileViewModel by viewModels()
 
     private fun startTimeSetter(mealString: String, meal: String) {
         val timePicker =
@@ -71,15 +69,15 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initiateListeners() {
-        binding.breakfast.setOnClickListener{
+        binding.breakfast.setOnClickListener {
             startTimeSetter(getString(R.string.breakfast_string), "breakfast")
         }
 
-        binding.lunch.setOnClickListener{
+        binding.lunch.setOnClickListener {
             startTimeSetter(getString(R.string.lunch_string), "lunch")
         }
 
-        binding.dinner.setOnClickListener{
+        binding.dinner.setOnClickListener {
             startTimeSetter(getString(R.string.dinner_string), "dinner")
         }
     }
@@ -118,9 +116,13 @@ class ProfileFragment : Fragment() {
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                // COLLECT TA SUGGESTIONS KAI PASA STO RECYCLEVIEW EDW MESW VIEWMODEL
+                profileViewModel.suggestionUiState.collect { suggestions ->
+                    callRecycleView(recyclerView, suggestions)
+                }
             }
         }
+
+        profileViewModel.onEvent(ProfileEvent.LoadSuggestions)
     }
 
     override fun onDestroyView() {

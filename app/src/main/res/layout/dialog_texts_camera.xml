@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:inputType="text"
-        android:autofillHints="Food Name"
         android:id="@+id/editTextFoodName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:autofillHints="Food Name"
         android:ems="10"
         android:hint="@string/food_name_enter"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

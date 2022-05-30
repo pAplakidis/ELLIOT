@@ -13,15 +13,18 @@ class ProfileViewModel @Inject constructor(
     private val repository: FoodRepository
 ) : ViewModel() {
 
-    private val _suggestionState = MutableStateFlow(
+    private val _suggestionUiState = MutableStateFlow(
         listOf(String())
     )
+    val suggestionUiState = _suggestionUiState.asStateFlow()
 
     fun onEvent(event: ProfileEvent) {
         when (event) {
             is ProfileEvent.LoadSuggestions -> {
                 viewModelScope.launch {
-                    // EDW TSIMPA TIS PROTASEIS KAI STEILTES PISW
+                    repository.getAllSuggestions().collect { suggestions ->
+                        _suggestionUiState.value = suggestions
+                    }
                 }
             }
             is ProfileEvent.SetMealTime -> {

@@ -2,7 +2,6 @@ package com.iprism.elliot.ui.statistics
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageButton
 import androidx.core.content.ContextCompat
@@ -29,6 +28,7 @@ import com.iprism.elliot.domain.model.Statistic
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -50,17 +50,29 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             initializeCalendar()
         }
 
-        val year = Calendar.getInstance().get(Calendar.YEAR)
-        val month = Calendar.getInstance().get(Calendar.MONTH) + 1
-        val day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
-        val date = "$day/$month/$year - $day/$month/$year"
+        val year = Calendar.getInstance().get(Calendar.YEAR).toString()
+        var month = (Calendar.getInstance().get(Calendar.MONTH) + 1).toString()
+        var day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
 
-        statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose(date))
+        if (day.length < 2) {
+            day = "0$day"
+        }
+
+        if (month.length < 2) {
+            month = "0$month"
+        }
+
+        statisticsViewModel.dateStart = "$year-$month-$day"
+        statisticsViewModel.dateEnd = "$year-$month-$day"
+
+        statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose)
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 statisticsViewModel.dateState.collect {
-                    setDataToPieChart(it.pieValues)
+                    if (it.pieValues.isNotEmpty()) {
+                        setDataToPieChart(it.pieValues)
+                    }
                 }
             }
         }
@@ -73,7 +85,6 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                 }
             }
         }
-
     }
 
     private fun initPieChart() {
@@ -171,10 +182,11 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         dateRangePicker.show(childFragmentManager, "tag")
 
         dateRangePicker.addOnPositiveButtonClickListener {
-            Log.d("TAG", dateRangePicker.headerText) // Month Day - Month Day
-            statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose(dateRangePicker.headerText))
-        }
+            statisticsViewModel.dateStart = SimpleDateFormat("yyyy-MM-dd").format(Date(it.first))
+            statisticsViewModel.dateEnd = SimpleDateFormat("yyyy-MM-dd").format(Date(it.second))
 
+            statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose)
+        }
     }
 
     private fun setButtonListeners(view: View) {
@@ -194,11 +206,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                     R.id.button3 -> {
                         statisticsViewModel.onEvent(StatisticsEvent.OnStatLoad(getString(R.string.dinner)))
                     }
-
                 }
-
             }
         }
     }
-
 }

@@ -7,6 +7,7 @@ import com.iprism.elliot.domain.model.HistoryWithIngredientsModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -29,13 +30,20 @@ class CalendarViewModel @Inject constructor(
         when (event) {
             is CalendarEvent.OnHistoryLoad -> {
                 viewModelScope.launch {
-                    repository.getAllHistoryWithIngredients().collect {
-                        _cardUiState.value = it.map { historyWithIngredients ->
-                            historyWithIngredients.toHistoryWithIngredientsModel()
-                        }
+                    repository.getAllHistoryWithIngredients(Locale.getDefault().toString())
+                        .collect {
+                            _cardUiState.value = it.map { m ->
+                                HistoryWithIngredientsModel(
+                                    foodName = m.key.foodName,
+                                    foodDate = m.key.date,
+                                    foodTime = m.key.time,
+                                    meal = m.key.meal,
+                                    ingredients = m.value
+                                )
+                            }
 
-                        _oneTimeCardUiState.emit(_cardUiState.value)
-                    }
+                            _oneTimeCardUiState.emit(_cardUiState.value)
+                        }
                 }
             }
         }
