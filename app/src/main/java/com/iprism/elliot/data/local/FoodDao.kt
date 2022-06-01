@@ -49,6 +49,15 @@ interface FoodDao {
     )
     suspend fun getAllHistoryWithIngredients(lang: String): Map<History, List<Ingredient>>
 
+    @Transaction
+    @Query(
+        "SELECT * FROM Ingredient " +
+                "JOIN HistoryIngredientCrossRef ON Ingredient.ingredient_id = HistoryIngredientCrossRef.ingredient_id " +
+                "JOIN History ON History.history_id = HistoryIngredientCrossRef.history_id " +
+                "WHERE lang = :lang AND date = :dateChosen"
+    )
+    suspend fun getHistoryWithIngredientsDate(lang: String, dateChosen: String): Map<History, List<Ingredient>>
+
     @Query(
         "SELECT " +
                 "ROUND(SUM(protein), 2) as protein, " +

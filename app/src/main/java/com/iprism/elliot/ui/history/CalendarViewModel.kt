@@ -1,6 +1,7 @@
 package com.iprism.elliot.ui.history
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.HistoryWithIngredientsModel
@@ -12,8 +13,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CalendarViewModel @Inject constructor(
+    application: Application,
     private val repository: FoodRepository
-) : ViewModel() {
+) : AndroidViewModel(application) {
+
+    var dateChosen = ""
 
     // Backing property to avoid state updates from other classes
     private val _cardUiState = MutableStateFlow(
@@ -44,6 +48,23 @@ class CalendarViewModel @Inject constructor(
 
                             _oneTimeCardUiState.emit(_cardUiState.value)
                         }
+                }
+            }
+            is CalendarEvent.OnDateChoose -> {
+                viewModelScope.launch {
+                    repository.getHistoryWithIngredientsDate(Locale.getDefault().toString(), dateChosen).collect {
+                        _cardUiState.value = it.map { m ->
+                            HistoryWithIngredientsModel(
+                                foodName = m.key.foodName,
+                                foodDate = m.key.date,
+                                foodTime = m.key.time,
+                                meal = m.key.meal,
+                                ingredients = m.value
+                            )
+                        }
+
+                        _oneTimeCardUiState.emit(_cardUiState.value)
+                    }
                 }
             }
         }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -111,6 +112,12 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val username = activity?.intent?.extras?.getString("USERNAME")
         val id = activity?.intent?.extras?.getString("TOKEN")
+        if (username?.isNotEmpty() == true) {
+            Toast.makeText(activity,username,Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity,"NOT CORRECT.",Toast.LENGTH_SHORT).show()
+        }
+
         val recyclerView: RecyclerView = view.findViewById(R.id.suggestion_recycler)
 
         val cameraButton = activity?.findViewById<FloatingActionButton>(R.id.floating_action_button)

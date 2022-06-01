@@ -49,4 +49,8 @@
     <string name="dinner_string">Ώρες Βραδινού</string>
     <string name="fiber">Ίνες</string>
     <string name="sodium">Σόδιο</string>
+    <string name="pie_notification">Παρακαλώ καταγράψτε ένα φαγητό πρώτα.</string>
+    <string name="calendar_statistics">Ημερολόγιο στα Στατιστικά</string>
+    <string name="calendar_history">Ημερολόγιο στο Ιστορικό</string>
+    <string name="select_date">Επιλογή Ημερομηνίας</string>
 </resources>

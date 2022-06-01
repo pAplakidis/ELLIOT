@@ -55,7 +55,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@null"
-        android:contentDescription="@string/back_button_statistics"
+        android:contentDescription="@string/calendar_statistics"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_baseline_edit_calendar_24"
         app:layout_constraintStart_toStartOf="parent"

@@ -76,13 +76,13 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 statisticsViewModel.dateState.collect {
-//                    if (it.pieValues.isNotEmpty()) {
-//                        setDataToPieChart(it.pieValues)
-//                    }
                     for (value in it.pieValues) {
                         if (value > 0) {
                             setDataToPieChart(it.pieValues)
                             break
+                        } else {
+                            pieChart.clear()
+                            pieChart.invalidate()
                         }
                     }
                 }
@@ -94,11 +94,11 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                 statisticsViewModel.statState.collect {
                     val recyclerView: RecyclerView = view.findViewById(R.id.list_information)
                     val recycleDataset = listOf(
-                        SubStatistic("Protein",it.statList.protein),
-                        SubStatistic("Fat",it.statList.fat),
-                        SubStatistic("Carbohydrates",it.statList.carbohydrate),
-                        SubStatistic("Fiber",it.statList.fiber),
-                        SubStatistic("Sodium",it.statList.sodium)
+                        SubStatistic(getString(R.string.proteins),it.statList.protein),
+                        SubStatistic(getString(R.string.fat),it.statList.fat),
+                        SubStatistic(getString(R.string.carbs),it.statList.carbohydrate),
+                        SubStatistic(getString(R.string.fiber),it.statList.fiber),
+                        SubStatistic(getString(R.string.sodium),it.statList.sodium)
                     )
                     initRecycler(recyclerView, recycleDataset)
                 }
@@ -113,7 +113,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.isDrawHoleEnabled = false
         pieChart.setTouchEnabled(false)
         pieChart.setDrawEntryLabels(false)
-        pieChart.setNoDataText("Please record a food for the specific week first.")
+        pieChart.setNoDataText(getString(R.string.pie_notification))
         pieChart.setNoDataTextColor(Color.parseColor("#4E342E"))
         val paint: Paint = pieChart.getPaint(Chart.PAINT_INFO)
         paint.textSize = 50f

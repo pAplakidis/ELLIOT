@@ -1,9 +1,11 @@
 package com.iprism.elliot.ui.history
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,11 +18,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.iprism.elliot.adapter.FoodsAdapter
 import com.iprism.elliot.domain.model.HistoryWithIngredientsModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iprism.elliot.R
+import com.iprism.elliot.ui.statistics.StatisticsEvent
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class CalendarFragment : Fragment(R.layout.fragment_foods) {
@@ -50,37 +57,42 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         cameraButton?.visibility = View.VISIBLE
     }
 
-//    private fun constraintsCalendar(): CalendarConstraints.Builder {
-//        val today = MaterialDatePicker.todayInUtcMilliseconds()
-//        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
-//
-//        calendar.timeInMillis = today
-//        calendar[Calendar.MONTH] = Calendar.JANUARY
-//        val janThisYear = calendar.timeInMillis
-//
-//        calendar.timeInMillis = today
-//        calendar[Calendar.MONTH] = Calendar.DECEMBER
-//        val decThisYear = calendar.timeInMillis
-//
-//        // Build constraints.
-//        return CalendarConstraints.Builder()
-//            .setStart(janThisYear)
-//            .setEnd(decThisYear)
-//    }
+    private fun constraintsCalendar(): CalendarConstraints.Builder {
+        val today = MaterialDatePicker.todayInUtcMilliseconds()
+        val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
 
-//    private fun initializeCalendar(): MaterialDatePicker<Long> {
-//        val datePicker =
-//            MaterialDatePicker.Builder.datePicker()
-//                .setTitleText("Select date")
-//                .setCalendarConstraints(constraintsCalendar().build())
-//                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-//                .setTheme(R.style.ThemeOverlay_Elliot_DatePicker)
-//                .build()
-//
-//        datePicker.show(childFragmentManager, "tag")
-//
-//        return datePicker
-//    }
+        calendar.timeInMillis = today
+        calendar[Calendar.MONTH] = Calendar.JANUARY
+        val janThisYear = calendar.timeInMillis
+
+        calendar.timeInMillis = today
+        calendar[Calendar.MONTH] = Calendar.DECEMBER
+        val decThisYear = calendar.timeInMillis
+
+        // Build constraints.
+        return CalendarConstraints.Builder()
+            .setStart(janThisYear)
+            .setEnd(decThisYear)
+    }
+
+    private fun initializeCalendar(): MaterialDatePicker<Long> {
+        val datePicker =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText(getString(R.string.select_date))
+                .setCalendarConstraints(constraintsCalendar().build())
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .setTheme(R.style.ThemeOverlay_Elliot_DatePicker)
+                .build()
+
+        datePicker.show(childFragmentManager, "tag")
+
+        datePicker.addOnPositiveButtonClickListener {
+            calendarViewModel.dateChosen = SimpleDateFormat("yyyy-MM-dd").format(Date(it))
+            calendarViewModel.onEvent(CalendarEvent.OnDateChoose)
+        }
+
+        return datePicker
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -97,7 +109,10 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
         val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
 
-//        val datePicker = initializeCalendar()
+        val calendarButton = view.findViewById<ImageButton>(R.id.calendar_button)
+        calendarButton.setOnClickListener {
+            initializeCalendar()
+        }
 
         calendarViewModel.onEvent(CalendarEvent.OnHistoryLoad)
 

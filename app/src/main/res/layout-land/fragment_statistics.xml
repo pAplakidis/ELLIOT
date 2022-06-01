@@ -55,7 +55,7 @@
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
         <ImageButton
-            android:contentDescription="@string/back_button_statistics"
+            android:contentDescription="@string/calendar_statistics"
             android:id="@+id/calendar_button"
             android:layout_width="50dp"
             android:layout_height="50dp"

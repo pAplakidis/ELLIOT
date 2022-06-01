@@ -27,6 +27,8 @@ interface FoodRepository {
 
     fun getAllHistoryWithIngredients(lang: String): Flow<Map<History, List<Ingredient>>>
 
+    fun getHistoryWithIngredientsDate(lang: String, dateChosen: String): Flow<Map<History, List<Ingredient>>>
+
     suspend fun getLastSevenDaysNutrients(): NutrientsModel
 
     suspend fun getNutrients(dateStart: String, dateEnd: String): Flow<NutrientsModel>

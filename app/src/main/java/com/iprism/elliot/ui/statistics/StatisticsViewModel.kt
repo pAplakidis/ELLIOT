@@ -1,7 +1,6 @@
 package com.iprism.elliot.ui.statistics
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.repository.FoodRepository
@@ -21,39 +20,6 @@ class StatisticsViewModel @Inject constructor(
 
     var dateStart = ""
     var dateEnd = ""
-
-//    private val testListBreakfast = Statistic(
-//        listOf(
-//            SubStatistic(
-//                getApplication<Application>().resources.getString(R.string.proteins),
-//                "653"
-//            ),
-//            SubStatistic(getApplication<Application>().resources.getString(R.string.carbs), "23"),
-//            SubStatistic(getApplication<Application>().resources.getString(R.string.fat), "24")
-//        )
-//    )
-//
-//    private val testListLunch = Statistic(
-//        listOf(
-//            SubStatistic(
-//                getApplication<Application>().resources.getString(R.string.proteins),
-//                "356"
-//            ),
-//            SubStatistic(getApplication<Application>().resources.getString(R.string.carbs), "12"),
-//            SubStatistic(getApplication<Application>().resources.getString(R.string.fat), "35")
-//        )
-//    )
-//
-//    private val testListDinner = Statistic(
-//        listOf(
-//            SubStatistic(
-//                getApplication<Application>().resources.getString(R.string.proteins),
-//                "62"
-//            ),
-//            SubStatistic(getApplication<Application>().resources.getString(R.string.carbs), "235"),
-//            SubStatistic(getApplication<Application>().resources.getString(R.string.fat), "13")
-//        )
-//    )
 
     private val _dateState = MutableStateFlow(DateChooser(emptyList()))
     val dateState = _dateState.asStateFlow()

@@ -42,6 +42,11 @@ class FoodRepositoryImpl(
             emit(dao.getAllHistoryWithIngredients(lang))
         }
 
+    override fun getHistoryWithIngredientsDate(lang: String, dateChosen: String): Flow<Map<History, List<Ingredient>>> =
+        flow {
+            emit(dao.getHistoryWithIngredientsDate(lang, dateChosen))
+        }
+
     override suspend fun getLastSevenDaysNutrients(): NutrientsModel {
         return dao.getLastSevenDaysNutrients()
     }
