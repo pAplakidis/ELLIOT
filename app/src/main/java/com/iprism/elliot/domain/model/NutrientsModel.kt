@@ -5,5 +5,6 @@ data class NutrientsModel(
     val fat: Double,
     val carbohydrate: Double,
     val fiber: Double,
-    val sodium: Double
+    val sodium: Double,
+    val sugar: Double?
 )

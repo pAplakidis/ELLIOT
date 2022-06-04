@@ -24,7 +24,7 @@ class StatisticsViewModel @Inject constructor(
     private val _dateState = MutableStateFlow(DateChooser(emptyList()))
     val dateState = _dateState.asStateFlow()
 
-    private val _statState = MutableStateFlow(StatLoader(NutrientsModel(0.0,0.0,0.0,0.0,0.0)))
+    private val _statState = MutableStateFlow(StatLoader(NutrientsModel(0.0,0.0,0.0,0.0,0.0, 0.0)))
     val statState = _statState.asStateFlow()
 
     fun onEvent(event: StatisticsEvent) {
@@ -37,6 +37,7 @@ class StatisticsViewModel @Inject constructor(
                         val carbs = nutrients.carbohydrate.toFloat()
                         val fiber = nutrients.fiber.toFloat()
                         val sodium = nutrients.sodium.toFloat()
+                        //val sugar = nutrients.sugar.toFloat()
 
                         val total = protein + carbs + fat + fiber + sodium
 
@@ -45,9 +46,10 @@ class StatisticsViewModel @Inject constructor(
                         val carbsPerc = (carbs / total * 100)
                         val fiberPerc = (fiber / total * 100)
                         val sodiumPerc = (sodium / total * 100)
+                        //val sugarPerc = (sugar / total * 100)
 
                         _dateState.value = dateState.value.copy(
-                            pieValues = listOf(proteinPerc, fatPerc, carbsPerc, fiberPerc, sodiumPerc)
+                            pieValues = listOf(proteinPerc, fatPerc, carbsPerc, fiberPerc, sodiumPerc) // SUGARPERC
                         )
                     }
                 }

@@ -98,7 +98,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                         SubStatistic(getString(R.string.fat),it.statList.fat),
                         SubStatistic(getString(R.string.carbs),it.statList.carbohydrate),
                         SubStatistic(getString(R.string.fiber),it.statList.fiber),
-                        SubStatistic(getString(R.string.sodium),it.statList.sodium)
+                        SubStatistic(getString(R.string.sodium),it.statList.sodium),
+                        SubStatistic(getString(R.string.sugar),it.statList.sodium)
                     )
                     initRecycler(recyclerView, recycleDataset)
                 }
@@ -133,6 +134,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         colors.add(Color.parseColor("#FF8A65"))
         colors.add(Color.parseColor("#16BF55"))
         colors.add(Color.parseColor("#A416BF"))
+        colors.add(Color.parseColor("#34C0EB"))
 
         // In Percentage
         data.setValueFormatter(PercentFormatter())
@@ -144,9 +146,10 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.animateY(1400, Easing.EaseInOutQuad)
         pieChart.legend.textColor =
             context?.let { ContextCompat.getColor(it, R.color.pie_labels) }!!
-
+        pieChart.legend.isWordWrapEnabled = true
+        pieChart.legend.yEntrySpace = 10f
         pieChart.legend.textSize =
-            10f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
+            13f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
 
         pieChart.invalidate()
     }
@@ -160,6 +163,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         dataEntries.add(PieEntry(stat[2], getString(R.string.carbs)))
         dataEntries.add(PieEntry(stat[3], getString(R.string.fiber)))
         dataEntries.add(PieEntry(stat[4], getString(R.string.sodium)))
+        dataEntries.add(PieEntry(stat[4], getString(R.string.sugar)))
 
         val dataSet = PieDataSet(dataEntries, "")
         val data = PieData(dataSet)
