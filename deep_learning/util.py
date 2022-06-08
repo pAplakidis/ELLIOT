@@ -64,7 +64,7 @@ def horizontal_shift(img, ratio=0.0):
   h, w = IMG_SIZE, IMG_SIZE
   to_shift = w * ratio
   if ratio > 0:
-    img = img[:, ing(w-to_shift), :]
+    img = img[:, img(w-to_shift), :]
   elif ratio < 0:
     img = img[:, int(-1*to_shift):, :]
   img = fill(img, h, w)

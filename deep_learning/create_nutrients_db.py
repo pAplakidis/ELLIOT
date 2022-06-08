@@ -29,7 +29,6 @@ def get_nutrients(path):
 def similar(a, b):
   return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
-# maybe remove spaces or replace them with _
 def check(a, b):
   if b != None and a in b.lower().replace(" ", "_"):
     return True
@@ -44,6 +43,7 @@ if __name__ == '__main__':
   print(nutrients)
 
   out_data = []
+  matches = 0
   for i in (t := trange(len(food_classes))):
     f_class = food_classes[i]
     t.set_description("Processing: %s"%f_class)
@@ -53,6 +53,7 @@ if __name__ == '__main__':
       if check(f_class, n["name"]):
         #print(f_class, "matched with", n["name"])
         # NOTE: out_data = [[f_name, protein (g), fat (g), carbohydrate (g), fiber (g), sodium (g)], [...], ...]
+        matches += 1
         data.append(n["Protein (g)"])
         data.append(n["Fat (g)"])
         data.append(n["Carbohydrate (g)"])
@@ -61,6 +62,7 @@ if __name__ == '__main__':
         break
     out_data.append(data)
   print(out_data)
+  print("%d/%d Matches"%(matches, len(food_classes)))
 
   write_str = ""
   with open(out_path, 'w') as f:
