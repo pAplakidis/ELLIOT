@@ -23,7 +23,7 @@ def get_classes(path):
 
 def get_nutrients(path):
   data = pd.read_excel(path)
-  nutrients = ["name", "Protein (g)", "Fat (g)", "Carbohydrate (g)", "Fiber (g)", "Sodium (mg)"]
+  nutrients = ["name", "Protein (g)", "Fat (g)", "Carbohydrate (g)", "Fiber (g)", "Sodium (mg)", "Sugars (g)"]
   return data[nutrients]
 
 def similar(a, b):
@@ -59,6 +59,7 @@ if __name__ == '__main__':
         data.append(n["Carbohydrate (g)"])
         data.append(n["Fiber (g)"])
         data.append(n["Sodium (mg)"])
+        data.append(n["Sugars (g)"])
         break
     out_data.append(data)
   print(out_data)

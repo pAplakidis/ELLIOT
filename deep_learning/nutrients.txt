@@ -4,6 +4,7 @@ adobo
 8.16
 0.4
 428.0
+0.03
 
 ambrosia_food
 
@@ -13,6 +14,7 @@ apple_pie
 44.54
 1.6
 200.0
+22.02
 
 apple_turnover
 
@@ -22,6 +24,7 @@ applesauce
 11.27
 1.1
 2.0
+9.39
 
 applesauce_cake
 
@@ -37,6 +40,7 @@ baked_alaska
 35.44
 0.6
 136.0
+28.18
 
 baklava
 6.64
@@ -44,6 +48,7 @@ baklava
 37.53
 2.6
 337.0
+12.67
 
 barbecued_spareribs
 
@@ -59,6 +64,7 @@ beef_stroganoff
 9.0
 0.6
 435.0
+1.68
 
 beef_tartare
 
@@ -68,6 +74,7 @@ beef_wellington
 10.1
 0.4
 182.0
+0.12
 
 beet_salad
 
@@ -79,6 +86,7 @@ bibimbap
 8.34
 1.0
 422.0
+1.46
 
 biryani
 8.4
@@ -86,6 +94,7 @@ biryani
 12.07
 0.9
 98.0
+1.67
 
 blancmange
 
@@ -95,6 +104,7 @@ boiled_egg
 1.12
 0.0
 124.0
+1.12
 
 boston_cream_pie
 2.4
@@ -102,6 +112,7 @@ boston_cream_pie
 42.9
 1.4
 254.0
+36.11
 
 bread_pudding
 8.23
@@ -109,6 +120,7 @@ bread_pudding
 39.38
 1.1
 334.0
+23.48
 
 brisket
 20.72
@@ -116,6 +128,7 @@ brisket
 0.6
 0.0
 79.0
+0.0
 
 bruschetta
 4.03
@@ -123,6 +136,7 @@ bruschetta
 22.18
 2.0
 238.0
+2.74
 
 bubble_and_squeak
 
@@ -134,6 +148,7 @@ burrito
 20.51
 2.4
 564.0
+nan
 
 caesar_salad
 4.77
@@ -141,6 +156,7 @@ caesar_salad
 6.0
 2.0
 180.0
+1.3
 
 cannelloni
 6.95
@@ -148,6 +164,7 @@ cannelloni
 17.41
 1.2
 604.0
+0.75
 
 cannoli
 
@@ -163,6 +180,7 @@ casserole
 15.29
 0.7
 275.0
+2.1
 
 ceviche
 10.34
@@ -170,6 +188,7 @@ ceviche
 3.58
 0.5
 158.0
+1.36
 
 cheesecake
 5.5
@@ -177,6 +196,7 @@ cheesecake
 25.5
 0.4
 438.0
+21.8
 
 chicken_cordon_bleu
 
@@ -186,6 +206,7 @@ chicken_curry
 6.67
 1.5
 301.0
+1.47
 
 chicken_kiev
 28.0
@@ -193,6 +214,7 @@ chicken_kiev
 4.25
 0.2
 385.0
+0.22
 
 chicken_marengo
 
@@ -206,6 +228,7 @@ chicken_wing
 11.19
 0.1
 867.0
+0.0
 
 chiffon_cake
 
@@ -215,6 +238,7 @@ chili
 4.6
 1.7
 397.0
+nan
 
 chocolate_cake
 5.3
@@ -222,6 +246,7 @@ chocolate_cake
 53.4
 1.6
 315.0
+nan
 
 chocolate_mousse
 4.14
@@ -229,6 +254,7 @@ chocolate_mousse
 16.07
 0.6
 38.0
+14.81
 
 chop_suey
 10.44
@@ -236,6 +262,7 @@ chop_suey
 12.29
 1.2
 365.0
+2.25
 
 chow_mein
 6.76
@@ -243,6 +270,7 @@ chow_mein
 8.29
 1.0
 311.0
+1.74
 
 churro
 3.02
@@ -250,6 +278,7 @@ churro
 49.8
 0.8
 160.0
+27.25
 
 clam_chowder
 3.02
@@ -257,6 +286,7 @@ clam_chowder
 7.84
 1.2
 417.0
+1.67
 
 clam_food
 
@@ -266,6 +296,7 @@ club_sandwich
 19.87
 1.2
 630.0
+4.68
 
 cockle_food
 
@@ -277,6 +308,7 @@ coffee_cake
 51.24
 1.5
 338.0
+26.56
 
 compote
 
@@ -294,6 +326,7 @@ couscous
 77.43
 5.0
 10.0
+nan
 
 crab_cake
 20.21
@@ -301,6 +334,7 @@ crab_cake
 0.48
 0.0
 330.0
+nan
 
 crab_food
 
@@ -316,6 +350,7 @@ croquette
 2.58
 0.2
 1178.0
+0.51
 
 cruller
 3.1
@@ -323,6 +358,7 @@ cruller
 59.5
 1.2
 345.0
+35.11
 
 crumb_cake
 
@@ -332,6 +368,7 @@ crumpet
 28.42
 1.7
 481.0
+2.83
 
 cupcake
 4.93
@@ -339,6 +376,7 @@ cupcake
 44.82
 1.7
 205.0
+27.87
 
 custard
 4.41
@@ -346,6 +384,7 @@ custard
 37.43
 0.9
 265.0
+22.05
 
 deviled_egg
 
@@ -359,6 +398,7 @@ dumpling
 8.03
 nan
 46.0
+0.21
 
 eccles_cake
 
@@ -368,6 +408,7 @@ edamame
 7.61
 4.8
 6.0
+2.48
 
 egg_roll
 8.28
@@ -375,6 +416,7 @@ egg_roll
 27.29
 2.6
 468.0
+nan
 
 eggs_benedict
 
@@ -384,6 +426,7 @@ enchilada
 16.2
 1.8
 561.0
+2.89
 
 entrecote
 
@@ -395,6 +438,7 @@ falafel
 31.84
 nan
 294.0
+nan
 
 farfalle
 
@@ -404,6 +448,7 @@ fettuccine
 13.46
 1.1
 385.0
+4.83
 
 filet_mignon
 
@@ -415,6 +460,7 @@ fish_stick
 21.66
 1.5
 402.0
+1.65
 
 flan
 4.53
@@ -422,6 +468,7 @@ flan
 22.78
 0.0
 53.0
+22.78
 
 foie_gras
 11.4
@@ -429,6 +476,7 @@ foie_gras
 4.67
 0.0
 697.0
+nan
 
 fondue
 19.3
@@ -436,6 +484,7 @@ fondue
 1.93
 0.0
 304.0
+0.53
 
 french_fries
 3.41
@@ -443,6 +492,7 @@ french_fries
 35.2
 3.5
 44.0
+0.85
 
 french_onion_soup
 
@@ -452,6 +502,7 @@ french_toast
 41.21
 1.4
 400.0
+9.89
 
 fried_calamari
 17.94
@@ -459,6 +510,7 @@ fried_calamari
 7.79
 0.0
 306.0
+nan
 
 fried_egg
 13.61
@@ -466,6 +518,7 @@ fried_egg
 0.83
 0.0
 207.0
+0.4
 
 fried_rice
 4.05
@@ -473,6 +526,7 @@ fried_rice
 32.79
 1.1
 387.0
+0.56
 
 frittata
 
@@ -482,6 +536,7 @@ fritter
 5.22
 0.2
 421.0
+0.39
 
 frozen_yogurt
 4.4
@@ -489,6 +544,7 @@ frozen_yogurt
 19.7
 2.0
 81.0
+12.61
 
 fruitcake
 2.9
@@ -496,6 +552,7 @@ fruitcake
 61.6
 3.7
 101.0
+27.42
 
 galantine
 
@@ -505,6 +562,7 @@ garlic_bread
 41.72
 2.5
 544.0
+3.69
 
 gingerbread
 4.4
@@ -512,6 +570,7 @@ gingerbread
 74.6
 1.7
 657.0
+46.62
 
 gnocchi
 8.37
@@ -519,6 +578,7 @@ gnocchi
 9.41
 0.2
 270.0
+0.16
 
 greek_salad
 2.61
@@ -526,6 +586,7 @@ greek_salad
 3.77
 1.7
 231.0
+1.53
 
 grilled_cheese_sandwich
 10.47
@@ -533,6 +594,7 @@ grilled_cheese_sandwich
 28.81
 1.4
 796.0
+5.2
 
 grilled_salmon
 
@@ -542,6 +604,7 @@ guacamole
 8.45
 6.5
 344.0
+0.72
 
 gyoza
 
@@ -551,6 +614,7 @@ gyro
 18.44
 1.0
 183.0
+1.54
 
 haggis
 
@@ -562,6 +626,7 @@ ham_sandwich
 24.99
 1.9
 808.0
+2.69
 
 hamburger
 8.07
@@ -569,6 +634,7 @@ hamburger
 50.84
 2.6
 488.0
+11.06
 
 hot_and_sour_soup
 
@@ -578,6 +644,7 @@ hot_dog
 23.35
 1.5
 1091.0
+nan
 
 huevos_rancheros
 6.87
@@ -585,6 +652,7 @@ huevos_rancheros
 8.72
 1.7
 449.0
+2.42
 
 huitre
 
@@ -594,6 +662,7 @@ hummus
 20.12
 4.0
 242.0
+0.27
 
 ice_cream
 4.78
@@ -601,6 +670,7 @@ ice_cream
 29.46
 0.3
 74.0
+22.12
 
 jambalaya
 14.5
@@ -608,6 +678,7 @@ jambalaya
 8.53
 0.7
 417.0
+0.94
 
 jerky
 33.2
@@ -615,6 +686,7 @@ jerky
 11.0
 1.8
 1785.0
+9.0
 
 kabob
 20.21
@@ -622,6 +694,7 @@ kabob
 0.0
 0.0
 65.0
+nan
 
 kedgeree
 
@@ -631,6 +704,7 @@ knish
 33.81
 1.5
 365.0
+0.62
 
 lasagna
 10.9
@@ -638,6 +712,7 @@ lasagna
 73.77
 2.8
 1850.0
+11.27
 
 limpet_food
 
@@ -649,6 +724,7 @@ lobster_bisque
 1.7
 0.2
 322.0
+1.04
 
 lobster_food
 
@@ -664,6 +740,7 @@ macaron
 15.58
 0.7
 374.0
+2.83
 
 macaroni_and_cheese
 12.73
@@ -671,6 +748,7 @@ macaroni_and_cheese
 46.66
 1.8
 766.0
+6.43
 
 manicotti
 11.35
@@ -678,6 +756,7 @@ manicotti
 18.79
 0.6
 440.0
+0.48
 
 marble_cake
 
@@ -687,6 +766,7 @@ matzo_ball
 7.74
 0.5
 345.0
+0.91
 
 meat_loaf_food
 
@@ -696,6 +776,7 @@ meatball
 15.51
 1.5
 351.0
+2.03
 
 miso_soup
 
@@ -705,6 +786,7 @@ moo_goo_gai_pan
 6.39
 1.4
 108.0
+2.48
 
 mostaccioli
 
@@ -716,6 +798,7 @@ mussel
 3.69
 0.0
 286.0
+0.0
 
 nacho
 7.36
@@ -723,6 +806,7 @@ nacho
 60.81
 5.1
 691.0
+2.59
 
 omelette
 
@@ -732,6 +816,7 @@ onion_rings
 40.95
 2.2
 463.0
+4.82
 
 orzo
 
@@ -741,6 +826,7 @@ osso_buco
 0.0
 0.0
 90.0
+0.0
 
 oyster
 3.31
@@ -748,6 +834,7 @@ oyster
 6.09
 2.3
 18.0
+1.11
 
 pad_thai
 8.12
@@ -755,6 +842,7 @@ pad_thai
 14.32
 1.2
 385.0
+4.14
 
 paella
 8.04
@@ -762,6 +850,7 @@ paella
 16.43
 0.8
 610.0
+0.93
 
 pancake
 0.0
@@ -769,6 +858,7 @@ pancake
 72.43
 0.0
 287.0
+72.25
 
 panna_cotta
 
@@ -778,6 +868,7 @@ pate
 4.67
 0.0
 697.0
+nan
 
 pavlova
 
@@ -787,6 +878,7 @@ peach_melba
 16.5
 nan
 9.0
+nan
 
 peking_duck
 
@@ -798,6 +890,7 @@ pepper_steak
 4.36
 0.7
 245.0
+1.75
 
 pho
 8.51
@@ -805,6 +898,7 @@ pho
 58.01
 1.7
 101.0
+53.96
 
 pilaf
 10.42
@@ -812,6 +906,7 @@ pilaf
 76.31
 1.2
 1303.0
+1.53
 
 pirogi
 
@@ -821,6 +916,7 @@ pizza
 65.11
 3.5
 815.0
+0.86
 
 poached_egg
 12.51
@@ -828,6 +924,7 @@ poached_egg
 0.71
 0.0
 297.0
+0.37
 
 poi
 1.21
@@ -835,6 +932,7 @@ poi
 5.37
 2.3
 18.0
+nan
 
 pork_chop
 26.54
@@ -842,6 +940,7 @@ pork_chop
 0.0
 0.0
 69.0
+0.0
 
 porridge
 
@@ -853,6 +952,7 @@ pound_cake
 51.29
 1.7
 390.0
+18.1
 
 poutine
 
@@ -862,6 +962,7 @@ prime_rib
 0.0
 0.0
 63.0
+nan
 
 profiterole
 
@@ -873,6 +974,7 @@ ramen
 60.26
 2.9
 1855.0
+1.98
 
 ravioli
 7.96
@@ -880,6 +982,7 @@ ravioli
 17.62
 1.4
 371.0
+4.15
 
 red_velvet_cake
 
@@ -889,6 +992,7 @@ reuben
 19.32
 2.2
 714.0
+3.89
 
 rigatoni
 6.19
@@ -896,6 +1000,7 @@ rigatoni
 8.66
 1.1
 308.0
+2.59
 
 risotto
 
@@ -913,6 +1018,7 @@ salisbury_steak
 6.78
 1.0
 509.0
+0.26
 
 samosa
 
@@ -926,6 +1032,7 @@ sauerkraut
 4.28
 2.9
 661.0
+1.78
 
 sausage_roll
 
@@ -937,6 +1044,7 @@ scallop
 5.41
 0.0
 667.0
+0.0
 
 scampi
 19.7
@@ -944,6 +1052,7 @@ scampi
 1.77
 0.1
 97.0
+0.06
 
 schnitzel
 
@@ -955,6 +1064,7 @@ scrambled_eggs
 1.61
 0.0
 145.0
+1.39
 
 scrapple
 8.06
@@ -962,6 +1072,7 @@ scrapple
 14.06
 0.3
 482.0
+0.2
 
 seaweed_salad
 
@@ -975,6 +1086,7 @@ sloppy_joe
 8.75
 0.9
 566.0
+6.35
 
 souffle
 7.89
@@ -982,6 +1094,7 @@ souffle
 5.9
 0.7
 566.0
+1.85
 
 spaghetti_bolognese
 
@@ -999,6 +1112,7 @@ steak_tartare
 1.56
 0.4
 144.0
+0.47
 
 strawberry_shortcake
 
@@ -1010,6 +1124,7 @@ strudel
 41.1
 2.2
 135.0
+25.75
 
 stuffed_cabbage
 8.45
@@ -1017,6 +1132,7 @@ stuffed_cabbage
 8.51
 1.3
 339.0
+3.34
 
 stuffed_peppers
 
@@ -1026,6 +1142,7 @@ stuffed_tomato
 9.86
 1.0
 273.0
+2.05
 
 succotash
 5.07
@@ -1033,6 +1150,7 @@ succotash
 24.38
 4.5
 17.0
+nan
 
 sukiyaki
 
@@ -1042,6 +1160,7 @@ sushi
 18.42
 1.0
 429.0
+2.13
 
 syllabub
 
@@ -1051,6 +1170,7 @@ taco
 19.28
 1.8
 646.0
+1.84
 
 tagliatelle
 
@@ -1062,6 +1182,7 @@ tamale
 18.12
 3.1
 427.0
+0.99
 
 tamale_pie
 
@@ -1073,6 +1194,7 @@ tempura
 4.55
 1.1
 23.0
+1.65
 
 tenderloin
 29.86
@@ -1080,6 +1202,7 @@ tenderloin
 0.0
 0.0
 64.0
+nan
 
 terrine
 
@@ -1089,6 +1212,7 @@ tetrazzini
 6.96
 0.5
 388.0
+0.23
 
 tiramisu
 5.91
@@ -1096,6 +1220,7 @@ tiramisu
 29.61
 0.4
 155.0
+18.86
 
 toad_in_the_hole
 
@@ -1105,6 +1230,7 @@ torte
 47.0
 1.9
 406.0
+0.95
 
 tortellini
 13.5
@@ -1112,6 +1238,7 @@ tortellini
 47.0
 1.9
 406.0
+0.95
 
 tostada
 6.15
@@ -1119,6 +1246,7 @@ tostada
 64.43
 5.8
 657.0
+nan
 
 tuna_tartare
 
@@ -1130,6 +1258,7 @@ veal_cordon_bleu
 9.61
 0.7
 477.0
+0.63
 
 vermicelli
 10.84
@@ -1137,6 +1266,7 @@ vermicelli
 76.02
 1.6
 1337.0
+4.27
 
 victoria_sandwich
 
@@ -1148,6 +1278,7 @@ waffle
 41.05
 2.2
 621.0
+4.3
 
 welsh_rarebit
 7.34
@@ -1155,6 +1286,7 @@ welsh_rarebit
 6.44
 0.1
 285.0
+4.41
 
 wonton
 8.28
@@ -1162,6 +1294,7 @@ wonton
 13.28
 1.4
 441.0
+2.76
 
 ziti
 
