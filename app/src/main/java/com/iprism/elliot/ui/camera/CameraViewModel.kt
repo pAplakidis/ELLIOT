@@ -98,11 +98,24 @@ class CameraViewModel @Inject constructor(
                         )
                     }
 
-                    val nutrients = repository.getLastSevenDaysNutrients()
+                    val calendar = Calendar.getInstance()
+                    val year = calendar.get(Calendar.YEAR).toString()
+                    val month = (calendar.get(Calendar.MONTH) + 1).toString()
+                    val day = calendar.get(Calendar.DAY_OF_MONTH).toString()
 
-                    for (rule in checkRuleset(nutrients)) {
-                        if (rule != "") {
-                            repository.insertSuggestion(SuggestionModel(rule))
+                    val nutrients = repository.getLastSevenDaysNutrients()
+                    Log.d("TAG", nutrients.toString())
+
+                    val caloriesWeek = nutrients.carbohydrate + nutrients.fiber + nutrients.fat +
+                                   nutrients.protein + nutrients.sodium
+
+                    repository.getNutrients("$year-0$month-0$day","$year-0$month-0$day").collect {
+                        val caloriesDay = it.carbohydrate + it.fiber + it.fat +
+                                it.protein + it.sodium
+                        for (rule in checkRuleset(nutrients, caloriesWeek, caloriesDay, it)) {
+                            if (rule != "") {
+                                repository.insertSuggestion(SuggestionModel(rule))
+                            }
                         }
                     }
 
@@ -148,10 +161,50 @@ class CameraViewModel @Inject constructor(
         }
     }
 
-    private fun checkRuleset(nutrients: NutrientsModel): List<String> {
+    private fun checkRuleset(
+        nutrientsWeek: NutrientsModel,
+        caloriesWeek: Double,
+        caloriesDay: Double,
+        nutrientsDay: NutrientsModel
+    ): List<String> {
         val activeRules = mutableListOf<String>()
-        activeRules.add(Ruleset.proteinRule(nutrients.protein))
-        activeRules.add(Ruleset.fatRule(nutrients.fat))
+        val proteinPercentWeek = nutrientsWeek.protein / caloriesWeek
+        val fatPercentWeek = nutrientsWeek.fat / caloriesWeek
+        val carbsPercentWeek = nutrientsWeek.carbohydrate / caloriesWeek
+//        val sugarPercentWeek = nutrientsWeek.sugar / caloriesWeek
+
+
+        val proteinPercentDay = nutrientsDay.protein / caloriesDay
+        val fatPercentDay = nutrientsDay.fat / caloriesDay
+        val carbsPercentDay = nutrientsDay.carbohydrate / caloriesDay
+//        val sugarPercentDay = nutrientsDay.sugar / caloriesDay
+
+        activeRules.add(Ruleset.proteinMinRuleWeek(proteinPercentWeek))
+        activeRules.add(Ruleset.proteinMaxRuleWeek(proteinPercentWeek))
+
+        activeRules.add(Ruleset.fatMinRuleWeek(fatPercentWeek))
+        activeRules.add(Ruleset.fatMaxRuleWeek(fatPercentWeek))
+        activeRules.add(Ruleset.saturatedFatsRuleWeek(fatPercentWeek))
+
+        activeRules.add(Ruleset.carbsMinRuleWeek(carbsPercentWeek))
+        activeRules.add(Ruleset.carbsMaxRuleWeek(carbsPercentWeek))
+//        activeRules.add(Ruleset.sugarRuleWeek(sugarPercent))
+
+        activeRules.add(Ruleset.proteinMinRuleDay(proteinPercentDay))
+        activeRules.add(Ruleset.proteinMaxRuleDay(proteinPercentDay))
+
+        activeRules.add(Ruleset.fatMinRuleDay(fatPercentDay))
+        activeRules.add(Ruleset.fatMaxRuleDay(fatPercentDay))
+        activeRules.add(Ruleset.saturatedFatsRuleDay(fatPercentDay))
+
+        activeRules.add(Ruleset.carbsMinRuleDay(carbsPercentDay))
+        activeRules.add(Ruleset.carbsMaxRuleDay(carbsPercentDay))
+
+        activeRules.add(Ruleset.sodiumRule(nutrientsDay.sodium))
+        activeRules.add(Ruleset.fiberRuleDay(nutrientsDay.fiber))
+//        activeRules.add(Ruleset.sugarRuleDay(sugarPercent))
+
+
         return activeRules
     }
 

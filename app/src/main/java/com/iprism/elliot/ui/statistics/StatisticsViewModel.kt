@@ -1,6 +1,7 @@
 package com.iprism.elliot.ui.statistics
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.repository.FoodRepository
