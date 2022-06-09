@@ -58,7 +58,7 @@ if __name__ == '__main__':
         data.append(n["Fat (g)"])
         data.append(n["Carbohydrate (g)"])
         data.append(n["Fiber (g)"])
-        data.append(n["Sodium (mg)"])
+        data.append(n["Sodium (mg)"]/1000)
         data.append(n["Sugars (g)"])
         break
     out_data.append(data)
