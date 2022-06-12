@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,6 +22,23 @@ class StatisticsViewModel @Inject constructor(
 
     var dateStart = ""
     var dateEnd = ""
+
+    init {
+        val year = Calendar.getInstance().get(Calendar.YEAR).toString()
+        var month = (Calendar.getInstance().get(Calendar.MONTH) + 1).toString()
+        var day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
+
+        if (day.length < 2) {
+            day = "0$day"
+        }
+
+        if (month.length < 2) {
+            month = "0$month"
+        }
+
+        dateStart = "$year-$month-$day"
+        dateEnd = "$year-$month-$day"
+    }
 
     private val _dateState = MutableStateFlow(DateChooser(emptyList()))
     val dateState = _dateState.asStateFlow()

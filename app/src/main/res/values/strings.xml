@@ -49,7 +49,7 @@
     <string name="dinner_string">Dinner times</string>
     <string name="fiber">Fiber</string>
     <string name="sodium">Sodium</string>
-    <string name="pie_notification">Please record a food for the specific time-span first.</string>
+    <string name="pie_notification">Please record a food first.</string>
     <string name="calendar_statistics">Calendar Statistics</string>
     <string name="calendar_history">Calendar History</string>
     <string name="select_date">Select Date</string>

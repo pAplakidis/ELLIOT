@@ -18,6 +18,9 @@ class CalendarViewModel @Inject constructor(
 ) : AndroidViewModel(application) {
 
     var dateChosen = ""
+    var recycledAlpha = 1f
+    var backgroundAlpha = 255
+    var emptyHistoryAlpha = 0f
 
     // Backing property to avoid state updates from other classes
     private val _cardUiState = MutableStateFlow(

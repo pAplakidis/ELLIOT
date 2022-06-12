@@ -56,21 +56,6 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             initializeCalendar()
         }
 
-        val year = Calendar.getInstance().get(Calendar.YEAR).toString()
-        var month = (Calendar.getInstance().get(Calendar.MONTH) + 1).toString()
-        var day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH).toString()
-
-        if (day.length < 2) {
-            day = "0$day"
-        }
-
-        if (month.length < 2) {
-            month = "0$month"
-        }
-
-        statisticsViewModel.dateStart = "$year-$month-$day"
-        statisticsViewModel.dateEnd = "$year-$month-$day"
-
         statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose)
 
         lifecycleScope.launch {
@@ -147,7 +132,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.legend.textColor =
             context?.let { ContextCompat.getColor(it, R.color.pie_labels) }!!
         pieChart.legend.isWordWrapEnabled = true
-        pieChart.legend.yEntrySpace = 10f
+        pieChart.legend.yEntrySpace = 20f
+        pieChart.setExtraOffsets(60f, 0f, 50f, 15f)
         pieChart.legend.textSize =
             13f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
 

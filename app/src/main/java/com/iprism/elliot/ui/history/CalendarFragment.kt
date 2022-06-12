@@ -114,7 +114,16 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
             initializeCalendar()
         }
 
-        calendarViewModel.onEvent(CalendarEvent.OnHistoryLoad)
+        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+            calendarViewModel.emptyHistoryAlpha
+        recyclerView.alpha = calendarViewModel.recycledAlpha
+        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+
+        if (calendarViewModel.dateChosen == "") {
+            calendarViewModel.onEvent(CalendarEvent.OnHistoryLoad)
+        } else {
+            calendarViewModel.onEvent(CalendarEvent.OnDateChoose)
+        }
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -122,17 +131,28 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
                     if (it.isNotEmpty()) {
 
                         if (it[0].foodName != "") {
-                            activity?.findViewById<TextView>(R.id.empty_history)?.alpha = 0f
-                            recyclerView.alpha = 1f
+                            calendarViewModel.emptyHistoryAlpha = 0f
+                            activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+                                calendarViewModel.emptyHistoryAlpha
+                            calendarViewModel.recycledAlpha = 1f
+                            recyclerView.alpha = calendarViewModel.recycledAlpha
+
+                            calendarViewModel.backgroundAlpha = 0
+                            recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+
                             callRecycleView(recyclerView, it)
-                        } else {
-                            recyclerView.alpha = 0f
-                            activity?.findViewById<TextView>(R.id.empty_history)?.alpha = 1f
                         }
 
                     } else {
-                        recyclerView.alpha = 0f
-                        activity?.findViewById<TextView>(R.id.empty_history)?.alpha = 1f
+                        calendarViewModel.emptyHistoryAlpha = 1f
+                        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+                            calendarViewModel.emptyHistoryAlpha
+                        calendarViewModel.recycledAlpha = 0f
+                        recyclerView.alpha = calendarViewModel.recycledAlpha
+
+                        calendarViewModel.backgroundAlpha = 255
+                        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+
                     }
                 }
             }

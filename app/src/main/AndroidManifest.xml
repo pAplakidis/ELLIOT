@@ -23,7 +23,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.iprism.elliot.ui.camera.CameraActivity" />
+        <activity
+            android:name="com.iprism.elliot.ui.camera.CameraActivity"
+            android:configChanges="screenSize|orientation" />
     </application>
 
 </manifest>
