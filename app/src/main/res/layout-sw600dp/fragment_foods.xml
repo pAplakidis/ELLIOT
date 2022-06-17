@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_foods_scene_sw600dp">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/meal_recycler"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_round_view"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/list_foods" />
+
+    <TextView
+        android:id="@+id/history_big_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history_title"
+        android:textSize="50sp" />
+
+    <ImageButton
+        android:id="@+id/calendar_button"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@null"
+        android:contentDescription="@string/calendar_history"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_edit_calendar_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/icon_light_dark" />
+
+    <TextView
+        android:id="@+id/history_small_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/history_title"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/empty_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_history_text"
+        android:textSize="30sp" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
