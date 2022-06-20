@@ -202,6 +202,10 @@ class CameraViewModel @Inject constructor(
 
         activeRules.add(Ruleset.sodiumRule(nutrientsDay.sodium))
         activeRules.add(Ruleset.fiberRuleDay(nutrientsDay.fiber))
+
+//        activeRules.add(Ruleset.futureSugarRule(sugarPercentWeek))
+        activeRules.add(Ruleset.futureFatRule(fatPercentWeek))
+        activeRules.add(Ruleset.futureSaturatedFatRule(fatPercentWeek))
 //        activeRules.add(Ruleset.sugarRuleDay(sugarPercent))
 
 

@@ -220,6 +220,42 @@ class Ruleset {
             }
         }
 
+        val futureFatRule = rule("Check Percentage of fat for next week") {
+            given {
+                anyFloat()
+            } and {
+                it > 0.40
+            } thenReturn {
+                "You should consume less fat next week."
+            } otherwiseReturn {
+                ""
+            }
+        }
+
+        val futureSaturatedFatRule = rule("Check Percentage of Saturated fat for next week") {
+            given {
+                anyFloat()
+            } and {
+                it > 0.10
+            } thenReturn {
+                "You should consume less saturated fats next week, if you did so."
+            } otherwiseReturn {
+                ""
+            }
+        }
+
+        val futureSugarRule = rule("Check Percentage of Sugar for next week") {
+            given {
+                anyFloat()
+            } and {
+                it > 0.20
+            } thenReturn {
+                "You should consume less sugar next week."
+            } otherwiseReturn {
+                ""
+            }
+        }
+
 
     }
 }
