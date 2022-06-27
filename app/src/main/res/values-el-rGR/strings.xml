@@ -42,7 +42,7 @@
     <string name="ingredients_confirmation_toast">Οι επιλογές αποθηκεύτηκαν με επιτυχία!</string>
     <string name="meal_entry">Εισαγωγή Γεύματος</string>
     <string name="enter_food_again">Παρακαλούμε εισάγετε ένα φαγητό και ξαναπροσπαθήστε!</string>
-    <string name="welcome_message">"Καλωσορίσατε Κύριε/Κυρία "</string>
+    <string name="welcome_message">Καλωσορίσατε&#032;</string>
     <string name="suggestions">Προτάσεις</string>
     <string name="breakfast_string">Ώρες Πρωινού</string>
     <string name="lunch_string">Ώρες Μεσημεριανού</string>
