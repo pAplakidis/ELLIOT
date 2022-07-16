@@ -52,9 +52,7 @@ def classify(img_path, model_path, classes_path):
 
   # get top k categories
   cats = torch.topk(pred[0], K).indices
-  best_guesses = []
-  for i in cats:
-    best_guesses.append(" ".join([word.capitalize() if word != 'and' else word for word in classes[i.item()].split('_')]))
+  best_guesses = [classes[i.item()] for i in cats]
 
-  #return food_name
+  # return top k food_names
   return best_guesses

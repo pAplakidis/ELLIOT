@@ -7,10 +7,10 @@ import org.jetbrains.annotations.NotNull
 
 @Entity
 data class Suggestion(
-    @ColumnInfo(name = "suggestion_id")
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "suggestion_id")
     @NotNull
-    val suggestionId: Int,
+    val suggestionId: Long,
     @NotNull
     val sentence: String
 )

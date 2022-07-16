@@ -6,7 +6,7 @@ class Ruleset {
     companion object Rules {
         val proteinMinRuleWeek = rule("Check Minimum Percentage of Protein") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it < 0.2
             } thenReturn {
@@ -18,7 +18,7 @@ class Ruleset {
 
         val proteinMaxRuleWeek = rule("Check Maximum Percentage of Protein") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.35
             } thenReturn {
@@ -30,7 +30,7 @@ class Ruleset {
 
         val fatMinRuleWeek = rule("Check Minimum Percentage of Fat") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it < 0.2
             } thenReturn {
@@ -42,7 +42,7 @@ class Ruleset {
 
         val fatMaxRuleWeek = rule("Check Maximum Percentage of Fat") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.35
             } thenReturn {
@@ -54,7 +54,7 @@ class Ruleset {
 
         val saturatedFatsRuleWeek = rule("Check Fat to Give Warning for Saturated Fat") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.10
             } thenReturn {
@@ -66,7 +66,7 @@ class Ruleset {
 
         val carbsMinRuleWeek = rule("Check Minimum Percentage of Carbs") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it < 0.55
             } thenReturn {
@@ -78,7 +78,7 @@ class Ruleset {
 
         val carbsMaxRuleWeek = rule("Check Maximum Percentage of Carbs") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.65
             } thenReturn {
@@ -90,7 +90,7 @@ class Ruleset {
 
         val sugarRuleWeek = rule("Check Percentage of Sugar") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.10
             } thenReturn {
@@ -102,7 +102,7 @@ class Ruleset {
 
         val proteinMinRuleDay = rule("Check Minimum Percentage of Protein") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it < 0.2
             } thenReturn {
@@ -114,7 +114,7 @@ class Ruleset {
 
         val proteinMaxRuleDay = rule("Check Maximum Percentage of Protein") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.35
             } thenReturn {
@@ -126,7 +126,7 @@ class Ruleset {
 
         val fatMinRuleDay = rule("Check Minimum Percentage of Fat") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it < 0.2
             } thenReturn {
@@ -138,7 +138,7 @@ class Ruleset {
 
         val fatMaxRuleDay = rule("Check Maximum Percentage of Fat") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.35
             } thenReturn {
@@ -150,7 +150,7 @@ class Ruleset {
 
         val saturatedFatsRuleDay = rule("Check Fat to Give Warning for Saturated Fat") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.10
             } thenReturn {
@@ -162,7 +162,7 @@ class Ruleset {
 
         val carbsMinRuleDay = rule("Check Minimum Percentage of Carbs") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it < 0.55
             } thenReturn {
@@ -174,7 +174,7 @@ class Ruleset {
 
         val carbsMaxRuleDay = rule("Check Maximum Percentage of Carbs") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.65
             } thenReturn {
@@ -186,7 +186,7 @@ class Ruleset {
 
         val sugarRuleDay = rule("Check Percentage of Sugar") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.10
             } thenReturn {
@@ -196,21 +196,9 @@ class Ruleset {
             }
         }
 
-        val fiberRuleDay = rule("Check Percentage of Fiber") {
-            given {
-                anyFloat()
-            } and {
-                it < 30
-            } thenReturn {
-                "You should consume more fiber today."
-            } otherwiseReturn {
-                ""
-            }
-        }
-
         val sodiumRule = rule("Check Percentage of Sodium") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 1.5
             } thenReturn {
@@ -220,9 +208,21 @@ class Ruleset {
             }
         }
 
+        val fiberRuleDay = rule("Check Percentage of Fiber") {
+            given {
+                anyDouble()
+            } and {
+                it < 30
+            } thenReturn {
+                "You should consume more fiber today."
+            } otherwiseReturn {
+                ""
+            }
+        }
+
         val futureFatRule = rule("Check Percentage of fat for next week") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.40
             } thenReturn {
@@ -234,7 +234,7 @@ class Ruleset {
 
         val futureSaturatedFatRule = rule("Check Percentage of Saturated fat for next week") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.10
             } thenReturn {
@@ -246,7 +246,7 @@ class Ruleset {
 
         val futureSugarRule = rule("Check Percentage of Sugar for next week") {
             given {
-                anyFloat()
+                anyDouble()
             } and {
                 it > 0.20
             } thenReturn {
@@ -255,7 +255,5 @@ class Ruleset {
                 ""
             }
         }
-
-
     }
 }

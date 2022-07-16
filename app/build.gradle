@@ -23,7 +23,7 @@ android {
         }
 
         python {
-            buildPython "C:\\Users\\Jim\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+            buildPython "C:/Users/georg/.pyenv/pyenv-win/versions/3.8.10/python.exe"
 
             pip {
                 install "numpy"
@@ -67,6 +67,8 @@ dependencies {
     // lifecycle
     def lifecycle_version = "2.4.1"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+
+    implementation "androidx.fragment:fragment-ktx:1.5.0"
 
     // CameraX
     def camerax_version = "1.1.0-beta03"

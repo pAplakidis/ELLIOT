@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull
 data class Ingredient(
     @ColumnInfo(name = "ingredient_id")
     @NotNull
-    val ingredientId: Int,
+    val ingredientId: Long,
     @NotNull
     val lang: String,
     @ColumnInfo(name = "ingredient_name")

@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -21,7 +20,6 @@ import com.iprism.elliot.R
 import com.iprism.elliot.adapter.SuggestionsAdapter
 import com.iprism.elliot.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -43,14 +41,14 @@ class ProfileFragment : Fragment() {
 
         timePicker.addOnPositiveButtonClickListener {
             val hour = timePicker.hour
-            val min = timePicker.minute
-            val timeStart = "$hour:$min"
-            endTimeSetter(mealString, meal, timeStart)
+            // val min = timePicker.minute
+            // val timeStart = "$hour:$min"
+            endTimeSetter(mealString, meal, hour)
             timePicker.dismiss()
         }
     }
 
-    private fun endTimeSetter(mealString: String, meal: String, timeStart: String) {
+    private fun endTimeSetter(mealString: String, meal: String, timeStart: Int) {
         val timePicker =
             MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_12H)
@@ -63,10 +61,10 @@ class ProfileFragment : Fragment() {
 
         timePicker.addOnPositiveButtonClickListener {
             val hour = timePicker.hour
-            val min = timePicker.minute
-            val timeEnd = "$hour:$min"
+            // val min = timePicker.minute
+            // val timeEnd = "$hour:$min"
 
-            profileViewModel.onEvent(ProfileEvent.SetMealTime(meal, timeStart, timeEnd))
+            profileViewModel.onEvent(ProfileEvent.SetMealTime(meal, timeStart, hour))
             timePicker.dismiss()
         }
     }

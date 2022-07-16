@@ -10,7 +10,7 @@ data class Food(
     @PrimaryKey
     @ColumnInfo(name = "food_id")
     @NotNull
-    val foodId: Int,
+    val foodId: Long,
     @NotNull
     val protein: Double,
     @NotNull
@@ -20,7 +20,9 @@ data class Food(
     @NotNull
     val fiber: Double,
     @NotNull
-    val sodium: Double
+    val sodium: Double,
+    @NotNull
+    val sugar: Double
 ) {
 //    fun toFoodModel(): FoodModel {
 //        return FoodModel(

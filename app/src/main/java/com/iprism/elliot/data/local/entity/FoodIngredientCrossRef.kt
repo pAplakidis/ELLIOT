@@ -8,10 +8,10 @@ import org.jetbrains.annotations.NotNull
 data class FoodIngredientCrossRef(
     @ColumnInfo(name = "food_id")
     @NotNull
-    val foodId: Int,
+    val foodId: Long,
     @ColumnInfo(name = "ingredient_id")
     @NotNull
-    val ingredientId: Int,
+    val ingredientId: Long,
     @NotNull
     val lang: String
 )

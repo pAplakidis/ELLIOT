@@ -9,11 +9,11 @@ import org.jetbrains.annotations.NotNull
 data class HistoryIngredientCrossRef(
     @PrimaryKey
     @ColumnInfo(name = "history_ingredient_id")
-    val historyIngredientId: Int? = null,
+    val historyIngredientId: Long? = null,
     @ColumnInfo(name = "history_id")
     @NotNull
-    val historyId: Int,
+    val historyId: Long,
     @ColumnInfo(name = "ingredient_id")
     @NotNull
-    val ingredientId: Int
+    val ingredientId: Long
 )

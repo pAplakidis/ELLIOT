@@ -1,7 +1,6 @@
 package com.iprism.elliot.ui.history
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.HistoryWithIngredientsModel
@@ -13,9 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CalendarViewModel @Inject constructor(
-    application: Application,
     private val repository: FoodRepository
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
     var dateChosen = ""
     var recycledAlpha = 1f
@@ -24,11 +22,13 @@ class CalendarViewModel @Inject constructor(
 
     // Backing property to avoid state updates from other classes
     private val _cardUiState = MutableStateFlow(
-        listOf(HistoryWithIngredientsModel("", "", "", "", emptyList()))
+        CardUiState()
+        // listOf(HistoryWithIngredientsModel("", "", "", "", emptyList()))
     )
-//    val cardUiState = _cardUiState.asStateFlow()
+    // val cardUiState = _cardUiState.asStateFlow()
 
-    private val _oneTimeCardUiState = MutableSharedFlow<List<HistoryWithIngredientsModel>>()
+    // private val _oneTimeCardUiState = MutableSharedFlow<List<HistoryWithIngredientsModel>>()
+    private val _oneTimeCardUiState = MutableSharedFlow<CardUiState>()
 
     // The UI collects from this SharedFlow to get its state updates
     val oneTimeCardUiState = _oneTimeCardUiState.asSharedFlow()
@@ -39,7 +39,7 @@ class CalendarViewModel @Inject constructor(
                 viewModelScope.launch {
                     repository.getAllHistoryWithIngredients(Locale.getDefault().toString())
                         .collect {
-                            _cardUiState.value = it.map { m ->
+                            _cardUiState.value = CardUiState(it.map { m ->
                                 HistoryWithIngredientsModel(
                                     foodName = m.key.foodName,
                                     foodDate = m.key.date,
@@ -47,7 +47,7 @@ class CalendarViewModel @Inject constructor(
                                     meal = m.key.meal,
                                     ingredients = m.value
                                 )
-                            }
+                            })
 
                             _oneTimeCardUiState.emit(_cardUiState.value)
                         }
@@ -55,8 +55,11 @@ class CalendarViewModel @Inject constructor(
             }
             is CalendarEvent.OnDateChoose -> {
                 viewModelScope.launch {
-                    repository.getHistoryWithIngredientsDate(Locale.getDefault().toString(), dateChosen).collect {
-                        _cardUiState.value = it.map { m ->
+                    repository.getHistoryWithIngredientsDate(
+                        Locale.getDefault().toString(),
+                        dateChosen
+                    ).collect {
+                        _cardUiState.value = CardUiState(it.map { m ->
                             HistoryWithIngredientsModel(
                                 foodName = m.key.foodName,
                                 foodDate = m.key.date,
@@ -64,7 +67,7 @@ class CalendarViewModel @Inject constructor(
                                 meal = m.key.meal,
                                 ingredients = m.value
                             )
-                        }
+                        })
 
                         _oneTimeCardUiState.emit(_cardUiState.value)
                     }
@@ -72,4 +75,9 @@ class CalendarViewModel @Inject constructor(
             }
         }
     }
+
+    data class CardUiState(
+        val data: List<HistoryWithIngredientsModel> = listOf(),
+        val isLoading: Boolean = false
+    )
 }

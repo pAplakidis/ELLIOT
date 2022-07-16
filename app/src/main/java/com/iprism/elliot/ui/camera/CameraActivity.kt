@@ -29,7 +29,6 @@ import com.iprism.elliot.domain.cnn.NNModel
 import com.iprism.elliot.util.ModelUtils
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.io.File
 import java.text.SimpleDateFormat
@@ -68,7 +67,11 @@ class CameraActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 cameraViewModel.oneTimeIngredientsListUiState.collect {
-                    if (it.ingredients.isNotEmpty()) {
+                    if (it.error is CameraViewModel.IngredientListUiState.Error.NoSuchFood) showToast(
+                        getString(R.string.not_supported_food)
+                    )
+                    if (it.ingredients?.isNotEmpty() == true) {
+                        binding.cameraProgressCircle.hide()
                         showConfirmationDialog(it)
                     }
                 }
@@ -186,6 +189,8 @@ class CameraActivity : AppCompatActivity() {
                 ),
                 ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
             ).asList().joinToString(",").split(",").toTypedArray()
+
+            // Translate the foodNames to the correct locale if necessary
 
             runOnUiThread {
                 binding.cameraProgressCircle.hide()

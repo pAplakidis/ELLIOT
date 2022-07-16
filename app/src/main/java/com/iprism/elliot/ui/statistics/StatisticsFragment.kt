@@ -79,12 +79,12 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
                 statisticsViewModel.statState.collect {
                     val recyclerView: RecyclerView = view.findViewById(R.id.list_information)
                     val recycleDataset = listOf(
-                        SubStatistic(getString(R.string.proteins),it.statList.protein),
-                        SubStatistic(getString(R.string.fat),it.statList.fat),
-                        SubStatistic(getString(R.string.carbs),it.statList.carbohydrate),
-                        SubStatistic(getString(R.string.fiber),it.statList.fiber),
-                        SubStatistic(getString(R.string.sodium),it.statList.sodium),
-                        SubStatistic(getString(R.string.sugar),it.statList.sodium)
+                        SubStatistic(getString(R.string.proteins), it.statList.protein),
+                        SubStatistic(getString(R.string.fat), it.statList.fat),
+                        SubStatistic(getString(R.string.carbs), it.statList.carbohydrate),
+                        SubStatistic(getString(R.string.fiber), it.statList.fiber),
+                        SubStatistic(getString(R.string.sodium), it.statList.sodium),
+                        SubStatistic(getString(R.string.sugar), it.statList.sugar)
                     )
                     initRecycler(recyclerView, recycleDataset)
                 }
@@ -95,7 +95,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
     private fun initPieChart() {
         pieChart.setUsePercentValues(true)
         pieChart.description.text = ""
-        //hollow pie chart
+        // hollow pie chart
         pieChart.isDrawHoleEnabled = false
         pieChart.setTouchEnabled(false)
         pieChart.setDrawEntryLabels(false)
@@ -103,7 +103,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.setNoDataTextColor(Color.parseColor("#4E342E"))
         val paint: Paint = pieChart.getPaint(Chart.PAINT_INFO)
         paint.textSize = 50f
-        //adding padding
+        // adding padding
         pieChart.setExtraOffsets(20f, 0f, 20f, 20f)
         pieChart.setUsePercentValues(true)
         pieChart.isRotationEnabled = false
@@ -135,7 +135,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         pieChart.legend.yEntrySpace = 20f
         pieChart.setExtraOffsets(60f, 0f, 50f, 15f)
         pieChart.legend.textSize =
-            13f //sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
+            13f // sets the size of the label text in density pixels min = 6f, max = 24f, default is 10f, font size will be in dp
 
         pieChart.invalidate()
     }
@@ -149,7 +149,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         dataEntries.add(PieEntry(stat[2], getString(R.string.carbs)))
         dataEntries.add(PieEntry(stat[3], getString(R.string.fiber)))
         dataEntries.add(PieEntry(stat[4], getString(R.string.sodium)))
-        dataEntries.add(PieEntry(stat[4], getString(R.string.sugar)))
+        dataEntries.add(PieEntry(stat[5], getString(R.string.sugar)))
 
         val dataSet = PieDataSet(dataEntries, "")
         val data = PieData(dataSet)

@@ -10,14 +10,14 @@ data class History(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "history_id")
     @NotNull
-    val historyId: Int,
+    val historyId: Long,
     @ColumnInfo(name = "food_name")
     @NotNull
     val foodName: String,
-    // @NotNull
-    val meal: String?,
-    // @NotNull
-    val date: String?,
-    // @NotNull
-    val time: String?
+    @NotNull
+    val meal: String,
+    @NotNull
+    val date: String,
+    @NotNull
+    val time: String
 )

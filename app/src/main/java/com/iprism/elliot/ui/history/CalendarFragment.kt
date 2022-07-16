@@ -1,7 +1,6 @@
 package com.iprism.elliot.ui.history
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,9 +21,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iprism.elliot.R
-import com.iprism.elliot.ui.statistics.StatisticsEvent
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -98,7 +95,6 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         showNavbar()
 
         return inflater.inflate(R.layout.fragment_foods, container, false)
@@ -108,7 +104,6 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
-
         val calendarButton = view.findViewById<ImageButton>(R.id.calendar_button)
         calendarButton.setOnClickListener {
             initializeCalendar()
@@ -127,22 +122,18 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                calendarViewModel.oneTimeCardUiState.collect {
-                    if (it.isNotEmpty()) {
+                calendarViewModel.oneTimeCardUiState.collect { cardUiState ->
+                    if (cardUiState.data.isNotEmpty()) {
+                        calendarViewModel.emptyHistoryAlpha = 0f
+                        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+                            calendarViewModel.emptyHistoryAlpha
+                        calendarViewModel.recycledAlpha = 1f
+                        recyclerView.alpha = calendarViewModel.recycledAlpha
 
-                        if (it[0].foodName != "") {
-                            calendarViewModel.emptyHistoryAlpha = 0f
-                            activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
-                                calendarViewModel.emptyHistoryAlpha
-                            calendarViewModel.recycledAlpha = 1f
-                            recyclerView.alpha = calendarViewModel.recycledAlpha
+                        calendarViewModel.backgroundAlpha = 0
+                        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
 
-                            calendarViewModel.backgroundAlpha = 0
-                            recyclerView.background.alpha = calendarViewModel.backgroundAlpha
-
-                            callRecycleView(recyclerView, it)
-                        }
-
+                        callRecycleView(recyclerView, cardUiState.data)
                     } else {
                         calendarViewModel.emptyHistoryAlpha = 1f
                         activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
@@ -152,11 +143,9 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
                         calendarViewModel.backgroundAlpha = 255
                         recyclerView.background.alpha = calendarViewModel.backgroundAlpha
-
                     }
                 }
             }
         }
-
     }
 }

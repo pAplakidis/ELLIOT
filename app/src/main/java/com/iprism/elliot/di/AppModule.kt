@@ -1,6 +1,8 @@
 package com.iprism.elliot.di
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.iprism.elliot.data.local.ElliotDatabase
 import com.iprism.elliot.data.repository.FoodRepository
@@ -14,7 +16,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-
     @Provides
     @Singleton
     fun provideFoodDatabase(app: Application): ElliotDatabase {
@@ -29,7 +30,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFoodRepository(db: ElliotDatabase): FoodRepository {
-        return FoodRepositoryImpl(db.dao)
+    fun provideFoodRepository(db: ElliotDatabase, app: Application): FoodRepository {
+        return FoodRepositoryImpl(db.dao, app.resources)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSharedPreferences(app: Application): SharedPreferences {
+        return app.applicationContext.getSharedPreferences("prefs", Context.MODE_PRIVATE)
     }
 }

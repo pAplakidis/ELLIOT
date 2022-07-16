@@ -8,16 +8,15 @@ import com.iprism.elliot.domain.model.SuggestionModel
 
 @Dao
 interface FoodDao {
-    @Transaction
     @Query(
         "SELECT * FROM FoodLanguage " +
                 "JOIN FoodIngredientCrossRef ON FoodLanguage.food_id = FoodIngredientCrossRef.food_id AND FoodLanguage.lang = FoodIngredientCrossRef.lang " +
                 "JOIN Ingredient ON Ingredient.ingredient_id = FoodIngredientCrossRef.ingredient_id AND Ingredient.lang = FoodIngredientCrossRef.lang " +
                 "WHERE food_name LIKE :foodName"
     )
+    @Throws(NoSuchElementException::class)
     suspend fun getFoodWithIngredients(foodName: String): Map<FoodLanguage, List<Ingredient>>
 
-    @Transaction
     @Query("SELECT * FROM History WHERE food_name = :foodName AND date = :date AND time = :time")
     suspend fun getHistoryWithIngredients(
         foodName: String,
@@ -26,12 +25,12 @@ interface FoodDao {
     ): HistoryWithIngredients
 
     @Query("SELECT MAX(history_id) FROM History")
-    suspend fun getLatestFoodHistoryId(): Int
+    suspend fun getLatestFoodHistoryId(): Long
 
     @Query("SELECT sentence FROM Suggestion")
     suspend fun getAllSuggestions(): List<String>
 
-    @Insert(entity = Suggestion::class)
+    @Insert(entity = Suggestion::class, onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSuggestion(suggestion: SuggestionModel)
 
     @Insert(entity = History::class)
@@ -40,7 +39,6 @@ interface FoodDao {
     @Insert
     suspend fun insertHistoryIngredients(historyIngredient: HistoryIngredientCrossRef)
 
-    @Transaction
     @Query(
         "SELECT * FROM Ingredient " +
                 "JOIN HistoryIngredientCrossRef ON Ingredient.ingredient_id = HistoryIngredientCrossRef.ingredient_id " +
@@ -49,14 +47,16 @@ interface FoodDao {
     )
     suspend fun getAllHistoryWithIngredients(lang: String): Map<History, List<Ingredient>>
 
-    @Transaction
     @Query(
         "SELECT * FROM Ingredient " +
                 "JOIN HistoryIngredientCrossRef ON Ingredient.ingredient_id = HistoryIngredientCrossRef.ingredient_id " +
                 "JOIN History ON History.history_id = HistoryIngredientCrossRef.history_id " +
                 "WHERE lang = :lang AND date = :dateChosen"
     )
-    suspend fun getHistoryWithIngredientsDate(lang: String, dateChosen: String): Map<History, List<Ingredient>>
+    suspend fun getHistoryWithIngredientsDate(
+        lang: String,
+        dateChosen: String
+    ): Map<History, List<Ingredient>>
 
     @Query(
         "SELECT " +
@@ -64,7 +64,8 @@ interface FoodDao {
                 "ROUND(SUM(fat), 2) as fat, " +
                 "ROUND(SUM(carbohydrate), 2) as carbohydrate, " +
                 "ROUND(SUM(fiber), 2) as fiber, " +
-                "ROUND(SUM(sodium), 2) as sodium " +
+                "ROUND(SUM(sodium), 2) as sodium, " +
+                "ROUND(SUM(sugar), 2) as sugar " +
                 "FROM Food " +
                 "JOIN FoodLanguage ON FoodLanguage.food_id = Food.food_id " +
                 "JOIN History ON History.food_name = FoodLanguage.food_name " +
@@ -78,7 +79,8 @@ interface FoodDao {
                 "ROUND(SUM(fat), 2) as fat, " +
                 "ROUND(SUM(carbohydrate), 2) as carbohydrate, " +
                 "ROUND(SUM(fiber), 2) as fiber, " +
-                "ROUND(SUM(sodium), 2) as sodium " +
+                "ROUND(SUM(sodium), 2) as sodium, " +
+                "ROUND(SUM(sugar), 2) as sugar " +
                 "FROM Food " +
                 "JOIN FoodLanguage ON FoodLanguage.food_id = Food.food_id " +
                 "JOIN History ON History.food_name = FoodLanguage.food_name " +
@@ -92,7 +94,8 @@ interface FoodDao {
                 "ROUND(SUM(fat), 2) as fat, " +
                 "ROUND(SUM(carbohydrate), 2) as carbohydrate, " +
                 "ROUND(SUM(fiber), 2) as fiber, " +
-                "ROUND(SUM(sodium), 2) as sodium " +
+                "ROUND(SUM(sodium), 2) as sodium, " +
+                "ROUND(SUM(sugar), 2) as sugar " +
                 "FROM Food " +
                 "JOIN FoodLanguage ON FoodLanguage.food_id = Food.food_id " +
                 "JOIN History ON History.food_name = FoodLanguage.food_name " +

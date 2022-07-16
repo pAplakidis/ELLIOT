@@ -1,26 +1,34 @@
 package com.iprism.elliot.data.repository
 
+import android.content.res.Resources
+import com.iprism.elliot.R
 import com.iprism.elliot.data.local.FoodDao
 import com.iprism.elliot.data.local.entity.*
 import com.iprism.elliot.domain.model.HistoryModel
 import com.iprism.elliot.domain.model.NutrientsModel
 import com.iprism.elliot.domain.model.SuggestionModel
+import com.iprism.elliot.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FoodRepositoryImpl(
     private val dao: FoodDao,
+    private val resources: Resources,
 ) : FoodRepository {
-    override fun getFoodWithIngredients(foodName: String): Flow<List<Ingredient>> =
+    override fun getFoodWithIngredients(foodName: String): Flow<Resource<List<Ingredient>>> =
         flow {
-            emit(dao.getFoodWithIngredients(foodName).values.single())
+            try {
+                emit(Resource.Success(dao.getFoodWithIngredients(foodName).values.single()))
+            } catch (e: NoSuchElementException) {
+                emit(Resource.Error(resources.getString(R.string.not_supported_food)))
+            }
         }
 
-    override suspend fun getLatestFoodHistoryId(): Int {
+    override suspend fun getLatestFoodHistoryId(): Long {
         return dao.getLatestFoodHistoryId()
     }
 
-    override suspend fun getAllSuggestions(): Flow<List<String>> =
+    override fun getAllSuggestions(): Flow<List<String>> =
         flow {
             emit(dao.getAllSuggestions())
         }
@@ -42,7 +50,10 @@ class FoodRepositoryImpl(
             emit(dao.getAllHistoryWithIngredients(lang))
         }
 
-    override fun getHistoryWithIngredientsDate(lang: String, dateChosen: String): Flow<Map<History, List<Ingredient>>> =
+    override fun getHistoryWithIngredientsDate(
+        lang: String,
+        dateChosen: String
+    ): Flow<Map<History, List<Ingredient>>> =
         flow {
             emit(dao.getHistoryWithIngredientsDate(lang, dateChosen))
         }
@@ -51,12 +62,12 @@ class FoodRepositoryImpl(
         return dao.getLastSevenDaysNutrients()
     }
 
-    override suspend fun getNutrients(dateStart: String, dateEnd: String): Flow<NutrientsModel> =
+    override fun getNutrients(dateStart: String, dateEnd: String): Flow<NutrientsModel> =
         flow {
             emit(dao.getNutrients(dateStart, dateEnd))
         }
 
-    override suspend fun getNutrientsByMeal(
+    override fun getNutrientsByMeal(
         dateStart: String,
         dateEnd: String,
         meal: String
@@ -64,13 +75,4 @@ class FoodRepositoryImpl(
         flow {
             emit(dao.getNutrientsByMeal(dateStart, dateEnd, meal))
         }
-
-//    override fun getHistoryWithIngredients(
-//        foodName: String,
-//        date: String,
-//        time: String
-//    ): Flow<HistoryWithIngredients> =
-//        flow {
-//            emit(dao.getHistoryWithIngredients(foodName, date, time))
-//        }
 }

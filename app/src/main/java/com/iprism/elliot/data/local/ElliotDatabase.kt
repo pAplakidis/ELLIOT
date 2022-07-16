@@ -11,6 +11,5 @@ import com.iprism.elliot.data.local.entity.*
     exportSchema = false
 )
 abstract class ElliotDatabase : RoomDatabase() {
-
     abstract val dao: FoodDao
 }
