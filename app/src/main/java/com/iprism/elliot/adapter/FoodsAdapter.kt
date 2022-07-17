@@ -25,10 +25,10 @@ class FoodsAdapter(
                     "foodName" to foodName.text.toString(),
                     "timeEaten" to timeEaten.text.toString(),
                     "dateEaten" to dateEaten.text.toString(),
-                    "ingredients" to historyModel[position].ingredients.joinToString(",") { ingredient ->
+                    "ingredients" to historyModel[adapterPosition].ingredients.joinToString(",") { ingredient ->
                         ingredient.ingredientName
                     },
-                    "meal" to historyModel[position].meal
+                    "meal" to historyModel[adapterPosition].meal
                 )
                 Navigation.findNavController(it)
                     .navigate(R.id.action_calendarFragment_to_foodDetailsFragment, bundle)

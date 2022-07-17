@@ -1,6 +1,7 @@
 package com.iprism.elliot.ui.history
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +36,7 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         dataset: List<HistoryWithIngredientsModel>
     ) {
         recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
             adapter = FoodsAdapter(dataset)
             addItemDecoration(
                 DividerItemDecoration(
@@ -97,33 +99,17 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
     ): View? {
         showNavbar()
 
-        return inflater.inflate(R.layout.fragment_foods, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        val view = inflater.inflate(R.layout.fragment_foods, container, false)
 
         val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
-        val calendarButton = view.findViewById<ImageButton>(R.id.calendar_button)
-        calendarButton.setOnClickListener {
-            initializeCalendar()
-        }
 
-        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
-            calendarViewModel.emptyHistoryAlpha
         recyclerView.alpha = calendarViewModel.recycledAlpha
-        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
-
-        if (calendarViewModel.dateChosen == "") {
-            calendarViewModel.onEvent(CalendarEvent.OnHistoryLoad)
-        } else {
-            calendarViewModel.onEvent(CalendarEvent.OnDateChoose)
-        }
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 calendarViewModel.oneTimeCardUiState.collect { cardUiState ->
                     if (cardUiState.data.isNotEmpty()) {
+                        callRecycleView(recyclerView, cardUiState.data)
                         calendarViewModel.emptyHistoryAlpha = 0f
                         activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
                             calendarViewModel.emptyHistoryAlpha
@@ -131,10 +117,9 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
                         recyclerView.alpha = calendarViewModel.recycledAlpha
 
                         calendarViewModel.backgroundAlpha = 0
-                        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
 
-                        callRecycleView(recyclerView, cardUiState.data)
                     } else {
+                        callRecycleView(recyclerView, emptyList())
                         calendarViewModel.emptyHistoryAlpha = 1f
                         activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
                             calendarViewModel.emptyHistoryAlpha
@@ -142,10 +127,63 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
                         recyclerView.alpha = calendarViewModel.recycledAlpha
 
                         calendarViewModel.backgroundAlpha = 255
-                        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+
                     }
                 }
             }
         }
+
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
+        val calendarButton = view.findViewById<ImageButton>(R.id.calendar_button)
+        calendarButton.setOnClickListener {
+            initializeCalendar()
+        }
+
+        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+            calendarViewModel.emptyHistoryAlpha
+//        recyclerView.alpha = calendarViewModel.recycledAlpha
+//        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+
+        if (calendarViewModel.dateChosen == "") {
+            calendarViewModel.onEvent(CalendarEvent.OnHistoryLoad)
+        } else {
+            calendarViewModel.onEvent(CalendarEvent.OnDateChoose)
+        }
+
+//        lifecycleScope.launch {
+//            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                calendarViewModel.oneTimeCardUiState.collect { cardUiState ->
+//                    if (cardUiState.data.isNotEmpty()) {
+//                        Log.d("TAG", cardUiState.toString())
+//                        calendarViewModel.emptyHistoryAlpha = 0f
+//                        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+//                            calendarViewModel.emptyHistoryAlpha
+//                        calendarViewModel.recycledAlpha = 1f
+//                        recyclerView.alpha = calendarViewModel.recycledAlpha
+//
+//                        calendarViewModel.backgroundAlpha = 0
+//                        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+//
+//                        callRecycleView(recyclerView, cardUiState.data)
+//                    } else {
+//                        Log.d("TAG", "EMPTY")
+//                        calendarViewModel.emptyHistoryAlpha = 1f
+//                        activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
+//                            calendarViewModel.emptyHistoryAlpha
+//                        calendarViewModel.recycledAlpha = 0f
+//                        recyclerView.alpha = calendarViewModel.recycledAlpha
+//
+//                        calendarViewModel.backgroundAlpha = 255
+//                        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
+//                    }
+//                }
+//            }
+//        }
     }
 }

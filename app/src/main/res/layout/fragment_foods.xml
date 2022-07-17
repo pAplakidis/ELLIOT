@@ -10,8 +10,6 @@
         android:id="@+id/meal_recycler"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:background="@drawable/ic_round_view"
-        android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
         tools:listitem="@layout/list_foods" />
 

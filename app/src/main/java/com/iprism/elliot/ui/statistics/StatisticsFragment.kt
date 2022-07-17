@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import androidx.core.util.Pair
@@ -53,7 +54,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
         val calendarButton = view.findViewById<ImageButton>(R.id.calendar_button)
         calendarButton.setOnClickListener {
-            initializeCalendar()
+            initializeCalendar(view)
         }
 
         statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose)
@@ -182,7 +183,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             .setEnd(decThisYear)
     }
 
-    private fun initializeCalendar() {
+    private fun initializeCalendar(view: View) {
         val dateRangePicker =
             MaterialDatePicker.Builder.dateRangePicker()
                 .setTitleText(getString(R.string.select_dates))
@@ -203,13 +204,14 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
             statisticsViewModel.dateEnd = SimpleDateFormat("yyyy-MM-dd").format(Date(it.second))
 
             statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose)
+            view.findViewById<Button>(R.id.button1).performClick()
+
         }
     }
 
     private fun setButtonListeners(view: View) {
         val buttonContainer = view.findViewById<MaterialButtonToggleGroup>(R.id.buttonContainer)
         buttonContainer.addOnButtonCheckedListener { _, checkedId, isChecked ->
-
             if (isChecked) {
                 when (checkedId) {
                     R.id.button1 -> {
