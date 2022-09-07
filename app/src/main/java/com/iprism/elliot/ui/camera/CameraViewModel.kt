@@ -20,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CameraViewModel @Inject constructor(
     private val repository: FoodRepository,
-    private val sharedPref: SharedPreferences
+    private val sharedPref: SharedPreferences,
+    private val ruleset: Ruleset
 ) : ViewModel() {
 
     private val ingredientsToIDs = mutableMapOf<String, Long>()
@@ -118,6 +119,15 @@ class CameraViewModel @Inject constructor(
         }
     }
 
+    suspend fun translateFoodNames(foodNames: Array<String>): Array<String> {
+        val localeFoodNames = foodNames.map { name ->
+            val id = repository.getFoodIdByName(name)
+            repository.getFoodNameByIdAndLocale(id, Locale.getDefault().language)
+        }.toTypedArray()
+
+        return localeFoodNames
+    }
+
     private suspend fun insertFood() {
         repository.insertFood(
             HistoryModel(
@@ -131,8 +141,6 @@ class CameraViewModel @Inject constructor(
 
     private fun getIngredients() {
         viewModelScope.launch {
-//            _ingredientsListUiState.value = IngredientListUiState(isLoading = true)
-
             repository.getFoodWithIngredients(foodName).collect { resource ->
                 when (resource) {
                     is Resource.Success -> {
@@ -175,34 +183,34 @@ class CameraViewModel @Inject constructor(
         val carbsPercentDay = nutrientsDay.carbohydrate / caloriesDay
         val sugarPercentDay = nutrientsDay.sugar / caloriesDay
 
-        activeRules.add(Ruleset.proteinMinRuleWeek(proteinPercentWeek))
-        activeRules.add(Ruleset.proteinMaxRuleWeek(proteinPercentWeek))
+        activeRules.add(ruleset.proteinMinRuleWeek(proteinPercentWeek))
+        activeRules.add(ruleset.proteinMaxRuleWeek(proteinPercentWeek))
 
-        activeRules.add(Ruleset.fatMinRuleWeek(fatPercentWeek))
-        activeRules.add(Ruleset.fatMaxRuleWeek(fatPercentWeek))
-        activeRules.add(Ruleset.saturatedFatsRuleWeek(fatPercentWeek))
+        activeRules.add(ruleset.fatMinRuleWeek(fatPercentWeek))
+        activeRules.add(ruleset.fatMaxRuleWeek(fatPercentWeek))
+        activeRules.add(ruleset.saturatedFatRuleWeek(fatPercentWeek))
 
-        activeRules.add(Ruleset.carbsMinRuleWeek(carbsPercentWeek))
-        activeRules.add(Ruleset.carbsMaxRuleWeek(carbsPercentWeek))
-        activeRules.add(Ruleset.sugarRuleWeek(sugarPercentWeek))
+        activeRules.add(ruleset.carbsMinRuleWeek(carbsPercentWeek))
+        activeRules.add(ruleset.carbsMaxRuleWeek(carbsPercentWeek))
+        activeRules.add(ruleset.sugarRuleWeek(sugarPercentWeek))
 
-        activeRules.add(Ruleset.proteinMinRuleDay(proteinPercentDay))
-        activeRules.add(Ruleset.proteinMaxRuleDay(proteinPercentDay))
+        activeRules.add(ruleset.proteinMinRuleDay(proteinPercentDay))
+        activeRules.add(ruleset.proteinMaxRuleDay(proteinPercentDay))
 
-        activeRules.add(Ruleset.fatMinRuleDay(fatPercentDay))
-        activeRules.add(Ruleset.fatMaxRuleDay(fatPercentDay))
-        activeRules.add(Ruleset.saturatedFatsRuleDay(fatPercentDay))
+        activeRules.add(ruleset.fatMinRuleDay(fatPercentDay))
+        activeRules.add(ruleset.fatMaxRuleDay(fatPercentDay))
+        activeRules.add(ruleset.saturatedFatRuleDay(fatPercentDay))
 
-        activeRules.add(Ruleset.carbsMinRuleDay(carbsPercentDay))
-        activeRules.add(Ruleset.carbsMaxRuleDay(carbsPercentDay))
+        activeRules.add(ruleset.carbsMinRuleDay(carbsPercentDay))
+        activeRules.add(ruleset.carbsMaxRuleDay(carbsPercentDay))
 
-        activeRules.add(Ruleset.fiberRuleDay(nutrientsDay.fiber))
-        activeRules.add(Ruleset.sodiumRule(nutrientsDay.sodium))
-        activeRules.add(Ruleset.sugarRuleDay(sugarPercentDay))
+        activeRules.add(ruleset.fiberRuleDay(nutrientsDay.fiber))
+        activeRules.add(ruleset.sodiumRule(nutrientsDay.sodium))
+        activeRules.add(ruleset.sugarRuleDay(sugarPercentDay))
 
-        activeRules.add(Ruleset.futureSugarRule(sugarPercentWeek))
-        activeRules.add(Ruleset.futureFatRule(fatPercentWeek))
-        activeRules.add(Ruleset.futureSaturatedFatRule(fatPercentWeek))
+        activeRules.add(ruleset.futureSugarRule(sugarPercentWeek))
+        activeRules.add(ruleset.futureFatRule(fatPercentWeek))
+        activeRules.add(ruleset.futureSaturatedFatRule(fatPercentWeek))
 
         return activeRules
     }

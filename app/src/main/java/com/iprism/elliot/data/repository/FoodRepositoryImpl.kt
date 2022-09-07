@@ -75,4 +75,12 @@ class FoodRepositoryImpl(
         flow {
             emit(dao.getNutrientsByMeal(dateStart, dateEnd, meal))
         }
+
+    override suspend fun getFoodIdByName(foodName: String): Long {
+        return dao.getFoodIdByName(foodName)
+    }
+
+    override suspend fun getFoodNameByIdAndLocale(foodId: Long, locale: String): String {
+        return dao.getFoodNameByIdAndLocale(foodId, locale)
+    }
 }

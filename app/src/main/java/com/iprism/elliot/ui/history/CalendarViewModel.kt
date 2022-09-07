@@ -37,7 +37,7 @@ class CalendarViewModel @Inject constructor(
         when (event) {
             is CalendarEvent.OnHistoryLoad -> {
                 viewModelScope.launch {
-                    repository.getAllHistoryWithIngredients(Locale.getDefault().toString())
+                    repository.getAllHistoryWithIngredients(Locale.getDefault().language)
                         .collect {
                             _cardUiState.value = CardUiState(it.map { m ->
                                 HistoryWithIngredientsModel(
@@ -56,7 +56,7 @@ class CalendarViewModel @Inject constructor(
             is CalendarEvent.OnDateChoose -> {
                 viewModelScope.launch {
                     repository.getHistoryWithIngredientsDate(
-                        Locale.getDefault().toString(),
+                        Locale.getDefault().language,
                         dateChosen
                     ).collect {
                         _cardUiState.value = CardUiState(it.map { m ->

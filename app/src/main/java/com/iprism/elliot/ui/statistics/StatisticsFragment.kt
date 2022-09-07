@@ -30,7 +30,6 @@ import com.iprism.elliot.R
 import com.iprism.elliot.adapter.StatsAdapter
 import com.iprism.elliot.domain.model.SubStatistic
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
@@ -205,12 +204,12 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
             statisticsViewModel.onEvent(StatisticsEvent.OnDateChoose)
             view.findViewById<Button>(R.id.button1).performClick()
-
         }
     }
 
     private fun setButtonListeners(view: View) {
         val buttonContainer = view.findViewById<MaterialButtonToggleGroup>(R.id.buttonContainer)
+
         buttonContainer.addOnButtonCheckedListener { _, checkedId, isChecked ->
             if (isChecked) {
                 when (checkedId) {

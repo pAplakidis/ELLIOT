@@ -42,7 +42,7 @@
     <string name="ingredients_confirmation_toast">Οι επιλογές αποθηκεύτηκαν με επιτυχία!</string>
     <string name="meal_entry">Εισαγωγή Γεύματος</string>
     <string name="enter_food_again">Παρακαλούμε εισάγετε ένα φαγητό και ξαναπροσπαθήστε!</string>
-    <string name="welcome_message">Καλωσορίσατε&#032;</string>
+    <string name="welcome_message">Καλωσορίσατε\u0020</string>
     <string name="suggestions">Προτάσεις</string>
     <string name="breakfast_string">Ώρες Πρωινού</string>
     <string name="lunch_string">Ώρες Μεσημεριανού</string>
@@ -55,4 +55,28 @@
     <string name="select_date">Επιλογή Ημερομηνίας</string>
     <string name="sugar">Ζάχαρη</string>
     <string name="not_supported_food">Το φαγητό δεν υποστηρίζεται από την εφαρμογή</string>
+
+
+    <!-- Recommender Rules -->
+    <string name="protein_min_rule_week">Θα πρέπει να καταναλώσετε περισσότερη πρωτεΐνη αυτή την εβδομάδα.</string>
+    <string name="protein_max_rule_week">Θα πρέπει να καταναλώσετε λιγότερη πρωτεΐνη αυτή την εβδομάδα.</string>
+    <string name="fat_min_rule_week">Θα πρέπει να καταναλώσετε περισσότερο λίπος αυτή την εβδομάδα.</string>
+    <string name="fat_max_rule_week">Θα πρέπει να καταναλώσετε λιγότερο λίπος αυτή την εβδομάδα.</string>
+    <string name="saturated_fat_rule_week">Θα πρέπει να καταναλώσετε λιγότερα κορεσμένα λιπαρά αυτή την εβδομάδα, αν το κάνατε.</string>
+    <string name="carbs_min_rule_week">Θα πρέπει να καταναλώσετε περισσότερους υδατάνθρακες αυτή την εβδομάδα.</string>
+    <string name="carbs_max_rule_week">Θα πρέπει να καταναλώσετε λιγότερους υδατάνθρακες αυτή την εβδομάδα.</string>
+    <string name="sugar_rule_week">Θα πρέπει να καταναλώσετε λιγότερη ζάχαρη αυτή την εβδομάδα.</string>
+    <string name="protein_min_rule_day">Θα πρέπει να καταναλώσετε περισσότερη πρωτεΐνη σήμερα.</string>
+    <string name="protein_max_rule_day">Θα πρέπει να καταναλώσετε λιγότερη πρωτεΐνη σήμερα.</string>
+    <string name="fat_min_rule_day">Θα πρέπει να καταναλώσετε περισσότερο λίπος σήμερα.</string>
+    <string name="fat_max_rule_day">Θα πρέπει να καταναλώσετε λιγότερο λίπος σήμερα.</string>
+    <string name="saturated_fat_rule_day">Θα πρέπει να καταναλώσετε λιγότερα κορεσμένα λιπαρά σήμερα, αν το κάνατε.</string>
+    <string name="carbs_min_rule_day">Θα πρέπει να καταναλώσετε περισσότερους υδατάνθρακες σήμερα.</string>
+    <string name="carbs_max_rule_day">Θα πρέπει να καταναλώσετε λιγότερους υδατάνθρακες σήμερα.</string>
+    <string name="sugar_rule_day">Θα πρέπει να καταναλώσετε λιγότερη ζάχαρη σήμερα.</string>
+    <string name="sodium_rule">Θα πρέπει να καταναλώσετε λιγότερο νάτριο σήμερα.</string>
+    <string name="fiber_rule_day">Θα πρέπει να καταναλώσετε περισσότερες φυτικές ίνες σήμερα.</string>
+    <string name="future_fat_rule">Θα πρέπει να καταναλώσετε λιγότερο λίπος την επόμενη εβδομάδα.</string>
+    <string name="future_saturated_fat_rule">Θα πρέπει να καταναλώσετε λιγότερα κορεσμένα λιπαρά την επόμενη εβδομάδα, αν το κάνατε.</string>
+    <string name="future_sugar_rule">Θα πρέπει να καταναλώσετε λιγότερη ζάχαρη την επόμενη εβδομάδα.</string>
 </resources>

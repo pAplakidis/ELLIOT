@@ -31,10 +31,9 @@ class SuggestionsAdapter(
         position: Int
     ) {
         holder.apply {
-            suggestion.text = suggestionsList?.get(position).toString()
+            suggestion.text = suggestionsList[position]
         }
     }
 
-    override fun getItemCount(): Int = suggestionsList?.count() ?: 0
-
+    override fun getItemCount(): Int = suggestionsList.size
 }

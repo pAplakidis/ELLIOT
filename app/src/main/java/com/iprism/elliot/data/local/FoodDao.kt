@@ -102,4 +102,10 @@ interface FoodDao {
                 "WHERE date BETWEEN :dateStart AND :dateEnd AND meal = :meal"
     )
     suspend fun getNutrientsByMeal(dateStart: String, dateEnd: String, meal: String): NutrientsModel
+
+    @Query("SELECT food_id FROM FoodLanguage WHERE food_name = :foodName")
+    suspend fun getFoodIdByName(foodName: String): Long
+
+    @Query("SELECT food_name FROM FoodLanguage WHERE food_id = :foodId AND lang = :locale")
+    suspend fun getFoodNameByIdAndLocale(foodId: Long, locale: String): String
 }

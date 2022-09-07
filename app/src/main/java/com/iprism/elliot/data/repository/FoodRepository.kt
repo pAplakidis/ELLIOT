@@ -36,4 +36,8 @@ interface FoodRepository {
         dateEnd: String,
         meal: String
     ): Flow<NutrientsModel>
+
+    suspend fun getFoodIdByName(foodName: String): Long
+
+    suspend fun getFoodNameByIdAndLocale(foodId: Long, locale: String): String
 }

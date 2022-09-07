@@ -42,7 +42,7 @@
     <string name="ingredients_confirmation_toast">The choices are stored successfully!</string>
     <string name="meal_entry">Meal Entry</string>
     <string name="enter_food_again">Please enter a food and try again!</string>
-    <string name="welcome_message">Welcome&#032;</string>
+    <string name="welcome_message">Welcome\u0020</string>
     <string name="suggestions">Suggestions</string>
     <string name="breakfast_string">Breakfast times</string>
     <string name="lunch_string">Lunch times</string>
@@ -55,4 +55,28 @@
     <string name="select_date">Select Date</string>
     <string name="sugar">Sugar</string>
     <string name="not_supported_food">The food is not supported by the app</string>
+
+
+    <!-- Recommender Rules -->
+    <string name="protein_min_rule_week">You should consume more protein this week.</string>
+    <string name="protein_max_rule_week">You should consume less protein this week.</string>
+    <string name="fat_min_rule_week">You should consume more fat this week.</string>
+    <string name="fat_max_rule_week">You should consume less fat this week.</string>
+    <string name="saturated_fat_rule_week">You should consume less saturated fat this week, if you did so.</string>
+    <string name="carbs_min_rule_week">You should consume more carbs this week.</string>
+    <string name="carbs_max_rule_week">You should consume less carbs this week.</string>
+    <string name="sugar_rule_week">You should consume less sugar this week.</string>
+    <string name="protein_min_rule_day">You should consume more protein today.</string>
+    <string name="protein_max_rule_day">You should consume less protein today.</string>
+    <string name="fat_min_rule_day">You should consume more fat today.</string>
+    <string name="fat_max_rule_day">You should consume less fat today.</string>
+    <string name="saturated_fat_rule_day">You should consume less saturated fat today, if you did so.</string>
+    <string name="carbs_min_rule_day">You should consume more carbs today.</string>
+    <string name="carbs_max_rule_day">You should consume less carbs today.</string>
+    <string name="sugar_rule_day">You should consume less sugar today.</string>
+    <string name="sodium_rule">You should consume less sodium today.</string>
+    <string name="fiber_rule_day">You should consume more fiber today.</string>
+    <string name="future_fat_rule">You should consume less fat next week.</string>
+    <string name="future_saturated_fat_rule">You should consume less saturated fat next week, if you did so.</string>
+    <string name="future_sugar_rule">You should consume less sugar next week.</string>
 </resources>

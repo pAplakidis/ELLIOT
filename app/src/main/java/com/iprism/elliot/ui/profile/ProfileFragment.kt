@@ -111,6 +111,7 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val username = activity?.intent?.extras?.getString("USERNAME")
         val id = activity?.intent?.extras?.getString("TOKEN")
+        // Log.e("TEST", activity?.intent?.toUri(0) ?: "")
 
         val recyclerView: RecyclerView = view.findViewById(R.id.suggestion_recycler)
 

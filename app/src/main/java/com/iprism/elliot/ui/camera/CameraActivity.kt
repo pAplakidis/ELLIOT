@@ -191,10 +191,17 @@ class CameraActivity : AppCompatActivity() {
             ).asList().joinToString(",").split(",").toTypedArray()
 
             // Translate the foodNames to the correct locale if necessary
+            val translatedFoodNames = if (Locale.getDefault().language != "en") {
+//                Log.e("test", "NOT EN")
+                cameraViewModel.translateFoodNames(foodNames)
+            } else {
+//                Log.e("test", "EN")
+                foodNames
+            }
 
             runOnUiThread {
                 binding.cameraProgressCircle.hide()
-                showPredictionCheckDialog(foodNames)
+                showPredictionCheckDialog(translatedFoodNames)
             }
         }
     }

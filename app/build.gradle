@@ -23,7 +23,7 @@ android {
         }
 
         python {
-            buildPython "C:\\Users\\Jim\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+            buildPython "C:/Users/georg/.pyenv/pyenv-win/versions/3.8.10/python.exe"
 
             pip {
                 install "numpy"
@@ -71,7 +71,7 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:1.5.0"
 
     // CameraX
-    def camerax_version = "1.1.0-beta03"
+    def camerax_version = "1.1.0"
     // CameraX core library using camera2 implementation
     implementation "androidx.camera:camera-camera2:$camerax_version"
     // CameraX Lifecycle Library
@@ -91,8 +91,9 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // Dagger - Hilt
-    implementation "com.google.dagger:hilt-android:2.38.1"
-    kapt "com.google.dagger:hilt-compiler:2.38.1"
+    implementation "com.google.dagger:hilt-android:2.40.5"
+    kapt "com.google.dagger:hilt-android-compiler:2.40.5"
+    kapt "androidx.hilt:hilt-compiler:1.0.0"
 
     // MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
