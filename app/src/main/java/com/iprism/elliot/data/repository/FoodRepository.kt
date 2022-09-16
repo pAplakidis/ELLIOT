@@ -8,7 +8,7 @@ import com.iprism.elliot.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface FoodRepository {
-    fun getFoodWithIngredients(foodName: String): Flow<Resource<List<Ingredient>>>
+    fun getFoodWithIngredients(foodName: String, lang: String): Flow<Resource<List<Ingredient>>>
 
     suspend fun getLatestFoodHistoryId(): Long
 

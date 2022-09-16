@@ -28,5 +28,5 @@ class StatsAdapter(
         }
     }
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int = statistics.size
 }

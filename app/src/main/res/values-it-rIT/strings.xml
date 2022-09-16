@@ -55,6 +55,7 @@
     <string name="select_date">Selezionare Data</string>
     <string name="sugar">Zucchero</string>
     <string name="not_supported_food">L\'alimento non è supportato dall\'app</string>
+    <string name="fa_not_installed">È necessario installare l\'applicazione SHAPES GEWI.</string>
 
 
     <!-- Recommender Rules -->

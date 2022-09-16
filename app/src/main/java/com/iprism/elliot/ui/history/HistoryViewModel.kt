@@ -11,7 +11,7 @@ import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
-class CalendarViewModel @Inject constructor(
+class HistoryViewModel @Inject constructor(
     private val repository: FoodRepository
 ) : ViewModel() {
 
@@ -23,7 +23,6 @@ class CalendarViewModel @Inject constructor(
     // Backing property to avoid state updates from other classes
     private val _cardUiState = MutableStateFlow(
         CardUiState()
-        // listOf(HistoryWithIngredientsModel("", "", "", "", emptyList()))
     )
     // val cardUiState = _cardUiState.asStateFlow()
 
@@ -33,9 +32,9 @@ class CalendarViewModel @Inject constructor(
     // The UI collects from this SharedFlow to get its state updates
     val oneTimeCardUiState = _oneTimeCardUiState.asSharedFlow()
 
-    fun onEvent(event: CalendarEvent) {
+    fun onEvent(event: HistoryEvent) {
         when (event) {
-            is CalendarEvent.OnHistoryLoad -> {
+            is HistoryEvent.OnHistoryLoad -> {
                 viewModelScope.launch {
                     repository.getAllHistoryWithIngredients(Locale.getDefault().language)
                         .collect {
@@ -53,7 +52,7 @@ class CalendarViewModel @Inject constructor(
                         }
                 }
             }
-            is CalendarEvent.OnDateChoose -> {
+            is HistoryEvent.OnDateChoose -> {
                 viewModelScope.launch {
                     repository.getHistoryWithIngredientsDate(
                         Locale.getDefault().language,

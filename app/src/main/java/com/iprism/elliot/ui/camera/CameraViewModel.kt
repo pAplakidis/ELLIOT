@@ -62,8 +62,11 @@ class CameraViewModel @Inject constructor(
                         hour.toInt() in getInt("lunchStart", 14)..getInt("lunchEnd", 15) -> {
                             "Lunch"
                         }
-                        else -> {
+                        hour.toInt() in getInt("dinnerStart", 20)..getInt("dinnerEnd", 21) -> {
                             "Dinner"
+                        }
+                        else -> {
+                            "Snack"
                         }
                     }
                 }
@@ -82,15 +85,6 @@ class CameraViewModel @Inject constructor(
                             )
                         )
                     }
-
-//                    _ingredientsListUiState.value.checked?.zip(_ingredientsListUiState.value.ingredients) { checked, ingredient ->
-//                        if (checked) repository.insertHistoryIngredients(
-//                            HistoryIngredientCrossRef(
-//                                historyId = repository.getLatestFoodHistoryId(),
-//                                ingredientId = ingredientsToIDs[ingredient]!!
-//                            )
-//                        )
-//                    }
 
                     val nutrients = repository.getLastSevenDaysNutrients()
                     val caloriesWeek = nutrients.carbohydrate + nutrients.fiber + nutrients.fat +
@@ -141,27 +135,30 @@ class CameraViewModel @Inject constructor(
 
     private fun getIngredients() {
         viewModelScope.launch {
-            repository.getFoodWithIngredients(foodName).collect { resource ->
-                when (resource) {
-                    is Resource.Success -> {
-                        _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
-                            ingredients = resource.data?.map { it.ingredientName }?.toTypedArray(),
-                            checked = resource.data?.map { it.ingredientName }
-                                ?.toTypedArray()?.size?.let { BooleanArray(it) { true } }
-                        )
+            repository.getFoodWithIngredients(foodName, Locale.getDefault().language)
+                .collect { resource ->
+                    when (resource) {
+                        is Resource.Success -> {
+                            _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
+                                ingredients = resource.data?.map { it.ingredientName }
+                                    ?.toTypedArray(),
+                                checked = resource.data?.map { it.ingredientName }
+                                    ?.toTypedArray()?.size?.let { BooleanArray(it) { true } }
+                            )
 
-                        resource.data?.forEach { ingredient ->
-                            ingredientsToIDs[ingredient.ingredientName] = ingredient.ingredientId
+                            resource.data?.forEach { ingredient ->
+                                ingredientsToIDs[ingredient.ingredientName] =
+                                    ingredient.ingredientId
+                            }
+                        }
+                        is Resource.Error -> {
+                            _ingredientsListUiState.value =
+                                IngredientListUiState(error = IngredientListUiState.Error.NoSuchFood)
                         }
                     }
-                    is Resource.Error -> {
-                        _ingredientsListUiState.value =
-                            IngredientListUiState(error = IngredientListUiState.Error.NoSuchFood)
-                    }
-                }
 
-                _oneTimeIngredientsListUiState.emit(_ingredientsListUiState.value)
-            }
+                    _oneTimeIngredientsListUiState.emit(_ingredientsListUiState.value)
+                }
         }
     }
 

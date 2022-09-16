@@ -30,7 +30,7 @@ class ProfileViewModel @Inject constructor(
                 }
             }
             is ProfileEvent.SetMealTime -> {
-                // Load meal times from shared preferences file.
+                // Store meal times in shared preferences file.
                 with(sharedPref.edit()) {
                     when (event.meal) {
                         "breakfast" -> {

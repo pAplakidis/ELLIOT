@@ -55,6 +55,7 @@
     <string name="select_date">Επιλογή Ημερομηνίας</string>
     <string name="sugar">Ζάχαρη</string>
     <string name="not_supported_food">Το φαγητό δεν υποστηρίζεται από την εφαρμογή</string>
+    <string name="fa_not_installed">Η εφαρμογή SHAPES GEWI χρειάζεται να είναι εγκατεστημένη.</string>
 
 
     <!-- Recommender Rules -->

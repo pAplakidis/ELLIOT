@@ -15,14 +15,4 @@ data class HistoryWithIngredients(
         associateBy = Junction(HistoryIngredientCrossRef::class)
     )
     val ingredients: List<Ingredient>
-) {
-//    fun toHistoryWithIngredientsModel(): HistoryWithIngredientsModel {
-//        return HistoryWithIngredientsModel(
-//            foodName = history.foodName,
-//            foodDate = history.date,
-//            foodTime = history.time,
-//            meal = history.meal,
-//            ingredients = ingredients
-//        )
-//    }
-}
+)

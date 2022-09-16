@@ -23,10 +23,4 @@ data class Food(
     val sodium: Double,
     @NotNull
     val sugar: Double
-) {
-//    fun toFoodModel(): FoodModel {
-//        return FoodModel(
-//            foodName = foodName
-//        )
-//    }
-}
+)

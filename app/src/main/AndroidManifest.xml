@@ -5,6 +5,12 @@
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- Android 11+ requires specifying the package name of the app you want to launch with an intent.
+         By default Android hides information regarding most of the installed apps. -->
+    <queries>
+        <package android:name="eu.edgeneering.pt002_gewi" />
+    </queries>
+
     <application
         android:name=".FoodApp"
         android:allowBackup="true"
@@ -18,7 +24,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

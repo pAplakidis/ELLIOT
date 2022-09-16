@@ -55,6 +55,7 @@
     <string name="select_date">Select Date</string>
     <string name="sugar">Sugar</string>
     <string name="not_supported_food">The food is not supported by the app</string>
+    <string name="fa_not_installed">SHAPES GEWI app needs to be installed.</string>
 
 
     <!-- Recommender Rules -->

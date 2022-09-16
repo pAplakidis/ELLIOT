@@ -27,8 +27,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
-class CalendarFragment : Fragment(R.layout.fragment_foods) {
-    private val calendarViewModel: CalendarViewModel by viewModels()
+class HistoryFragment : Fragment(R.layout.fragment_foods) {
+    private val historyViewModel: HistoryViewModel by viewModels()
 
     private fun callRecycleView(
         recyclerView: RecyclerView,
@@ -85,8 +85,8 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         datePicker.show(childFragmentManager, "tag")
 
         datePicker.addOnPositiveButtonClickListener {
-            calendarViewModel.dateChosen = SimpleDateFormat("yyyy-MM-dd").format(Date(it))
-            calendarViewModel.onEvent(CalendarEvent.OnDateChoose)
+            historyViewModel.dateChosen = SimpleDateFormat("yyyy-MM-dd").format(Date(it))
+            historyViewModel.onEvent(HistoryEvent.OnDateChoose)
         }
 
         return datePicker
@@ -100,31 +100,31 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
 
         val view = inflater.inflate(R.layout.fragment_foods, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.meal_recycler)
-        recyclerView.alpha = calendarViewModel.recycledAlpha
+        recyclerView.alpha = historyViewModel.recycledAlpha
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                calendarViewModel.oneTimeCardUiState.collect { cardUiState ->
+                historyViewModel.oneTimeCardUiState.collect { cardUiState ->
                     if (cardUiState.data.isNotEmpty()) {
-                        calendarViewModel.emptyHistoryAlpha = 0f
+                        historyViewModel.emptyHistoryAlpha = 0f
                         activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
-                            calendarViewModel.emptyHistoryAlpha
+                            historyViewModel.emptyHistoryAlpha
 
-                        calendarViewModel.recycledAlpha = 1f
-                        recyclerView.alpha = calendarViewModel.recycledAlpha
+                        historyViewModel.recycledAlpha = 1f
+                        recyclerView.alpha = historyViewModel.recycledAlpha
 
-                        calendarViewModel.backgroundAlpha = 0
+                        historyViewModel.backgroundAlpha = 0
 
                         callRecycleView(recyclerView, cardUiState.data)
                     } else {
-                        calendarViewModel.emptyHistoryAlpha = 1f
+                        historyViewModel.emptyHistoryAlpha = 1f
                         activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
-                            calendarViewModel.emptyHistoryAlpha
+                            historyViewModel.emptyHistoryAlpha
 
-                        calendarViewModel.recycledAlpha = 0f
-                        recyclerView.alpha = calendarViewModel.recycledAlpha
+                        historyViewModel.recycledAlpha = 0f
+                        recyclerView.alpha = historyViewModel.recycledAlpha
 
-                        calendarViewModel.backgroundAlpha = 255
+                        historyViewModel.backgroundAlpha = 255
                         callRecycleView(recyclerView, emptyList())
                     }
                 }
@@ -144,14 +144,14 @@ class CalendarFragment : Fragment(R.layout.fragment_foods) {
         }
 
         activity?.findViewById<TextView>(R.id.empty_history)?.alpha =
-            calendarViewModel.emptyHistoryAlpha
+            historyViewModel.emptyHistoryAlpha
 //        recyclerView.alpha = calendarViewModel.recycledAlpha
 //        recyclerView.background.alpha = calendarViewModel.backgroundAlpha
 
-        if (calendarViewModel.dateChosen == "") {
-            calendarViewModel.onEvent(CalendarEvent.OnHistoryLoad)
+        if (historyViewModel.dateChosen == "") {
+            historyViewModel.onEvent(HistoryEvent.OnHistoryLoad)
         } else {
-            calendarViewModel.onEvent(CalendarEvent.OnDateChoose)
+            historyViewModel.onEvent(HistoryEvent.OnDateChoose)
         }
 
 //        lifecycleScope.launch {

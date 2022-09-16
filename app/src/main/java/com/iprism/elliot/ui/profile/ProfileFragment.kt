@@ -1,5 +1,6 @@
 package com.iprism.elliot.ui.profile
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,12 +22,16 @@ import com.iprism.elliot.adapter.SuggestionsAdapter
 import com.iprism.elliot.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private val profileViewModel: ProfileViewModel by viewModels()
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
+
+    @Inject
+    lateinit var sharedPref: SharedPreferences
 
     private fun startTimeSetter(mealString: String, meal: String) {
         val timePicker =
@@ -109,9 +114,9 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val username = activity?.intent?.extras?.getString("USERNAME")
-        val id = activity?.intent?.extras?.getString("TOKEN")
-        // Log.e("TEST", activity?.intent?.toUri(0) ?: "")
+        // val username = activity?.intent?.extras?.getString("USERNAME")
+        // val token = activity?.intent?.extras?.getString("TOKEN")
+        // Log.e("test", activity?.intent?.toUri(0).toString())
 
         val recyclerView: RecyclerView = view.findViewById(R.id.suggestion_recycler)
 
@@ -119,7 +124,7 @@ class ProfileFragment : Fragment() {
         cameraButton?.visibility = View.VISIBLE
 
         val profileName = activity?.findViewById<TextView>(R.id.profileName)
-        profileName?.text = username
+        profileName?.text = sharedPref.getString("username", "")
 
         initiateListeners()
 

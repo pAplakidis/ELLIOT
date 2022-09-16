@@ -15,10 +15,13 @@ class FoodRepositoryImpl(
     private val dao: FoodDao,
     private val resources: Resources,
 ) : FoodRepository {
-    override fun getFoodWithIngredients(foodName: String): Flow<Resource<List<Ingredient>>> =
+    override fun getFoodWithIngredients(
+        foodName: String,
+        lang: String
+    ): Flow<Resource<List<Ingredient>>> =
         flow {
             try {
-                emit(Resource.Success(dao.getFoodWithIngredients(foodName).values.single()))
+                emit(Resource.Success(dao.getFoodWithIngredients(foodName, lang).values.single()))
             } catch (e: NoSuchElementException) {
                 emit(Resource.Error(resources.getString(R.string.not_supported_food)))
             }

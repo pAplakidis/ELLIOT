@@ -12,10 +12,13 @@ interface FoodDao {
         "SELECT * FROM FoodLanguage " +
                 "JOIN FoodIngredientCrossRef ON FoodLanguage.food_id = FoodIngredientCrossRef.food_id AND FoodLanguage.lang = FoodIngredientCrossRef.lang " +
                 "JOIN Ingredient ON Ingredient.ingredient_id = FoodIngredientCrossRef.ingredient_id AND Ingredient.lang = FoodIngredientCrossRef.lang " +
-                "WHERE food_name LIKE :foodName"
+                "WHERE food_name LIKE :foodName AND FoodLanguage.lang = :lang"
     )
     @Throws(NoSuchElementException::class)
-    suspend fun getFoodWithIngredients(foodName: String): Map<FoodLanguage, List<Ingredient>>
+    suspend fun getFoodWithIngredients(
+        foodName: String,
+        lang: String
+    ): Map<FoodLanguage, List<Ingredient>>
 
     @Query("SELECT * FROM History WHERE food_name = :foodName AND date = :date AND time = :time")
     suspend fun getHistoryWithIngredients(

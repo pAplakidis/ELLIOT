@@ -6,8 +6,8 @@
     app:startDestination="@id/profileFragment">
 
     <fragment
-        android:id="@+id/calendarFragment"
-        android:name="com.iprism.elliot.ui.history.CalendarFragment"
+        android:id="@+id/historyFragment"
+        android:name="com.iprism.elliot.ui.history.HistoryFragment"
         android:label="CalendarFragment"
         tools:layout="@layout/fragment_foods">
         <action
@@ -32,7 +32,7 @@
         tools:layout="@layout/fragment_food_details">
         <action
             android:id="@+id/action_foodDetailsFragment_to_calendarFragment"
-            app:destination="@id/calendarFragment"
+            app:destination="@id/historyFragment"
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>

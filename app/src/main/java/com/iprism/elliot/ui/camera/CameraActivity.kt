@@ -35,8 +35,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
 
-// TODO: 10/26/2021 Delete Log statements after development
-
 @AndroidEntryPoint
 class CameraActivity : AppCompatActivity() {
     private var imageCapture: ImageCapture? = null
@@ -87,7 +85,12 @@ class CameraActivity : AppCompatActivity() {
         }
 
         binding.backButtonCamera.setOnClickListener {
-            startActivity(Intent(baseContext, MainActivity::class.java))
+            startActivity(
+                Intent(
+                    baseContext,
+                    MainActivity::class.java
+                )
+            )
         }
 
         outputDirectory = getOutputDirectory()
@@ -192,10 +195,8 @@ class CameraActivity : AppCompatActivity() {
 
             // Translate the foodNames to the correct locale if necessary
             val translatedFoodNames = if (Locale.getDefault().language != "en") {
-//                Log.e("test", "NOT EN")
                 cameraViewModel.translateFoodNames(foodNames)
             } else {
-//                Log.e("test", "EN")
                 foodNames
             }
 
