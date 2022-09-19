@@ -27,7 +27,7 @@ import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.iprism.elliot.R
-import com.iprism.elliot.adapter.StatsAdapter
+import com.iprism.elliot.adapter.SubStatsAdapter
 import com.iprism.elliot.domain.model.SubStatistic
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -159,7 +159,7 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
     private fun initRecycler(recyclerView: RecyclerView, statList: List<SubStatistic>) {
         recyclerView.apply {
-            adapter = StatsAdapter(statList)
+            adapter = SubStatsAdapter(statList)
             setHasFixedSize(true)
         }
     }
