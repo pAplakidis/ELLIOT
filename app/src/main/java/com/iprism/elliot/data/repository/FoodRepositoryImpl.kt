@@ -4,6 +4,7 @@ import android.content.res.Resources
 import com.iprism.elliot.R
 import com.iprism.elliot.data.local.FoodDao
 import com.iprism.elliot.data.local.entity.*
+import com.iprism.elliot.domain.model.FoodWithIngredientsModel
 import com.iprism.elliot.domain.model.HistoryModel
 import com.iprism.elliot.domain.model.NutrientsModel
 import com.iprism.elliot.domain.model.SuggestionModel
@@ -18,12 +19,16 @@ class FoodRepositoryImpl(
     override fun getFoodWithIngredients(
         foodName: String,
         lang: String
-    ): Flow<Resource<List<Ingredient>>> =
+    ): Flow<FoodWithIngredientsModel> =
         flow {
             try {
-                emit(Resource.Success(dao.getFoodWithIngredients(foodName, lang).values.single()))
+                emit(FoodWithIngredientsModel(dao.getFoodWithIngredients(foodName,lang).keys.first().foodName,
+                dao.getFoodWithIngredients(foodName,lang).values.first()))
+//
             } catch (e: NoSuchElementException) {
-                emit(Resource.Error(resources.getString(R.string.not_supported_food)))
+                emit(FoodWithIngredientsModel("empty",
+                    emptyList()
+                ))
             }
         }
 

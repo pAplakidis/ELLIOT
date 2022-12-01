@@ -12,7 +12,7 @@ interface FoodDao {
         "SELECT * FROM FoodLanguage " +
                 "JOIN FoodIngredientCrossRef ON FoodLanguage.food_id = FoodIngredientCrossRef.food_id AND FoodLanguage.lang = FoodIngredientCrossRef.lang " +
                 "JOIN Ingredient ON Ingredient.ingredient_id = FoodIngredientCrossRef.ingredient_id AND Ingredient.lang = FoodIngredientCrossRef.lang " +
-                "WHERE food_name LIKE :foodName AND FoodLanguage.lang = :lang"
+                "WHERE food_name LIKE '%'||:foodName|| '%' AND FoodLanguage.lang = :lang"
     )
     @Throws(NoSuchElementException::class)
     suspend fun getFoodWithIngredients(

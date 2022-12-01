@@ -143,13 +143,16 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun showConfirmationDialog(state: CameraViewModel.IngredientListUiState) {
+        state.checked?.let { Log.d("LIGO", it.joinToString("\n")) }
+        state.ingredients?.let { Log.d("LIGO", it.joinToString("\n")) }
         MaterialAlertDialogBuilder(this, R.style.AlertDialog)
             .setTitle(getString(R.string.food_ingredients_confirmation))
             .setPositiveButton(getString(R.string.ok)) { _, _ ->
                 // Store the selected ingredients in database.
-                cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick)
+                cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick(state.newFoodName))
                 showToast(getString(R.string.ingredients_confirmation_toast))
             }
+
             .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
             .setMultiChoiceItems(
                 state.ingredients,

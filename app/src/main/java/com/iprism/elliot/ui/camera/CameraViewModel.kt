@@ -1,6 +1,7 @@
 package com.iprism.elliot.ui.camera
 
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
@@ -33,7 +34,7 @@ class CameraViewModel @Inject constructor(
 
     // Backing property to avoid state updates from other classes
     private val _ingredientsListUiState =
-        MutableStateFlow(IngredientListUiState(emptyArray(), BooleanArray(0)))
+        MutableStateFlow(IngredientListUiState(emptyArray(), BooleanArray(0), ""))
     // val ingredientsListUiState = _ingredientsListUiState.asStateFlow()
 
     private val _oneTimeIngredientsListUiState = MutableSharedFlow<IngredientListUiState>()
@@ -73,10 +74,11 @@ class CameraViewModel @Inject constructor(
             }
             is CameraEvent.OnConfirmationDialogOkClick -> {
                 viewModelScope.launch {
-                    insertFood()
+                    insertFood(event.newFoodName)
 
                     val checked = _ingredientsListUiState.value.checked
                     val ingredients = _ingredientsListUiState.value.ingredients
+
                     for (i in 0 until checked?.size!!) {
                         if (checked[i]) repository.insertHistoryIngredients(
                             HistoryIngredientCrossRef(
@@ -122,10 +124,10 @@ class CameraViewModel @Inject constructor(
         return localeFoodNames
     }
 
-    private suspend fun insertFood() {
+    private suspend fun insertFood(newFoodName: String) {
         repository.insertFood(
             HistoryModel(
-                food_name = foodName,
+                food_name = newFoodName,
                 date = date,
                 meal = meal,
                 time = time
@@ -136,29 +138,33 @@ class CameraViewModel @Inject constructor(
     private fun getIngredients() {
         viewModelScope.launch {
             repository.getFoodWithIngredients(foodName, Locale.getDefault().language)
-                .collect { resource ->
-                    when (resource) {
-                        is Resource.Success -> {
-                            _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
-                                ingredients = resource.data?.map { it.ingredientName }
-                                    ?.toTypedArray(),
-                                checked = resource.data?.map { it.ingredientName }
-                                    ?.toTypedArray()?.size?.let { BooleanArray(it) { true } }
-                            )
+                .collect { it ->
 
-                            resource.data?.forEach { ingredient ->
-                                ingredientsToIDs[ingredient.ingredientName] =
-                                    ingredient.ingredientId
-                            }
+                    if (it.foodName == "empty") {
+                        _ingredientsListUiState.value =
+                            IngredientListUiState(error = IngredientListUiState.Error.NoSuchFood)
+                    } else {
+                        var ingredientNames = emptyArray<String>()
+                        it.ingredients.forEach{
+                            ingredientNames += it.ingredientName
                         }
-                        is Resource.Error -> {
-                            _ingredientsListUiState.value =
-                                IngredientListUiState(error = IngredientListUiState.Error.NoSuchFood)
+
+                        _ingredientsListUiState.value = _ingredientsListUiState.value.copy(
+                            ingredients = ingredientNames,
+                            checked = BooleanArray(ingredientNames.size) { true },
+                            newFoodName = it.foodName
+                        )
+
+                        it.ingredients.forEach {
+                            ingredientsToIDs[it.ingredientName] =
+                                it.ingredientId
                         }
+
                     }
 
                     _oneTimeIngredientsListUiState.emit(_ingredientsListUiState.value)
                 }
+
         }
     }
 
@@ -215,6 +221,7 @@ class CameraViewModel @Inject constructor(
     data class IngredientListUiState(
         val ingredients: Array<String>? = null,
         val checked: BooleanArray? = null,
+        val newFoodName: String = "",
         val isLoading: Boolean = false,
         val error: Error? = null
     ) {
