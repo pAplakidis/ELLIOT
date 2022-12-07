@@ -1,16 +1,15 @@
 package com.iprism.elliot.ui.camera
 
 import android.content.SharedPreferences
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.iprism.elliot.R
 import com.iprism.elliot.data.local.entity.HistoryIngredientCrossRef
 import com.iprism.elliot.data.repository.FoodRepository
 import com.iprism.elliot.domain.model.HistoryModel
 import com.iprism.elliot.domain.model.NutrientsModel
 import com.iprism.elliot.domain.model.SuggestionModel
 import com.iprism.elliot.domain.rules.Ruleset
-import com.iprism.elliot.util.Resource
 import com.iprism.elliot.util.Utils.getDateAndTime
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -22,7 +21,8 @@ import javax.inject.Inject
 class CameraViewModel @Inject constructor(
     private val repository: FoodRepository,
     private val sharedPref: SharedPreferences,
-    private val ruleset: Ruleset
+    private val ruleset: Ruleset,
+    private val stringResourcesProvider: StringResourcesProvider
 ) : ViewModel() {
 
     private val ingredientsToIDs = mutableMapOf<String, Long>()
@@ -58,13 +58,13 @@ class CameraViewModel @Inject constructor(
                 with(sharedPref) {
                     meal = when {
                         hour.toInt() in getInt("breakfastStart", 8)..getInt("breakfastEnd", 9) -> {
-                            "Breakfast"
+                            stringResourcesProvider.getString(R.string.breakfast)
                         }
                         hour.toInt() in getInt("lunchStart", 14)..getInt("lunchEnd", 15) -> {
-                            "Lunch"
+                            stringResourcesProvider.getString(R.string.lunch)
                         }
                         hour.toInt() in getInt("dinnerStart", 20)..getInt("dinnerEnd", 21) -> {
-                            "Dinner"
+                            stringResourcesProvider.getString(R.string.dinner)
                         }
                         else -> {
                             "Snack"

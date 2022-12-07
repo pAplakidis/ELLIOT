@@ -80,4 +80,5 @@
     <string name="future_fat_rule">You should consume less fat next week.</string>
     <string name="future_saturated_fat_rule">You should consume less saturated fat next week, if you did so.</string>
     <string name="future_sugar_rule">You should consume less sugar next week.</string>
+    <string name="head_to_home">Head to home</string>
 </resources>

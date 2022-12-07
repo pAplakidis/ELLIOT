@@ -1,7 +1,9 @@
 package com.iprism.elliot.ui.profile
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +16,14 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.iprism.elliot.R
 import com.iprism.elliot.adapter.SuggestionsAdapter
 import com.iprism.elliot.databinding.FragmentProfileBinding
+import com.iprism.elliot.ui.camera.CameraActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -122,6 +126,11 @@ class ProfileFragment : Fragment() {
 
         val cameraButton = activity?.findViewById<FloatingActionButton>(R.id.floating_action_button)
         cameraButton?.visibility = View.VISIBLE
+
+        val homeButton = activity?.findViewById<MaterialButton>(R.id.home_button)
+        homeButton?.setOnClickListener{
+            activity?.finish()
+        }
 
         val profileName = activity?.findViewById<TextView>(R.id.profileName)
         profileName?.text = sharedPref.getString("username", "")
