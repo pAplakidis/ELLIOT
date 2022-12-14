@@ -37,13 +37,13 @@ class ProfileFragment : Fragment() {
     @Inject
     lateinit var sharedPref: SharedPreferences
 
-    private fun startTimeSetter(mealString: String, meal: String) {
+    private fun startTimeSetter(mealStringStart: String, mealStringEnd: String, meal: String) {
         val timePicker =
             MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_12H)
                 .setHour(12)
                 .setMinute(10)
-                .setTitleText(mealString)
+                .setTitleText(mealStringStart)
                 .build()
 
         timePicker.show(parentFragmentManager, "tag")
@@ -52,7 +52,7 @@ class ProfileFragment : Fragment() {
             val hour = timePicker.hour
             // val min = timePicker.minute
             // val timeStart = "$hour:$min"
-            endTimeSetter(mealString, meal, hour)
+            endTimeSetter(mealStringEnd, meal, hour)
             timePicker.dismiss()
         }
     }
@@ -80,15 +80,15 @@ class ProfileFragment : Fragment() {
 
     private fun initiateListeners() {
         binding.breakfast.setOnClickListener {
-            startTimeSetter(getString(R.string.breakfast_string), "breakfast")
+            startTimeSetter(getString(R.string.breakfast_string_start), getString(R.string.breakfast_string_end), "breakfast")
         }
 
         binding.lunch.setOnClickListener {
-            startTimeSetter(getString(R.string.lunch_string), "lunch")
+            startTimeSetter(getString(R.string.lunch_string_start), getString(R.string.breakfast_string_end), "lunch")
         }
 
         binding.dinner.setOnClickListener {
-            startTimeSetter(getString(R.string.dinner_string), "dinner")
+            startTimeSetter(getString(R.string.dinner_string_start), getString(R.string.breakfast_string_end), "dinner")
         }
     }
 

@@ -44,9 +44,12 @@
     <string name="enter_food_again">Παρακαλούμε εισάγετε ένα φαγητό και ξαναπροσπαθήστε!</string>
     <string name="welcome_message">Καλωσορίσατε\u0020</string>
     <string name="suggestions">Προτάσεις</string>
-    <string name="breakfast_string">Ώρες Πρωινού</string>
-    <string name="lunch_string">Ώρες Μεσημεριανού</string>
-    <string name="dinner_string">Ώρες Βραδινού</string>
+    <string name="breakfast_string_start">Αρχή του Πρωινού</string>
+    <string name="lunch_string_start">Αρχή του Μεσημερινού</string>
+    <string name="dinner_string_start">Αρχή του Βραδινού</string>
+    <string name="breakfast_string_end">Τέλος του Πρωινού</string>
+    <string name="lunch_string_end">Τέλος του Μεσημεριανού</string>
+    <string name="dinner_string_end">Τέλος του Βραδινού</string>
     <string name="fiber">Ίνες</string>
     <string name="sodium">Σόδιο</string>
     <string name="pie_notification">Παρακαλώ καταγράψτε ένα φαγητό πρώτα.</string>

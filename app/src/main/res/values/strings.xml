@@ -44,9 +44,12 @@
     <string name="enter_food_again">Please enter a food and try again!</string>
     <string name="welcome_message">Welcome\u0020</string>
     <string name="suggestions">Suggestions</string>
-    <string name="breakfast_string">Breakfast times</string>
-    <string name="lunch_string">Lunch times</string>
-    <string name="dinner_string">Dinner times</string>
+    <string name="breakfast_string_start">Start of Breakfast</string>
+    <string name="lunch_string_start">Start of Lunch</string>
+    <string name="dinner_string_start">Start of Dinner</string>
+    <string name="breakfast_string_end">End of Breakfast</string>
+    <string name="lunch_string_end">End of Lunch</string>
+    <string name="dinner_string_end">End of Dinner</string>
     <string name="fiber">Fiber</string>
     <string name="sodium">Sodium</string>
     <string name="pie_notification">Please record a food first.</string>

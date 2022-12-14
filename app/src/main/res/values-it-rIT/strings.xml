@@ -44,9 +44,12 @@
     <string name="enter_food_again">Inserire un Alimento e riprovare, per favore!</string>
     <string name="welcome_message">Benvenuto\u0020</string>
     <string name="suggestions">Suggerimenti</string>
-    <string name="breakfast_string">Orari della Colazione</string>
-    <string name="lunch_string">Orari del Pranzo</string>
-    <string name="dinner_string">Orati della Cena</string>
+    <string name="breakfast_string_start">Inizio della Colazione</string>
+    <string name="lunch_string_start">Inizio del pranzo</string>
+    <string name="dinner_string_start">Inizio della Cena</string>
+    <string name="breakfast_string_end">Fine della Colazione</string>
+    <string name="lunch_string_end">Fine del Pranzo</string>
+    <string name="dinner_string_end">Fine della Cena</string>
     <string name="fiber">Fibre</string>
     <string name="sodium">Sodio</string>
     <string name="pie_notification">Si prega di registrare prima un alimento</string>
