@@ -1,9 +1,7 @@
 package com.iprism.elliot.ui.profile
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +21,6 @@ import com.google.android.material.timepicker.TimeFormat
 import com.iprism.elliot.R
 import com.iprism.elliot.adapter.SuggestionsAdapter
 import com.iprism.elliot.databinding.FragmentProfileBinding
-import com.iprism.elliot.ui.camera.CameraActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
