@@ -1,20 +1,16 @@
 package com.iprism.elliot.data.repository
 
-import android.content.res.Resources
-import com.iprism.elliot.R
 import com.iprism.elliot.data.local.FoodDao
 import com.iprism.elliot.data.local.entity.*
 import com.iprism.elliot.domain.model.FoodWithIngredientsModel
 import com.iprism.elliot.domain.model.HistoryModel
 import com.iprism.elliot.domain.model.NutrientsModel
 import com.iprism.elliot.domain.model.SuggestionModel
-import com.iprism.elliot.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class FoodRepositoryImpl(
-    private val dao: FoodDao,
-    private val resources: Resources,
+    private val dao: FoodDao
 ) : FoodRepository {
     override fun getFoodWithIngredients(
         foodName: String,
@@ -22,13 +18,19 @@ class FoodRepositoryImpl(
     ): Flow<FoodWithIngredientsModel> =
         flow {
             try {
-                emit(FoodWithIngredientsModel(dao.getFoodWithIngredients(foodName,lang).keys.first().foodName,
-                dao.getFoodWithIngredients(foodName,lang).values.first()))
-//
+                emit(
+                    FoodWithIngredientsModel(
+                        dao.getFoodWithIngredients(foodName, lang).keys.first().foodName,
+                        dao.getFoodWithIngredients(foodName, lang).values.first()
+                    )
+                )
             } catch (e: NoSuchElementException) {
-                emit(FoodWithIngredientsModel("empty",
-                    emptyList()
-                ))
+                emit(
+                    FoodWithIngredientsModel(
+                        "empty",
+                        emptyList()
+                    )
+                )
             }
         }
 

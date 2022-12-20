@@ -67,7 +67,7 @@ class CameraViewModel @Inject constructor(
                             stringResourcesProvider.getString(R.string.dinner)
                         }
                         else -> {
-                            "Snack"
+                            stringResourcesProvider.getString(R.string.snack)
                         }
                     }
                 }
@@ -145,7 +145,7 @@ class CameraViewModel @Inject constructor(
                             IngredientListUiState(error = IngredientListUiState.Error.NoSuchFood)
                     } else {
                         var ingredientNames = emptyArray<String>()
-                        it.ingredients.forEach{
+                        it.ingredients.forEach {
                             ingredientNames += it.ingredientName
                         }
 

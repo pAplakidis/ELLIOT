@@ -5,7 +5,6 @@ import com.iprism.elliot.domain.model.FoodWithIngredientsModel
 import com.iprism.elliot.domain.model.HistoryModel
 import com.iprism.elliot.domain.model.NutrientsModel
 import com.iprism.elliot.domain.model.SuggestionModel
-import com.iprism.elliot.util.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface FoodRepository {

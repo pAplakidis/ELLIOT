@@ -28,6 +28,7 @@
     <string name="breakfast">Colazione</string>
     <string name="lunch">Pranzo</string>
     <string name="dinner">Cena</string>
+    <string name="snack">Spuntino</string>
     <string name="select_dates">Selezionare Date</string>
     <string name="proteins">Proteine</string>
     <string name="carbs">Carboidrati</string>
@@ -59,6 +60,7 @@
     <string name="sugar">Zucchero</string>
     <string name="not_supported_food">L\'alimento non è supportato dall\'app</string>
     <string name="fa_not_installed">È necessario installare l\'applicazione SHAPES GEWI.</string>
+    <string name="meal_time_toast">L\'orario dei pasti è cambiato con successo!</string>
 
 
     <!-- Recommender Rules -->
