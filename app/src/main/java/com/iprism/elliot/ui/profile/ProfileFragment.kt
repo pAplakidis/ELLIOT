@@ -35,23 +35,23 @@ class ProfileFragment : Fragment() {
     lateinit var sharedPref: SharedPreferences
 
     private fun startTimeSetter(mealStringStart: String, mealStringEnd: String, meal: String) {
-        val timePicker =
-            MaterialTimePicker.Builder()
-                .setTimeFormat(TimeFormat.CLOCK_12H)
-                .setHour(12)
-                .setMinute(10)
-                .setTitleText(mealStringStart)
-                .build()
+            val timePicker =
+                MaterialTimePicker.Builder()
+                    .setTimeFormat(TimeFormat.CLOCK_12H)
+                    .setHour(12)
+                    .setMinute(10)
+                    .setTitleText(mealStringStart)
+                    .build()
 
-        timePicker.show(parentFragmentManager, "tag")
+            timePicker.show(parentFragmentManager, "tag")
 
-        timePicker.addOnPositiveButtonClickListener {
-            val hour = timePicker.hour
-            // val min = timePicker.minute
-            // val timeStart = "$hour:$min"
-            endTimeSetter(mealStringEnd, meal, hour)
-            timePicker.dismiss()
-        }
+            timePicker.addOnPositiveButtonClickListener {
+                val hour = timePicker.hour
+                // val min = timePicker.minute
+                // val timeStart = "$hour:$min"
+                endTimeSetter(mealStringEnd, meal, hour)
+                timePicker.dismiss()
+            }
     }
 
     private fun endTimeSetter(mealString: String, meal: String, timeStart: Int) {

@@ -124,41 +124,41 @@ class CameraActivity : AppCompatActivity() {
     ).show()
 
     private fun showPredictionCheckDialog(foodNames: Array<String>) {
-        var foodNameIndex = 0
-        var foodName = foodNames[foodNameIndex]
+            var foodNameIndex = 0
+            var foodName = foodNames[foodNameIndex]
 
-        MaterialAlertDialogBuilder(this, R.style.AlertDialog)
-            .setTitle(getString(R.string.food_prediction_question))
-            .setPositiveButton(getString(R.string.ok)) { _, _ ->
-                cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick(foodName))
-            }
-            .setNegativeButton(getString(R.string.cancel)) { _, _ ->
-                showMealEntryDialog()
-            }
-            .setSingleChoiceItems(foodNames, foodNameIndex) { _, which ->
-                foodNameIndex = which
-                foodName = foodNames[foodNameIndex]
-            }
-            .show()
+            MaterialAlertDialogBuilder(this, R.style.AlertDialog)
+                .setTitle(getString(R.string.food_prediction_question))
+                .setPositiveButton(getString(R.string.ok)) { _, _ ->
+                    cameraViewModel.onEvent(CameraEvent.OnPredictionCheckDialogYesClick(foodName))
+                }
+                .setNegativeButton(getString(R.string.cancel)) { _, _ ->
+                    showMealEntryDialog()
+                }
+                .setSingleChoiceItems(foodNames, foodNameIndex) { _, which ->
+                    foodNameIndex = which
+                    foodName = foodNames[foodNameIndex]
+                }
+                .show()
     }
 
     private fun showConfirmationDialog(state: CameraViewModel.IngredientListUiState) {
-        state.checked?.let { Log.d("LIGO", it.joinToString("\n")) }
-        state.ingredients?.let { Log.d("LIGO", it.joinToString("\n")) }
-        MaterialAlertDialogBuilder(this, R.style.AlertDialog)
-            .setTitle(getString(R.string.food_ingredients_confirmation))
-            .setPositiveButton(getString(R.string.ok)) { _, _ ->
-                // Store the selected ingredients in database.
-                cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick(state.newFoodName))
-                showToast(getString(R.string.ingredients_confirmation_toast))
-            }
+            state.checked?.let { Log.d("LIGO", it.joinToString("\n")) }
+            state.ingredients?.let { Log.d("LIGO", it.joinToString("\n")) }
+            MaterialAlertDialogBuilder(this, R.style.AlertDialog)
+                .setTitle(getString(R.string.food_ingredients_confirmation))
+                .setPositiveButton(getString(R.string.ok)) { _, _ ->
+                    // Store the selected ingredients in database.
+                    cameraViewModel.onEvent(CameraEvent.OnConfirmationDialogOkClick(state.newFoodName))
+                    showToast(getString(R.string.ingredients_confirmation_toast))
+                }
 
-            .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
-            .setMultiChoiceItems(
-                state.ingredients,
-                state.checked
-            ) { _, _, _ -> }
-            .show()
+                .setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+                .setMultiChoiceItems(
+                    state.ingredients,
+                    state.checked
+                ) { _, _, _ -> }
+                .show()
     }
 
     private fun showMealEntryDialog() {
@@ -183,101 +183,104 @@ class CameraActivity : AppCompatActivity() {
     }
 
     private fun startCNNModel(imagePath: String) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val nnModel = NNModel(this@CameraActivity)
-            val pyObj = nnModel.init()
-            val foodNames = pyObj.callAttr(
-                "classify",
-                imagePath,
-                ModelUtils.assetFilePath(
-                    this@CameraActivity,
-                    "resnet18_classifier.pth"
-                ),
-                ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
-            ).asList().joinToString(",").split(",").toTypedArray()
+            lifecycleScope.launch(Dispatchers.IO) {
+                val nnModel = NNModel(this@CameraActivity)
+                val pyObj = nnModel.init()
+                val foodNames = pyObj.callAttr(
+                    "classify",
+                    imagePath,
+                    ModelUtils.assetFilePath(
+                        this@CameraActivity,
+                        "resnet18_classifier.pth"
+                    ),
+                    ModelUtils.assetFilePath(this@CameraActivity, "classes.json")
+                ).asList().joinToString(",").split(",").toTypedArray()
 
-            // Translate the foodNames to the correct locale if necessary
-            val translatedFoodNames = if (Locale.getDefault().language != "en") {
-                cameraViewModel.translateFoodNames(foodNames)
-            } else {
-                foodNames
+                // Translate the foodNames to the correct locale if necessary
+                val translatedFoodNames = if (Locale.getDefault().language != "en") {
+                    cameraViewModel.translateFoodNames(foodNames)
+                } else {
+                    foodNames
+                }
+
+                runOnUiThread {
+                    binding.cameraProgressCircle.hide()
+                    showPredictionCheckDialog(translatedFoodNames)
+                }
             }
 
-            runOnUiThread {
-                binding.cameraProgressCircle.hide()
-                showPredictionCheckDialog(translatedFoodNames)
-            }
-        }
     }
 
     private fun takePhoto() {
-        binding.cameraProgressCircle.show()
 
-        // Get a stable reference of the modifiable image capture use case
-        val imageCapture = imageCapture ?: return
+            binding.cameraProgressCircle.show()
 
-        // Create time-stamped output file to hold the image
-        val photoFile = File(
-            outputDirectory,
-            SimpleDateFormat(
-                FILENAME_FORMAT, Locale.getDefault()
-            ).format(System.currentTimeMillis()) + ".jpg"
-        )
+            // Get a stable reference of the modifiable image capture use case
+            val imageCapture = imageCapture ?: return
 
-        // Create output options object which contains file + metadata
-        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+            // Create time-stamped output file to hold the image
+            val photoFile = File(
+                outputDirectory,
+                SimpleDateFormat(
+                    FILENAME_FORMAT, Locale.getDefault()
+                ).format(System.currentTimeMillis()) + ".jpg"
+            )
 
-        // Set up image capture listener, which is triggered after photo has been taken
-        imageCapture.takePicture(
-            outputOptions,
-            ContextCompat.getMainExecutor(this),
-            object : ImageCapture.OnImageSavedCallback {
-                override fun onError(exc: ImageCaptureException) {
-                    Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
-                }
+            // Create output options object which contains file + metadata
+            val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
 
-                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
-                    startCNNModel(photoFile.absolutePath)
-                }
-            })
+            // Set up image capture listener, which is triggered after photo has been taken
+            imageCapture.takePicture(
+                outputOptions,
+                ContextCompat.getMainExecutor(this),
+                object : ImageCapture.OnImageSavedCallback {
+                    override fun onError(exc: ImageCaptureException) {
+                        Log.e(TAG, "Photo capture failed: ${exc.message}", exc)
+                    }
+
+                    override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                        startCNNModel(photoFile.absolutePath)
+                    }
+                })
+
     }
 
     private fun startCamera() {
-        val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
+            val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
 
-        cameraProviderFuture.addListener({
-            // Used to bind the lifecycle of cameras to the lifecycle owner
-            val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
+            cameraProviderFuture.addListener({
+                // Used to bind the lifecycle of cameras to the lifecycle owner
+                val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
-            // Preview
-            val preview = Preview.Builder()
-                .build()
-                .also {
-                    it.setSurfaceProvider(
-                        binding.viewFinder.surfaceProvider
+                // Preview
+                val preview = Preview.Builder()
+                    .build()
+                    .also {
+                        it.setSurfaceProvider(
+                            binding.viewFinder.surfaceProvider
+                        )
+                    }
+
+                imageCapture = ImageCapture.Builder()
+                    .build()
+
+                // Select back camera as a default
+                val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+
+                try {
+                    // Unbind use cases before rebinding
+                    cameraProvider.unbindAll()
+
+                    // Bind use cases to camera
+                    cameraProvider.bindToLifecycle(
+                        this, cameraSelector, preview, imageCapture
                     )
+
+                } catch (exc: Exception) {
+                    Log.e(TAG, "Use case binding failed", exc)
                 }
 
-            imageCapture = ImageCapture.Builder()
-                .build()
-
-            // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview, imageCapture
-                )
-
-            } catch (exc: Exception) {
-                Log.e(TAG, "Use case binding failed", exc)
-            }
-
-        }, ContextCompat.getMainExecutor(this))
+            }, ContextCompat.getMainExecutor(this))
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {

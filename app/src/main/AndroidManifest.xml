@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.iprism.elliot">
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- Android 11+ requires specifying the package name of the app you want to launch with an intent.
          By default Android hides information regarding most of the installed apps. -->
@@ -15,10 +17,12 @@
         android:name=".FoodApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Elliot">
+        android:theme="@style/Theme.Elliot"
+        tools:targetApi="m">
         <activity
             android:name=".MainActivity"
             android:exported="true">
