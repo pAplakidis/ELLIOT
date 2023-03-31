@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -71,21 +72,34 @@ class ProfileFragment : Fragment() {
             // val timeEnd = "$hour:$min"
 
             profileViewModel.onEvent(ProfileEvent.SetMealTime(meal, timeStart, hour))
+            Toast.makeText(context, getString(R.string.meal_time_toast), Toast.LENGTH_SHORT).show()
             timePicker.dismiss()
         }
     }
 
     private fun initiateListeners() {
         binding.breakfast.setOnClickListener {
-            startTimeSetter(getString(R.string.breakfast_string_start), getString(R.string.breakfast_string_end), "breakfast")
+            startTimeSetter(
+                getString(R.string.breakfast_string_start),
+                getString(R.string.breakfast_string_end),
+                "breakfast"
+            )
         }
 
         binding.lunch.setOnClickListener {
-            startTimeSetter(getString(R.string.lunch_string_start), getString(R.string.breakfast_string_end), "lunch")
+            startTimeSetter(
+                getString(R.string.lunch_string_start),
+                getString(R.string.breakfast_string_end),
+                "lunch"
+            )
         }
 
         binding.dinner.setOnClickListener {
-            startTimeSetter(getString(R.string.dinner_string_start), getString(R.string.breakfast_string_end), "dinner")
+            startTimeSetter(
+                getString(R.string.dinner_string_start),
+                getString(R.string.breakfast_string_end),
+                "dinner"
+            )
         }
     }
 
@@ -125,7 +139,7 @@ class ProfileFragment : Fragment() {
         cameraButton?.visibility = View.VISIBLE
 
         val homeButton = activity?.findViewById<MaterialButton>(R.id.home_button)
-        homeButton?.setOnClickListener{
+        homeButton?.setOnClickListener {
             activity?.finish()
         }
 

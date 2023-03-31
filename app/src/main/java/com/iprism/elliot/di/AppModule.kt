@@ -32,8 +32,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFoodRepository(db: ElliotDatabase, app: Application): FoodRepository {
-        return FoodRepositoryImpl(db.dao, app.resources)
+    fun provideFoodRepository(db: ElliotDatabase): FoodRepository {
+        return FoodRepositoryImpl(db.dao)
     }
 
     @Provides
